@@ -6,7 +6,7 @@ add_library(slap
     linalg.c
 )
 target_include_directories(slap INTERFACE
-    $<BUILD_INTERFACE:${SLAP_SOURCE_DIR}/src>
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>
     $<INSTALL_INTERFACE:"include">
 )
 
