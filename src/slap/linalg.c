@@ -1,7 +1,7 @@
 #include "linalg.h"
 
 #include "math.h"
-#include "slap/matrix.h"
+#include "matrix.h"
 #include "stdio.h"
 
 int slap_MatrixAddition(Matrix* A, Matrix* B, double alpha) {
