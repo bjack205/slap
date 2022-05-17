@@ -10,4 +10,24 @@ if (SLAP_CLANG_TIDY AND (CMAKE_C_COMPILER_ID STREQUAL "Clang"))
   )
 endif()
 
-add_subdirectory(slap)
+add_library(slap
+    matrix.h
+    matrix.c
+
+    linalg.h
+    linalg.c
+)
+
+# Places header files in a "slap" subfolder in the build tree
+#   and adds it to the include directories
+target_include_directories(slap INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
+    $<INSTALL_INTERFACE:"include">
+)
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/
+  DESTINATION ${PROJECT_BINARY_DIR}/slap
+  FILES_MATCHING
+    PATTERN *.h
+)
+
+add_target_to_install(slap)

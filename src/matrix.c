@@ -16,6 +16,11 @@ Matrix slap_NewMatrix(int rows, int cols) {
   return mat;
 }
 
+Matrix slap_MatrixFromArray(int rows, int cols, double* data) {
+  Matrix mat = {rows, cols, data};
+  return mat;
+}
+
 Matrix slap_NewMatrixZeros(int rows, int cols) {
   double* data = (double*)calloc(rows * cols, sizeof(double));
   Matrix mat = {rows, cols, data};

@@ -87,6 +87,17 @@ typedef struct {
 Matrix slap_NewMatrix(int rows, int cols);
 
 /**
+ * @brief Wraps existing data in a Matrix class
+ * 
+ * @param rows Number of rows in the matrix
+ * @param cols Number of columns in the matrix
+ * @param data Data for the matrix. Must not be NULL, and should have at least 
+ *             rows * cols elements.
+ * @return A new matrix
+ */
+Matrix slap_MatrixFromArray(int rows, int cols, double* data);
+
+/**
  * @brief Allocate a new matrix on the heap, initialized with zeros
  *
  * Data will not be initialized. Wrapper around a call to `malloc`.
