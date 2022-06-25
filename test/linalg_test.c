@@ -34,8 +34,8 @@ int MatMul() {
   // Matrix-vector
   double xdata[4] = {1, 2, 3, 4};
   double bdata[3] = {40, 40, 40};
-  Matrix x = {4, 1, xdata};
-  Matrix bans = {3, 1, bdata};
+  Matrix x = slap_MatrixFromArray(4, 1, xdata);
+  Matrix bans = slap_MatrixFromArray(3, 1, bdata);
   Matrix b = slap_NewMatrix(3, 1);
   slap_MatrixMultiply(&A, &x, &b, 0, 0, 1.0, 0.0);
   TEST(slap_MatrixNormedDifference(&b, &bans) < 1e-6);
@@ -58,10 +58,10 @@ int SymMatMulTest() {
   double Cdata[6] = {3,6,9, 12,11,10};
   double Ddata[6] = {34,72,102, 56,92,116};
   // clang-format on
-  Matrix A = {3, 3, Adata};
-  Matrix B = {3, 2, Bdata};
-  Matrix C = {3, 2, Cdata};
-  Matrix D = {3, 2, Ddata};
+  Matrix A = slap_MatrixFromArray(3, 3, Adata);
+  Matrix B = slap_MatrixFromArray(3, 2, Bdata);
+  Matrix C = slap_MatrixFromArray(3, 2, Cdata);
+  Matrix D = slap_MatrixFromArray(3, 2, Ddata);
   slap_SymmetricMatrixMultiply(&A, &B, &C, 1.0, 2.0);
   TEST(slap_MatrixNormedDifference(&C, &D) < 1e-6);
   return 1;
@@ -74,10 +74,10 @@ int MatAddTest() {
   double Cdata[6] = {3,6,9, 12,11,10};
   double Ddata[6] = {1,2,3, 4,1,-2};
   // clang-format on
-  Matrix A = {2, 3, Adata};
-  Matrix B = {2, 3, Bdata};
-  Matrix C = {2, 3, Cdata};
-  Matrix D = {2, 3, Ddata};
+  Matrix A = slap_MatrixFromArray(2, 3, Adata);
+  Matrix B = slap_MatrixFromArray(2, 3, Bdata);
+  Matrix C = slap_MatrixFromArray(2, 3, Cdata);
+  Matrix D = slap_MatrixFromArray(2, 3, Ddata);
   slap_MatrixAddition(&A, &B, 1.0);
   TEST(slap_MatrixNormedDifference(&B, &C) < 1e-6);
 
@@ -91,8 +91,8 @@ int MatScale() {
   // clang-format off
   double Adata[6] = {1,2,3, 4,5,6};
   double Bdata[6] = {3,6,9, 12,15,18};
-  Matrix A = {2, 3, Adata};
-  Matrix B = {2, 3, Bdata};
+  Matrix A = slap_MatrixFromArray(2, 3, Adata);
+  Matrix B = slap_MatrixFromArray(2, 3, Bdata);
   // clang-format on
   slap_MatrixScale(&A, 3);
   TEST(slap_MatrixNormedDifference(&A, &B) < 1e-6);
@@ -143,10 +143,10 @@ int TriBackSubTest() {
   double ydata[3] = {-2.0, 7.0, -3.142857142857143};
   double xdata[3] = {-19.142857142857142, 9.693877551020408, -0.4489795918367347};
 
-  Matrix L = {n, n, Ldata};
-  Matrix b = {n, 1, bdata};
-  Matrix y = {n, 1, ydata};
-  Matrix x = {n, 1, xdata};
+  Matrix L = slap_MatrixFromArray(n, n, Ldata);
+  Matrix b = slap_MatrixFromArray(n, 1, bdata);
+  Matrix y = slap_MatrixFromArray(n, 1, ydata);
+  Matrix x = slap_MatrixFromArray(n, 1, xdata);
   slap_LowerTriBackSub(&L, &b, 0);
   TEST(slap_MatrixNormedDifference(&b, &y) < 1e-6);
 
@@ -210,9 +210,9 @@ void TestQuadForm() {
   double xdata[3] = {1,2,3};
   double ydata[2] = {4,5};
   double Adata[6] = {1,1,1, 2,2,2};
-  Matrix x = {3, 1, xdata};
-  Matrix y = {2, 1, ydata};
-  Matrix A = {3, 2, Adata};
+  Matrix x = slap_MatrixFromArray(3, 1, xdata);
+  Matrix y = slap_MatrixFromArray(2, 1, ydata);
+  Matrix A = slap_MatrixFromArray(3, 2, Adata);
   Matrix Ay = slap_NewMatrix(3, 1);
   slap_MatrixMultiply(&A, &y, &Ay, 0, 0, 1.0, 0.0);
   double val_dot = slap_DotProduct(&x, &Ay);
