@@ -22,13 +22,13 @@ int MatMul() {
   slap_MatrixSetConst(&Cans, 50);
   slap_MatrixSetConst(&Bans, 3);
   slap_MatrixSetConst(&Dans, 750);
-  slap_MatrixMultiply(&A, &B, &C, 0, 0, 1.0, 1.0);
+  slap_MatrixMultiply(&C, &A, &B, 0, 0, 1.0, 1.0);
   TEST(slap_MatrixNormedDifference(&C, &Cans) < 1e-6);
 
-  slap_MatrixMultiply(&A, &C, &B, 1, 0, 1.0, -199);
+  slap_MatrixMultiply(&B, &A, &C, 1, 0, 1.0, -199);
   TEST(slap_MatrixNormedDifference(&B, &Bans) < 1e-6);
 
-  slap_MatrixMultiply(&B, &C, &D, 0, 1, 1.0, 0.0);
+  slap_MatrixMultiply(&D, &B, &C, 0, 1, 1.0, 0.0);
   TEST(slap_MatrixNormedDifference(&D, &Dans) < 1e-6);
 
   // Matrix-vector
@@ -37,7 +37,7 @@ int MatMul() {
   Matrix x = slap_MatrixFromArray(4, 1, xdata);
   Matrix bans = slap_MatrixFromArray(3, 1, bdata);
   Matrix b = slap_NewMatrix(3, 1);
-  slap_MatrixMultiply(&A, &x, &b, 0, 0, 1.0, 0.0);
+  slap_MatrixMultiply(&b, &A, &x, 0, 0, 1.0, 0.0);
   TEST(slap_MatrixNormedDifference(&b, &bans) < 1e-6);
 
   slap_FreeMatrix(&A);
@@ -78,10 +78,10 @@ int MatAddTest() {
   Matrix B = slap_MatrixFromArray(2, 3, Bdata);
   Matrix C = slap_MatrixFromArray(2, 3, Cdata);
   Matrix D = slap_MatrixFromArray(2, 3, Ddata);
-  slap_MatrixAddition(&A, &B, 1.0);
+  slap_MatrixAddition(&B, &A, &B, 1.0);
   TEST(slap_MatrixNormedDifference(&B, &C) < 1e-6);
 
-  slap_MatrixAddition(&A, &C, -2);
+  slap_MatrixAddition(&C, &A, &C, -2);
   TEST(slap_MatrixNormedDifference(&C, &D) < 1e-6);
 
   return 1;
@@ -109,7 +109,7 @@ int CholeskyFactorizeTest() {
     A1.data[i] = (i - 4) * (i + 3) / 6.0;
     A2.data[i] = A1.data[i];
   }
-  slap_MatrixMultiply(&A1, &A2, &A, 1, 0, 1.0, 0.0);
+  slap_MatrixMultiply(&A, &A1, &A2, 1, 0, 1.0, 0.0);
   slap_AddDiagonal(&A, 1.0);
   slap_MatrixCopy(&Achol, &A);
   int res = slap_CholeskyFactorize(&Achol);
@@ -123,7 +123,7 @@ int CholeskyFactorizeTest() {
 #endif
 
   // Try to factorize an indefinite matrix
-  slap_MatrixMultiply(&A1, &A2, &A, 1, 0, 1.0, 0.0);
+  slap_MatrixMultiply(&A, &A1, &A2, 1, 0, 1.0, 0.0);
   slap_AddDiagonal(&A, -1.0);
   slap_MatrixCopy(&Achol, &A);
   res = slap_CholeskyFactorize(&Achol);
@@ -176,7 +176,7 @@ int CholeskySolveTest() {
     }
   }
 
-  slap_MatrixMultiply(&A1, &A2, &A, 1, 0, 1.0, 0.0);
+  slap_MatrixMultiply(&A, &A1, &A2, 1, 0, 1.0, 0.0);
   slap_AddDiagonal(&A, 1.0);
   slap_MatrixCopy(&Achol, &A);
   slap_MatrixCopy(&x, &b);
@@ -214,7 +214,7 @@ void TestQuadForm() {
   Matrix y = slap_MatrixFromArray(2, 1, ydata);
   Matrix A = slap_MatrixFromArray(3, 2, Adata);
   Matrix Ay = slap_NewMatrix(3, 1);
-  slap_MatrixMultiply(&A, &y, &Ay, 0, 0, 1.0, 0.0);
+  slap_MatrixMultiply(&Ay, &A, &y, 0, 0, 1.0, 0.0);
   double val_dot = slap_DotProduct(&x, &Ay);
   double val_quad = slap_QuadraticForm(&x, &A, &y);
 

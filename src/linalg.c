@@ -4,9 +4,9 @@
 #include "matrix.h"
 #include "stdio.h"
 
-int slap_MatrixAddition(Matrix* A, Matrix* B, double alpha) {
-  for (int i = 0; i < slap_MatrixNumElements(A); ++i) {
-    B->data[i] += alpha * A->data[i];
+int slap_MatrixAddition(Matrix* C, const Matrix* A, const Matrix* B, double alpha) {
+  for (int i = 0; i < slap_MatrixNumElements(C); ++i) {
+    C->data[i] = B->data[i] + alpha * A->data[i];
   }
   return 0;
 }
@@ -18,8 +18,8 @@ int slap_MatrixScale(Matrix* A, double alpha) {
   return 0;
 }
 
-int slap_MatrixMultiply(Matrix* A, Matrix* B, Matrix* C, bool tA, bool tB, double alpha,
-                        double beta) {
+int slap_MatrixMultiply(Matrix* C, const Matrix* A, const Matrix* B, bool tA, bool tB,
+                        double alpha, double beta) {
   int n;
   int m;
   if (tA) {
@@ -35,8 +35,8 @@ int slap_MatrixMultiply(Matrix* A, Matrix* B, Matrix* C, bool tA, bool tB, doubl
       double* Cij = slap_MatrixGetElement(C, i, j);
       *Cij *= beta;
       for (int k = 0; k < m; ++k) {
-        double Aik = *slap_MatrixGetElementTranspose(A, i, k, tA);
-        double Bkj = *slap_MatrixGetElementTranspose(B, k, j, tB);
+        double Aik = *slap_MatrixGetElementTransposeConst(A, i, k, tA);
+        double Bkj = *slap_MatrixGetElementTransposeConst(B, k, j, tB);
         *Cij += alpha * Aik * Bkj;
       }
     }
@@ -164,20 +164,20 @@ double slap_OneNorm(const Matrix* M) {
   return sqrt(norm);
 }
 
-double slap_DotProduct(const Matrix* x, const Matrix* y) { 
+double slap_DotProduct(const Matrix* x, const Matrix* y) {
   if ((x->rows != y->rows) || (x->cols != 1) || (y->cols != 1)) {
     return NAN;
   }
   double out = 0.0;
   for (int i = 0; i < x->rows; ++i) {
-      double xi = x->data[i];
-      double yi = y->data[i];
-      out += xi * yi;
+    double xi = x->data[i];
+    double yi = y->data[i];
+    out += xi * yi;
   }
   return out;
 }
 
-double slap_QuadraticForm(const Matrix* x, const Matrix* A, const Matrix* y) { 
+double slap_QuadraticForm(const Matrix* x, const Matrix* A, const Matrix* y) {
   if ((x->rows != A->rows) || (y->rows != A->cols) || (x->cols != 1) || (y->cols != 1)) {
     return NAN;
   }

@@ -78,7 +78,9 @@ endif()
 ##############################
 
 # Compile options
-add_compile_options(-Wall -Wextra -pedantic -Werror)
+add_compile_options(-Wall -Wextra -pedantic -Werror
+  -Wno-error=discarded-qualifiers
+)
 
 # Make all includes relative to src/ directory
 include_directories(${PROJECT_SOURCE_DIR}/src)

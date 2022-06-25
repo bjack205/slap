@@ -41,7 +41,7 @@ static const int slap_kCholeskyFail = -1;
  * @param[in]    alpha scalar factor on A
  * @return       0 if successful
  */
-int slap_MatrixAddition(Matrix* A, Matrix* B, double alpha);
+int slap_MatrixAddition(Matrix* C, const Matrix* A, const Matrix* B, double alpha);
 
 /**
  * @brief Scale a matrix by a constant
@@ -59,17 +59,17 @@ int slap_MatrixScale(Matrix* A, double alpha);
  * C = \alpha A B + \beta C
  * \f]
  *
+ * @param[inout] C     Output matrix of size (m,p)
  * @param[in]    A     Matrix of size (m,n)
  * @param[in]    B     Matrix of size (n,p)
- * @param[inout] C     Output matrix of size (m,p)
  * @param[in]    tA    Should @p A be transposed
  * @param[in]    tB    Should @p B be transposed
  * @param[in]    alpha scalar on the \f$ A B \f$ term
  * @param[in]    beta  scalar on the \f$ C \f$ term. Set to zero for pure
  *                     matrix multiplication.
  */
-int slap_MatrixMultiply(Matrix* A, Matrix* B, Matrix* C, bool tA, bool tB, double alpha,
-                        double beta);
+int slap_MatrixMultiply(Matrix* C, const Matrix* A, const Matrix* B, bool tA, bool tB,
+                        double alpha, double beta);
 
 /**
  * @brief A shortcut to perform transposed matrix multiplication
@@ -176,7 +176,7 @@ double slap_OneNorm(const Matrix* M);
 
 /**
  * @brief Calculate the dot product of two vectors
- * 
+ *
  * @param x A vector of length n
  * @param y A vector of length n
  * @return Dot product of x,y. NAN if invalid.
@@ -185,7 +185,7 @@ double slap_DotProduct(const Matrix* x, const Matrix* y);
 
 /**
  * @brief Calculate the scaled inner product \f$ x^T A y \f$
- * 
+ *
  * @param x A vector of length n
  * @param A A matrix of size (n,m)
  * @param y A vector of length m
