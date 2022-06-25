@@ -65,14 +65,21 @@ int slap_MatrixGetLinearIndex(const Matrix* mat, int row, int col) {
   return row + mat->rows * col;
 }
 
-double* slap_MatrixGetElement(const Matrix* mat, int row, int col) {
+double* slap_MatrixGetElement(Matrix* mat, int row, int col) {
   if (!mat) {
     return NULL;
   }
   return mat->data + slap_MatrixGetLinearIndex(mat, row, col);
 }
 
-double* slap_MatrixGetElementTranspose(const Matrix* mat, int row, int col,
+const double* slap_MatrixGetElementConst(const Matrix* mat, int row, int col) {
+  if (!mat) {
+    return NULL;
+  }
+  return mat->data + slap_MatrixGetLinearIndex(mat, row, col);
+}
+
+double* slap_MatrixGetElementTranspose(Matrix* mat, int row, int col,
                                        bool istranposed) {
   double* out;
   if (!istranposed) {
@@ -81,6 +88,19 @@ double* slap_MatrixGetElementTranspose(const Matrix* mat, int row, int col,
     int row_transpose = col;
     int col_transpose = row;
     out = slap_MatrixGetElement(mat, row_transpose, col_transpose);
+  }
+  return out;
+}
+
+const double* slap_MatrixGetElementTransposeConst(const Matrix* mat, int row, int col,
+                                       bool istranposed) {
+  const double* out;
+  if (!istranposed) {
+    out = slap_MatrixGetElementConst(mat, row, col);
+  } else {
+    int row_transpose = col;
+    int col_transpose = row;
+    out = slap_MatrixGetElementConst(mat, row_transpose, col_transpose);
   }
   return out;
 }
@@ -95,7 +115,7 @@ int slap_MatrixSetElement(Matrix* mat, int row, int col, double val) {
   } else {
     return -1;
   }
-  return 1;
+  return 0;
 }
 
 int slap_MatrixCopy(Matrix* dest, Matrix* src) {
@@ -195,7 +215,7 @@ int slap_PrintMatrix(const Matrix* mat) {
   }
   for (int row = 0; row < mat->rows; ++row) {
     for (int col = 0; col < mat->cols; ++col) {
-      printf("% 6.*g ", PRECISION, *slap_MatrixGetElement(mat, row, col));
+      printf("% 6.*g ", PRECISION, *slap_MatrixGetElementConst(mat, row, col));
     }
     printf("\n");
   }
@@ -224,5 +244,15 @@ int slap_SetMatrixSize(Matrix* mat, int rows, int cols) {
   }
   mat->rows = rows;
   mat->cols = cols;
+  return 0;
+}
+
+int slap_MatrixSetIdentity(Matrix* mat, double val) {
+  // TODO: verify square
+  // TODO: check pointer
+  slap_MatrixSetConst(mat, 0.0);
+  for (int i = 0; i < mat->rows; ++i) {
+    slap_MatrixSetElement(mat, i, i, val);
+  }
   return 0;
 }

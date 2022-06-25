@@ -29,3 +29,4 @@ target_include_directories(simpletest
 # Add tests
 add_slap_test(matrix)
 add_slap_test(linalg)
+add_slap_test(submatrix)

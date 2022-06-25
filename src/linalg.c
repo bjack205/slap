@@ -186,7 +186,7 @@ double slap_QuadraticForm(const Matrix* x, const Matrix* A, const Matrix* y) {
     for (int j = 0; j < y->rows; ++j) {
       double xi = x->data[i];
       double yj = y->data[j];
-      double Aij = *slap_MatrixGetElement(A, i, j);
+      double Aij = *slap_MatrixGetElementConst(A, i, j);
       out += xi * Aij * yj;
     }
   }

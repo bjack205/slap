@@ -16,6 +16,9 @@ add_library(slap
 
     linalg.h
     linalg.c
+
+    submatrix.h
+    submatrix.c
 )
 
 # Places header files in a "slap" subfolder in the build tree

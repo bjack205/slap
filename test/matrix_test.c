@@ -89,5 +89,6 @@ int main() {
   TestPrintMatrix();
   CopyMatrix();
   CopyTranspose();
+  PrintTestResult();
   return TestResult();
 }
