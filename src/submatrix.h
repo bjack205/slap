@@ -41,3 +41,5 @@ int slap_SubMatrixSetElement(SubMatrix* mat, int row, int col, double val);
 int slap_SubMatrixSetConst(SubMatrix* mat, double val);
 
 int slap_SubMatrixSetIdentity(SubMatrix* mat, double val);
+
+int slap_SubMatrixCopyWithScaling(SubMatrix* dest, const Matrix* src, double val);

@@ -73,3 +73,14 @@ int slap_SubMatrixSetIdentity(SubMatrix* mat, double val) {
   }
   return 0;
 }
+int slap_SubMatrixCopyWithScaling(SubMatrix* dest, const Matrix* src, double val) {
+  // TODO: check sizes
+  for (int j = 0; j < dest->cols; ++j) {
+    for (int i = 0; i < dest->rows; ++i) {
+      double* el_dest = slap_SubMatrixGetElement(dest, i, j);
+      const double* el_src = slap_MatrixGetElementConst(src, i, j);
+      *el_dest = *el_src * val;
+    }
+  }
+  return 0;
+}
