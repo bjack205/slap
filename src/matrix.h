@@ -209,7 +209,7 @@ int slap_MatrixCopyTranspose(Matrix* dest, Matrix* src);
  * @param src a matrix of size (n,m)
  * @return 0 if successful
  */
-int slap_MatrixCopy(Matrix* dest, Matrix* src);
+int slap_MatrixCopy(Matrix* dest, const Matrix* src);
 
 /**
  * @brief Copy the data from an array into the matrix, columnwise.
@@ -239,7 +239,7 @@ int slap_MatrixScaleByConst(Matrix* mat, double alpha);
  * @param B A matrix of dimension (m,n)
  * @return
  */
-double slap_MatrixNormedDifference(Matrix* A, Matrix* B);
+double slap_MatrixNormedDifference(const Matrix* A, const Matrix* B);
 
 /**
  * @brief Flatten a 2D matrix to a column vector
@@ -295,7 +295,13 @@ int slap_PrintRowVector(const Matrix* mat);
  */
 int slap_SetMatrixSize(Matrix* mat, int rows, int cols);
 
-
+/**
+ * @brief Set the diagonal elements of the matrix to val, and the rest to zeros.
+ *
+ * @param mat Square matrix
+ * @param val Value for the diagonal elements
+ * @return
+ */
 int slap_MatrixSetIdentity(Matrix* mat, double val);
 
 /**@}*/

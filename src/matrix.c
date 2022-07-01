@@ -118,7 +118,7 @@ int slap_MatrixSetElement(Matrix* mat, int row, int col, double val) {
   return 0;
 }
 
-int slap_MatrixCopy(Matrix* dest, Matrix* src) {
+int slap_MatrixCopy(Matrix* dest, const Matrix* src) {
   if (!dest || !src) {
     return -1;
   }
@@ -171,7 +171,7 @@ int slap_MatrixScaleByConst(Matrix* mat, double alpha) {
   return 0;
 }
 
-double slap_MatrixNormedDifference(Matrix* A, Matrix* B) {
+double slap_MatrixNormedDifference(const Matrix* A, const Matrix* B) {
   if (!A || !B) {
     return INFINITY;
   }

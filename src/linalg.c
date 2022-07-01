@@ -6,7 +6,7 @@
 
 int slap_MatrixAddition(Matrix* C, const Matrix* A, const Matrix* B, double alpha) {
   for (int i = 0; i < slap_MatrixNumElements(C); ++i) {
-    C->data[i] = B->data[i] + alpha * A->data[i];
+    C->data[i] = A->data[i] + alpha * B->data[i];
   }
   return 0;
 }
