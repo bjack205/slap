@@ -256,3 +256,11 @@ int slap_MatrixSetIdentity(Matrix* mat, double val) {
   }
   return 0;
 }
+
+int slap_MatrixSetDiagonal(Matrix* mat, const double* diag) {
+  // TODO: check size (cols >= rows)
+  for (int i = 0; i < mat->rows; ++i) {
+    slap_MatrixSetElement(mat, i, i, diag[i]);
+  }
+  return 0;
+}

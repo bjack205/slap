@@ -304,4 +304,15 @@ int slap_SetMatrixSize(Matrix* mat, int rows, int cols);
  */
 int slap_MatrixSetIdentity(Matrix* mat, double val);
 
+/**
+ * @brief Set the matrix diagonal from an array
+ *
+ * Doesn't touch any of the off-diagonal elements.
+ *
+ * @param mat Matrix (nrows >= ncols)
+ * @param diag Array of length `nrows`.
+ * @return
+ */
+int slap_MatrixSetDiagonal(Matrix* mat, const double* diag);
+
 /**@}*/
