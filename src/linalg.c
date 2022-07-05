@@ -79,7 +79,7 @@ int slap_SymmetricMatrixMultiply(Matrix* Asym, Matrix* B, Matrix* C, double alph
   return 0;
 }
 
-int slap_AddDiagonal(Matrix* A, double alpha) {
+int slap_AddIdentity(Matrix* A, double alpha) {
   int n = A->rows;
   for (int i = 0; i < n; ++i) {
     double* Aii = slap_MatrixGetElement(A, i, i);
@@ -191,4 +191,28 @@ double slap_QuadraticForm(const Matrix* x, const Matrix* A, const Matrix* y) {
     }
   }
   return out;
+}
+double slap_DiagonalMultiplyLeft(Matrix* B, const Matrix* D, const Matrix* A) {
+  // TODO: check sizes
+  for (int j = 0; j < B->cols; ++j) {
+    for (int i = 0; i < B->rows; ++i) {
+      // TODO: do a single loop and use i = k % rows?
+      double aij = *slap_MatrixGetElementConst(A, i, j);
+      double di = D->data[i];
+      slap_MatrixSetElement(B, i, j, di * aij);
+    }
+  }
+  return 0;
+}
+double slap_DiagonalMultiplyRight(Matrix* B, const Matrix* A, const Matrix* D) {
+  // TODO: check sizes
+  for (int j = 0; j < B->cols; ++j) {
+    double dj = D->data[j];
+    for (int i = 0; i < B->rows; ++i) {
+      // TODO: do a single loop and use i = k / cols?
+      double aij = *slap_MatrixGetElementConst(A, i, j);
+      slap_MatrixSetElement(B, i, j, dj * aij);
+    }
+  }
+  return 0;
 }

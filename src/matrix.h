@@ -315,4 +315,5 @@ int slap_MatrixSetIdentity(Matrix* mat, double val);
  */
 int slap_MatrixSetDiagonal(Matrix* mat, const double* diag);
 
+
 /**@}*/

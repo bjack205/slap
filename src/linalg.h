@@ -113,7 +113,7 @@ int slap_SymmetricMatrixMultiply(Matrix* Asym, Matrix* B, Matrix* C, double alph
  * @param[in]    alpha scalar to add to the diagonal
  * @return 0 if successful
  */
-int slap_AddDiagonal(Matrix* A, double alpha);
+int slap_AddIdentity(Matrix* A, double alpha);
 
 /**
  * @brief Perform a Cholesky decomposition
@@ -167,7 +167,7 @@ int slap_LowerTriBackSub(Matrix* L, Matrix* b, bool istransposed);
 double slap_TwoNorm(const Matrix* M);
 
 /**
- * @brief Evaluat the 1-norm of a matrix or vector
+ * @brief Evaluate the 1-norm of a matrix or vector
  *
  * @param M Matrix with valid data
  * @return 1-norm of the matrix, or -1 if error.
@@ -192,5 +192,23 @@ double slap_DotProduct(const Matrix* x, const Matrix* y);
  * @return The dot product, or NAN if invalid.
  */
 double slap_QuadraticForm(const Matrix* x, const Matrix* A, const Matrix* y);
+
+/**
+ * @brief Left-multiply a matrix by a square diagonal matrix
+ *
+ * Computes
+ * \f[
+ * B = \alpha D A
+ * \f]
+ * where \f$ D \f$ is square diagonal matrix.
+ *
+ * @param B
+ * @param D
+ * @param A
+ * @return
+ */
+double slap_DiagonalMultiplyLeft(Matrix* B, const Matrix* D, const Matrix* A);
+
+double slap_DiagonalMultiplyRight(Matrix* B, const Matrix* A, const Matrix* D);
 
 /**@} */
