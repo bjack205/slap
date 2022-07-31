@@ -82,6 +82,15 @@ int CopyTranspose() {
   return 1;
 }
 
+//#define LocalMatrix(rows, cols)
+
+int StaticMatrix() {
+  double Adata[25];
+  Matrix A = {5, 5, Adata};
+  TEST(A.rows == 5);
+  return 1;
+}
+
 int main() {
   TestNewMatrix();
   SetConst();
