@@ -1,5 +1,7 @@
 #include "slap/linalg.h"
 
+#include <stdio.h>
+
 #include "simpletest/simpletest.h"
 #include "slap/matrix.h"
 
@@ -81,7 +83,7 @@ int MatAddTest() {
   slap_MatrixAddition(&B, &A, &B, 1.0);
   TEST(slap_MatrixNormedDifference(&B, &C) < 1e-6);
 
-  slap_MatrixAddition(&C, &A, &C, -2);
+  slap_MatrixAddition(&C, &C, &A, -2);
   TEST(slap_MatrixNormedDifference(&C, &D) < 1e-6);
 
   return 1;
@@ -110,7 +112,7 @@ int CholeskyFactorizeTest() {
     A2.data[i] = A1.data[i];
   }
   slap_MatrixMultiply(&A, &A1, &A2, 1, 0, 1.0, 0.0);
-  slap_AddDiagonal(&A, 1.0);
+  slap_AddIdentity(&A, 1.0);
   slap_MatrixCopy(&Achol, &A);
   int res = slap_CholeskyFactorize(&Achol);
   TEST(res == slap_kCholeskySuccess);
@@ -124,7 +126,7 @@ int CholeskyFactorizeTest() {
 
   // Try to factorize an indefinite matrix
   slap_MatrixMultiply(&A, &A1, &A2, 1, 0, 1.0, 0.0);
-  slap_AddDiagonal(&A, -1.0);
+  slap_AddIdentity(&A, -1.0);
   slap_MatrixCopy(&Achol, &A);
   res = slap_CholeskyFactorize(&Achol);
   TEST(res == slap_kCholeskyFail);
@@ -177,7 +179,7 @@ int CholeskySolveTest() {
   }
 
   slap_MatrixMultiply(&A, &A1, &A2, 1, 0, 1.0, 0.0);
-  slap_AddDiagonal(&A, 1.0);
+  slap_AddIdentity(&A, 1.0);
   slap_MatrixCopy(&Achol, &A);
   slap_MatrixCopy(&x, &b);
   slap_MatrixCopy(&x_eigen, &b);
