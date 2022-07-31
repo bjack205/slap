@@ -55,7 +55,7 @@ option(SLAP_BUILD_DOCS "Build documentation for slap." OFF)
 option(SLAP_CODE_COVERAGE "Compile slap with code coverage information." OFF)
 
 # Enable clang-tidy analysis 
-option(SLAP_CLANG_TIDY "Run clang-tidy analyzer on the source code." OFF) 
+option(SLAP_CLANG_TIDY "Run clang-tidy analyzer on the source code." OFF)
 
 ##############################
 # Dependencies
@@ -78,9 +78,7 @@ endif()
 ##############################
 
 # Compile options
-add_compile_options(-Wall -Wextra -pedantic -Werror
-  -Wno-error=discarded-qualifiers
-)
+add_compile_options(-Wall -Wextra -pedantic -Werror)
 
 # Make all includes relative to src/ directory
 include_directories(${PROJECT_SOURCE_DIR}/src)
