@@ -1,10 +1,10 @@
-#include "slap/matrix.h"
+#include "matrix.h"
 
 #include <math.h>
 
 #include "simpletest/simpletest.h"
 
-int TestNewMatrix() {
+int TestNewMatrix(void) {
   Matrix mat = slap_NewMatrix(5, 4);
   TEST(mat.rows == 5);
   TEST(mat.cols == 4);
@@ -13,7 +13,7 @@ int TestNewMatrix() {
   return 1;
 }
 
-int SetConst() {
+int SetConst(void) {
   Matrix mat = slap_NewMatrix(3, 4);
   slap_MatrixSetConst(&mat, 5.0);
   for (int i = 0; i < 12; ++i) {
@@ -27,7 +27,7 @@ int SetConst() {
   return 1;
 }
 
-int GetIndex() {
+int GetIndex(void) {
   Matrix mat = slap_NewMatrix(3, 4);
   for (int i = 0; i < 12; ++i) {
     mat.data[i] = i;
@@ -40,7 +40,7 @@ int GetIndex() {
   return 1;
 }
 
-int TestPrintMatrix() {
+int TestPrintMatrix(void) {
   Matrix mat = slap_NewMatrix(3, 4);
   for (int i = 0; i < 12; ++i) {
     mat.data[i] = i;
@@ -50,7 +50,7 @@ int TestPrintMatrix() {
   return 1;
 }
 
-int CopyMatrix() {
+int CopyMatrix(void) {
   Matrix src = slap_NewMatrix(10, 12);
   for (int i = 0; i < slap_MatrixNumElements(&src); ++i) {
     src.data[i] = i * i - sqrt(i * 2.1);
@@ -65,7 +65,7 @@ int CopyMatrix() {
   return 1;
 }
 
-int CopyTranspose() {
+int CopyTranspose(void) {
   Matrix src = slap_NewMatrix(3, 4);
   for (int i = 0; i < slap_MatrixNumElements(&src); ++i) {
     src.data[i] = i * i - sqrt(i * 2.1);
@@ -84,14 +84,14 @@ int CopyTranspose() {
 
 //#define LocalMatrix(rows, cols)
 
-int StaticMatrix() {
+int StaticMatrix(void) {
   double Adata[25];
   Matrix A = {5, 5, Adata};
   TEST(A.rows == 5);
   return 1;
 }
 
-int main() {
+int main(void) {
   TestNewMatrix();
   SetConst();
   GetIndex();

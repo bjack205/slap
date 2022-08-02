@@ -3,8 +3,8 @@
 extern "C" {
 #endif
 
-#include "submatrix.h"
 #include "linalg.h"
+#include "submatrix.h"
 
 #ifdef __cplusplus
 }

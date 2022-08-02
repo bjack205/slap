@@ -1,15 +1,15 @@
-#include "slap/linalg.h"
+#include "linalg.h"
 
 #include <stdio.h>
 
 #include "simpletest/simpletest.h"
-#include "slap/matrix.h"
+#include "matrix.h"
 
 #ifdef USE_EIGEN
 #include "eigen_c/eigen_c.h"
 #endif
 
-int MatMul() {
+int MatMul(void) {
   // Matrix-matrix
   Matrix A = slap_NewMatrix(3, 4);
   Matrix B = slap_NewMatrix(4, 5);
@@ -53,7 +53,7 @@ int MatMul() {
   return 1;
 }
 
-int SymMatMulTest() {
+int SymMatMulTest(void) {
   // clang-format off
   double Adata[9] = {1,2,3, 4,5,6, 7,8,9};
   double Bdata[6] = {2,4,6, 8,6,4};
@@ -69,7 +69,7 @@ int SymMatMulTest() {
   return 1;
 }
 
-int MatAddTest() {
+int MatAddTest(void) {
   // clang-format off
   double Adata[6] = {1,2,3, 4,5,6};
   double Bdata[6] = {2,4,6, 8,6,4};
@@ -89,7 +89,7 @@ int MatAddTest() {
   return 1;
 }
 
-int MatScale() {
+int MatScale(void) {
   // clang-format off
   double Adata[6] = {1,2,3, 4,5,6};
   double Bdata[6] = {3,6,9, 12,15,18};
@@ -101,7 +101,7 @@ int MatScale() {
   return 1;
 }
 
-int CholeskyFactorizeTest() {
+int CholeskyFactorizeTest(void) {
   int n = 10;
   Matrix A1 = slap_NewMatrix(n, n);
   Matrix A2 = slap_NewMatrix(n, n);

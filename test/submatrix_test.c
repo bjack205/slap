@@ -1,9 +1,9 @@
-#include "slap/submatrix.h"
+#include "submatrix.h"
 
-#include "slap/matrix.h"
+#include "matrix.h"
 #include "simpletest/simpletest.h"
 
-int CreateSubArray() {
+int CreateSubArray(void) {
   Matrix mat = slap_NewMatrixZeros(10,10);
   SubMatrix submat = slap_SubMatrixFromMatrix(1,1,3,3, &mat);
   TEST(submat.data == mat.data + 11);
@@ -13,7 +13,7 @@ int CreateSubArray() {
   return 1;
 }
 
-int SubMatrixSetConst() {
+int SubMatrixSetConst(void) {
   Matrix mat = slap_NewMatrixZeros(5,5);
   SubMatrix submat = slap_SubMatrixFromMatrix(1,1,3,4, &mat);
   slap_SubMatrixSetConst(&submat, 1.0);
@@ -32,7 +32,7 @@ int SubMatrixSetConst() {
   return 1;
 }
 
-int SubMatrixSetIdentity() {
+int SubMatrixSetIdentity(void) {
   Matrix mat = slap_NewMatrixZeros(5,5);
   SubMatrix submat = slap_SubMatrixFromMatrix(2,1,3,3, &mat);
   slap_SubMatrixSetIdentity(&submat, 3);
@@ -51,7 +51,7 @@ int SubMatrixSetIdentity() {
   return 1;
 }
 
-int main() {
+int main(void) {
   CreateSubArray();
   SubMatrixSetConst();
   SubMatrixSetIdentity();
