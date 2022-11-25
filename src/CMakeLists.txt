@@ -36,4 +36,4 @@ target_include_directories(
 #    PATTERN *.h
 #)
 
-add_target_to_install(slap)
+# add_target_to_install(slap)
