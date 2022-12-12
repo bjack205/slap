@@ -12,7 +12,16 @@
  */
 #pragma once
 
+#include <inttypes.h>
 #include <stdbool.h>
+
+#include "errors.h"
+
+enum slap_MatrixType {
+  slap_DENSE,
+  slap_TRANSPOSED,
+  //  slap_DIAGONAL
+};
 
 /**
  * @brief Represents a matrix of double-precision data
@@ -69,10 +78,30 @@
  * - MatrixNormedDifference()
  */
 typedef struct {
-  int rows;
-  int cols;
+  uint16_t rows;
+  uint16_t cols;
+  uint16_t sx;
+  uint16_t sy;
   double* data;
+  enum slap_MatrixType mattype;
 } Matrix;
+
+static inline bool slap_IsTransposed(Matrix A) { return A.mattype == slap_TRANSPOSED; }
+
+static inline bool slap_IsEmpty(Matrix mat) { return mat.rows <= 0 || mat.cols <= 0; }
+
+static inline bool slap_IsSquare(Matrix mat) { return mat.rows == mat.cols; }
+
+/**
+ * @brief Wraps existing data in a Matrix class
+ *
+ * @param rows Number of rows in the matrix
+ * @param cols Number of columns in the matrix
+ * @param data Data for the matrix. Must not be NULL, and should have at least
+ *             rows * cols elements.
+ * @return A new matrix
+ */
+Matrix slap_MatrixFromArray(int rows, int cols, double* data);
 
 /**
  * @brief Allocate a new matrix on the heap
@@ -87,17 +116,6 @@ typedef struct {
 Matrix slap_NewMatrix(int rows, int cols);
 
 /**
- * @brief Wraps existing data in a Matrix class
- * 
- * @param rows Number of rows in the matrix
- * @param cols Number of columns in the matrix
- * @param data Data for the matrix. Must not be NULL, and should have at least 
- *             rows * cols elements.
- * @return A new matrix
- */
-Matrix slap_MatrixFromArray(int rows, int cols, double* data);
-
-/**
  * @brief Allocate a new matrix on the heap, initialized with zeros
  *
  * Data will not be initialized. Wrapper around a call to `malloc`.
@@ -110,15 +128,6 @@ Matrix slap_MatrixFromArray(int rows, int cols, double* data);
 Matrix slap_NewMatrixZeros(int rows, int cols);
 
 /**
- * @brief Sets all of the elements in a matrix to a single value
- *
- * @param mat Matrix to be modified
- * @param val Value to which each element will be set
- * @return 0 if successful
- */
-int slap_MatrixSetConst(Matrix* mat, double val);
-
-/**
  * @brief Free the data for a matrix
  *
  * Note this does NOT attempt to free the matrix object itself, only the data
@@ -128,7 +137,15 @@ int slap_MatrixSetConst(Matrix* mat, double val);
  * @post [mat.data](Matrix.data) will be `NULL`.
  * @return 0 if successful
  */
-int slap_FreeMatrix(Matrix* mat);
+int slap_FreeMatrix(Matrix mat);
+
+static inline int slap_NumRows(Matrix mat) {
+  return slap_IsTransposed(mat) ? mat.cols : mat.rows;
+}
+
+static inline int slap_NumCols(Matrix mat) {
+  return slap_IsTransposed(mat) ? mat.rows : mat.cols;
+}
 
 /**
  * @brief Get the number of elements in a matrix, i.e. `m * n`.
@@ -136,7 +153,7 @@ int slap_FreeMatrix(Matrix* mat);
  * @param mat Any matrix
  * @return Number of elements in the matrix
  */
-int slap_MatrixNumElements(const Matrix* mat);
+static inline int slap_NumElements(const Matrix mat) { return mat.rows * mat.cols; }
 
 /**
  * @brief Get the linear index for a given row and column in the matrix
@@ -150,26 +167,49 @@ int slap_MatrixNumElements(const Matrix* mat);
  * @return Linear index corresponding to `row` and `col`.
            Returns -1 for a bad input.
  */
-int slap_MatrixGetLinearIndex(const Matrix* mat, int row, int col);
+static inline int slap_GetLinearIndex(const Matrix mat, int row, int col) {
+  return (mat.mattype == slap_TRANSPOSED) ? col + mat.rows * row : row + mat.rows * col;
+}
 
 /**
- * @brief Get the element of a matrix or its transpose
+ * @brief Check if the row and column index is in the bounds of the matrix
  *
- * If @p istransposed is false, then this method acts just like MatrixGetElement().
- * Otherwise, it is equalivalent to flipping the @p row and @p col arguments to
- * MatrixGetElement().
- *
- * @param mat         Matrix with nonzero size and initialized data
- * @param row         Row index
- * @param col         Column index
- * @param istranposed Are the indicies for the transpose of A?
- * @return            Pointer to the data at the given element.
+ * @param mat Matrix to be indexed
+ * @param row Row index
+ * @param col Column index
+ * @return true if the row and column index is in bounds for the matrix
  */
-double* slap_MatrixGetElementTranspose(Matrix* mat, int row, int col,
-                                       bool istranposed);
+static inline bool slap_CheckInbounds(Matrix mat, int row, int col) {
+  return (row >= 0 && row < mat.rows) && (col >= 0 && col < mat.cols);
+}
 
-const double* slap_MatrixGetElementTransposeConst(const Matrix* mat, int row, int col,
-                                                  bool istranposed);
+/**
+ * @brief Get a pointer to matrix element given row, column indices
+ *
+ * Note that this method does NOT perform any bounds checking so can be used unsafely!
+ * Passing an index that is out of bounds is undefined behavior.
+ *
+ * @param mat Matrix of nonzero size
+ * @param row Row index
+ * @param col Column index
+ * @return A pointer to the element of the matrix. NULL for invalid input.
+ */
+static inline double* slap_GetElement(Matrix mat, int row, int col) {
+  return mat.data + slap_GetLinearIndex(mat, row, col);
+}
+
+/**
+ * @brief Get a const pointer to matrix element given row, column indices
+ *
+ * @param mat Matrix of nonzero size
+ * @param row Row index
+ * @param col Column index
+ * @return A pointer to the element of the matrix. NULL for invalid input.
+ */
+static inline const double* slap_GetElementConst(const Matrix mat, int row, int col) {
+  return mat.data + slap_GetLinearIndex(mat, row, col);
+}
+
 /**
  * @brief The a matrix element to a given value
  *
@@ -179,28 +219,18 @@ const double* slap_MatrixGetElementTransposeConst(const Matrix* mat, int row, in
  * @param val Value to which the element should be set
  * @return    0 if successful
  */
-int slap_MatrixSetElement(Matrix* mat, int row, int col, double val);
+static inline void slap_SetElement(Matrix mat, int row, int col, double val) {
+  mat.data[slap_GetLinearIndex(mat, row, col)] = val;
+}
 
 /**
- * @brief Get the element of a matrix given row, column indices
+ * @brief Sets all of the elements in a matrix to a single value
  *
- * @param mat Matrix of nonzero size
- * @param row Row index
- * @param col Column index
- * @return A pointer to the element of the matrix. NULL for invalid input.
- */
-double* slap_MatrixGetElement(Matrix* mat, int row, int col);
-
-const double* slap_MatrixGetElementConst(const Matrix* mat, int row, int col);
-
-/**
- * @brief Copy a matrix to another matrix, transposed
- *
- * @param dest a matrix of size (m,n)
- * @param src a matrix of size (n,m)
+ * @param mat Matrix to be modified
+ * @param val Value to which each element will be set
  * @return 0 if successful
  */
-int slap_MatrixCopyTranspose(Matrix* dest, Matrix* src);
+enum slap_ErrorCode slap_SetConst(Matrix mat, double val);
 
 /**
  * @brief Copy a matrix to another matrix
@@ -209,7 +239,16 @@ int slap_MatrixCopyTranspose(Matrix* dest, Matrix* src);
  * @param src a matrix of size (n,m)
  * @return 0 if successful
  */
-int slap_MatrixCopy(Matrix* dest, const Matrix* src);
+enum slap_ErrorCode slap_MatrixCopy(Matrix dest, Matrix src);
+
+/**
+ * @brief Copy a matrix to another matrix, transposed
+ *
+ * @param dest a matrix of size (m,n)
+ * @param src a matrix of size (n,m)
+ * @return 0 if successful
+ */
+enum slap_ErrorCode slap_MatrixCopyTranspose(Matrix dest, Matrix src);
 
 /**
  * @brief Copy the data from an array into the matrix, columnwise.
@@ -219,7 +258,16 @@ int slap_MatrixCopy(Matrix* dest, const Matrix* src);
  * mat.cols.
  * @return 0 if successful
  */
-int slap_MatrixCopyFromArray(Matrix* mat, const double* data);
+enum slap_ErrorCode slap_MatrixCopyFromArray(Matrix mat, const double* data);
+
+/**
+ * @brief Set the diagonal elements of the matrix to val, and the rest to zeros.
+ *
+ * @param mat Square matrix
+ * @param val Value for the diagonal elements
+ * @return
+ */
+enum slap_ErrorCode slap_SetIdentity(Matrix mat, double val);
 
 /**
  * @brief Scale a matrix by a constant factor
@@ -228,7 +276,7 @@ int slap_MatrixCopyFromArray(Matrix* mat, const double* data);
  * @param alpha scalar by which to multiply the matrix
  * @return 0 if successsful
  */
-int slap_MatrixScaleByConst(Matrix* mat, double alpha);
+enum slap_ErrorCode slap_ScaleByConst(Matrix mat, double alpha);
 
 /**
  * @brief Return the normed difference between 2 matrices of the same size
@@ -239,7 +287,18 @@ int slap_MatrixScaleByConst(Matrix* mat, double alpha);
  * @param B A matrix of dimension (m,n)
  * @return
  */
-double slap_MatrixNormedDifference(const Matrix* A, const Matrix* B);
+double slap_MatrixNormedDifference(Matrix A, Matrix B);
+
+/**
+ * @brief Set the matrix diagonal from an array
+ *
+ * Doesn't touch any of the off-diagonal elements.
+ *
+ * @param mat Matrix (nrows >= ncols)
+ * @param diag Array of length `nrows`.
+ * @return
+ */
+int slap_SetDiagonal(Matrix* mat, const double* diag);
 
 /**
  * @brief Flatten a 2D matrix to a column vector
@@ -250,7 +309,7 @@ double slap_MatrixNormedDifference(const Matrix* A, const Matrix* B);
  * @param mat Matrix to be flattened.
  * @return 0 if successful
  */
-int slap_MatrixFlatten(Matrix* mat);
+Matrix slap_Flatten(Matrix mat);
 
 /**
  * @brief Flatten a 2D matrix to a row vector
@@ -261,7 +320,7 @@ int slap_MatrixFlatten(Matrix* mat);
  * @param mat Matrix to be flattened
  * @return 0 if successful
  */
-int slap_MatrixFlattenToRow(Matrix* mat);
+Matrix slap_MatrixFlattenToRow(Matrix mat);
 
 /**
  * @brief Print the elements of a matrix to stdout
@@ -271,7 +330,7 @@ int slap_MatrixFlattenToRow(Matrix* mat);
  * @param mat Matrix to be printed
  * @return 0 if successful
  */
-int slap_PrintMatrix(const Matrix* mat);
+int slap_PrintMatrix(Matrix mat);
 
 /**
  * @brief Print the entire matrix as a row vector
@@ -281,7 +340,7 @@ int slap_PrintMatrix(const Matrix* mat);
  * @param mat Matrix to be printed
  * @return 0 if successful
  */
-int slap_PrintRowVector(const Matrix* mat);
+int slap_PrintRowVector(Matrix mat);
 
 /**
  * @brief Set the dimensions of the matrix
@@ -293,27 +352,8 @@ int slap_PrintRowVector(const Matrix* mat);
  * @param cols New number of columns
  * @return 0 if successful
  */
-int slap_SetMatrixSize(Matrix* mat, int rows, int cols);
+Matrix slap_Resize(Matrix mat, int rows, int cols);
 
-/**
- * @brief Set the diagonal elements of the matrix to val, and the rest to zeros.
- *
- * @param mat Square matrix
- * @param val Value for the diagonal elements
- * @return
- */
-int slap_MatrixSetIdentity(Matrix* mat, double val);
-
-/**
- * @brief Set the matrix diagonal from an array
- *
- * Doesn't touch any of the off-diagonal elements.
- *
- * @param mat Matrix (nrows >= ncols)
- * @param diag Array of length `nrows`.
- * @return
- */
-int slap_MatrixSetDiagonal(Matrix* mat, const double* diag);
-
+Matrix slap_Transpose(Matrix A);
 
 /**@}*/

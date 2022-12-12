@@ -3,7 +3,7 @@
 SubMatrix slap_SubMatrixFromMatrix(int row, int col, int rows, int cols, Matrix* A) {
   // TODO: do size check 
   // TODO: do pointer check
-  double* data_new = slap_MatrixGetElement(A, row, col);
+  double* data_new = slap_GetElement(A, row, col);
   SubMatrix mat = {rows, cols, data_new, 1, A->rows};
   return mat;
 }
@@ -31,7 +31,7 @@ int slap_SubMatrixCopyToMatrix(Matrix* dest, const SubMatrix* src) {
   // TODO: do pointer check
   for (int j = 0; j < dest->cols; ++j) {
     for (int i = 0; i < dest->rows; ++i) {
-      double* el_dest = slap_MatrixGetElement(dest, i, j);
+      double* el_dest = slap_GetElement(dest, i, j);
       const double* el_src = slap_SubMatrixGetElementConst(src, i, j);
       *el_dest = *el_src;
     }

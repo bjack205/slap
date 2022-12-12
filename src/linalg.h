@@ -41,7 +41,7 @@ static const int slap_kCholeskyFail = -1;
  * @param[in]    alpha scalar factor on A
  * @return       0 if successful
  */
-int slap_MatrixAddition(Matrix* C, const Matrix* A, const Matrix* B, double alpha);
+int slap_MatrixAddition(Matrix* C, const Matrix A, const Matrix B, double alpha);
 
 /**
  * @brief Scale a matrix by a constant
@@ -68,8 +68,8 @@ int slap_MatrixScale(Matrix* A, double alpha);
  * @param[in]    beta  scalar on the \f$ C \f$ term. Set to zero for pure
  *                     matrix multiplication.
  */
-int slap_MatrixMultiply(Matrix* C, const Matrix* A, const Matrix* B, bool tA, bool tB,
-                        double alpha, double beta);
+int slap_MatrixMultiply(Matrix* C, Matrix A, Matrix B, double alpha,
+                        double beta);
 
 /**
  * @brief A shortcut to perform transposed matrix multiplication
@@ -164,7 +164,7 @@ int slap_LowerTriBackSub(Matrix* L, Matrix* b, bool istransposed);
  * @param M Matrix with valid data
  * @return 2-norm, or -1 if error
  */
-double slap_TwoNorm(const Matrix* M);
+double slap_TwoNorm(Matrix M);
 
 /**
  * @brief Evaluate the 1-norm of a matrix or vector
@@ -172,7 +172,7 @@ double slap_TwoNorm(const Matrix* M);
  * @param M Matrix with valid data
  * @return 1-norm of the matrix, or -1 if error.
  */
-double slap_OneNorm(const Matrix* M);
+double slap_OneNorm(Matrix M);
 
 /**
  * @brief Calculate the dot product of two vectors
@@ -181,7 +181,7 @@ double slap_OneNorm(const Matrix* M);
  * @param y A vector of length n
  * @return Dot product of x,y. NAN if invalid.
  */
-double slap_DotProduct(const Matrix* x, const Matrix* y);
+double slap_DotProduct(Matrix x,Matrix y);
 
 /**
  * @brief Calculate the scaled inner product \f$ x^T A y \f$
@@ -191,7 +191,7 @@ double slap_DotProduct(const Matrix* x, const Matrix* y);
  * @param y A vector of length m
  * @return The dot product, or NAN if invalid.
  */
-double slap_QuadraticForm(const Matrix* x, const Matrix* A, const Matrix* y);
+double slap_QuadraticForm(Matrix x, Matrix A, Matrix y);
 
 /**
  * @brief Left-multiply a matrix by a square diagonal matrix
@@ -207,8 +207,8 @@ double slap_QuadraticForm(const Matrix* x, const Matrix* A, const Matrix* y);
  * @param A
  * @return
  */
-double slap_DiagonalMultiplyLeft(Matrix* B, const Matrix* D, const Matrix* A);
+double slap_DiagonalMultiplyLeft(Matrix* B, Matrix D, Matrix A);
 
-double slap_DiagonalMultiplyRight(Matrix* B, const Matrix* A, const Matrix* D);
+double slap_DiagonalMultiplyRight(Matrix* B, Matrix A, Matrix D);
 
 /**@} */
