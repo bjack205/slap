@@ -9,6 +9,7 @@ extern "C" {
 #include "unary_ops.h"
 #include "binary_ops.h"
 #include "printing.h"
+#include "vector_ops.h"
 
 #ifdef __cplusplus
 }

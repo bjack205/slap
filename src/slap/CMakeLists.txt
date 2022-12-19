@@ -31,7 +31,7 @@ add_library(slap
   unary_ops.c
 
   binary_ops.h
-  binary_ops.c)
+  binary_ops.c vector_ops.c vector_ops.h)
 
 target_include_directories(slap
   INTERFACE
