@@ -27,4 +27,3 @@ int slap_FreeMatrix(Matrix mat) {
   }
   return SLAP_BAD_MATRIX_DATA_POINTER;
 }
-

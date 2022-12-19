@@ -6,17 +6,21 @@
 #include <math.h>
 
 #include "slap/slap.h"
+#include "slap/iterator.h"
 #include "gtest/gtest.h"
 
 #define DATA_LEN 6
 
 class VectorTests : public ::testing::Test {
  public:
-  double data[DATA_LEN] = {1, 0, -6, -10, 0.5, 1};  // NO LINT
+  double data_x[DATA_LEN]     = {1, 0, -6, -10, 0.5, 1};  // NO LINT
+  double data_y[DATA_LEN + 3] = {5, 5,  4,   3, -2,  8, 8,-8, 9};
   Matrix x;
+  Matrix y;
  protected:
    void SetUp() override {
-     x = slap_MatrixFromArray(DATA_LEN, 1, data);
+     x = slap_MatrixFromArray(DATA_LEN, 1, data_x);
+     y = slap_MatrixFromArray(DATA_LEN + 3, 1, data_y);
    }
 };
 
@@ -26,7 +30,7 @@ TEST_F(VectorTests, ArgMax) {
   EXPECT_DOUBLE_EQ(max_value, 1);
   EXPECT_EQ(max_index.k, 0);
 
-  data[5] = 2;
+  data_x[5] = 2;
   max_index = slap_ArgMax(x, NULL);
   EXPECT_EQ(max_index.k, 5);
 }
@@ -37,7 +41,7 @@ TEST_F(VectorTests, ArgMin) {
   EXPECT_DOUBLE_EQ(min_value, -10);
   EXPECT_EQ(min_index.k, 3);
 
-  data[0] = -20;
+  data_x[0] = -20;
   min_index = slap_ArgMin(x, NULL);
   EXPECT_EQ(min_index.k, 0);
 }
@@ -73,4 +77,50 @@ TEST_F(VectorTests, InfNorm) {
 TEST_F(VectorTests, Sum) {
   double sum = 1 - 6 - 10 + 0.5 + 1;  // NOLINT
   EXPECT_DOUBLE_EQ(slap_Sum(x), sum);
+}
+
+TEST_F(VectorTests, InnerProduct) {
+  double dot = slap_InnerProduct(x, y);
+  EXPECT_DOUBLE_EQ(5 - 24 - 30 - 1 + 8, dot);
+}
+
+TEST_F(VectorTests, QuadraticForm) {
+  double data_A[DATA_LEN * (DATA_LEN + 3)] = {1.0, -4.0, 1.0, -5.0, -9.0, 10.0, 5.0, 3.0, 8.0, 0.0, -6.0, 8.0, 1.0, 3.0, -7.0, -9.0, -2.0, -10.0, -3.0, -3.0, 9.0, 2.0, -8.0, 1.0, 0.0, 1.0, 1.0, -4.0, 0.0, 0.0, -8.0, -6.0, -8.0, 7.0, 7.0, -8.0, -2.0, -4.0, 0.0, -9.0, 9.0, -7.0, 0.0, -6.0, -8.0, 6.0, 10.0, -6.0, 8.0, 6.0, -6.0, 2.0, 9.0, 2.0};
+  Matrix A = slap_MatrixFromArray(DATA_LEN + 3, DATA_LEN, data_A);
+  double dot = slap_QuadraticForm(y, A, x);
+  EXPECT_DOUBLE_EQ(dot, 1522.5);
+}
+
+TEST_F(VectorTests, OuterProduct) {
+  double data_C[DATA_LEN * (DATA_LEN + 3)] = {5.0, 5.0, 4.0, 3.0, -2.0, 8.0, 8.0, -8.0, 9.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, -0.0, 0.0, -30.0, -30.0, -24.0, -18.0, 12.0, -48.0, -48.0, 48.0, -54.0, -50.0, -50.0, -40.0, -30.0, 20.0, -80.0, -80.0, 80.0, -90.0, 2.5, 2.5, 2.0, 1.5, -1.0, 4.0, 4.0, -4.0, 4.5, 5.0, 5.0, 4.0, 3.0, -2.0, 8.0, 8.0, -8.0, 9.0};
+  Matrix C = slap_MatrixFromArray(DATA_LEN + 3, DATA_LEN, data_C);
+  Matrix A = slap_NewMatrix(DATA_LEN + 3, DATA_LEN);
+  slap_OuterProduct(A, y, x);
+  EXPECT_LT(slap_MatrixNormedDifference(A, C), 1e-10);
+  slap_FreeMatrix(A);
+}
+
+TEST_F(VectorTests, CrossProduct_OutputTooShort) {
+  enum slap_ErrorCode err;
+  Matrix z = slap_NewMatrix(2, 1);
+  err = slap_CrossProduct(z, x, y);
+  EXPECT_EQ(err, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS);
+  slap_FreeMatrix(z);
+}
+
+TEST_F(VectorTests, CrossProduct) {
+  enum slap_ErrorCode err;
+  Matrix z = slap_NewMatrix(3, 1);
+  err = slap_CrossProduct(z, x, y);
+  EXPECT_EQ(err, SLAP_NO_ERROR);
+  EXPECT_DOUBLE_EQ(z.data[0], 30);
+  EXPECT_DOUBLE_EQ(z.data[1], -34);
+  EXPECT_DOUBLE_EQ(z.data[2], 5);
+
+  err = slap_CrossProduct(z, y, x);
+  EXPECT_EQ(err, SLAP_NO_ERROR);
+  EXPECT_DOUBLE_EQ(z.data[0], -30);
+  EXPECT_DOUBLE_EQ(z.data[1], +34);
+  EXPECT_DOUBLE_EQ(z.data[2], -5);
+  slap_FreeMatrix(z);
 }

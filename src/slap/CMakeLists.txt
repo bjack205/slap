@@ -45,7 +45,7 @@ add_library(slap
   strided_matrix.h
   strided_matrix.c
 
-  function_mapping.c function_mapping.h)
+  function_mapping.c function_mapping.h matmul.c matmul.h cholesky.c cholesky.h)
 
 target_include_directories(slap
   INTERFACE

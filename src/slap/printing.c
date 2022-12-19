@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 int slap_PrintMatrix(const Matrix mat) {
-  for (int row = 0; row < mat.rows; ++row) {
-    for (int col = 0; col < mat.cols; ++col) {
+  for (int row = 0; row < slap_NumRows(mat); ++row) {
+    for (int col = 0; col < slap_NumCols(mat); ++col) {
       printf("% 6.*g ", PRECISION, *slap_GetElementConst(mat, row, col));
     }
     printf("\n");

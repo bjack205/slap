@@ -44,6 +44,16 @@ enum slap_ErrorCode slap_SetDiagonal(Matrix mat, const double* diag, int len) {
   return SLAP_NO_ERROR;
 }
 
+enum slap_ErrorCode slap_AddIdentity(Matrix mat, double alpha) {
+  SLAP_CHECK_MATRIX(mat);
+  int n = slap_MinDim(mat);
+  for (int i = 0; i < n; ++i) {
+    double diag = *slap_GetElement(mat, i, i);
+    slap_SetElement(mat, i, i, diag + alpha);
+  }
+  return SLAP_NO_ERROR;
+}
+
 enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
   SLAP_CHECK_MATRIX(mat);
   double range = stop - start;

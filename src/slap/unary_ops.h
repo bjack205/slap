@@ -46,4 +46,6 @@ enum slap_ErrorCode slap_SetIdentity(Matrix mat, double val);
  */
 enum slap_ErrorCode slap_SetDiagonal(Matrix mat, const double* diag, int len);
 
+enum slap_ErrorCode slap_AddIdentity(Matrix mat, double alpha);
+
 enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop);

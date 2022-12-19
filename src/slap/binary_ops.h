@@ -18,3 +18,4 @@
  */
 double slap_MatrixNormedDifference(Matrix A, Matrix B);
 
+enum slap_ErrorCode slap_MatAdd(Matrix C, Matrix A, Matrix B, double alpha);

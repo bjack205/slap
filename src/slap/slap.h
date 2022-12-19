@@ -10,8 +10,11 @@ extern "C" {
 #include "binary_ops.h"
 #include "printing.h"
 #include "vector_ops.h"
+#include "vector_products.h"
 #include "function_mapping.h"
 #include "strided_matrix.h"
+#include "matmul.h"
+#include "cholesky.h"
 
 #ifdef __cplusplus
 }

@@ -1,4 +1,5 @@
 #include "errors.h"
+
 #include "matrix.h"
 
 const char* slap_ErrorString(enum slap_ErrorCode error_code) {
@@ -27,6 +28,12 @@ const char* slap_ErrorString(enum slap_ErrorCode error_code) {
       break;
     case SLAP_MATRIX_NOT_DENSE:
       msg = "Operation only valid for dense matrices";
+      break;
+    case SLAP_CHOLESKY_FAIL:
+      msg = "Cholesky factorization failed. Matrix likely not positive definite";
+      break;
+    case SLAP_INVALID_MATRIX:
+      msg = "Invalid matrix. Check for NULL data pointer and a stride of 0";
       break;
     default:
       msg = "Unknown error type";

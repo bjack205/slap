@@ -52,7 +52,7 @@ double slap_Min(Matrix mat) {
 }
 
 double slap_NormTwoSquared(Matrix mat) {
-  SLAP_ASSERT_DENSE(mat, "NormTwoSquared must be called on a dense matrix");
+  SLAP_ASSERT_DENSE(mat, NAN, "NormTwoSquared must be called on a dense matrix");
   double value = 0;
   double value_i;
   for (int i = 0; i < slap_NumElements(mat); ++i) {
@@ -63,13 +63,13 @@ double slap_NormTwoSquared(Matrix mat) {
 }
 
 double slap_NormTwo(Matrix mat) {
-  SLAP_ASSERT_DENSE(mat, "NormTwo must be called on a dense matrix");
+  SLAP_ASSERT_DENSE(mat, NAN, "NormTwo must be called on a dense matrix");
   double norm_squared = slap_NormTwoSquared(mat);
   return sqrt(norm_squared);
 }
 
 double slap_NormInf(Matrix mat) {
-  SLAP_ASSERT_DENSE(mat, "NormInf must be called on a dense matrix");
+  SLAP_ASSERT_DENSE(mat, NAN, "NormInf must be called on a dense matrix");
   double value = 0;
   double value_i;
   for (int i = 0; i < slap_NumElements(mat); ++i) {
@@ -82,7 +82,7 @@ double slap_NormInf(Matrix mat) {
 }
 
 double slap_NormOne(Matrix mat) {
-  SLAP_ASSERT_DENSE(mat, "NormOne must be called on a dense matrix");
+  SLAP_ASSERT_DENSE(mat, NAN, "NormOne must be called on a dense matrix");
   double value = 0;
   double value_i;
   for (int i = 0; i < slap_NumElements(mat); ++i) {
