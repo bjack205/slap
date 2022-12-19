@@ -28,7 +28,7 @@ add_library(slap
   #
   #    submatrix.h
   #    submatrix.c
-  )
+  copy_matrix.c copy_matrix.h unary_ops.c unary_ops.h binary_ops.c binary_ops.h)
 
 target_include_directories(slap
   INTERFACE

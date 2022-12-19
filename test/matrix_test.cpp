@@ -2,6 +2,9 @@ extern "C" {
 #include "slap/matrix.h"
 #include "slap/new_matrix.h"
 #include "slap/printing.h"
+#include "slap/copy_matrix.h"
+#include "slap/unary_ops.h"
+#include "slap/binary_ops.h"
 }
 
 #include <math.h>
