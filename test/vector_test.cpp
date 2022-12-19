@@ -22,24 +22,24 @@ class VectorTests : public ::testing::Test {
 
 TEST_F(VectorTests, ArgMax) {
   double max_value;
-  int max_index = slap_ArgMax(x, &max_value);
+  MatrixIterator max_index = slap_ArgMax(x, &max_value);
   EXPECT_DOUBLE_EQ(max_value, 1);
-  EXPECT_EQ(max_index, 0);
+  EXPECT_EQ(max_index.k, 0);
 
   data[5] = 2;
   max_index = slap_ArgMax(x, NULL);
-  EXPECT_EQ(max_index, 5);
+  EXPECT_EQ(max_index.k, 5);
 }
 
 TEST_F(VectorTests, ArgMin) {
   double min_value;
-  int min_index = slap_ArgMin(x, &min_value);
+  MatrixIterator min_index = slap_ArgMin(x, &min_value);
   EXPECT_DOUBLE_EQ(min_value, -10);
-  EXPECT_EQ(min_index, 3);
+  EXPECT_EQ(min_index.k, 3);
 
   data[0] = -20;
   min_index = slap_ArgMin(x, NULL);
-  EXPECT_EQ(min_index, 0);
+  EXPECT_EQ(min_index.k, 0);
 }
 
 TEST_F(VectorTests, Max) {

@@ -26,35 +26,35 @@ TEST(MatrixBasics, NewMatrix) {
 TEST(MatrixBasics, GetLinearIndex_2x3) {
   double data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, data);
-  EXPECT_EQ(slap_GetLinearIndex(A, 0, 0), 0);
-  EXPECT_EQ(slap_GetLinearIndex(A, 1, 0), 1);
-  EXPECT_EQ(slap_GetLinearIndex(A, 0, 1), 2);
-  EXPECT_EQ(slap_GetLinearIndex(A, 1, 2), 5);
+  EXPECT_EQ(slap_Cart2Index(A, 0, 0), 0);
+  EXPECT_EQ(slap_Cart2Index(A, 1, 0), 1);
+  EXPECT_EQ(slap_Cart2Index(A, 0, 1), 2);
+  EXPECT_EQ(slap_Cart2Index(A, 1, 2), 5);
 }
 
 TEST(MatrixBasics, GetLinearIndex_3x2) {
   double data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(3, 2, data);
-  EXPECT_EQ(slap_GetLinearIndex(A, 0, 0), 0);
-  EXPECT_EQ(slap_GetLinearIndex(A, 1, 0), 1);
-  EXPECT_EQ(slap_GetLinearIndex(A, 0, 1), 3);
-  EXPECT_EQ(slap_GetLinearIndex(A, 2, 1), 5);
+  EXPECT_EQ(slap_Cart2Index(A, 0, 0), 0);
+  EXPECT_EQ(slap_Cart2Index(A, 1, 0), 1);
+  EXPECT_EQ(slap_Cart2Index(A, 0, 1), 3);
+  EXPECT_EQ(slap_Cart2Index(A, 2, 1), 5);
 }
 
 TEST(MatrixBasics, GetLinearIndex_6x1) {
   double data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(6, 1, data);
-  EXPECT_EQ(slap_GetLinearIndex(A, 0, 0), 0);
-  EXPECT_EQ(slap_GetLinearIndex(A, 1, 0), 1);
-  EXPECT_EQ(slap_GetLinearIndex(A, 5, 0), 5);
+  EXPECT_EQ(slap_Cart2Index(A, 0, 0), 0);
+  EXPECT_EQ(slap_Cart2Index(A, 1, 0), 1);
+  EXPECT_EQ(slap_Cart2Index(A, 5, 0), 5);
 }
 
 TEST(MatrixBasics, GetLinearIndex_1x6) {
   double data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(1, 6, data);
-  EXPECT_EQ(slap_GetLinearIndex(A, 0, 0), 0);
-  EXPECT_EQ(slap_GetLinearIndex(A, 0, 1), 1);
-  EXPECT_EQ(slap_GetLinearIndex(A, 0, 5), 5);
+  EXPECT_EQ(slap_Cart2Index(A, 0, 0), 0);
+  EXPECT_EQ(slap_Cart2Index(A, 0, 1), 1);
+  EXPECT_EQ(slap_Cart2Index(A, 0, 5), 5);
 }
 
 TEST(MatrixBasics, CheckBounds_2x3) {
@@ -356,6 +356,39 @@ TEST(MatrixUnaryOpts, SetDiagonal) {
   EXPECT_DOUBLE_EQ(dataA[4], data_prev);
 }
 
+TEST(MatrixUnaryOps, MatrixArgMax) {
+  double dataA[6] = {0, -2, -5, 2, 1, 2};
+  Matrix A = slap_MatrixFromArray(2, 3, dataA);
+  double max_value;
+  MatrixIterator it = slap_ArgMax(A, &max_value);
+  EXPECT_EQ(it.i, 1);
+  EXPECT_EQ(it.j, 1);
+  EXPECT_EQ(it.k, 3);
+  EXPECT_DOUBLE_EQ(max_value, 2);
+}
+
+TEST(MatrixUnaryOps, MapAbs) {
+  double data[6] = {0, -2, -5, 2, 1, 2};
+  double dataA[6];
+  Matrix A = slap_MatrixFromArray(2, 3, dataA);
+  slap_MatrixCopyFromArray(A, data);
+  slap_Map(A, fabs);
+  for (int k = 0; k < 6; ++k) {
+    EXPECT_DOUBLE_EQ(dataA[k], fabs(data[k]));
+  }
+}
+
+TEST(MatrixUnaryOps, MapSin) {
+  double data[6] = {0, -2, -5, 2, 1, 2};
+  double dataA[6];
+  Matrix A = slap_MatrixFromArray(2, 3, dataA);
+  slap_MatrixCopyFromArray(A, data);
+  slap_Map(A, sin);
+  for (int k = 0; k < 6; ++k) {
+    EXPECT_DOUBLE_EQ(dataA[k], sin(data[k]));
+  }
+}
+
 TEST(MatrixBinaryOps, NormedDiff) {
   double dataA[6] = {1, 2, 3, 4, 5, 6};
   double dataB[6] = {3, 2, 3, 4, 5, 6};
@@ -374,6 +407,8 @@ TEST(MatrixTransformations, Flatten) {
   Matrix a = slap_Flatten(A);
   EXPECT_EQ(slap_NumRows(a), 6);
   EXPECT_EQ(slap_NumCols(a), 1);
+  int index = slap_Cart2Index(a, 2, 0);
+  (void)index;
   EXPECT_DOUBLE_EQ(*slap_GetElement(a, 2, 0), dataA[2]);
 
   // Flatten and Transpose
@@ -395,12 +430,12 @@ TEST(MatrixTransformations, Reshape) {
   Matrix B = slap_Reshape(A, 3, 2);
   EXPECT_EQ(slap_NumRows(B), 3);
   EXPECT_EQ(slap_NumCols(B), 2);
-  EXPECT_EQ(slap_GetLinearIndex(B, 0, 1), 3);
+  EXPECT_EQ(slap_Cart2Index(B, 0, 1), 3);
 
   // Reshape to smaller size
   B = slap_Reshape(A, 2, 2);
   EXPECT_EQ(slap_NumRows(B), 2);
   EXPECT_EQ(slap_NumCols(B), 2);
-  EXPECT_EQ(slap_GetLinearIndex(B, 0, 1), 2);
+  EXPECT_EQ(slap_Cart2Index(B, 0, 1), 2);
   EXPECT_EQ(*slap_GetElement(B, 0, 1), 3);
 }

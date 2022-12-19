@@ -16,6 +16,14 @@
  */
 enum slap_ErrorCode slap_SetConst(Matrix mat, double val);
 
+/**
+ * @brief Scale a matrix by a constant factor
+ *
+ * @param mat Fully initialized matrix of non-zero size. Values will be modified.
+ * @param alpha scalar by which to multiply the matrix
+ * @return 0 if successsful
+ */
+enum slap_ErrorCode slap_ScaleByConst(Matrix mat, double alpha);
 
 /**
  * @brief Set the diagonal elements of the matrix to val, and the rest to zeros.
@@ -37,14 +45,3 @@ enum slap_ErrorCode slap_SetIdentity(Matrix mat, double val);
  * @return
  */
 enum slap_ErrorCode slap_SetDiagonal(Matrix mat, const double* diag, int len);
-
-/**
- * @brief Scale a matrix by a constant factor
- *
- * @param mat Fully initialized matrix of non-zero size. Values will be modified.
- * @param alpha scalar by which to multiply the matrix
- * @return 0 if successsful
- */
-enum slap_ErrorCode slap_ScaleByConst(Matrix mat, double alpha);
-
-

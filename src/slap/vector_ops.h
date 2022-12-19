@@ -6,10 +6,11 @@
 #pragma once
 
 #include "matrix.h"
+#include "iterator.h"
 
-int slap_ArgMax(Matrix mat, double *max_value);
+MatrixIterator slap_ArgMax(Matrix mat, double *max_value);
 
-int slap_ArgMin(Matrix mat, double *min_value);
+MatrixIterator slap_ArgMin(Matrix mat, double *min_value);
 
 double slap_Max(Matrix mat);
 

@@ -10,5 +10,12 @@
 
 #define SLAP_ASSERT_SQUARE(mat, msg) if (!slap_IsSquare(mat)) return SLAP_THROW_ERROR(SLAP_MATRIX_NOT_SQUARE, msg)
 
+
+#define SLAP_ASSERT_DENSE(mat, msg) \
+  if (!slap_IsDense(mat)) { \
+    (void)SLAP_THROW_ERROR(SLAP_MATRIX_NOT_DENSE, msg); \
+    return NAN; \
+  }
+
 enum slap_ErrorCode slap_CheckMatrix(Matrix mat);
 

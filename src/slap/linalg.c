@@ -173,21 +173,21 @@ double slap_DotProduct(const Matrix x, const Matrix y) {
   return out;
 }
 
-double slap_QuadraticForm(const Matrix x, const Matrix A, const Matrix y) {
-  if ((x.rows != A.rows) || (y.rows != A.cols) || (x.cols != 1) || (y.cols != 1)) {
-    return NAN;
-  }
-  double out = 0.0;
-  for (int i = 0; i < x.rows; ++i) {
-    for (int j = 0; j < y.rows; ++j) {
-      double xi = x.data[i];
-      double yj = y.data[j];
-      double Aij = *slap_MatrixGetElementConst(&A, i, j);
-      out += xi * Aij * yj;
-    }
-  }
-  return out;
-}
+//double slap_QuadraticForm(const Matrix x, const Matrix A, const Matrix y) {
+//  if ((x.rows != A.rows) || (y.rows != A.cols) || (x.cols != 1) || (y.cols != 1)) {
+//    return NAN;
+//  }
+//  double out = 0.0;
+//  for (int i = 0; i < x.rows; ++i) {
+//    for (int j = 0; j < y.rows; ++j) {
+//      double xi = x.data[i];
+//      double yj = y.data[j];
+//      double Aij = *slap_MatrixGetElementConst(&A, i, j);
+//      out += xi * Aij * yj;
+//    }
+//  }
+//  return out;
+//}
 double slap_DiagonalMultiplyLeft(Matrix* B, const Matrix D, const Matrix A) {
   // TODO: check sizes
   for (int j = 0; j < B->cols; ++j) {

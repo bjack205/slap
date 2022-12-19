@@ -7,19 +7,20 @@
 
 #include <math.h>
 
-int slap_ArgMax(Matrix mat, double* max_value) {
-  int max_index = -1;
+#include "matrix_checks.h"
+
+MatrixIterator slap_ArgMax(Matrix mat, double* max_value) {
+  MatrixIterator max_index = slap_Iterator(mat);
   double value = -INFINITY;
   double value_i;
-  for (int i = 0; i < slap_NumElements(mat); ++i) {
-    value_i = mat.data[i];
+  for (MatrixIterator it = slap_Iterator(mat); !slap_IsFinished(&it); slap_Step(&it)) {
+    value_i = mat.data[it.index];
     if (value_i > value) {
       value = value_i;
-      max_index = i;
+      max_index = it;
     }
   }
-  if (max_value)
-    *max_value = value;
+  if (max_value) *max_value = value;
   return max_index;
 }
 
@@ -29,19 +30,18 @@ double slap_Max(Matrix mat) {
   return max_value;
 }
 
-int slap_ArgMin(Matrix mat, double* min_value) {
-  int min_index = -1;
+MatrixIterator slap_ArgMin(Matrix mat, double* min_value) {
+  MatrixIterator min_index = slap_Iterator(mat);
   double value = +INFINITY;
   double value_i;
-  for (int i = 0; i < slap_NumElements(mat); ++i) {
-    value_i = mat.data[i];
+  for (MatrixIterator it = slap_Iterator(mat); !slap_IsFinished(&it); slap_Step(&it)) {
+    value_i = mat.data[it.index];
     if (value_i < value) {
       value = value_i;
-      min_index = i;
+      min_index = it;
     }
   }
-  if (min_value)
-    *min_value = value;
+  if (min_value) *min_value = value;
   return min_index;
 }
 
@@ -52,6 +52,7 @@ double slap_Min(Matrix mat) {
 }
 
 double slap_NormTwoSquared(Matrix mat) {
+  SLAP_ASSERT_DENSE(mat, "NormTwoSquared must be called on a dense matrix");
   double value = 0;
   double value_i;
   for (int i = 0; i < slap_NumElements(mat); ++i) {
@@ -62,11 +63,13 @@ double slap_NormTwoSquared(Matrix mat) {
 }
 
 double slap_NormTwo(Matrix mat) {
+  SLAP_ASSERT_DENSE(mat, "NormTwo must be called on a dense matrix");
   double norm_squared = slap_NormTwoSquared(mat);
   return sqrt(norm_squared);
 }
 
 double slap_NormInf(Matrix mat) {
+  SLAP_ASSERT_DENSE(mat, "NormInf must be called on a dense matrix");
   double value = 0;
   double value_i;
   for (int i = 0; i < slap_NumElements(mat); ++i) {
@@ -79,6 +82,7 @@ double slap_NormInf(Matrix mat) {
 }
 
 double slap_NormOne(Matrix mat) {
+  SLAP_ASSERT_DENSE(mat, "NormOne must be called on a dense matrix");
   double value = 0;
   double value_i;
   for (int i = 0; i < slap_NumElements(mat); ++i) {
@@ -87,4 +91,3 @@ double slap_NormOne(Matrix mat) {
   }
   return value;
 }
-

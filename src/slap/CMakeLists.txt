@@ -31,7 +31,7 @@ add_library(slap
   unary_ops.c
 
   binary_ops.h
-  binary_ops.c vector_ops.c vector_ops.h)
+  binary_ops.c vector_ops.c vector_ops.h vector_products.c vector_products.h strided_matrix.c strided_matrix.h iterator.c iterator.h function_mapping.c function_mapping.h)
 
 target_include_directories(slap
   INTERFACE

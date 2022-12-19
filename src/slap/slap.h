@@ -10,6 +10,7 @@ extern "C" {
 #include "binary_ops.h"
 #include "printing.h"
 #include "vector_ops.h"
+#include "function_mapping.h"
 
 #ifdef __cplusplus
 }

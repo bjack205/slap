@@ -37,8 +37,8 @@ enum slap_ErrorCode slap_MatrixCopyTranspose(Matrix dest, const Matrix src) {
 
   for (int i = 0; i < slap_NumRows(dest); ++i) {
     for (int j = 0; j < slap_NumCols(dest); ++j) {
-      int dest_index = slap_GetLinearIndex(dest, i, j);
-      int src_index = slap_GetLinearIndex(src, j, i);
+      int dest_index = slap_Cart2Index(dest, i, j);
+      int src_index = slap_Cart2Index(src, j, i);
       dest.data[dest_index] = src.data[src_index];
     }
   }

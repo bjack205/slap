@@ -126,7 +126,6 @@ static inline int slap_NumCols(Matrix mat) {
  */
 Matrix slap_MatrixFromArray(int rows, int cols, double* data);
 
-
 /**
  * @brief Get the number of elements in a matrix, i.e. `m * n`.
  *
@@ -141,14 +140,32 @@ static inline int slap_NumElements(const Matrix mat) { return mat.rows * mat.col
  * Converts a cartesian index of row and column into a linear index for accessing
  * an element of the underlying data.
  *
+ * Supports both strided and dense matrices
+ *
  * @param mat Matrix with nonzero size and initialized data
  * @param row Row index
  * @param col Column index
  * @return Linear index corresponding to `row` and `col`.
            Returns -1 for a bad input.
  */
-static inline int slap_GetLinearIndex(const Matrix mat, int row, int col) {
-  return (mat.mattype == slap_TRANSPOSED) ? col + mat.rows * row : row + mat.rows * col;
+static inline int slap_Cart2Index(const Matrix mat, int row, int col) {
+  return (mat.mattype == slap_TRANSPOSED) ? col * mat.sx + mat.sy * row
+                                          : row * mat.sx + mat.sy * col;
+}
+
+void slap_Lin2Cart(Matrix mat, int k, int *row, int *col);
+
+static inline int slap_Linear2Index(const Matrix mat, int k) {
+  int index;
+  if (slap_IsDense(mat)) {
+    index = k;
+  } else {
+    int row;
+    int col;
+    slap_Lin2Cart(mat, k, &row, &col);
+    index = slap_Cart2Index(mat, row, col);
+  }
+  return index;
 }
 
 /**
@@ -175,7 +192,7 @@ static inline bool slap_CheckInbounds(Matrix mat, int row, int col) {
  * @return A pointer to the element of the matrix. NULL for invalid input.
  */
 static inline double* slap_GetElement(Matrix mat, int row, int col) {
-  return mat.data + slap_GetLinearIndex(mat, row, col);
+  return mat.data + slap_Cart2Index(mat, row, col);
 }
 
 /**
@@ -187,7 +204,7 @@ static inline double* slap_GetElement(Matrix mat, int row, int col) {
  * @return A pointer to the element of the matrix. NULL for invalid input.
  */
 static inline const double* slap_GetElementConst(const Matrix mat, int row, int col) {
-  return mat.data + slap_GetLinearIndex(mat, row, col);
+  return mat.data + slap_Cart2Index(mat, row, col);
 }
 
 /**
@@ -200,7 +217,7 @@ static inline const double* slap_GetElementConst(const Matrix mat, int row, int 
  * @return    0 if successful
  */
 static inline void slap_SetElement(Matrix mat, int row, int col, double val) {
-  mat.data[slap_GetLinearIndex(mat, row, col)] = val;
+  mat.data[slap_Cart2Index(mat, row, col)] = val;
 }
 
 /**

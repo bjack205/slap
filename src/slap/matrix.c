@@ -5,20 +5,23 @@ Matrix slap_MatrixFromArray(int rows, int cols, double* data) {
   return mat;
 }
 
-enum slap_ErrorCode slap_SetDiagonal(Matrix mat, const double* diag, int len) {
-  int n = slap_MinDim(mat);
-  n = n <= len ? n : len;
-  for (int i = 0; i < n; ++i) {
-    slap_SetElement(mat, i, i, diag[i]);
-  }
-  return SLAP_NO_ERROR;
+void slap_Lin2Cart(const Matrix mat, int k, int *row, int *col) {
+  int rows = slap_NumRows(mat);
+  *row = k % rows;
+  *col = k / rows;
 }
 
 Matrix slap_Flatten(const Matrix mat) {
+  if (!slap_IsDense(mat)) {
+    (void)SLAP_THROW_ERROR(SLAP_MATRIX_NOT_DENSE, "Flatten only supported for dense matrices");
+    return slap_NullMatrix();
+  }
   int size = slap_NumElements(mat);
   Matrix vec = {
       .rows = size,
       .cols = 1,
+      .sx = mat.sx,
+      .sy = mat.sy,
       .data = mat.data,
       .mattype = mat.mattype,
   };

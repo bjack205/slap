@@ -183,15 +183,15 @@ double slap_OneNorm(Matrix M);
  */
 double slap_DotProduct(Matrix x,Matrix y);
 
-/**
- * @brief Calculate the scaled inner product \f$ x^T A y \f$
- *
- * @param x A vector of length n
- * @param A A matrix of size (n,m)
- * @param y A vector of length m
- * @return The dot product, or NAN if invalid.
- */
-double slap_QuadraticForm(Matrix x, Matrix A, Matrix y);
+///**
+// * @brief Calculate the scaled inner product \f$ x^T A y \f$
+// *
+// * @param x A vector of length n
+// * @param A A matrix of size (n,m)
+// * @param y A vector of length m
+// * @return The dot product, or NAN if invalid.
+// */
+//double slap_QuadraticForm(Matrix x, Matrix A, Matrix y);
 
 /**
  * @brief Left-multiply a matrix by a square diagonal matrix
