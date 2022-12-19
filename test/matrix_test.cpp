@@ -1,6 +1,6 @@
 extern "C" {
 #include "slap/matrix.h"
-
+#include "slap/new_matrix.h"
 #include "slap/printing.h"
 }
 

@@ -21,6 +21,8 @@ add_library(slap
   printing.h
   printing.c
 
+  new_matrix.h
+  new_matrix.c
   #    linalg.h
   #    linalg.c
   #
