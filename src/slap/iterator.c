@@ -20,7 +20,7 @@ MatrixIterator slap_Iterator(Matrix mat) {
   return iterator;
 }
 
-int slap_Step(MatrixIterator* iterator) {
+void slap_Step(MatrixIterator* iterator) {
   if (iterator->i < iterator->rows - 1) {
     ++iterator->i;
     iterator->index += iterator->dx;
@@ -30,5 +30,4 @@ int slap_Step(MatrixIterator* iterator) {
     iterator->index += iterator->dy;
   }
   ++iterator->k;
-  return 0;
 }

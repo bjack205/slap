@@ -155,6 +155,13 @@ static inline int slap_Cart2Index(const Matrix mat, int row, int col) {
 
 void slap_Lin2Cart(Matrix mat, int k, int *row, int *col);
 
+/**
+ * @brief Converts a linear index to the index into the underlying array
+ *
+ * @param mat A dense or strided matrix
+ * @param k The linear index, ranging from 0 to `slap_NumElements(@a mat)`
+ * @return The index into mat.data corresponding the `k`th element of @a mat
+ */
 static inline int slap_Linear2Index(const Matrix mat, int k) {
   int index;
   if (slap_IsDense(mat)) {
