@@ -95,7 +95,7 @@ add_compile_options(-Wall -Wextra -pedantic -Werror)
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
 # Build source files
-add_subdirectory(src)
+add_subdirectory(src/slap)
 
 ##############################
 # Testing 

@@ -28,21 +28,8 @@ add_library(slap
   #    submatrix.c
   )
 
-## Places header files in a "slap" subfolder in the build tree
-##   and adds it to the include directories
-target_include_directories(
-  slap INTERFACE
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+target_include_directories(slap
+  INTERFACE
+  $<BUILD_INTERFACE:${slap_SOURCE_DIR}
   $<INSTALL_INTERFACE:"include">
 )
-#target_include_directories(slap INTERFACE
-#    $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
-#    $<INSTALL_INTERFACE:"include">
-#)
-#file(COPY ${CMAKE_CURRENT_LIST_DIR}/
-#  DESTINATION ${PROJECT_BINARY_DIR}/slap
-#  FILES_MATCHING
-#    PATTERN *.h
-#)
-
-# add_target_to_install(slap)
