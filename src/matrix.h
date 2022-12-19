@@ -86,11 +86,34 @@ typedef struct {
   enum slap_MatrixType mattype;
 } Matrix;
 
+static inline Matrix slap_NullMatrix(void) {
+  // NOTE: Can't use named initializer here because it's inlined
+  // (so causes issues for C++)
+  Matrix mat = {
+      0, 0, 0, 0, NULL, slap_DENSE,
+  };
+  return mat;
+}
+
 static inline bool slap_IsTransposed(Matrix A) { return A.mattype == slap_TRANSPOSED; }
 
 static inline bool slap_IsEmpty(Matrix mat) { return mat.rows <= 0 || mat.cols <= 0; }
 
 static inline bool slap_IsSquare(Matrix mat) { return mat.rows == mat.cols; }
+
+static inline bool slap_IsDense(Matrix mat) { return mat.sx == 1 && mat.sy == mat.rows; }
+
+static inline uint16_t slap_MinDim(Matrix mat) {
+  return mat.rows <= mat.cols ? mat.rows : mat.cols;
+}
+
+static inline int slap_NumRows(Matrix mat) {
+  return slap_IsTransposed(mat) ? mat.cols : mat.rows;
+}
+
+static inline int slap_NumCols(Matrix mat) {
+  return slap_IsTransposed(mat) ? mat.rows : mat.cols;
+}
 
 /**
  * @brief Wraps existing data in a Matrix class
@@ -138,14 +161,6 @@ Matrix slap_NewMatrixZeros(int rows, int cols);
  * @return 0 if successful
  */
 int slap_FreeMatrix(Matrix mat);
-
-static inline int slap_NumRows(Matrix mat) {
-  return slap_IsTransposed(mat) ? mat.cols : mat.rows;
-}
-
-static inline int slap_NumCols(Matrix mat) {
-  return slap_IsTransposed(mat) ? mat.rows : mat.cols;
-}
 
 /**
  * @brief Get the number of elements in a matrix, i.e. `m * n`.
@@ -279,6 +294,18 @@ enum slap_ErrorCode slap_SetIdentity(Matrix mat, double val);
 enum slap_ErrorCode slap_ScaleByConst(Matrix mat, double alpha);
 
 /**
+ * @brief Set the first n elements of a matrix diagonal from an array
+ *
+ * If @a len is greater than the minimum dimension, only the minimum dimension will be set.
+ * Doesn't touch any of the off-diagonal elements.
+ *
+ * @param mat Matrix (nrows >= ncols)
+ * @param diag Array of length `nrows`.
+ * @return
+ */
+enum slap_ErrorCode slap_SetDiagonal(Matrix mat, const double* diag, int len);
+
+/**
  * @brief Return the normed difference between 2 matrices of the same size
  *
  * Returns \f$ \sqrt{\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} (A_{ij} - B_{ij})^2 } \f$
@@ -288,17 +315,6 @@ enum slap_ErrorCode slap_ScaleByConst(Matrix mat, double alpha);
  * @return
  */
 double slap_MatrixNormedDifference(Matrix A, Matrix B);
-
-/**
- * @brief Set the matrix diagonal from an array
- *
- * Doesn't touch any of the off-diagonal elements.
- *
- * @param mat Matrix (nrows >= ncols)
- * @param diag Array of length `nrows`.
- * @return
- */
-int slap_SetDiagonal(Matrix* mat, const double* diag);
 
 /**
  * @brief Flatten a 2D matrix to a column vector
@@ -312,35 +328,14 @@ int slap_SetDiagonal(Matrix* mat, const double* diag);
 Matrix slap_Flatten(Matrix mat);
 
 /**
- * @brief Flatten a 2D matrix to a row vector
+ * @brief Transpose a 2D matrix
  *
- * Changes the row and column data so that the matrix is now a row vector. The
- * underlying data is unchanged.
+ * This operation doesn't change the data, just it's interpretation.
  *
- * @param mat Matrix to be flattened
- * @return 0 if successful
+ * @param mat The matrix to transpose
+ * @return A transposed Matrix object
  */
-Matrix slap_MatrixFlattenToRow(Matrix mat);
-
-/**
- * @brief Print the elements of a matrix to stdout
- *
- * Precision of the printing can be controlled by the global variable PRECISION.
- *
- * @param mat Matrix to be printed
- * @return 0 if successful
- */
-int slap_PrintMatrix(Matrix mat);
-
-/**
- * @brief Print the entire matrix as a row vector
- *
- * Same result as calling PrintMatrix() after a call to MatrixFlattenToRow().
- *
- * @param mat Matrix to be printed
- * @return 0 if successful
- */
-int slap_PrintRowVector(Matrix mat);
+Matrix slap_Transpose(Matrix mat);
 
 /**
  * @brief Set the dimensions of the matrix
@@ -352,8 +347,6 @@ int slap_PrintRowVector(Matrix mat);
  * @param cols New number of columns
  * @return 0 if successful
  */
-Matrix slap_Resize(Matrix mat, int rows, int cols);
-
-Matrix slap_Transpose(Matrix A);
+Matrix slap_Reshape(Matrix mat, int rows, int cols);
 
 /**@}*/

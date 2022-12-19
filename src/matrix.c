@@ -1,9 +1,5 @@
 #include "matrix.h"
 
-#ifndef PRECISION
-#define PRECISION 5
-#endif
-
 #include <math.h>
 #include <stddef.h>
 #include <stdlib.h>
@@ -95,9 +91,8 @@ enum slap_ErrorCode slap_MatrixCopyFromArray(Matrix mat, const double* data) {
 
 enum slap_ErrorCode slap_SetIdentity(Matrix mat, double val) {
   SLAP_CHECK_MATRIX(mat);
-  SLAP_ASSERT_SQUARE(mat, "Cannot set matrix to identity");
   slap_SetConst(mat, 0.0);
-  for (int i = 0; i < mat.rows; ++i) {
+  for (int i = 0; i < slap_MinDim(mat); ++i) {
     slap_SetElement(mat, i, i, val);
   }
   return 0;
@@ -109,6 +104,15 @@ enum slap_ErrorCode slap_ScaleByConst(Matrix mat, double alpha) {
     mat.data[i] *= alpha;
   }
   return 0;
+}
+
+enum slap_ErrorCode slap_SetDiagonal(Matrix mat, const double* diag, int len) {
+  int n = slap_MinDim(mat);
+  n = n <= len ? n : len;
+  for (int i = 0; i < n; ++i) {
+    slap_SetElement(mat, i, i, diag[i]);
+  }
+  return SLAP_NO_ERROR;
 }
 
 double slap_MatrixNormedDifference(const Matrix A, const Matrix B) {
@@ -136,60 +140,11 @@ Matrix slap_Flatten(const Matrix mat) {
       .rows = size,
       .cols = 1,
       .data = mat.data,
-      .mattype = slap_DENSE,
+      .mattype = mat.mattype,
   };
   return vec;
 }
 
-// Matrix slap_MatrixFlattenToRow(Matrix mat) {
-//   if (!mat) {
-//     return -1;
-//   }
-//   int size = slap_NumElements(mat);
-//   mat->rows = 1;
-//   mat->cols = size;
-//   return 0;
-// }
-
-int slap_PrintMatrix(const Matrix mat) {
-  for (int row = 0; row < mat.rows; ++row) {
-    for (int col = 0; col < mat.cols; ++col) {
-      printf("% 6.*g ", PRECISION, *slap_GetElementConst(mat, row, col));
-    }
-    printf("\n");
-  }
-  return 0;
-}
-
-int slap_PrintRowVector(Matrix mat) {
-  printf("[ ");
-  for (int i = 0; i < slap_NumElements(mat); ++i) {
-    printf("% 6.*g ", PRECISION, mat.data[i]);
-  }
-  printf("]\n");
-  return 0;
-}
-
-int slap_SetMatrixSize(Matrix* mat, int rows, int cols) {
-  if (!mat) {
-    return -1;
-  }
-  if (rows < 1 || cols < 1) {
-    printf("ERROR: rows and columns must be positive integers.\n");
-    return -1;
-  }
-  mat->rows = rows;
-  mat->cols = cols;
-  return 0;
-}
-
-int slap_MatrixSetDiagonal(Matrix* mat, const double* diag) {
-  // TODO: check size (cols >= rows)
-  for (int i = 0; i < mat->rows; ++i) {
-    slap_SetElement(*mat, i, i, diag[i]);
-  }
-  return 0;
-}
 Matrix slap_Transpose(Matrix A) {
   enum slap_MatrixType transposed_type;
   if (A.mattype == slap_DENSE) {
@@ -199,7 +154,7 @@ Matrix slap_Transpose(Matrix A) {
   } else {
     transposed_type = A.mattype;
   }
-  Matrix result = {
+  Matrix new_mat = {
       .rows = A.rows,
       .cols = A.cols,
       .sx = A.sx,
@@ -207,5 +162,26 @@ Matrix slap_Transpose(Matrix A) {
       .data = A.data,
       .mattype = transposed_type,
   };
-  return result;
+  return new_mat;
+}
+
+Matrix slap_Reshape(Matrix mat, int rows, int cols) {
+  if (rows < 1 || cols < 1) {
+    printf("ERROR: rows and columns must be positive integers.\n");
+  }
+  if (!slap_IsDense(mat)) {
+    (void)SLAP_THROW_ERROR(SLAP_MATRIX_NOT_DENSE, "Reshape only supported for dense matrices");
+    return slap_NullMatrix();
+  }
+  Matrix new_mat = {
+      .rows = rows,
+      .cols = cols,
+      .data = mat.data,
+      .sx = 1,
+      .sy = rows,
+      .mattype = mat.mattype,
+  };
+  new_mat.rows = rows;
+  new_mat.cols = cols;
+  return new_mat;
 }

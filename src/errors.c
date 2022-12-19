@@ -22,6 +22,9 @@ const char* slap_ErrorString(enum slap_ErrorCode error_code) {
     case SLAP_MATRIX_NOT_SQUARE:
       msg = "Invalid operation: Matrix needs to be square";
       break;
+    case SLAP_MATRIX_NOT_DENSE:
+      msg = "Operation only valid for dense matrices";
+      break;
     default:
       msg = "Unknown error type";
   }

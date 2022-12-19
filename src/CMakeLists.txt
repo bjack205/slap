@@ -18,6 +18,9 @@ add_library(slap
   matrix_checks.h
   matrix_checks.c
 
+  printing.h
+  printing.c
+
   #    linalg.h
   #    linalg.c
   #
