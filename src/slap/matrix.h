@@ -102,6 +102,9 @@ static inline bool slap_IsEmpty(Matrix mat) { return mat.rows <= 0 || mat.cols <
 static inline bool slap_IsSquare(Matrix mat) { return mat.rows == mat.cols; }
 
 static inline bool slap_IsDense(Matrix mat) { return mat.sx == 1 && mat.sy == mat.rows; }
+static inline bool slap_IsNull(Matrix mat) {
+  return slap_IsEmpty(mat) && mat.data == NULL && mat.sx == 0 && mat.sy == 0;
+}
 
 static inline uint16_t slap_MinDim(Matrix mat) {
   return mat.rows <= mat.cols ? mat.rows : mat.cols;
@@ -153,7 +156,7 @@ static inline int slap_Cart2Index(const Matrix mat, int row, int col) {
                                           : row * mat.sx + mat.sy * col;
 }
 
-void slap_Lin2Cart(Matrix mat, int k, int *row, int *col);
+void slap_Lin2Cart(Matrix mat, int k, int* row, int* col);
 
 /**
  * @brief Converts a linear index to the index into the underlying array

@@ -35,10 +35,27 @@ enum slap_ErrorCode slap_SetIdentity(Matrix mat, double val) {
 
 
 enum slap_ErrorCode slap_SetDiagonal(Matrix mat, const double* diag, int len) {
+  SLAP_CHECK_MATRIX(mat);
   int n = slap_MinDim(mat);
   n = n <= len ? n : len;
   for (int k = 0; k < n; ++k) {
     slap_SetElement(mat, k, k, diag[k]);
+  }
+  return SLAP_NO_ERROR;
+}
+
+enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
+  SLAP_CHECK_MATRIX(mat);
+  double range = stop - start;
+  double num_el = slap_NumElements(mat) - 1;
+  double step = range / num_el;
+  // NOTE: Don't use iterator here since iteration order matters
+  int k = 0;
+  for (int j = 0; j < slap_NumCols(mat); ++j) {
+    for (int i = 0; i < slap_NumRows(mat); ++i) {
+      slap_SetElement(mat, i, j, start + k * step);
+      ++k;
+    }
   }
   return SLAP_NO_ERROR;
 }

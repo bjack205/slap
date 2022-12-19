@@ -23,3 +23,5 @@ double slap_NormTwo(Matrix mat);
 double slap_NormInf(Matrix mat);
 
 double slap_NormOne(Matrix mat);
+
+double slap_Sum(Matrix mat);

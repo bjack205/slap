@@ -13,6 +13,9 @@
  * This iterator provides the user to access the elements via either the linear
  * or cartesian indices.
  *
+ * Note that this will always iterate linearly over the underlying memory, so is invariant
+ * to whether or not the matrix is transposed.
+ *
  * Note that if the matrix data is dense (there are no gaps in the memory), it is
  * most efficient to iterate directly over the elements of the underlying array.
  *

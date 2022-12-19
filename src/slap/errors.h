@@ -5,6 +5,7 @@ enum slap_ErrorCode {
   SLAP_BAD_POINTER,
   SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
   SLAP_BAD_MATRIX_DATA_POINTER,
+  SLAP_INVALID_DIMENSION,
   SLAP_INVALID_STRIDE,
   SLAP_MATRIX_NOT_SQUARE,
   SLAP_MATRIX_NOT_DENSE,
@@ -13,7 +14,7 @@ enum slap_ErrorCode {
 const char* slap_ErrorString(enum slap_ErrorCode error_code);
 
 
-// TODO: Add compile option to turn this on/off
+// TODO (brian): Add compile option to turn this on/off
 #include <stdio.h>
 #define SLAP_COLOR_RED "\x1b[31m"
 #define SLAP_THROW_ERROR(error_code, message) \

@@ -389,6 +389,24 @@ TEST(MatrixUnaryOps, MapSin) {
   }
 }
 
+TEST(MatrixUnaryOps, SetRange) {
+  constexpr int size = 10;
+  double data[size];
+  Matrix A = slap_MatrixFromArray(2, size / 2, data);
+  slap_SetRange(A, 1, 10);
+  for (int k = 0; k < 10; ++k) {
+    EXPECT_DOUBLE_EQ(data[k], k + 1);
+  }
+
+  slap_SetRange(A, 1.5, 2);  // NOLINT
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 0), 1.5);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, size / 2 - 1), 2);
+  double step1 = *slap_GetElement(A, 1, 0) - *slap_GetElement(A, 0, 0);
+  double step2 = *slap_GetElement(A, 0, 1) - *slap_GetElement(A, 1, 0);
+  EXPECT_DOUBLE_EQ(step1, step2);
+  slap_PrintMatrix(A);
+}
+
 TEST(MatrixBinaryOps, NormedDiff) {
   double dataA[6] = {1, 2, 3, 4, 5, 6};
   double dataB[6] = {3, 2, 3, 4, 5, 6};

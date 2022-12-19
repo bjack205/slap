@@ -11,6 +11,7 @@ extern "C" {
 #include "printing.h"
 #include "vector_ops.h"
 #include "function_mapping.h"
+#include "strided_matrix.h"
 
 #ifdef __cplusplus
 }

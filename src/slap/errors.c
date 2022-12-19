@@ -16,6 +16,9 @@ const char* slap_ErrorString(enum slap_ErrorCode error_code) {
     case SLAP_BAD_MATRIX_DATA_POINTER:
       msg = "Bad matrix data pointer";
       break;
+    case SLAP_INVALID_DIMENSION:
+      msg = "Matrix dimensions must be non-negative";
+      break;
     case SLAP_INVALID_STRIDE:
       msg = "One of the matrix strides is less than 1";
       break;

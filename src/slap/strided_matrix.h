@@ -6,3 +6,6 @@
 #pragma once
 
 #include "matrix.h"
+
+Matrix slap_CreateSubMatrix(Matrix mat, int top_left_row, int top_left_col, int new_rows,
+                            int new_cols);

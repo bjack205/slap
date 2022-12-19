@@ -29,5 +29,6 @@ endfunction()
 # Add tests
 add_slap_test(matrix)
 add_slap_test(vector)
+add_slap_test(submatrix)
 #add_slap_test(linalg)
 #add_slap_test(submatrix)

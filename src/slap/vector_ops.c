@@ -91,3 +91,12 @@ double slap_NormOne(Matrix mat) {
   }
   return value;
 }
+
+double slap_Sum(Matrix mat) {
+  double sum = 0;
+  for (MatrixIterator it = slap_Iterator(mat); !slap_IsFinished(&it); slap_Step(&it)) {
+    double value_i = mat.data[it.index];
+    sum += value_i;
+  }
+  return sum;
+}

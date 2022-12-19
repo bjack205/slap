@@ -69,3 +69,8 @@ TEST_F(VectorTests, InfNorm) {
   double inf_norm = 10;
   EXPECT_DOUBLE_EQ(slap_NormInf(x), inf_norm);
 }
+
+TEST_F(VectorTests, Sum) {
+  double sum = 1 - 6 - 10 + 0.5 + 1;  // NOLINT
+  EXPECT_DOUBLE_EQ(slap_Sum(x), sum);
+}
