@@ -3,8 +3,12 @@
 extern "C" {
 #endif
 
-#include "linalg.h"
-#include "submatrix.h"
+#include "matrix.h"
+#include "new_matrix.h"
+#include "copy_matrix.h"
+#include "unary_ops.h"
+#include "binary_ops.h"
+#include "printing.h"
 
 #ifdef __cplusplus
 }

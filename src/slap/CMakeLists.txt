@@ -23,15 +23,18 @@ add_library(slap
 
   new_matrix.h
   new_matrix.c
-  #    linalg.h
-  #    linalg.c
-  #
-  #    submatrix.h
-  #    submatrix.c
-  copy_matrix.c copy_matrix.h unary_ops.c unary_ops.h binary_ops.c binary_ops.h)
+
+  copy_matrix.h
+  copy_matrix.c
+
+  unary_ops.h
+  unary_ops.c
+
+  binary_ops.h
+  binary_ops.c)
 
 target_include_directories(slap
   INTERFACE
   $<BUILD_INTERFACE:${slap_SOURCE_DIR}
   $<INSTALL_INTERFACE:"include">
-)
+  )

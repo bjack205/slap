@@ -77,7 +77,7 @@ enum slap_MatrixType {
  * - PrintRowVector()
  * - MatrixNormedDifference()
  */
-typedef struct {
+typedef struct Matrix {
   uint16_t rows;
   uint16_t cols;
   uint16_t sx;
