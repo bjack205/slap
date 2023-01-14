@@ -17,18 +17,16 @@ jobs:
       run: |
         sudo apt-get install doxygen -y
         sudo apt-get install graphviz -y
+        sudo apt-get install sphinx-doc -y
+        pip3 install sphinx-rtd-theme
+        pip3 install breathe
+        pip3 install sphinx-sitemap
 
-    - uses: ammaraskar/sphinx-action@master
-      with:
-        docs-folder: "docs/"
-      
-#    - name: Build documentation
-#      working-directory: ${{ github.workspace }}
-#      run: |
-#        mkdir build
-#        cd build
-#        cmake -D ULQR_BUILD_DOCS=ON ..
-#        cmake --build . --target doxygen
+    - name: Build documentation
+      working-directory: ${{ github.workspace }}
+      run: |
+        cmake -D SLAP_BUILD_DOCS=ON ..
+        cmake --build . --target doxygen
 
     - name: Deploy documentation
       uses: peaceiris/actions-gh-pages@v3

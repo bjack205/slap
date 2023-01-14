@@ -9,5 +9,6 @@ configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
 # Add documentation target
 add_custom_target(doxygen
         COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+        COMMAND cd docs && make html
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
         COMMENT "Build documentation with Doxygen." )
