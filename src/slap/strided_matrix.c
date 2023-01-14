@@ -6,29 +6,20 @@
 #include "strided_matrix.h"
 
 Matrix slap_CreateSubMatrix(Matrix mat, int top_left_row, int top_left_col, int new_rows,
-                      int new_cols) {
+                            int new_cols) {
   Matrix new_mat = slap_NullMatrix();
-  if (new_rows < 0) {
-    char msg[50];  // NOLINT
-    sprintf(msg, "Invalid SubMatrix with dimension (%d,%d)", new_rows, new_cols);
-    (void)SLAP_THROW_ERROR(SLAP_INVALID_DIMENSION, msg);
-    return new_mat;
-  }
-  if (new_cols < 0) {
-    char msg[50];  // NOLINT
-    sprintf(msg, "Invalid SubMatrix with dimension (%d,%d)", new_rows, new_cols);
-    (void)SLAP_THROW_ERROR(SLAP_INVALID_DIMENSION, msg);
-    return new_mat;
-  }
-  if (!slap_CheckInbounds(mat, top_left_row + new_rows - 1, top_left_col + new_cols - 1)) {
-    char msg[100];  // NOLINT
-    sprintf(msg,
-            "Invalid SubMatrix. Bottom-right corner (%d,%d) outside parent matrix with "
-            "size (%d,%d)",
-            top_left_row + new_rows - 1, top_left_col + new_cols - 1, mat.rows, mat.cols);
-    (void)SLAP_THROW_ERROR(SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, msg);
-    return new_mat;
-  }
+  SLAP_ASSERT_VALID(mat, new_mat, "CreateSubMatrix: invalid parent matrix");
+  SLAP_ASSERT(new_rows >= 0, SLAP_INVALID_DIMENSION, new_mat,
+              "CreateSubMatrix: number of rows must be non-negative, got %d", new_rows);
+  SLAP_ASSERT(new_cols >= 0, SLAP_INVALID_DIMENSION, new_mat,
+              "CreateSubMatrix: number of rows must be non-negative, got %d", new_cols);
+  SLAP_ASSERT(
+      slap_CheckInbounds(mat, top_left_row + new_rows - 1, top_left_col + new_cols - 1),
+      SLAP_INDEX_OUT_OF_BOUNDS, new_mat,
+      "CreateSubMatrix: sub-matrix out of bounds with top-left corner (%d,%d), "
+      "bottom-right corner (%d,%d)",
+      top_left_row, top_left_col, top_left_row + new_rows - 1, top_left_col + new_cols - 1);
+
   new_mat.rows = new_rows;
   new_mat.cols = new_cols;
   new_mat.sx = mat.sx;

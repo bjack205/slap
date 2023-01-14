@@ -6,13 +6,12 @@
 #include "function_mapping.h"
 
 #include "iterator.h"
-#include "matrix_checks.h"
 
 enum slap_ErrorCode slap_Map(Matrix mat, double (*function)(double)) {
- SLAP_CHECK_MATRIX(mat);
+  SLAP_ASSERT_VALID(mat, SLAP_INVALID_MATRIX, "Map: invalid matrix");
   for (MatrixIterator it = slap_Iterator(mat); !slap_IsFinished(&it); slap_Step(&it)) {
-    double *value = mat.data + it.index;
-   *value = function(*value);
+    double* value = mat.data + it.index;
+    *value = function(*value);
   }
   return SLAP_NO_ERROR;
 }

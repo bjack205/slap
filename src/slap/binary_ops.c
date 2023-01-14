@@ -7,20 +7,10 @@
 
 #include <math.h>
 
-#include "matrix_checks.h"
-
 double slap_MatrixNormedDifference(const Matrix A, const Matrix B) {
-  SLAP_CHECK_MATRIX(A);
-  SLAP_CHECK_MATRIX(B);
-  if (!A.data || !B.data) {
-    return INFINITY;
-  }
-  if ((A.rows != B.rows) || (A.cols != B.cols)) {
-    fprintf(stderr, "Can't compare matrices of different sizes. Got (%d,%d) and (%d,%d)\n",
-            A.rows, A.cols, B.rows, B.cols);
-    return INFINITY;
-  }
-
+  SLAP_ASSERT_VALID(A, NAN, "MatrixNormedDifference: invalid A matrix");
+  SLAP_ASSERT_VALID(B, NAN, "MatrixNormedDifference: invalid B matrix");
+  SLAP_ASSERT_SAME_SIZE(A, B, NAN, "MatrixNormedDifference");
   double diff = 0;
   for (int i = 0; i < slap_NumElements(A); ++i) {
     double d = A.data[i] - B.data[i];
@@ -29,19 +19,13 @@ double slap_MatrixNormedDifference(const Matrix A, const Matrix B) {
   return sqrt(diff);
 }
 enum slap_ErrorCode slap_MatAdd(Matrix C, const Matrix A, const Matrix B, double alpha) {
-  SLAP_CHECK_MATRIX(A);
-  SLAP_CHECK_MATRIX(B);
-  SLAP_CHECK_MATRIX(C);
+  SLAP_ASSERT_VALID(C, SLAP_INVALID_MATRIX, "MatAdd: C matrix invalid");
+  SLAP_ASSERT_VALID(A, SLAP_INVALID_MATRIX, "MatAdd: A matrix invalid");
+  SLAP_ASSERT_VALID(B, SLAP_INVALID_MATRIX, "MatAdd: B matrix invalid");
+  SLAP_ASSERT_SAME_SIZE(A, B, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, "MatAdd");
+  SLAP_ASSERT_SAME_SIZE(C, A, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, "MatAdd");
   int n = slap_NumRows(C);
   int m = slap_NumCols(C);
-  if (slap_NumRows(A) != n || slap_NumCols(A) != m || slap_NumRows(B) != n ||
-      slap_NumCols(B) != m) {
-    char msg[80];
-    sprintf(msg, "Cannot add matrices with sizes (%d,%d), (%d,%d) -> (%d,%d)",
-            slap_NumRows(A), slap_NumCols(A), slap_NumRows(B), slap_NumCols(B),
-            slap_NumRows(C), slap_NumCols(C));
-    return SLAP_THROW_ERROR(SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, msg);
-  }
   for (int j = 0; j < m; ++j) {
     for (int i = 0; i < n; ++i) {
       double Aij = *slap_GetElementConst(A, i, j);

@@ -5,17 +5,15 @@ Matrix slap_MatrixFromArray(int rows, int cols, double* data) {
   return mat;
 }
 
-void slap_Lin2Cart(const Matrix mat, int k, int *row, int *col) {
+void slap_Lin2Cart(const Matrix mat, int k, int* row, int* col) {
   int rows = slap_NumRows(mat);
   *row = k % rows;
   *col = k / rows;
 }
 
 Matrix slap_Flatten(const Matrix mat) {
-  if (!slap_IsDense(mat)) {
-    (void)SLAP_THROW_ERROR(SLAP_MATRIX_NOT_DENSE, "Flatten only supported for dense matrices");
-    return slap_NullMatrix();
-  }
+  SLAP_ASSERT_VALID(mat, slap_NullMatrix(), "Flatten: invalid matrix");
+  SLAP_ASSERT_DENSE(mat, slap_NullMatrix(), "Flatten: input matrix must be dense");
   int size = slap_NumElements(mat);
   Matrix vec = {
       .rows = size,
@@ -49,13 +47,12 @@ Matrix slap_Transpose(Matrix A) {
 }
 
 Matrix slap_Reshape(Matrix mat, int rows, int cols) {
-  if (rows < 1 || cols < 1) {
-    printf("ERROR: rows and columns must be positive integers.\n");
-  }
-  if (!slap_IsDense(mat)) {
-    (void)SLAP_THROW_ERROR(SLAP_MATRIX_NOT_DENSE, "Reshape only supported for dense matrices");
-    return slap_NullMatrix();
-  }
+  SLAP_ASSERT_VALID(mat, slap_NullMatrix(), "Reshape: invalid matrix");
+  SLAP_ASSERT_DENSE(mat, slap_NullMatrix(), "Reshape: input matrix must be dense");
+  SLAP_ASSERT(rows >= 0, SLAP_INVALID_DIMENSION, slap_NullMatrix(),
+              "Reshape: number of rows must be positive, got %d", rows);
+  SLAP_ASSERT(cols >= 0, SLAP_INVALID_DIMENSION, slap_NullMatrix(),
+              "Reshape: number of columns must be positive, got %d", cols);
   Matrix new_mat = {
       .rows = rows,
       .cols = cols,

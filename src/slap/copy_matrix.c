@@ -7,19 +7,23 @@
 
 #include <memory.h>
 
+#include "iterator.h"
 #include "matrix_checks.h"
 
-
 enum slap_ErrorCode slap_MatrixCopy(Matrix dest, const Matrix src) {
-  SLAP_CHECK_MATRIX(dest);
-  SLAP_CHECK_MATRIX(src);
-  if ((dest.rows != src.rows) || (dest.cols != src.cols)) {
-    char msg[60];
-    sprintf(msg, "Can't copy from matrix of size (%d,%d) to size (%d,%d)",
-            slap_NumRows(src), slap_NumCols(src), slap_NumRows(dest), slap_NumCols(dest));
-    return SLAP_THROW_ERROR(SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, msg);
+  SLAP_ASSERT_VALID(dest, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
+                    "MatrixCopy: invalid destination matrix");
+  SLAP_ASSERT_VALID(src, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
+                    "MatrixCopy: invalid source matrix");
+  SLAP_ASSERT_SAME_SIZE(dest, src, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, "MatrixCopy");
+  int n = slap_NumRows(src);
+  int m = slap_NumCols(src);
+  for (int j = 0; j < m; ++j) {
+    for (int i = 0; i < n; ++i) {
+      slap_SetElement(dest, i, j, *slap_GetElement(src, i, j));
+    }
   }
-  memcpy(dest.data, src.data, slap_NumElements(dest) * sizeof(double));
+  //  memcpy(dest.data, src.data, slap_NumElements(dest) * sizeof(double));
   return SLAP_NO_ERROR;
 }
 
@@ -46,14 +50,11 @@ enum slap_ErrorCode slap_MatrixCopyTranspose(Matrix dest, const Matrix src) {
 }
 
 enum slap_ErrorCode slap_MatrixCopyFromArray(Matrix mat, const double* data) {
-  SLAP_CHECK_MATRIX(mat);
-  if (!data) {
-    return SLAP_THROW_ERROR(SLAP_BAD_POINTER, "Can't copy from raw array, pointer is NULL");
-  }
-  int len = slap_NumElements(mat);
-  for (int i = 0; i < len; ++i) {
-    mat.data[i] = data[i];
+  SLAP_ASSERT_VALID(mat, SLAP_INVALID_MATRIX, "CopyFromArray: invalid matrix");
+  SLAP_ASSERT(data != NULL, SLAP_BAD_POINTER, SLAP_BAD_POINTER,
+              "CopyFromArray: Can't copy from raw array, pointer is NULL");
+  for (MatrixIterator it = slap_Iterator(mat); !slap_IsFinished(&it); slap_Step(&it)) {
+    mat.data[it.index] = data[it.k];
   }
   return SLAP_NO_ERROR;
 }
-

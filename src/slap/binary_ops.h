@@ -14,7 +14,7 @@
  *
  * @param A A matrix of dimension (m,n)
  * @param B A matrix of dimension (m,n)
- * @return
+ * @return NAN if input is invalid, normed difference otherwise
  */
 double slap_MatrixNormedDifference(Matrix A, Matrix B);
 

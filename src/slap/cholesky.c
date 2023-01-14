@@ -7,10 +7,8 @@
 
 #include <math.h>
 
-#include "matrix_checks.h"
-
 enum slap_ErrorCode slap_Cholesky(Matrix A) {
-  SLAP_CHECK_MATRIX(A);
+  SLAP_ASSERT_VALID(A, SLAP_INVALID_MATRIX, "Cholesky: matrix invalid");
   int n = slap_MinDim(A);
   for (int j = 0; j < n; ++j) {
     for (int k = 0; k < j; ++k) {
@@ -36,8 +34,12 @@ enum slap_ErrorCode slap_Cholesky(Matrix A) {
 }
 
 enum slap_ErrorCode slap_LowerTriBackSub(Matrix L, Matrix b) {
-  SLAP_CHECK_MATRIX(L);
-  SLAP_CHECK_MATRIX(b);
+  SLAP_ASSERT_VALID(L, SLAP_INVALID_MATRIX, "LowerTriBackSub: L matrix invalid");
+  SLAP_ASSERT_VALID(b, SLAP_INVALID_MATRIX, "LowerTriBackSub: b matrix invalid");
+  SLAP_ASSERT(slap_NumCols(L) == slap_NumRows(b), SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
+              SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
+              "LowerTriBackSub: L has %d columns but b has %d rows", slap_NumCols(L),
+              slap_NumRows(b));
   int n = b.rows;
   int m = b.cols;
   bool tL = slap_IsTransposed(L);
@@ -60,9 +62,11 @@ enum slap_ErrorCode slap_LowerTriBackSub(Matrix L, Matrix b) {
   return SLAP_NO_ERROR;
 }
 enum slap_ErrorCode slap_CholeskySolve(const Matrix A, Matrix b) {
-  SLAP_CHECK_MATRIX(A);
-  SLAP_CHECK_MATRIX(b);
-  slap_LowerTriBackSub(A, b);
-  slap_LowerTriBackSub(slap_Transpose(A), b);
+  // NOTE: Validity checks are done by the sub-methods
+  enum slap_ErrorCode err;
+  err = slap_LowerTriBackSub(A, b);
+  if (err != SLAP_NO_ERROR) return err;
+  err = slap_LowerTriBackSub(slap_Transpose(A), b);
+  if (err != SLAP_NO_ERROR) return err;
   return SLAP_NO_ERROR;
 }

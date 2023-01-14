@@ -35,6 +35,9 @@ const char* slap_ErrorString(enum slap_ErrorCode error_code) {
     case SLAP_INVALID_MATRIX:
       msg = "Invalid matrix. Check for NULL data pointer and a stride of 0";
       break;
+    case SLAP_INDEX_OUT_OF_BOUNDS:
+      msg = "Indexing operation out of bounds";
+      break;
     default:
       msg = "Unknown error type";
   }

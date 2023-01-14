@@ -12,9 +12,8 @@
  * Precision of the printing can be controlled by the global variable PRECISION.
  *
  * @param mat Matrix to be printed
- * @return 0 if successful
  */
-int slap_PrintMatrix(Matrix mat);
+enum slap_ErrorCode slap_PrintMatrix(Matrix mat);
 
 /**
  * @brief Print the entire matrix as a row vector

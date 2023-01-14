@@ -11,6 +11,7 @@ enum slap_ErrorCode {
   SLAP_MATRIX_NOT_DENSE,
   SLAP_CHOLESKY_FAIL,
   SLAP_INVALID_MATRIX,
+  SLAP_INDEX_OUT_OF_BOUNDS,
 };
 
 const char* slap_ErrorString(enum slap_ErrorCode error_code);
@@ -45,3 +46,9 @@ const char* slap_ErrorString(enum slap_ErrorCode error_code);
 
 #define SLAP_ASSERT_DENSE(mat, return_value, ...) \
   SLAP_ASSERT(slap_IsDense(mat), SLAP_MATRIX_NOT_DENSE, return_value, __VA_ARGS__)
+
+#define SLAP_ASSERT_SAME_SIZE(A, B, return_value, method_name)                          \
+  SLAP_ASSERT(slap_NumRows(A) == slap_NumRows(B) && slap_NumCols(A) == slap_NumCols(B), \
+              SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, (return_value),                      \
+              "$s: matrices must be the same size. Got sizes (%d,%d) and (%d,%d)",      \
+              slap_NumRows(A), slap_NumCols(A), slap_NumRows(B), slap_NumCols(B))
