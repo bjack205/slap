@@ -1,8 +1,7 @@
 /**
- * @file linalg_custom.h
+ * @file linalg.h
  * @author Brian Jackson (bjack205@gmail.com)
  * @brief Simple linear algebra routines
- * @version 0.1
  * @date 2022-01-31
  *
  * @copyright Copyright (c) 2022
@@ -12,20 +11,6 @@
  *
  */
 #include "matrix.h"
-
-/**
- * @brief Flag for a successful Cholesky decomposition,
- *        i.e. the matrix is positive definite.
- *
- */
-static const int slap_kCholeskySuccess = 0;
-
-/**
- * @brief Flag if a Cholesky decomposition fails,
- *        i.e. the matrix is not positive definite.
- *
- */
-static const int slap_kCholeskyFail = -1;
 
 /**
  * @brief Add two matrices of the same size, storing the result in @p B

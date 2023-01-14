@@ -1,3 +1,14 @@
+/**
+ * @file errors.h
+ * @author Brian Jackson (bjack205@gmail.com)
+ * @brief Utilities for the slap error handling system
+ * @date 2022-01-30
+ *
+ * @copyright Copyright (c) 2022
+ *
+ * @addtogroup Utilities
+ * @{
+ */
 #pragma once
 
 enum slap_ErrorCode {

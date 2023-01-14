@@ -3,6 +3,7 @@ name: Documentation
 on:
   push:
     branches: [ main ]
+  pull_request:
 
 jobs:
   documentation:
@@ -16,21 +17,25 @@ jobs:
       run: |
         sudo apt-get install doxygen -y
         sudo apt-get install graphviz -y
+
+    - uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "docs/"
       
-    - name: Build documentation
-      working-directory: ${{ github.workspace }}
-      run: |
-        mkdir build
-        cd build
-        cmake -D ULQR_BUILD_DOCS=ON ..
-        cmake --build . --target doxygen
+#    - name: Build documentation
+#      working-directory: ${{ github.workspace }}
+#      run: |
+#        mkdir build
+#        cd build
+#        cmake -D ULQR_BUILD_DOCS=ON ..
+#        cmake --build . --target doxygen
 
     - name: Deploy documentation
       uses: peaceiris/actions-gh-pages@v3
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ${{ github.workspace }}/build/docs/html
+        publish_dir: ${{ github.workspace }}/docs/_build/html
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
         commit_message: ${{ github.event.head_commit.message }}

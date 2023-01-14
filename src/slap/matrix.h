@@ -1,13 +1,12 @@
 /**
  * @file matrix.h
  * @author Brian Jackson (bjack205@gmail.com)
- * @brief Matrix type and basic operations
- * @version 0.1
+ * @brief Matrix type and fundamental operations like indexing and size
  * @date 2022-01-30
  *
  * @copyright Copyright (c) 2022
  *
- * @addtogroup LinearAlgebra
+ * @addtogroup Basics
  * @{
  */
 #pragma once

@@ -5,7 +5,7 @@
 
 #include "new_matrix.h"
 
-#include <malloc.h>
+#include <stdlib.h>
 
 Matrix slap_NewMatrix(int rows, int cols) {
   double* data = (double*)malloc(rows * cols * sizeof(double));

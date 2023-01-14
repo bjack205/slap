@@ -1,7 +1,14 @@
-//
-// Created by Brian Jackson on 12/18/22.
-// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
-//
+/**
+ * @file unary_ops.h
+ * @author Brian Jackson (bjack205@gmail.com)
+ * @brief Basic unary operations on the Matrix type
+ * @date 2022-01-30
+ *
+ * @copyright Copyright (c) 2022
+ *
+ * @addtogroup Basics
+ * @{
+ */
 
 #pragma once
 
@@ -49,3 +56,5 @@ enum slap_ErrorCode slap_SetDiagonal(Matrix mat, const double* diag, int len);
 enum slap_ErrorCode slap_AddIdentity(Matrix mat, double alpha);
 
 enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop);
+
+/**@}*/

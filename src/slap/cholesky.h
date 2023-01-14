@@ -1,7 +1,14 @@
-//
-// Created by Brian Jackson on 12/19/22.
-// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
-//
+/**
+ * @file cholesky.h
+ * @author Brian Jackson (bjack205@gmail.com)
+ * @brief Methods for solving systems of equations using a Cholesky dcomposition
+ * @date 2022-01-30
+ *
+ * @copyright Copyright (c) 2022
+ *
+ * @addtogroup LinearAlgebra
+ * @{
+ */
 
 #pragma once
 

@@ -1,7 +1,14 @@
-//
-// Created by Brian Jackson on 12/18/22.
-// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
-//
+/**
+ * @file iterator.h
+ * @author Brian Jackson (bjack205@gmail.com)
+ * @brief Functions for efficient iteration
+ * @date 2022-01-30
+ *
+ * @copyright Copyright (c) 2022
+ *
+ * @addtogroup Advanced
+ * @{
+ */
 
 #pragma once
 
