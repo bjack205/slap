@@ -13,7 +13,7 @@ jobs:
       with:
         submodules: true
         fetch-depth: 0       # fetch all history for .GitInfo and .Lastmod
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_TOKEN }}
     - name: Install Dependencies
       run: |
         sudo apt-get install doxygen -y
