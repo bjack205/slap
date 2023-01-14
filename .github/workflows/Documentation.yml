@@ -13,7 +13,7 @@ jobs:
       with:
         submodules: true
         fetch-depth: 0       # fetch all history for .GitInfo and .Lastmod
-        token: ${{ secrets.GH_TOKEN }}
+#        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Install Dependencies
       run: |
         sudo apt-get install doxygen -y
@@ -30,12 +30,8 @@ jobs:
         cmake -D SLAP_BUILD_DOCS=ON ..
         cmake --build . --target doxygen
 
-    - name: Deploy documentation
+    - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
-#      if: ${{ github.ref == 'refs/heads/main' }}
       with:
-        github_token: ${{ github.token }}
-        publish_dir: ${{ github.workspace }}/docs/_build/html
-#        user_name: 'github-actions[bot]'
-#        user_email: 'github-actions[bot]@users.noreply.github.com'
-        commit_message: ${{ github.event.head_commit.message }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/_build/html
