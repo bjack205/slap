@@ -25,6 +25,7 @@ jobs:
     - name: Build documentation
       working-directory: ${{ github.workspace }}
       run: |
+        mkdir build && cd build
         cmake -D SLAP_BUILD_DOCS=ON ..
         cmake --build . --target doxygen
 
