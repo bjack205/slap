@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['binary_5fops_2eh_47',['binary_ops.h',['../binary__ops_8h.html',1,'']]]
+  ['cholesky_2eh_76',['cholesky.h',['../cholesky_8h.html',1,'']]],
+  ['copy_5fmatrix_2eh_77',['copy_matrix.h',['../copy__matrix_8h.html',1,'']]]
 ];

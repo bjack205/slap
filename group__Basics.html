@@ -120,12 +120,6 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga3976ffa2a3dff0a7f9f2f1b1cd70291b">slap_MatrixNormedDifference</a> (<a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B)</td></tr>
-<tr class="memdesc:ga3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the normed difference between 2 matrices of the same size.  <a href="group__Basics.html#ga3976ffa2a3dff0a7f9f2f1b1cd70291b">More...</a><br /></td></tr>
-<tr class="separator:ga3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga08e6eb560f087f006206523f37a0e713"><td class="memItemLeft" align="right" valign="top"><a id="ga08e6eb560f087f006206523f37a0e713"></a>
-enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><b>slap_MatAdd</b> (<a class="el" href="structMatrix.html">Matrix</a> C, <a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B, double alpha)</td></tr>
-<tr class="separator:ga08e6eb560f087f006206523f37a0e713"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga992fdde642a84396c284b3e7c362de32"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga992fdde642a84396c284b3e7c362de32">slap_MatrixCopy</a> (<a class="el" href="structMatrix.html">Matrix</a> dest, <a class="el" href="structMatrix.html">Matrix</a> src)</td></tr>
 <tr class="memdesc:ga992fdde642a84396c284b3e7c362de32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a matrix to another matrix.  <a href="group__Basics.html#ga992fdde642a84396c284b3e7c362de32">More...</a><br /></td></tr>
 <tr class="separator:ga992fdde642a84396c284b3e7c362de32"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,9 +132,66 @@ enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><b>slap_M
 <tr class="memitem:ga2cff64efb8b596f8116b7b2075086035"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga2cff64efb8b596f8116b7b2075086035">slap_MatrixFromArray</a> (int rows, int cols, double *data)</td></tr>
 <tr class="memdesc:ga2cff64efb8b596f8116b7b2075086035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wraps existing data in a <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> class.  <a href="group__Basics.html#ga2cff64efb8b596f8116b7b2075086035">More...</a><br /></td></tr>
 <tr class="separator:ga2cff64efb8b596f8116b7b2075086035"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac36c706be75519c02cc226b6a2d95a91"><td class="memItemLeft" align="right" valign="top"><a id="gac36c706be75519c02cc226b6a2d95a91"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>slap_Lin2Cart</b> (<a class="el" href="structMatrix.html">Matrix</a> mat, int k, int *row, int *col)</td></tr>
-<tr class="separator:gac36c706be75519c02cc226b6a2d95a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2ddadd4c37bb616a95bdcd73b3c5ff2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structMatrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a> (void)</td></tr>
+<tr class="memdesc:gae2ddadd4c37bb616a95bdcd73b3c5ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a "Null" matrix.  <a href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">More...</a><br /></td></tr>
+<tr class="separator:gae2ddadd4c37bb616a95bdcd73b3c5ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5dce240ba6e93ee724e003d83de3564"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gac5dce240ba6e93ee724e003d83de3564">slap_SetNull</a> (<a class="el" href="structMatrix.html">Matrix</a> *mat)</td></tr>
+<tr class="memdesc:gac5dce240ba6e93ee724e003d83de3564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a matrix to a "Null" instance.  <a href="group__Basics.html#gac5dce240ba6e93ee724e003d83de3564">More...</a><br /></td></tr>
+<tr class="separator:gac5dce240ba6e93ee724e003d83de3564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0e223aa2430aab4f7466f26008b9d4b4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga0e223aa2430aab4f7466f26008b9d4b4">slap_IsTransposed</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:ga0e223aa2430aab4f7466f26008b9d4b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if matrix is transposed.  <a href="group__Basics.html#ga0e223aa2430aab4f7466f26008b9d4b4">More...</a><br /></td></tr>
+<tr class="separator:ga0e223aa2430aab4f7466f26008b9d4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae596da56330a975b4fb6219e0e03f7ed"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gae596da56330a975b4fb6219e0e03f7ed">slap_IsEmpty</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:gae596da56330a975b4fb6219e0e03f7ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if matrix is empty, i.e. if any dimension is 0.  <a href="group__Basics.html#gae596da56330a975b4fb6219e0e03f7ed">More...</a><br /></td></tr>
+<tr class="separator:gae596da56330a975b4fb6219e0e03f7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadff40a405cebffdc68742d8d13d41825"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gadff40a405cebffdc68742d8d13d41825">slap_IsSquare</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:gadff40a405cebffdc68742d8d13d41825"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if both dimensions are the same.  <a href="group__Basics.html#gadff40a405cebffdc68742d8d13d41825">More...</a><br /></td></tr>
+<tr class="separator:gadff40a405cebffdc68742d8d13d41825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac0c4333dccc8b47037621c67252f62e0"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gac0c4333dccc8b47037621c67252f62e0">slap_IsDense</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:gac0c4333dccc8b47037621c67252f62e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if all elements are adjacent in memory.  <a href="group__Basics.html#gac0c4333dccc8b47037621c67252f62e0">More...</a><br /></td></tr>
+<tr class="separator:gac0c4333dccc8b47037621c67252f62e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41cd9989b9967fec91e0ac105c3b8e67"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga41cd9989b9967fec91e0ac105c3b8e67">slap_IsValid</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:ga41cd9989b9967fec91e0ac105c3b8e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a matrix is valid.  <a href="group__Basics.html#ga41cd9989b9967fec91e0ac105c3b8e67">More...</a><br /></td></tr>
+<tr class="separator:ga41cd9989b9967fec91e0ac105c3b8e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad6c5a960abe57f6c2b54b741f4b8ab2"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2">slap_IsNull</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:gaad6c5a960abe57f6c2b54b741f4b8ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if matrix is a "Null" instance of a matrix (i.e. uninitialized)  <a href="group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2">More...</a><br /></td></tr>
+<tr class="separator:gaad6c5a960abe57f6c2b54b741f4b8ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac97f7096614d53c84818b34fbabb3084"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gac97f7096614d53c84818b34fbabb3084">slap_MinDim</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:gac97f7096614d53c84818b34fbabb3084"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the smallest dimension.  <a href="group__Basics.html#gac97f7096614d53c84818b34fbabb3084">More...</a><br /></td></tr>
+<tr class="separator:gac97f7096614d53c84818b34fbabb3084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0383430bd19fca031cbf13ed08f9f2d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gab0383430bd19fca031cbf13ed08f9f2d">slap_NumRows</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:gab0383430bd19fca031cbf13ed08f9f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of rows.  <a href="group__Basics.html#gab0383430bd19fca031cbf13ed08f9f2d">More...</a><br /></td></tr>
+<tr class="separator:gab0383430bd19fca031cbf13ed08f9f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga071d0aa79b77aa923a2216d11b1d5b99"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga071d0aa79b77aa923a2216d11b1d5b99">slap_NumCols</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:ga071d0aa79b77aa923a2216d11b1d5b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of columns.  <a href="group__Basics.html#ga071d0aa79b77aa923a2216d11b1d5b99">More...</a><br /></td></tr>
+<tr class="separator:ga071d0aa79b77aa923a2216d11b1d5b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d2fab80e90b514a60ac08b391a16a13"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga2d2fab80e90b514a60ac08b391a16a13">slap_NumElements</a> (const <a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:ga2d2fab80e90b514a60ac08b391a16a13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of elements in a matrix, i.e. <code>m * n</code>.  <a href="group__Basics.html#ga2d2fab80e90b514a60ac08b391a16a13">More...</a><br /></td></tr>
+<tr class="separator:ga2d2fab80e90b514a60ac08b391a16a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae44a94a40d7b7fdce3f21d5710ea06b8"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gae44a94a40d7b7fdce3f21d5710ea06b8">slap_Cart2Index</a> (const <a class="el" href="structMatrix.html">Matrix</a> mat, int row, int col)</td></tr>
+<tr class="memdesc:gae44a94a40d7b7fdce3f21d5710ea06b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the linear index for a given row and column in the matrix.  <a href="group__Basics.html#gae44a94a40d7b7fdce3f21d5710ea06b8">More...</a><br /></td></tr>
+<tr class="separator:gae44a94a40d7b7fdce3f21d5710ea06b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga21b12a660e297f3f55389b15983fab9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga21b12a660e297f3f55389b15983fab9c">slap_Linear2Cart</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, int k, int *row, int *col)</td></tr>
+<tr class="memdesc:ga21b12a660e297f3f55389b15983fab9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a linear index to a Cartesian index.  <a href="group__Basics.html#ga21b12a660e297f3f55389b15983fab9c">More...</a><br /></td></tr>
+<tr class="separator:ga21b12a660e297f3f55389b15983fab9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31ca2f635e3a299dce7de182b5b69664"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga31ca2f635e3a299dce7de182b5b69664">slap_Linear2Index</a> (const <a class="el" href="structMatrix.html">Matrix</a> mat, int k)</td></tr>
+<tr class="memdesc:ga31ca2f635e3a299dce7de182b5b69664"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a linear index to the index into the underlying array.  <a href="group__Basics.html#ga31ca2f635e3a299dce7de182b5b69664">More...</a><br /></td></tr>
+<tr class="separator:ga31ca2f635e3a299dce7de182b5b69664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d5c4174ae1309b811f6feb1272843ba"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga7d5c4174ae1309b811f6feb1272843ba">slap_CheckInbounds</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, int row, int col)</td></tr>
+<tr class="memdesc:ga7d5c4174ae1309b811f6feb1272843ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the row and column index is in the bounds of the matrix.  <a href="group__Basics.html#ga7d5c4174ae1309b811f6feb1272843ba">More...</a><br /></td></tr>
+<tr class="separator:ga7d5c4174ae1309b811f6feb1272843ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7b520403190dd344634ca33136151ab"><td class="memItemLeft" align="right" valign="top">static double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, int row, int col)</td></tr>
+<tr class="memdesc:gae7b520403190dd344634ca33136151ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a pointer to matrix element given row, column indices.  <a href="group__Basics.html#gae7b520403190dd344634ca33136151ab">More...</a><br /></td></tr>
+<tr class="separator:gae7b520403190dd344634ca33136151ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga07acae3b6d5138f608ffd9dbe1c2e494"><td class="memItemLeft" align="right" valign="top">static const double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a> (const <a class="el" href="structMatrix.html">Matrix</a> mat, int row, int col)</td></tr>
+<tr class="memdesc:ga07acae3b6d5138f608ffd9dbe1c2e494"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const pointer to matrix element given row, column indices.  <a href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">More...</a><br /></td></tr>
+<tr class="separator:ga07acae3b6d5138f608ffd9dbe1c2e494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga432445f932b69ce19c78e985f186bb5b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, int row, int col, double val)</td></tr>
+<tr class="memdesc:ga432445f932b69ce19c78e985f186bb5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an matrix element to a given value.  <a href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">More...</a><br /></td></tr>
+<tr class="separator:ga432445f932b69ce19c78e985f186bb5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga3976ffa2a3dff0a7f9f2f1b1cd70291b">slap_MatrixNormedDifference</a> (<a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B)</td></tr>
+<tr class="memdesc:ga3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the normed difference between 2 matrices of the same size.  <a href="group__Basics.html#ga3976ffa2a3dff0a7f9f2f1b1cd70291b">More...</a><br /></td></tr>
+<tr class="separator:ga3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga34b0cf8ab431aba8466deb196b050ff7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7">slap_Flatten</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
 <tr class="memdesc:ga34b0cf8ab431aba8466deb196b050ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flatten a 2D matrix to a column vector.  <a href="group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7">More...</a><br /></td></tr>
 <tr class="separator:ga34b0cf8ab431aba8466deb196b050ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,12 +213,39 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>slap_Lin2Cart</b> (<a
 <tr class="memitem:gabd83829ad4b433500c721caee6c61c16"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gabd83829ad4b433500c721caee6c61c16">slap_SetDiagonal</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, const double *diag, int len)</td></tr>
 <tr class="memdesc:gabd83829ad4b433500c721caee6c61c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the first n elements of a matrix diagonal from an array.  <a href="group__Basics.html#gabd83829ad4b433500c721caee6c61c16">More...</a><br /></td></tr>
 <tr class="separator:gabd83829ad4b433500c721caee6c61c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga28690bf6b0c44b603860e9579c19ebe4"><td class="memItemLeft" align="right" valign="top"><a id="ga28690bf6b0c44b603860e9579c19ebe4"></a>
-enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><b>slap_AddIdentity</b> (<a class="el" href="structMatrix.html">Matrix</a> mat, double alpha)</td></tr>
+<tr class="memitem:ga28690bf6b0c44b603860e9579c19ebe4"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga28690bf6b0c44b603860e9579c19ebe4">slap_AddIdentity</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double alpha)</td></tr>
+<tr class="memdesc:ga28690bf6b0c44b603860e9579c19ebe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a multiple of the identity to the matrix.  <a href="group__Basics.html#ga28690bf6b0c44b603860e9579c19ebe4">More...</a><br /></td></tr>
 <tr class="separator:ga28690bf6b0c44b603860e9579c19ebe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga65b8623a0b862b3f67aa78115c64a692"><td class="memItemLeft" align="right" valign="top"><a id="ga65b8623a0b862b3f67aa78115c64a692"></a>
-enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><b>slap_SetRange</b> (<a class="el" href="structMatrix.html">Matrix</a> mat, double start, double stop)</td></tr>
+<tr class="memitem:ga65b8623a0b862b3f67aa78115c64a692"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga65b8623a0b862b3f67aa78115c64a692">slap_SetRange</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double start, double stop)</td></tr>
+<tr class="memdesc:ga65b8623a0b862b3f67aa78115c64a692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the matrix to a equally-spaced range.  <a href="group__Basics.html#ga65b8623a0b862b3f67aa78115c64a692">More...</a><br /></td></tr>
 <tr class="separator:ga65b8623a0b862b3f67aa78115c64a692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2847e81fcbd1a0c27c1afb6f4cc91410"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMatrixIterator.html">MatrixIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga2847e81fcbd1a0c27c1afb6f4cc91410">slap_ArgMax</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double *max_value)</td></tr>
+<tr class="memdesc:ga2847e81fcbd1a0c27c1afb6f4cc91410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the maximum value in the matrix.  <a href="group__Basics.html#ga2847e81fcbd1a0c27c1afb6f4cc91410">More...</a><br /></td></tr>
+<tr class="separator:ga2847e81fcbd1a0c27c1afb6f4cc91410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef6e9144874cd09ff1d56237427f34f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMatrixIterator.html">MatrixIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gaef6e9144874cd09ff1d56237427f34f7">slap_ArgMin</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double *min_value)</td></tr>
+<tr class="memdesc:gaef6e9144874cd09ff1d56237427f34f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the minimum value in the matrix.  <a href="group__Basics.html#gaef6e9144874cd09ff1d56237427f34f7">More...</a><br /></td></tr>
+<tr class="separator:gaef6e9144874cd09ff1d56237427f34f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09f5c095a35dee9dd75a70fa21e71da7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga09f5c095a35dee9dd75a70fa21e71da7">slap_Max</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:ga09f5c095a35dee9dd75a70fa21e71da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the maximum value in the matrix.  <a href="group__Basics.html#ga09f5c095a35dee9dd75a70fa21e71da7">More...</a><br /></td></tr>
+<tr class="separator:ga09f5c095a35dee9dd75a70fa21e71da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c5f44f5de7d99b2c107f3a6fdb4fc95"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga8c5f44f5de7d99b2c107f3a6fdb4fc95">slap_Min</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:ga8c5f44f5de7d99b2c107f3a6fdb4fc95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the minimum value in the matrix.  <a href="group__Basics.html#ga8c5f44f5de7d99b2c107f3a6fdb4fc95">More...</a><br /></td></tr>
+<tr class="separator:ga8c5f44f5de7d99b2c107f3a6fdb4fc95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab864342fa37d9662031a746fb36c254c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gab864342fa37d9662031a746fb36c254c">slap_NormTwoSquared</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:gab864342fa37d9662031a746fb36c254c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the squared 2-norm of the matrix (treating it like a vector)  <a href="group__Basics.html#gab864342fa37d9662031a746fb36c254c">More...</a><br /></td></tr>
+<tr class="separator:gab864342fa37d9662031a746fb36c254c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabbd26d9efd0715357e02ef21a597ec93"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gabbd26d9efd0715357e02ef21a597ec93">slap_NormTwo</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:gabbd26d9efd0715357e02ef21a597ec93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the 2-norm, treating the matrix as a vector.  <a href="group__Basics.html#gabbd26d9efd0715357e02ef21a597ec93">More...</a><br /></td></tr>
+<tr class="separator:gabbd26d9efd0715357e02ef21a597ec93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2122f133a822ac18639f8533a87c475f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga2122f133a822ac18639f8533a87c475f">slap_NormInf</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:ga2122f133a822ac18639f8533a87c475f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the infinity norm, treating the matrix as a vector.  <a href="group__Basics.html#ga2122f133a822ac18639f8533a87c475f">More...</a><br /></td></tr>
+<tr class="separator:ga2122f133a822ac18639f8533a87c475f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e98afac5d7570f75d170b2686e2d9ae"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga3e98afac5d7570f75d170b2686e2d9ae">slap_NormOne</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:ga3e98afac5d7570f75d170b2686e2d9ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the one norm, treating the matrix as a vector.  <a href="group__Basics.html#ga3e98afac5d7570f75d170b2686e2d9ae">More...</a><br /></td></tr>
+<tr class="separator:ga3e98afac5d7570f75d170b2686e2d9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga760d830d277b6f676ccb1dd9560e0d07"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga760d830d277b6f676ccb1dd9560e0d07">slap_Sum</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:ga760d830d277b6f676ccb1dd9560e0d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the sum of all of the elements.  <a href="group__Basics.html#ga760d830d277b6f676ccb1dd9560e0d07">More...</a><br /></td></tr>
+<tr class="separator:ga760d830d277b6f676ccb1dd9560e0d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -184,59 +262,232 @@ enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><b>slap_S
 </div><div class="memdoc">
 
 <p>Represents a matrix of double-precision data. </p>
-<p>Simple wrapper around an arbitrary pointer to the underlying data. The data is assumed to be stored in a contiguous block of memory. The data is interpreted column-wise, such that <code>data[1]</code> is element <code>[1,0]</code> of the matrix.</p>
-<h2><a class="anchor" id="autotoc_md1"></a>
-Initialization</h2>
-<p>A <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> can be initialized a few ways. The easiest is via <code>NewMatrix</code>:</p>
-<div class="fragment"><div class="line"><a class="code" href="structMatrix.html">Matrix</a> mat = slap_NewMatrix(rows, cols);</div>
-<div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdoc">Represents a matrix of double-precision data.</div><div class="ttdef"><b>Definition:</b> matrix.h:79</div></div>
-</div><!-- fragment --><p> which allocates a new block of memory on the heap. It must be followed by a call to FreeMatrix().</p>
-<p>If the data for the matrix is already stored in an array, the default brace initializer can be used:</p>
-<div class="fragment"><div class="line"><span class="keywordtype">double</span> data[6] = {1,2,3,4,5,6};</div>
-<div class="line"><a class="code" href="structMatrix.html">Matrix</a> mat = {2, 3, data};</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md2"></a>
-Methods</h2>
-<p>The following methods are defined for the <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> type:</p>
-<h3><a class="anchor" id="autotoc_md3"></a>
-Initialization and deconstruction</h3>
-<ul>
-<li>slap_NewMatrix()</li>
-<li>FreeMatrix()</li>
-<li>MatrixSetConst()</li>
-<li>MatrixScaleByConst()</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md4"></a>
-Indexing operations</h3>
-<ul>
-<li>MatrixNumElements()</li>
-<li>MatrixGetLinearIndex()</li>
-<li>MatrixGetElement()</li>
-<li>MatrixGetElementTranspose()</li>
-<li>MatrixSetElement()</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md5"></a>
-Copying</h3>
-<ul>
-<li>MatrixCopy()</li>
-<li>MatrixCopyTranspose()</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md6"></a>
-Reshaping</h3>
-<ul>
-<li>MatrixFlatten()</li>
-<li>MatrixFlattenToRow()</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md7"></a>
-Utilities</h3>
-<ul>
-<li>PrintMatrix()</li>
-<li>PrintRowVector()</li>
-<li>MatrixNormedDifference() </li>
-</ul>
+<p>Simple wrapper around an arbitrary pointer to the underlying data. The data is assumed to be stored in a contiguous block of memory. The data is interpreted column-wise, such that <code>data[1]</code> is element <code>[1,0]</code> of the matrix. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga28690bf6b0c44b603860e9579c19ebe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga28690bf6b0c44b603860e9579c19ebe4">&#9670;&nbsp;</a></span>slap_AddIdentity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum slap_ErrorCode slap_AddIdentity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>alpha</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a multiple of the identity to the matrix. </p>
+<p><b>Header File:</b> <code>"slap/unary_ops.h"</code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>A valid matrix </td></tr>
+    <tr><td class="paramname">alpha</td><td>The value to add to the diagonal elements </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2847e81fcbd1a0c27c1afb6f4cc91410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2847e81fcbd1a0c27c1afb6f4cc91410">&#9670;&nbsp;</a></span>slap_ArgMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMatrixIterator.html">MatrixIterator</a> slap_ArgMax </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>max_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the maximum value in the matrix. </p>
+<p><b>Header File:</b> <code><a class="el" href="vector__ops_8h.html" title="Methods that treat the matrix as a vector, including things like finding minimum or maximum values,...">slap/vector_ops.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>A valid matrix </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">max_value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structMatrixIterator.html" title="A struct for conveniently and efficiently iterating over strided matrices.">MatrixIterator</a> pointing to the max value </dd></dl>
+
+</div>
+</div>
+<a id="gaef6e9144874cd09ff1d56237427f34f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaef6e9144874cd09ff1d56237427f34f7">&#9670;&nbsp;</a></span>slap_ArgMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMatrixIterator.html">MatrixIterator</a> slap_ArgMin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>min_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the minimum value in the matrix. </p>
+<p><b>Header File:</b> <code><a class="el" href="vector__ops_8h.html" title="Methods that treat the matrix as a vector, including things like finding minimum or maximum values,...">slap/vector_ops.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td></td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">min_value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structMatrixIterator.html" title="A struct for conveniently and efficiently iterating over strided matrices.">MatrixIterator</a> pointing to the min value </dd></dl>
+
+</div>
+</div>
+<a id="gae44a94a40d7b7fdce3f21d5710ea06b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae44a94a40d7b7fdce3f21d5710ea06b8">&#9670;&nbsp;</a></span>slap_Cart2Index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int slap_Cart2Index </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the linear index for a given row and column in the matrix. </p>
+<p>Converts a cartesian index of row and column into a linear index for accessing an element of the underlying data.</p>
+<p>Supports both strided and dense matrices.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> with nonzero size and initialized data </td></tr>
+    <tr><td class="paramname">row</td><td>Row index </td></tr>
+    <tr><td class="paramname">col</td><td>Column index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Linear index corresponding to <code>row</code> and <code>col</code>. Returns -1 for a bad input. </dd></dl>
+
+</div>
+</div>
+<a id="ga7d5c4174ae1309b811f6feb1272843ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7d5c4174ae1309b811f6feb1272843ba">&#9670;&nbsp;</a></span>slap_CheckInbounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool slap_CheckInbounds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the row and column index is in the bounds of the matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> to be indexed </td></tr>
+    <tr><td class="paramname">row</td><td>Row index </td></tr>
+    <tr><td class="paramname">col</td><td>Column index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the row and column index is in bounds for the matrix </dd></dl>
+
+</div>
+</div>
 <a id="ga34b0cf8ab431aba8466deb196b050ff7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga34b0cf8ab431aba8466deb196b050ff7">&#9670;&nbsp;</a></span>slap_Flatten()</h2>
 
@@ -255,13 +506,446 @@ Utilities</h3>
 
 <p>Flatten a 2D matrix to a column vector. </p>
 <p>Changes the row and column data so that the matrix is now a column vector. The underlying data is unchanged.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p><b>Header File:</b> <code>src/matrix.h</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> to be flattened. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 if successful </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Flattened <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> </dd></dl>
+
+</div>
+</div>
+<a id="gae7b520403190dd344634ca33136151ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae7b520403190dd344634ca33136151ab">&#9670;&nbsp;</a></span>slap_GetElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double* slap_GetElement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a pointer to matrix element given row, column indices. </p>
+<p>Note that this method does NOT perform any bounds checking so can be used unsafely! Passing an index that is out of bounds is undefined behavior.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Example</h1>
+<p>The following gets a pointer to the 1st element in the 2nd column, and then modifies it. </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> *x = <a class="code" href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a>(A, 0, 1);</div>
+<div class="line">*x = 10;</div>
+<div class="ttc" id="agroup__Basics_html_gae7b520403190dd344634ca33136151ab"><div class="ttname"><a href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a></div><div class="ttdeci">static double * slap_GetElement(Matrix mat, int row, int col)</div><div class="ttdoc">Get a pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:318</div></div>
+</div><!-- fragment --><p>To get the data directly, just de-reference the pointer at the call site: The following reads the data in the 2nd element of the 1st column. </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> y = *<a class="code" href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a>(A, 1, 0);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> of nonzero size </td></tr>
+    <tr><td class="paramname">row</td><td>Row index </td></tr>
+    <tr><td class="paramname">col</td><td>Column index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the element of the matrix. NULL for invalid input. </dd></dl>
+
+</div>
+</div>
+<a id="ga07acae3b6d5138f608ffd9dbe1c2e494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga07acae3b6d5138f608ffd9dbe1c2e494">&#9670;&nbsp;</a></span>slap_GetElementConst()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const double* slap_GetElementConst </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a const pointer to matrix element given row, column indices. </p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Example</h1>
+<p>The following gets a pointer to the 1st element in the 2nd column. </p><div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">double</span> *x = <a class="code" href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a>(A, 0, 1);</div>
+<div class="ttc" id="agroup__Basics_html_ga07acae3b6d5138f608ffd9dbe1c2e494"><div class="ttname"><a href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a></div><div class="ttdeci">static const double * slap_GetElementConst(const Matrix mat, int row, int col)</div><div class="ttdoc">Get a const pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:342</div></div>
+</div><!-- fragment --><p>To get the data directly, just de-reference the pointer at the call site: The following reads the data in the 2nd element of the 1st column. </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> y = *<a class="code" href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a>(A, 1, 0);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> of nonzero size </td></tr>
+    <tr><td class="paramname">row</td><td>Row index </td></tr>
+    <tr><td class="paramname">col</td><td>Column index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the element of the matrix. NULL for invalid input. </dd></dl>
+
+</div>
+</div>
+<a id="gac0c4333dccc8b47037621c67252f62e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac0c4333dccc8b47037621c67252f62e0">&#9670;&nbsp;</a></span>slap_IsDense()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool slap_IsDense </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if all elements are adjacent in memory. </p>
+<p>True if column stride is equal to the number of rows.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>Any matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae596da56330a975b4fb6219e0e03f7ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae596da56330a975b4fb6219e0e03f7ed">&#9670;&nbsp;</a></span>slap_IsEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool slap_IsEmpty </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if matrix is empty, i.e. if any dimension is 0. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>Any <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the matrix is empty </dd></dl>
+
+</div>
+</div>
+<a id="gaad6c5a960abe57f6c2b54b741f4b8ab2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaad6c5a960abe57f6c2b54b741f4b8ab2">&#9670;&nbsp;</a></span>slap_IsNull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool slap_IsNull </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if matrix is a "Null" instance of a matrix (i.e. uninitialized) </p>
+<p>The "Null" state of a matrix is an internally-defined state created by the <a class="el" href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2" title="Create a &quot;Null&quot; matrix.">slap_NullMatrix()</a> method.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if matrix is a "Null" matrix </dd></dl>
+
+</div>
+</div>
+<a id="gadff40a405cebffdc68742d8d13d41825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadff40a405cebffdc68742d8d13d41825">&#9670;&nbsp;</a></span>slap_IsSquare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool slap_IsSquare </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if both dimensions are the same. </p>
+<p>Note this will still return true if both dimensions are 0.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>Any matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if matrix is square </dd></dl>
+
+</div>
+</div>
+<a id="ga0e223aa2430aab4f7466f26008b9d4b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0e223aa2430aab4f7466f26008b9d4b4">&#9670;&nbsp;</a></span>slap_IsTransposed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool slap_IsTransposed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if matrix is transposed. </p>
+<p>Matrices are transposed by setting a flag that flips the indexing operations. You can have two <code><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a></code> instances that point to the same data, where one is transposed and the other is not. You can use this method to check whether a matrix is transposed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if transposed, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ga41cd9989b9967fec91e0ac105c3b8e67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga41cd9989b9967fec91e0ac105c3b8e67">&#9670;&nbsp;</a></span>slap_IsValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool slap_IsValid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if a matrix is valid. </p>
+<p>Check if the matrix contains data: if matrix is not empty and pointer isn't null.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if matrix is valid </dd></dl>
+
+</div>
+</div>
+<a id="ga21b12a660e297f3f55389b15983fab9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga21b12a660e297f3f55389b15983fab9c">&#9670;&nbsp;</a></span>slap_Linear2Cart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void slap_Linear2Cart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a linear index to a Cartesian index. </p>
+<p>This is moderately expensive, since it relies on modulus and division operations.</p>
+<p>Passing null pointers to <em>row</em> and <em>col</em> results in undefined behavior, since this method does not check that these are valid.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>Any matrix </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">k</td><td>Linear index, from 0 to <a class="el" href="group__Basics.html#ga2d2fab80e90b514a60ac08b391a16a13" title="Get the number of elements in a matrix, i.e. m * n.">slap_NumElements()</a> </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">row</td><td>Destination for row index </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">col</td><td>Destination for column index </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga31ca2f635e3a299dce7de182b5b69664"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga31ca2f635e3a299dce7de182b5b69664">&#9670;&nbsp;</a></span>slap_Linear2Index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int slap_Linear2Index </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts a linear index to the index into the underlying array. </p>
+<p>If the matrix is Dense (stored contiguously in memory, see <a class="el" href="group__Basics.html#gac0c4333dccc8b47037621c67252f62e0" title="Check if all elements are adjacent in memory.">slap_IsDense()</a>), the output is the same as the input. This method is most helpful for strided matrices.</p>
+<p>Note that for strided arrays, this method is fairly expensive since it converts the linear index into a Cartesian index, and then to the array index.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>A dense or strided matrix </td></tr>
+    <tr><td class="paramname">k</td><td>The linear index, ranging from 0 to <a class="el" href="group__Basics.html#ga2d2fab80e90b514a60ac08b391a16a13" title="Get the number of elements in a matrix, i.e. m * n.">slap_NumElements()</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index into mat.data corresponding the <code>k</code>th element of <em>mat</em> </dd></dl>
 
 </div>
 </div>
@@ -413,11 +1097,22 @@ Utilities</h3>
 </div><div class="memdoc">
 
 <p>Wraps existing data in a <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> class. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>This is the most common way to "create" a matrix. Typical usage will look something like this:</p>
+<div class="fragment"><div class="line"><span class="comment">// Stack-allocated memory</span></div>
+<div class="line"><span class="keywordtype">double</span> data_stack[24];</div>
+<div class="line"><a class="code" href="structMatrix.html">Matrix</a> A = <a class="code" href="group__Basics.html#ga2cff64efb8b596f8116b7b2075086035">slap_MatrixFromArray</a>(6, 4, data_stack);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Heap-allocated memory</span></div>
+<div class="line"><span class="keywordtype">double</span> *data_heap = (<span class="keywordtype">double</span>*)malloc(24 * <span class="keyword">sizeof</span>(<span class="keywordtype">double</span>));</div>
+<div class="line"><a class="code" href="structMatrix.html">Matrix</a> B = <a class="code" href="group__Basics.html#ga2cff64efb8b596f8116b7b2075086035">slap_MatrixFromArray</a>(6, 4, data_heap);</div>
+<div class="line">free(data_heap);</div>
+<div class="ttc" id="agroup__Basics_html_ga2cff64efb8b596f8116b7b2075086035"><div class="ttname"><a href="group__Basics.html#ga2cff64efb8b596f8116b7b2075086035">slap_MatrixFromArray</a></div><div class="ttdeci">Matrix slap_MatrixFromArray(int rows, int cols, double *data)</div><div class="ttdoc">Wraps existing data in a Matrix class.</div><div class="ttdef"><b>Definition:</b> matrix.c:3</div></div>
+<div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdoc">Represents a matrix of double-precision data.</div><div class="ttdef"><b>Definition:</b> matrix.h:34</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rows</td><td>Number of rows in the matrix </td></tr>
     <tr><td class="paramname">cols</td><td>Number of columns in the matrix </td></tr>
-    <tr><td class="paramname">data</td><td>Data for the matrix. Must not be NULL, and should have at least rows * cols elements. </td></tr>
+    <tr><td class="paramname">data</td><td>Data for the matrix. Must not be NULL, and should have at least <em>rows</em> * <em>cols</em> elements. </td></tr>
   </table>
   </dd>
 </dl>
@@ -460,7 +1155,7 @@ Utilities</h3>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>NAN if input is invalid, normed difference otherwise</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 <p>Returns \( \sqrt{\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} (A_{ij} - B_{ij})^2 } \)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -469,7 +1164,343 @@ Utilities</h3>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>NAN if input is invalid, normed difference otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ga09f5c095a35dee9dd75a70fa21e71da7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga09f5c095a35dee9dd75a70fa21e71da7">&#9670;&nbsp;</a></span>slap_Max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double slap_Max </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the maximum value in the matrix. </p>
+<p><b>Header File:</b> <code><a class="el" href="vector__ops_8h.html" title="Methods that treat the matrix as a vector, including things like finding minimum or maximum values,...">slap/vector_ops.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>A valid <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The maximum value, or NaN if there was an error </dd></dl>
+
+</div>
+</div>
+<a id="ga8c5f44f5de7d99b2c107f3a6fdb4fc95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8c5f44f5de7d99b2c107f3a6fdb4fc95">&#9670;&nbsp;</a></span>slap_Min()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double slap_Min </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the minimum value in the matrix. </p>
+<p><b>Header File:</b> <code><a class="el" href="vector__ops_8h.html" title="Methods that treat the matrix as a vector, including things like finding minimum or maximum values,...">slap/vector_ops.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>A valid <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The minimum value, or NaN if there was an error </dd></dl>
+
+</div>
+</div>
+<a id="gac97f7096614d53c84818b34fbabb3084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac97f7096614d53c84818b34fbabb3084">&#9670;&nbsp;</a></span>slap_MinDim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint16_t slap_MinDim </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the smallest dimension. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>Any matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Smaller of the number of rows and columns </dd></dl>
+
+</div>
+</div>
+<a id="ga2122f133a822ac18639f8533a87c475f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2122f133a822ac18639f8533a87c475f">&#9670;&nbsp;</a></span>slap_NormInf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double slap_NormInf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the infinity norm, treating the matrix as a vector. </p>
+<p><b>Header File:</b> <code><a class="el" href="vector__ops_8h.html" title="Methods that treat the matrix as a vector, including things like finding minimum or maximum values,...">slap/vector_ops.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>A valid matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The infinity norm, or NaN if there was an error </dd></dl>
+
+</div>
+</div>
+<a id="ga3e98afac5d7570f75d170b2686e2d9ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3e98afac5d7570f75d170b2686e2d9ae">&#9670;&nbsp;</a></span>slap_NormOne()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double slap_NormOne </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the one norm, treating the matrix as a vector. </p>
+<p><b>Header File:</b> <code><a class="el" href="vector__ops_8h.html" title="Methods that treat the matrix as a vector, including things like finding minimum or maximum values,...">slap/vector_ops.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>A valid matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The one norm, or NaN if there was an error </dd></dl>
+
+</div>
+</div>
+<a id="gabbd26d9efd0715357e02ef21a597ec93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabbd26d9efd0715357e02ef21a597ec93">&#9670;&nbsp;</a></span>slap_NormTwo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double slap_NormTwo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the 2-norm, treating the matrix as a vector. </p>
+<p><b>Header File:</b> <code><a class="el" href="vector__ops_8h.html" title="Methods that treat the matrix as a vector, including things like finding minimum or maximum values,...">slap/vector_ops.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>A valid matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The two-norm, or NaN if there was an error </dd></dl>
+
+</div>
+</div>
+<a id="gab864342fa37d9662031a746fb36c254c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab864342fa37d9662031a746fb36c254c">&#9670;&nbsp;</a></span>slap_NormTwoSquared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double slap_NormTwoSquared </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the squared 2-norm of the matrix (treating it like a vector) </p>
+<p><b>Header File:</b> <code><a class="el" href="vector__ops_8h.html" title="Methods that treat the matrix as a vector, including things like finding minimum or maximum values,...">slap/vector_ops.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>A valid <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The two norm squared, or NaN if there was an error </dd></dl>
+
+</div>
+</div>
+<a id="gae2ddadd4c37bb616a95bdcd73b3c5ff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae2ddadd4c37bb616a95bdcd73b3c5ff2">&#9670;&nbsp;</a></span>slap_NullMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structMatrix.html">Matrix</a> slap_NullMatrix </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a "Null" matrix. </p>
+<p>Useful for default initialization of the matrix where the data it wraps hasn't been specified or allocated yet. Can check if a matrix is in this state using <a class="el" href="group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2" title="Check if matrix is a &quot;Null&quot; instance of a matrix (i.e. uninitialized)">slap_IsNull()</a>.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Example</h1>
+<div class="fragment"><div class="line"><a class="code" href="structMatrix.html">Matrix</a> A = <a class="code" href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a>();</div>
+<div class="ttc" id="agroup__Basics_html_gae2ddadd4c37bb616a95bdcd73b3c5ff2"><div class="ttname"><a href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a></div><div class="ttdeci">static Matrix slap_NullMatrix(void)</div><div class="ttdoc">Create a &quot;Null&quot; matrix.</div><div class="ttdef"><b>Definition:</b> matrix.h:86</div></div>
+</div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd>A default "Null" instance of a matrix. </dd></dl>
+
+</div>
+</div>
+<a id="ga071d0aa79b77aa923a2216d11b1d5b99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga071d0aa79b77aa923a2216d11b1d5b99">&#9670;&nbsp;</a></span>slap_NumCols()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int slap_NumCols </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the number of columns. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>Any matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of columns </dd></dl>
+
+</div>
+</div>
+<a id="ga2d2fab80e90b514a60ac08b391a16a13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d2fab80e90b514a60ac08b391a16a13">&#9670;&nbsp;</a></span>slap_NumElements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int slap_NumElements </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the number of elements in a matrix, i.e. <code>m * n</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>Any matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements in the matrix </dd></dl>
+
+</div>
+</div>
+<a id="gab0383430bd19fca031cbf13ed08f9f2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab0383430bd19fca031cbf13ed08f9f2d">&#9670;&nbsp;</a></span>slap_NumRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int slap_NumRows </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the number of rows. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>Any matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of rows </dd></dl>
 
 </div>
 </div>
@@ -507,7 +1538,7 @@ Utilities</h3>
 
 <p>Set the dimensions of the matrix. </p>
 <p>Note that this does not change the underlying data, only it's interpretation.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p><b>Header File:</b> <code>src/matrix.h</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> </td></tr>
     <tr><td class="paramname">rows</td><td>New number of rows </td></tr>
@@ -515,7 +1546,7 @@ Utilities</h3>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 if successful </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Resized <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> </dd></dl>
 
 </div>
 </div>
@@ -546,14 +1577,13 @@ Utilities</h3>
 </div><div class="memdoc">
 
 <p>Scale a matrix by a constant factor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p><b>Header File:</b> <code>"slap/unary_ops.h"</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td>Fully initialized matrix of non-zero size. Values will be modified. </td></tr>
     <tr><td class="paramname">alpha</td><td>scalar by which to multiply the matrix </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 if successsful </dd></dl>
 
 </div>
 </div>
@@ -584,7 +1614,7 @@ Utilities</h3>
 </div><div class="memdoc">
 
 <p>Sets all of the elements in a matrix to a single value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p><b>Header File:</b> <code>"slap/unary_ops.h"</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> to be modified </td></tr>
     <tr><td class="paramname">val</td><td>Value to which each element will be set </td></tr>
@@ -629,14 +1659,76 @@ Utilities</h3>
 
 <p>Set the first n elements of a matrix diagonal from an array. </p>
 <p>If <em>len</em> is greater than the minimum dimension, only the minimum dimension will be set. Doesn't touch any of the off-diagonal elements.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p><b>Header File:</b> <code>"slap/unary_ops.h"</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> (nrows &gt;= ncols) </td></tr>
     <tr><td class="paramname">diag</td><td>Array of length <code>nrows</code>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ga432445f932b69ce19c78e985f186bb5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga432445f932b69ce19c78e985f186bb5b">&#9670;&nbsp;</a></span>slap_SetElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void slap_SetElement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set an matrix element to a given value. </p>
+<p>This is a low-level function with no error checking. As such, it should be used carefully, as it can easily result in undefined behavior.</p>
+<p>The user should make sure the indices are within bounds and that the data pointer is valid.</p>
+<p>Example Set the 1st element of the 2nd column to 10.1; </p><div class="fragment"><div class="line"><a class="code" href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a>(A, 0, 1, 10.1);</div>
+<div class="ttc" id="agroup__Basics_html_ga432445f932b69ce19c78e985f186bb5b"><div class="ttname"><a href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a></div><div class="ttdeci">static void slap_SetElement(Matrix mat, int row, int col, double val)</div><div class="ttdoc">Set an matrix element to a given value.</div><div class="ttdef"><b>Definition:</b> matrix.h:366</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> with nonzero size and initialized data </td></tr>
+    <tr><td class="paramname">row</td><td>Row index </td></tr>
+    <tr><td class="paramname">col</td><td>Column index </td></tr>
+    <tr><td class="paramname">val</td><td>Value to which the element should be set </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -667,14 +1759,131 @@ Utilities</h3>
 </div><div class="memdoc">
 
 <p>Set the diagonal elements of the matrix to val, and the rest to zeros. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p><b>Header File:</b> <code>"slap/unary_ops.h"</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td>Square matrix </td></tr>
     <tr><td class="paramname">val</td><td>Value for the diagonal elements </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="gac5dce240ba6e93ee724e003d83de3564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac5dce240ba6e93ee724e003d83de3564">&#9670;&nbsp;</a></span>slap_SetNull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void slap_SetNull </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a> *&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set a matrix to a "Null" instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>Pointer to the matrix to set to null </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga65b8623a0b862b3f67aa78115c64a692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga65b8623a0b862b3f67aa78115c64a692">&#9670;&nbsp;</a></span>slap_SetRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum slap_ErrorCode slap_SetRange </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>stop</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the matrix to a equally-spaced range. </p>
+<p>Fills the matrix in column-major order.</p>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Example</h1>
+<div class="fragment"><div class="line"> {c<span class="stringliteral">&#39;}</span></div>
+<div class="line"><span class="stringliteral">#include &quot;slap/new_matrix.h&quot;</span></div>
+<div class="line"><span class="stringliteral">Matrix A = slap_NewMatrix(3, 3);</span></div>
+<div class="line"><span class="stringliteral">slap_SetRange(A, 1, 9);</span></div>
+<div class="line"><span class="stringliteral">slap_FreeMatrix(A);</span></div>
+</div><!-- fragment --><p> Creates a matrix with the following elements: </p><div class="fragment"><div class="line">A = [</div>
+<div class="line">  1 4 7</div>
+<div class="line">  2 5 8</div>
+<div class="line">  3 6 9</div>
+<div class="line">]</div>
+</div><!-- fragment --><p><b>Header File:</b> <code>"slap/unary_ops.h"</code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>A valid, non-empty matrix </td></tr>
+    <tr><td class="paramname">start</td><td>Value of the first element </td></tr>
+    <tr><td class="paramname">stop</td><td>Value of the last element </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga760d830d277b6f676ccb1dd9560e0d07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga760d830d277b6f676ccb1dd9560e0d07">&#9670;&nbsp;</a></span>slap_Sum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double slap_Sum </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the sum of all of the elements. </p>
+<p><b>Header File:</b> <code><a class="el" href="vector__ops_8h.html" title="Methods that treat the matrix as a vector, including things like finding minimum or maximum values,...">slap/vector_ops.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>A valid matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The sum of all of the elements, or NaN if there was an error </dd></dl>
 
 </div>
 </div>
@@ -696,13 +1905,13 @@ Utilities</h3>
 
 <p>Transpose a 2D matrix. </p>
 <p>This operation doesn't change the data, just it's interpretation.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p><b>Header File:</b> <code>src/matrix.h</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td>The matrix to transpose </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A transposed <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> object </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Transposed <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> </dd></dl>
 
 </div>
 </div>

@@ -41,6 +41,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="src/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/basic_ops.html">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/api.html">API</a></li>
 </ul>
 
         </div>
@@ -71,7 +76,86 @@
 <h1>Welcome to slap’s documentation!<a class="headerlink" href="#welcome-to-slap-s-documentation" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>Why a library for <strong>s</strong>imple <strong>l</strong>inear <strong>a</strong>lgebra <strong>p</strong>rotocols?</p>
+<p>Why a library for <strong>s</strong>imple <strong>l</strong>inear <strong>a</strong>lgebra <strong>p</strong>rotocols?
+Sometimes you just need something simple. Something you can understand.
+Something you can debug. Something that just works.</p>
+<p>When it comes to linear algebra in C, the go-to options are often huge
+dependencies, difficult to install, hard to learn, and difficult to read.
+(I’m looking at you, BLAS, like who would guess that <code class="docutils literal notranslate"><span class="pre">potrf</span></code> is a Cholesky
+decomposition?)</p>
+</section>
+<section id="priorities">
+<h1>Priorities<a class="headerlink" href="#priorities" title="Permalink to this heading"></a></h1>
+<p>While most linear algebra packages prioritize speed and performance (often at the
+cost of everything else), this library prioritizes the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Simplicity</strong>: a new-comer should be able to start using it effectively within 10-30 minutes.</p></li>
+<li><p><strong>Readability</strong>: code using this library should be easy to read and follow</p></li>
+<li><p><strong>Debugging</strong>: it should be easy to step through and quickly find and fix errors.</p></li>
+<li><p><strong>Lightweight</strong>: it should be able to be used on almost any platform, especially those with limited compute</p></li>
+</ol>
+</section>
+<section id="key-design-principles">
+<h1>Key Design Principles<a class="headerlink" href="#key-design-principles" title="Permalink to this heading"></a></h1>
+<p>The library uses the following design principles:</p>
+<ul class="simple">
+<li><p>Matrices are stored in a column-major format</p></li>
+<li><p>Matrices have a row stride of 1 (all elements in a column are adjacent in memory)</p></li>
+<li><p>A matrix is just a pointer with some metadata</p></li>
+<li><p>A matrix (as just a pointer with some metadata) is passed by value</p></li>
+<li><p>Memory is owned by the user, and is never allocated by the library (except by the explicit <code class="docutils literal notranslate"><span class="pre">NewMatrix</span></code> and <code class="docutils literal notranslate"><span class="pre">FreeMatrix</span></code> commands)</p></li>
+<li><p>Error checking is primarily the responsibility of the user, since extensive error checking is computationally expensive
+(especially for low-level functions like indexing)</p></li>
+</ul>
+</section>
+<section id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/indexing.html">Indexing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#getters">Getters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#setters">Setters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#index-manipulation">Index Manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#error-checking">Error Checking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/initialization.html">Matrix Initialization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/initialization.html#from-an-array">From an Array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/initialization.html#default-initialization">Default Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/initialization.html#allocating-initialization">Allocating Initialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/basic_ops.html">Basic Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/basic_ops.html#unary-operations">Unary Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/basic_ops.html#transformations">Transformations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/api/matrix.html">matrix.h</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/api/matrix.html#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/api/matrix.html#boolean-checks">Boolean Checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/api/matrix.html#dimensions">Dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/api/matrix.html#indexing">Indexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/api/matrix.html#transformations">Transformations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/api/unary_ops.html">unary_ops.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api/copy.html">copy_matrix.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api/function_mapping.html">function_mapping.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api/iterator.html">iterator.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api/linalg.html">linalg.h</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/api/linalg.html#matrix-multiplication">Matrix Multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/api/linalg.html#cholesky">Cholesky</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/api/vector_ops.html">vector_ops.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api/vector_products.html">vector_products.h</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
@@ -80,11 +164,6 @@
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="src/getting_started.html">Getting Started</a></li>
-</ul>
-</div>
 </section>
 
 

@@ -21,6 +21,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Indexing" href="indexing.html" />
     <link rel="prev" title="Welcome to slap’s documentation!" href="../index.html" /> 
 </head>
 
@@ -41,6 +42,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_ops.html">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
 
         </div>
@@ -70,47 +76,9 @@
   <section id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
 <p>A quick background.</p>
-<dl class="cpp struct">
-<dt class="sig sig-object cpp" id="_CPPv46Matrix">
-<span id="_CPPv36Matrix"></span><span id="_CPPv26Matrix"></span><span id="Matrix"></span><span class="target" id="structMatrix"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Matrix</span></span></span><a class="headerlink" href="#_CPPv46Matrix" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Represents a matrix of double-precision data. </p>
-<p>Simple wrapper around an arbitrary pointer to the underlying data. The data is assumed to be stored in a contiguous block of memory. The data is interpreted column-wise, such that <code class="docutils literal notranslate"><span class="pre">data[1]</span></code> is element <code class="docutils literal notranslate"><span class="pre">[1,0]</span></code> of the matrix.</p>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N6Matrix4rowsE">
-<span id="_CPPv3N6Matrix4rowsE"></span><span id="_CPPv2N6Matrix4rowsE"></span><span id="Matrix::rows__uint16_t"></span><span class="target" id="structMatrix_1a47480e706bdcf890857edea454d08c3f"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rows</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix4rowsE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N6Matrix4colsE">
-<span id="_CPPv3N6Matrix4colsE"></span><span id="_CPPv2N6Matrix4colsE"></span><span id="Matrix::cols__uint16_t"></span><span class="target" id="structMatrix_1a39945eff7dbd966e0434fbd44590b437"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cols</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix4colsE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N6Matrix2sxE">
-<span id="_CPPv3N6Matrix2sxE"></span><span id="_CPPv2N6Matrix2sxE"></span><span id="Matrix::sx__uint16_t"></span><span class="target" id="structMatrix_1aa43b3de67f2a87701c3be758a8cfb2cc"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sx</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix2sxE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N6Matrix2syE">
-<span id="_CPPv3N6Matrix2syE"></span><span id="_CPPv2N6Matrix2syE"></span><span id="Matrix::sy__uint16_t"></span><span class="target" id="structMatrix_1abad52de36df040d7c936966675055476"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sy</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix2syE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N6Matrix4dataE">
-<span id="_CPPv3N6Matrix4dataE"></span><span id="_CPPv2N6Matrix4dataE"></span><span id="Matrix::data__doubleP"></span><span class="target" id="structMatrix_1a7097cbd5ded96225e7f1fecb1c39936f"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix4dataE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N6Matrix7mattypeE">
-<span id="_CPPv3N6Matrix7mattypeE"></span><span id="_CPPv2N6Matrix7mattypeE"></span><span id="Matrix::mattype__slap_MatrixType"></span><span class="target" id="structMatrix_1a830b32b428cf9740e3eb9eb53e4407de"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_MatrixType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mattype</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix7mattypeE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-</div>
-</dd></dl>
-
 <p>Here’s some cool things to say.</p>
+<p>Let’s try a reference to <a href="#id1"><span class="problematic" id="id2">:doxygenstruct:`Matrix`</span></a></p>
+<p>Ref to <span class="xref std std-ref">matrix-basics</span>.</p>
 </section>
 
 
@@ -118,6 +86,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to slap’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="indexing.html" class="btn btn-neutral float-right" title="Indexing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

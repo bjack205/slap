@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matrix Basics &mdash; slap  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> slap
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_ops.html">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">slap</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Matrix Basics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/matrix_overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Matrix Basics<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p>This page covers the basics of the matrix struct in <code class="docutils literal notranslate"><span class="pre">slap</span></code> and
+several of the fundamental operations.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">slap</span></code>, a matrix is a lightweight <code class="docutils literal notranslate"><span class="pre">struct</span></code> (and matching <code class="docutils literal notranslate"><span class="pre">typedef</span></code>) that
+holds the pointer to the start of the matrix, along with some additional meta
+for things like the size, stride, and type.</p>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv46Matrix">
+<span id="_CPPv36Matrix"></span><span id="_CPPv26Matrix"></span><span id="Matrix"></span><span class="target" id="structMatrix"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Matrix</span></span></span><a class="headerlink" href="#_CPPv46Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Represents a matrix of double-precision data. </p>
+<p>Simple wrapper around an arbitrary pointer to the underlying data. The data is assumed to be stored in a contiguous block of memory. The data is interpreted column-wise, such that <code class="docutils literal notranslate"><span class="pre">data[1]</span></code> is element <code class="docutils literal notranslate"><span class="pre">[1,0]</span></code> of the matrix. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Matrix4rowsE">
+<span id="_CPPv3N6Matrix4rowsE"></span><span id="_CPPv2N6Matrix4rowsE"></span><span id="Matrix::rows__uint16_t"></span><span class="target" id="structMatrix_1a47480e706bdcf890857edea454d08c3f"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rows</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix4rowsE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>number of rows </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Matrix4colsE">
+<span id="_CPPv3N6Matrix4colsE"></span><span id="_CPPv2N6Matrix4colsE"></span><span id="Matrix::cols__uint16_t"></span><span class="target" id="structMatrix_1a39945eff7dbd966e0434fbd44590b437"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cols</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix4colsE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>number of columns </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Matrix2sxE">
+<span id="_CPPv3N6Matrix2sxE"></span><span id="_CPPv2N6Matrix2sxE"></span><span id="Matrix::sx__uint16_t"></span><span class="target" id="structMatrix_1aa43b3de67f2a87701c3be758a8cfb2cc"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sx</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix2sxE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>row stride (deprecated) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Matrix2syE">
+<span id="_CPPv3N6Matrix2syE"></span><span id="_CPPv2N6Matrix2syE"></span><span id="Matrix::sy__uint16_t"></span><span class="target" id="structMatrix_1abad52de36df040d7c936966675055476"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sy</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix2syE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>column stride (distance between adjacent elements in the same row) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Matrix4dataE">
+<span id="_CPPv3N6Matrix4dataE"></span><span id="_CPPv2N6Matrix4dataE"></span><span id="Matrix::data__doubleP"></span><span class="target" id="structMatrix_1a7097cbd5ded96225e7f1fecb1c39936f"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix4dataE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>pointer to the start of the data </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Matrix7mattypeE">
+<span id="_CPPv3N6Matrix7mattypeE"></span><span id="_CPPv2N6Matrix7mattypeE"></span><span id="Matrix::mattype__slap_MatrixType"></span><span class="target" id="structMatrix_1a830b32b428cf9740e3eb9eb53e4407de"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_MatrixType</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mattype</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix7mattypeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>type of matrix </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The fields of a <a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><code class="xref cpp cpp-struct docutils literal notranslate"><span class="pre">Matrix</span></code></a> <em>should be considered private</em> and
+are not meant to be directly altered. Please use the function API, as the
+internal representation of the API is subject to change in future versions.</p>
+</div>
+<section id="size-information">
+<h2>Size Information<a class="headerlink" href="#size-information" title="Permalink to this heading"></a></h2>
+<p>The following functions are useful for obtaining information about the
+size of a matrix. Please use these functions over directly accessing the
+fields of the <a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><code class="xref cpp cpp-struct docutils literal notranslate"><span class="pre">Matrix</span></code></a> type. All size information in <code class="docutils literal notranslate"><span class="pre">slap</span></code>
+is represented by the <code class="docutils literal notranslate"><span class="pre">int</span></code> type.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the future, the default type used for size information be
+set by the user as a CMake variable.</p>
+</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412slap_NumRows6Matrix">
+<span id="_CPPv312slap_NumRows6Matrix"></span><span id="_CPPv212slap_NumRows6Matrix"></span><span id="slap_NumRows__Matrix"></span><span class="target" id="group__Basics_1gab0383430bd19fca031cbf13ed08f9f2d"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NumRows</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get the number of rows. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Number of rows </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412slap_NumCols6Matrix">
+<span id="_CPPv312slap_NumCols6Matrix"></span><span id="_CPPv212slap_NumCols6Matrix"></span><span id="slap_NumCols__Matrix"></span><span class="target" id="group__Basics_1ga071d0aa79b77aa923a2216d11b1d5b99"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NumCols</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get the number of columns. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Number of columns </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416slap_NumElementsK6Matrix">
+<span id="_CPPv316slap_NumElementsK6Matrix"></span><span id="_CPPv216slap_NumElementsK6Matrix"></span><span id="slap_NumElements__MatrixC"></span><span class="target" id="group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NumElements</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Get the number of elements in a matrix, i.e. <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">*</span> <span class="pre">n</span></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – Any matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Number of elements in the matrix </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411slap_MinDim6Matrix">
+<span id="_CPPv311slap_MinDim6Matrix"></span><span id="_CPPv211slap_MinDim6Matrix"></span><span id="slap_MinDim__Matrix"></span><span class="target" id="group__Basics_1gac97f7096614d53c84818b34fbabb3084"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MinDim</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Returns the smallest dimension. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Smaller of the number of rows and columns </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412slap_IsEmpty6Matrix">
+<span id="_CPPv312slap_IsEmpty6Matrix"></span><span id="_CPPv212slap_IsEmpty6Matrix"></span><span id="slap_IsEmpty__Matrix"></span><span class="target" id="group__Basics_1gae596da56330a975b4fb6219e0e03f7ed"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsEmpty</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Check if matrix is empty, i.e. if any dimension is 0. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any <a class="reference internal" href="#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if the matrix is empty </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413slap_IsSquare6Matrix">
+<span id="_CPPv313slap_IsSquare6Matrix"></span><span id="_CPPv213slap_IsSquare6Matrix"></span><span id="slap_IsSquare__Matrix"></span><span class="target" id="group__Basics_1gadff40a405cebffdc68742d8d13d41825"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsSquare</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Check if both dimensions are the same. </p>
+<p>Note this will still return true if both dimensions are 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if matrix is square </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="boolean-checks">
+<h2>Boolean Checks<a class="headerlink" href="#boolean-checks" title="Permalink to this heading"></a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417slap_IsTransposed6Matrix">
+<span id="_CPPv317slap_IsTransposed6Matrix"></span><span id="_CPPv217slap_IsTransposed6Matrix"></span><span id="slap_IsTransposed__Matrix"></span><span class="target" id="group__Basics_1ga0e223aa2430aab4f7466f26008b9d4b4"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsTransposed</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Check if matrix is transposed. </p>
+<p>Matrices are transposed by setting a flag that flips the indexing operations. You can have two <code class="docutils literal notranslate"><a class="reference internal" href="#structMatrix"><span class="std std-ref"><span class="pre">Matrix</span></span></a></code> instances that point to the same data, where one is transposed and the other is not. You can use this method to check whether a matrix is transposed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> <a class="reference internal" href="#structMatrix"><span class="std std-ref">Matrix</span></a> to check </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if transposed, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412slap_IsDense6Matrix">
+<span id="_CPPv312slap_IsDense6Matrix"></span><span id="_CPPv212slap_IsDense6Matrix"></span><span id="slap_IsDense__Matrix"></span><span class="target" id="group__Basics_1gac0c4333dccc8b47037621c67252f62e0"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsDense</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Check if all elements are adjacent in memory. </p>
+<p>True if column stride is equal to the number of rows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411slap_IsNull6Matrix">
+<span id="_CPPv311slap_IsNull6Matrix"></span><span id="_CPPv211slap_IsNull6Matrix"></span><span id="slap_IsNull__Matrix"></span><span class="target" id="group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsNull</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Check if matrix is a “Null” instance of a matrix (i.e. uninitialized) </p>
+<p>The “Null” state of a matrix is an internally-defined state created by the <a class="reference internal" href="#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a> method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if matrix is a “Null” matrix </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412slap_IsValid6Matrix">
+<span id="_CPPv312slap_IsValid6Matrix"></span><span id="_CPPv212slap_IsValid6Matrix"></span><span id="slap_IsValid__Matrix"></span><span class="target" id="group__Basics_1ga41cd9989b9967fec91e0ac105c3b8e67"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsValid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Check if a matrix is valid. </p>
+<p>Check if the matrix contains data: if matrix is not empty and pointer isn’t null.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if matrix is valid </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415slap_NullMatrixv">
+<span id="_CPPv315slap_NullMatrixv"></span><span id="_CPPv215slap_NullMatrixv"></span><span id="slap_NullMatrix__void"></span><span class="target" id="group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NullMatrix</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Create a “Null” matrix. </p>
+<p>Useful for default initialization of the matrix where the data it wraps hasn’t been specified or allocated yet. Can check if a matrix is in this state using <a class="reference internal" href="#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a>.</p>
+<section id="group__Basics_1autotoc_md1">
+<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md1" title="Permalink to this heading"></a></h3>
+<p id="group__Basics_1autotoc_md1"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NullMatrix</span><span class="p">();</span>
+</pre></div>
+</div>
+</p>
+<p></p>
+</section>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A default “Null” instance of a matrix. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Brian Jackson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

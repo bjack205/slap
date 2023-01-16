@@ -90,19 +90,12 @@ $(document).ready(function(){initNavTree('group__LinearAlgebra.html',''); initRe
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">LinearAlgebra</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:linalg_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linalg_8h.html">linalg.h</a></td></tr>
-<tr class="memdesc:linalg_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple linear algebra routines. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:gafd495e62e1fd29197ab77bd4e27c8379"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LinearAlgebra.html#gafd495e62e1fd29197ab77bd4e27c8379">slap_Cholesky</a> (<a class="el" href="structMatrix.html">Matrix</a> A)</td></tr>
@@ -135,7 +128,7 @@ Functions</h2></td></tr>
 
 <p>Perform a Cholesky decomposition. </p>
 <p>Performs a Cholesky decomposition on the square matrix <code>A</code>, storing the result in the lower triangular portion of <code>A</code>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p><b>Header File:</b> <code><a class="el" href="linalg_8h_source.html">slap/linalg.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">A</td><td>a square symmetric matrix </td></tr>
   </table>
@@ -173,7 +166,7 @@ Functions</h2></td></tr>
 
 <p>Solve a linear system of equation with a precomputed Cholesky decomposition. </p>
 <p>A x = b L * L' x = b L * y = b =&gt; y = L \ b L' x = y =&gt; x = L' \ y</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p><b>Header File:</b> <code><a class="el" href="linalg_8h_source.html">slap/linalg.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>A square matrix whose Cholesky decomposition is stored in the lower triangular portion of the matrix </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">b</td><td>The right-hand-side vector. Stores the solution upon completion of the function. </td></tr>
@@ -218,7 +211,7 @@ Functions</h2></td></tr>
 \[ L^T x = b \]
 </p>
 <p> if <code>istransposed</code> is true.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p><b>Header File:</b> <code><a class="el" href="linalg_8h_source.html">slap/linalg.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">L</td><td>A lower-triangular matrix </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">b</td><td>The right-hand-side vector. Stores the solution upon completion. </td></tr>

@@ -122,6 +122,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga391dbbebf0f989899410952a88b2e249"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Advanced.html#ga391dbbebf0f989899410952a88b2e249">slap_Step</a> (<a class="el" href="structMatrixIterator.html">MatrixIterator</a> *iterator)</td></tr>
 <tr class="memdesc:ga391dbbebf0f989899410952a88b2e249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Progress the iterator by one index. Updates the iterator-in-place.  <a href="group__Advanced.html#ga391dbbebf0f989899410952a88b2e249">More...</a><br /></td></tr>
 <tr class="separator:ga391dbbebf0f989899410952a88b2e249"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga574bf6aedf0e48911fbefa91bfd88d1c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Advanced.html#ga574bf6aedf0e48911fbefa91bfd88d1c">slap_IsFinished</a> (const <a class="el" href="structMatrixIterator.html">MatrixIterator</a> *iterator)</td></tr>
+<tr class="memdesc:ga574bf6aedf0e48911fbefa91bfd88d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the iterator is past the end of the matrix.  <a href="group__Advanced.html#ga574bf6aedf0e48911fbefa91bfd88d1c">More...</a><br /></td></tr>
+<tr class="separator:ga574bf6aedf0e48911fbefa91bfd88d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -175,6 +178,41 @@ Example</h1>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga574bf6aedf0e48911fbefa91bfd88d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga574bf6aedf0e48911fbefa91bfd88d1c">&#9670;&nbsp;</a></span>slap_IsFinished()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool slap_IsFinished </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMatrixIterator.html">MatrixIterator</a> *&#160;</td>
+          <td class="paramname"><em>iterator</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the iterator is past the end of the matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iterator</td><td>A valid iterator </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the iterator refers to a point past the end of the matrix </dd></dl>
+
+</div>
+</div>
 <a id="gaaed5ad568212c1273063201d12122b99"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaaed5ad568212c1273063201d12122b99">&#9670;&nbsp;</a></span>slap_Iterator()</h2>
 

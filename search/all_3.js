@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['errors_2eh_5',['errors.h',['../errors_8h.html',1,'']]]
+  ['data_5',['data',['../structMatrix.html#a7097cbd5ded96225e7f1fecb1c39936f',1,'Matrix']]]
 ];

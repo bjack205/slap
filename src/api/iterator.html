@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iterator.h &mdash; slap  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="linalg.h" href="linalg.html" />
+    <link rel="prev" title="function_mapping.h" href="function_mapping.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> slap
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_ops.html">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">matrix.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unary_ops.html">unary_ops.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copy.html">copy_matrix.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_mapping.html">function_mapping.h</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">iterator.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linalg.html">linalg.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_ops.html">vector_ops.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_products.html">vector_products.h</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">slap</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+      <li class="breadcrumb-item active">iterator.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/api/iterator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="iterator-h">
+<h1>iterator.h<a class="headerlink" href="#iterator-h" title="Permalink to this heading"></a></h1>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv414MatrixIterator">
+<span id="_CPPv314MatrixIterator"></span><span id="_CPPv214MatrixIterator"></span><span id="MatrixIterator"></span><span class="target" id="structMatrixIterator"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MatrixIterator</span></span></span><a class="headerlink" href="#_CPPv414MatrixIterator" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A struct for conveniently and efficiently iterating over strided matrices. </p>
+<p>This iterator provides the user to access the elements via either the linear or cartesian indices.</p>
+<p>Note that this will always iterate linearly over the underlying memory, so is invariant to whether or not the matrix is transposed.</p>
+<p>Note that if the matrix data is dense (there are no gaps in the memory), it is most efficient to iterate directly over the elements of the underlying array.</p>
+<section id="group__Advanced_1autotoc_md0">
+<h2>Example<a class="headerlink" href="#group__Advanced_1autotoc_md0" title="Permalink to this heading"></a></h2>
+<p id="group__Advanced_1autotoc_md0">for (<a class="reference internal" href="#structMatrixIterator"><span class="std std-ref">MatrixIterator</span></a> it = slap_Iterator(mat); !slap_IsFinished(&amp;it); slap_Step(&amp;it)) { double value = mat.data[it.index]; // Use <code class="docutils literal notranslate"><span class="pre">index</span></code> to directly index the array int linear_index = it.k; // <code class="docutils literal notranslate"><span class="pre">k</span></code> is the linear index into the array slap_SetElement(mat, it.i, it.j); // <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> are the cartesian indices } </p>
+</section>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N14MatrixIterator3lenE">
+<span id="_CPPv3N14MatrixIterator3lenE"></span><span id="_CPPv2N14MatrixIterator3lenE"></span><span id="MatrixIterator::len__uint16_t"></span><span class="target" id="group__Advanced_1gacedb6e3baabafa7140e300d6205f260d"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">len</span></span></span><a class="headerlink" href="#_CPPv4N14MatrixIterator3lenE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N14MatrixIterator4rowsE">
+<span id="_CPPv3N14MatrixIterator4rowsE"></span><span id="_CPPv2N14MatrixIterator4rowsE"></span><span id="MatrixIterator::rows__uint16_t"></span><span class="target" id="group__Advanced_1gab09f191fd2fdd160f1944aabe9b8573e"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rows</span></span></span><a class="headerlink" href="#_CPPv4N14MatrixIterator4rowsE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N14MatrixIterator2dxE">
+<span id="_CPPv3N14MatrixIterator2dxE"></span><span id="_CPPv2N14MatrixIterator2dxE"></span><span id="MatrixIterator::dx__uint16_t"></span><span class="target" id="group__Advanced_1gafd6f83bba8b4a969d235a415866c9dba"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dx</span></span></span><a class="headerlink" href="#_CPPv4N14MatrixIterator2dxE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N14MatrixIterator2dyE">
+<span id="_CPPv3N14MatrixIterator2dyE"></span><span id="_CPPv2N14MatrixIterator2dyE"></span><span id="MatrixIterator::dy__uint16_t"></span><span class="target" id="group__Advanced_1ga0ceb4fbef874310488d70ad2bc19b63e"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dy</span></span></span><a class="headerlink" href="#_CPPv4N14MatrixIterator2dyE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N14MatrixIterator1iE">
+<span id="_CPPv3N14MatrixIterator1iE"></span><span id="_CPPv2N14MatrixIterator1iE"></span><span id="MatrixIterator::i__uint16_t"></span><span class="target" id="group__Advanced_1ga578b1d3e3c8a2f193f5444b23c50e343"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">i</span></span></span><a class="headerlink" href="#_CPPv4N14MatrixIterator1iE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N14MatrixIterator1jE">
+<span id="_CPPv3N14MatrixIterator1jE"></span><span id="_CPPv2N14MatrixIterator1jE"></span><span id="MatrixIterator::j__uint16_t"></span><span class="target" id="group__Advanced_1ga54accebefc4bdd97750d34eac00c1d7b"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">j</span></span></span><a class="headerlink" href="#_CPPv4N14MatrixIterator1jE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N14MatrixIterator1kE">
+<span id="_CPPv3N14MatrixIterator1kE"></span><span id="_CPPv2N14MatrixIterator1kE"></span><span id="MatrixIterator::k__uint16_t"></span><span class="target" id="group__Advanced_1ga6151bb7c16e7429130aca63912f4911a"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">k</span></span></span><a class="headerlink" href="#_CPPv4N14MatrixIterator1kE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N14MatrixIterator5indexE">
+<span id="_CPPv3N14MatrixIterator5indexE"></span><span id="_CPPv2N14MatrixIterator5indexE"></span><span id="MatrixIterator::index__uint16_t"></span><span class="target" id="group__Advanced_1ga5e59449a4ff4d566c627b4f56c6e4123"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">index</span></span></span><a class="headerlink" href="#_CPPv4N14MatrixIterator5indexE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413slap_Iterator6Matrix">
+<span id="_CPPv313slap_Iterator6Matrix"></span><span id="_CPPv213slap_Iterator6Matrix"></span><span id="slap_Iterator__Matrix"></span><span class="target" id="group__Advanced_1gaaed5ad568212c1273063201d12122b99"></span><a class="reference internal" href="#_CPPv414MatrixIterator" title="MatrixIterator"><span class="n"><span class="pre">MatrixIterator</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Iterator</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413slap_Iterator6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create an iterator at the beginning of the matrix. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – A valid dense or strided matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A <a class="reference internal" href="#structMatrixIterator"><span class="std std-ref">MatrixIterator</span></a> for the matrix </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49slap_StepP14MatrixIterator">
+<span id="_CPPv39slap_StepP14MatrixIterator"></span><span id="_CPPv29slap_StepP14MatrixIterator"></span><span id="slap_Step__MatrixIteratorP"></span><span class="target" id="group__Advanced_1ga391dbbebf0f989899410952a88b2e249"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Step</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv414MatrixIterator" title="MatrixIterator"><span class="n"><span class="pre">MatrixIterator</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">iterator</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49slap_StepP14MatrixIterator" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Progress the iterator by one index. Updates the iterator-in-place. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>iterator</strong> – A valid iterator </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415slap_IsFinishedPK14MatrixIterator">
+<span id="_CPPv315slap_IsFinishedPK14MatrixIterator"></span><span id="_CPPv215slap_IsFinishedPK14MatrixIterator"></span><span id="slap_IsFinished__MatrixIteratorCP"></span><span class="target" id="group__Advanced_1ga574bf6aedf0e48911fbefa91bfd88d1c"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsFinished</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv414MatrixIterator" title="MatrixIterator"><span class="n"><span class="pre">MatrixIterator</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">iterator</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415slap_IsFinishedPK14MatrixIterator" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Checks if the iterator is past the end of the matrix. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>iterator</strong> – A valid iterator </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if the iterator refers to a point past the end of the matrix </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="function_mapping.html" class="btn btn-neutral float-left" title="function_mapping.h" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="linalg.html" class="btn btn-neutral float-right" title="linalg.h" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Brian Jackson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

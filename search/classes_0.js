@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['matrix_45',['Matrix',['../structMatrix.html',1,'']]],
-  ['matrixiterator_46',['MatrixIterator',['../structMatrixIterator.html',1,'']]]
+  ['matrix_74',['Matrix',['../structMatrix.html',1,'']]],
+  ['matrixiterator_75',['MatrixIterator',['../structMatrixIterator.html',1,'']]]
 ];

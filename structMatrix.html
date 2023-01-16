@@ -99,80 +99,38 @@ $(document).ready(function(){initNavTree('structMatrix.html',''); initResizable(
 <p>Represents a matrix of double-precision data.  
  <a href="structMatrix.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="matrix_8h_source.html">matrix.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="slap_8h_source.html">slap.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a47480e706bdcf890857edea454d08c3f"><td class="memItemLeft" align="right" valign="top"><a id="a47480e706bdcf890857edea454d08c3f"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>rows</b></td></tr>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrix.html#a47480e706bdcf890857edea454d08c3f">rows</a></td></tr>
+<tr class="memdesc:a47480e706bdcf890857edea454d08c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of rows <br /></td></tr>
 <tr class="separator:a47480e706bdcf890857edea454d08c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39945eff7dbd966e0434fbd44590b437"><td class="memItemLeft" align="right" valign="top"><a id="a39945eff7dbd966e0434fbd44590b437"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>cols</b></td></tr>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrix.html#a39945eff7dbd966e0434fbd44590b437">cols</a></td></tr>
+<tr class="memdesc:a39945eff7dbd966e0434fbd44590b437"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of columns <br /></td></tr>
 <tr class="separator:a39945eff7dbd966e0434fbd44590b437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa43b3de67f2a87701c3be758a8cfb2cc"><td class="memItemLeft" align="right" valign="top"><a id="aa43b3de67f2a87701c3be758a8cfb2cc"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>sx</b></td></tr>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrix.html#aa43b3de67f2a87701c3be758a8cfb2cc">sx</a></td></tr>
+<tr class="memdesc:aa43b3de67f2a87701c3be758a8cfb2cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">row stride (deprecated) <br /></td></tr>
 <tr class="separator:aa43b3de67f2a87701c3be758a8cfb2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abad52de36df040d7c936966675055476"><td class="memItemLeft" align="right" valign="top"><a id="abad52de36df040d7c936966675055476"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>sy</b></td></tr>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrix.html#abad52de36df040d7c936966675055476">sy</a></td></tr>
+<tr class="memdesc:abad52de36df040d7c936966675055476"><td class="mdescLeft">&#160;</td><td class="mdescRight">column stride (distance between adjacent elements in the same row) <br /></td></tr>
 <tr class="separator:abad52de36df040d7c936966675055476"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7097cbd5ded96225e7f1fecb1c39936f"><td class="memItemLeft" align="right" valign="top"><a id="a7097cbd5ded96225e7f1fecb1c39936f"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
+double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrix.html#a7097cbd5ded96225e7f1fecb1c39936f">data</a></td></tr>
+<tr class="memdesc:a7097cbd5ded96225e7f1fecb1c39936f"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the start of the data <br /></td></tr>
 <tr class="separator:a7097cbd5ded96225e7f1fecb1c39936f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a830b32b428cf9740e3eb9eb53e4407de"><td class="memItemLeft" align="right" valign="top"><a id="a830b32b428cf9740e3eb9eb53e4407de"></a>
-enum slap_MatrixType&#160;</td><td class="memItemRight" valign="bottom"><b>mattype</b></td></tr>
+enum slap_MatrixType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrix.html#a830b32b428cf9740e3eb9eb53e4407de">mattype</a></td></tr>
+<tr class="memdesc:a830b32b428cf9740e3eb9eb53e4407de"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of matrix <br /></td></tr>
 <tr class="separator:a830b32b428cf9740e3eb9eb53e4407de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a matrix of double-precision data. </p>
-<p>Simple wrapper around an arbitrary pointer to the underlying data. The data is assumed to be stored in a contiguous block of memory. The data is interpreted column-wise, such that <code>data[1]</code> is element <code>[1,0]</code> of the matrix.</p>
-<h2><a class="anchor" id="autotoc_md1"></a>
-Initialization</h2>
-<p>A <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> can be initialized a few ways. The easiest is via <code>NewMatrix</code>:</p>
-<div class="fragment"><div class="line"><a class="code" href="structMatrix.html">Matrix</a> mat = slap_NewMatrix(rows, cols);</div>
-<div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdoc">Represents a matrix of double-precision data.</div><div class="ttdef"><b>Definition:</b> matrix.h:79</div></div>
-</div><!-- fragment --><p> which allocates a new block of memory on the heap. It must be followed by a call to FreeMatrix().</p>
-<p>If the data for the matrix is already stored in an array, the default brace initializer can be used:</p>
-<div class="fragment"><div class="line"><span class="keywordtype">double</span> data[6] = {1,2,3,4,5,6};</div>
-<div class="line"><a class="code" href="structMatrix.html">Matrix</a> mat = {2, 3, data};</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md2"></a>
-Methods</h2>
-<p>The following methods are defined for the <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> type:</p>
-<h3><a class="anchor" id="autotoc_md3"></a>
-Initialization and deconstruction</h3>
-<ul>
-<li>slap_NewMatrix()</li>
-<li>FreeMatrix()</li>
-<li>MatrixSetConst()</li>
-<li>MatrixScaleByConst()</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md4"></a>
-Indexing operations</h3>
-<ul>
-<li>MatrixNumElements()</li>
-<li>MatrixGetLinearIndex()</li>
-<li>MatrixGetElement()</li>
-<li>MatrixGetElementTranspose()</li>
-<li>MatrixSetElement()</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md5"></a>
-Copying</h3>
-<ul>
-<li>MatrixCopy()</li>
-<li>MatrixCopyTranspose()</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md6"></a>
-Reshaping</h3>
-<ul>
-<li>MatrixFlatten()</li>
-<li>MatrixFlattenToRow()</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md7"></a>
-Utilities</h3>
-<ul>
-<li>PrintMatrix()</li>
-<li>PrintRowVector()</li>
-<li>MatrixNormedDifference() </li>
-</ul>
+<p>Simple wrapper around an arbitrary pointer to the underlying data. The data is assumed to be stored in a contiguous block of memory. The data is interpreted column-wise, such that <code>data[1]</code> is element <code>[1,0]</code> of the matrix. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/runner/work/slap/slap/src/slap/<a class="el" href="matrix_8h_source.html">matrix.h</a></li>
 </ul>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>linalg.h &mdash; slap  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="vector_ops.h" href="vector_ops.html" />
+    <link rel="prev" title="iterator.h" href="iterator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> slap
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_ops.html">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">matrix.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unary_ops.html">unary_ops.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copy.html">copy_matrix.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_mapping.html">function_mapping.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator.html">iterator.h</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">linalg.h</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#matrix-multiplication">Matrix Multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cholesky">Cholesky</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vector_ops.html">vector_ops.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_products.html">vector_products.h</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">slap</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+      <li class="breadcrumb-item active">linalg.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/api/linalg.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linalg-h">
+<h1>linalg.h<a class="headerlink" href="#linalg-h" title="Permalink to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These files are actually split among multiple header files,
+which are all included by <code class="docutils literal notranslate"><span class="pre">linalg.h</span></code></p>
+</div>
+<section id="matrix-multiplication">
+<h2>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this heading"></a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414slap_MatMulAdd6Matrix6Matrix6Matrixdd">
+<span id="_CPPv314slap_MatMulAdd6Matrix6Matrix6Matrixdd"></span><span id="_CPPv214slap_MatMulAdd6Matrix6Matrix6Matrixdd"></span><span id="slap_MatMulAdd__Matrix.Matrix.Matrix.double.double"></span><span class="target" id="matmul_8h_1ace372bccf4c6d5e4637075d56a784ff1"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MatMulAdd</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">beta</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414slap_MatMulAdd6Matrix6Matrix6Matrixdd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Perform in-place <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> multiplication with addition. </p>
+<p><div class="math notranslate nohighlight">
+\[ C = \beta C + \alpha A B \]</div>
+</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> – Destination matrix </p></li>
+<li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
+<li><p><strong>B</strong> – <strong>[in]</strong> Right input matrix </p></li>
+<li><p><strong>alpha</strong> – <strong>[in]</strong> Scaling factor on output </p></li>
+<li><p><strong>beta</strong> – <strong>[in]</strong> Scaling factor on input </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413slap_MatMulAB6Matrix6Matrix6Matrix">
+<span id="_CPPv313slap_MatMulAB6Matrix6Matrix6Matrix"></span><span id="_CPPv213slap_MatMulAB6Matrix6Matrix6Matrix"></span><span id="slap_MatMulAB__Matrix.Matrix.Matrix"></span><span class="target" id="matmul_8h_1a8b8a91b22e0c0df49ff1b9297d85022b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MatMulAB</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413slap_MatMulAB6Matrix6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Simple in-place matrix multiplication. </p>
+<p>This method performs basic matrix multiplication.</p>
+<p>This method ignores all metadata besides the size (including transpose state, strides, etc.) so should be used with care.</p>
+<p>It’s provided mainly to give the lowest possible cost for matrix multiplication, by directly indexing into the underlying data without checking for transposes or striding.</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> – <strong>[out]</strong> Destination matrix </p></li>
+<li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
+<li><p><strong>B</strong> – <strong>[in]</strong> Right input matrix </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414slap_MatMulAtB6Matrix6Matrix6Matrix">
+<span id="_CPPv314slap_MatMulAtB6Matrix6Matrix6Matrix"></span><span id="_CPPv214slap_MatMulAtB6Matrix6Matrix6Matrix"></span><span id="slap_MatMulAtB__Matrix.Matrix.Matrix"></span><span class="target" id="matmul_8h_1aa7b692648107761f9ffa93e8c1f7671b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MatMulAtB</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414slap_MatMulAtB6Matrix6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Simple matrix-transpose matrix multiplication. </p>
+<p>Calculates <div class="math notranslate nohighlight">
+\[ C = A^T B \]</div>
+</p>
+<p>Similar to slap_MatMulAB(), this method ignores all metadata information. See that method for more details.</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> – <strong>[out]</strong> Destination matrix </p></li>
+<li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
+<li><p><strong>B</strong> – <strong>[in]</strong> Right input matrix </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="matmul_8h_1aa7b692648107761f9ffa93e8c1f7671b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MatMulAtB</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Simple matrix-transpose matrix multiplication. </p>
+<p>Calculates <div class="math notranslate nohighlight">
+\[ C = A^T B \]</div>
+</p>
+<p>Similar to slap_MatMulAB(), this method ignores all metadata information. See that method for more details.</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> – <strong>[out]</strong> Destination matrix </p></li>
+<li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
+<li><p><strong>B</strong> – <strong>[in]</strong> Right input matrix </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="cholesky">
+<h2>Cholesky<a class="headerlink" href="#cholesky" title="Permalink to this heading"></a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413slap_Cholesky6Matrix">
+<span id="_CPPv313slap_Cholesky6Matrix"></span><span id="_CPPv213slap_Cholesky6Matrix"></span><span id="slap_Cholesky__Matrix"></span><span class="target" id="group__LinearAlgebra_1gafd495e62e1fd29197ab77bd4e27c8379"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Cholesky</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413slap_Cholesky6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Perform a Cholesky decomposition. </p>
+<p>Performs a Cholesky decomposition on the square matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>, storing the result in the lower triangular portion of <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>A</strong> – a square symmetric matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>slap error code. There is a dedicated code SLAP_CHOLESKY_FAIL if the factorization fails due to a negative value on the diagonal (matrix isn’t positive definite). </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420slap_LowerTriBackSub6Matrix6Matrix">
+<span id="_CPPv320slap_LowerTriBackSub6Matrix6Matrix"></span><span id="_CPPv220slap_LowerTriBackSub6Matrix6Matrix"></span><span id="slap_LowerTriBackSub__Matrix.Matrix"></span><span class="target" id="group__LinearAlgebra_1gaf8ca733754d02de5b5a6380af70003c8"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_LowerTriBackSub</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">L</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420slap_LowerTriBackSub6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Solve a linear system of equation for a lower triangular matrix. </p>
+<p>Uses backsubstitution to solve a system of equations of the following form: <div class="math notranslate nohighlight">
+\[ L x = b \]</div>
+ for a lower-triangular matrix <span class="math notranslate nohighlight">\( L \)</span>, or <div class="math notranslate nohighlight">
+\[ L^T x = b \]</div>
+ if <code class="docutils literal notranslate"><span class="pre">istransposed</span></code> is true.</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>L</strong> – <strong>[in]</strong> A lower-triangular matrix </p></li>
+<li><p><strong>b</strong> – <strong>[inout]</strong> The right-hand-side vector. Stores the solution upon completion. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>slap error code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418slap_CholeskySolve6Matrix6Matrix">
+<span id="_CPPv318slap_CholeskySolve6Matrix6Matrix"></span><span id="_CPPv218slap_CholeskySolve6Matrix6Matrix"></span><span id="slap_CholeskySolve__Matrix.Matrix"></span><span class="target" id="group__LinearAlgebra_1ga792058bb09344ca5bcb82a56317d618f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_CholeskySolve</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418slap_CholeskySolve6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Solve a linear system of equation with a precomputed Cholesky decomposition. </p>
+<p>A x = b L * L’ x = b L * y = b =&gt; y = L \ b L’ x = y =&gt; x = L’ \ y</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> – <strong>[in]</strong> A square matrix whose Cholesky decomposition is stored in the lower triangular portion of the matrix </p></li>
+<li><p><strong>b</strong> – <strong>[inout]</strong> The right-hand-side vector. Stores the solution upon completion of the function. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>slap error code </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="iterator.html" class="btn btn-neutral float-left" title="iterator.h" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vector_ops.html" class="btn btn-neutral float-right" title="vector_ops.h" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Brian Jackson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

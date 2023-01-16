@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vector_ops.h &mdash; slap  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="vector_products.h" href="vector_products.html" />
+    <link rel="prev" title="linalg.h" href="linalg.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> slap
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_ops.html">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">matrix.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unary_ops.html">unary_ops.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copy.html">copy_matrix.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_mapping.html">function_mapping.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator.html">iterator.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linalg.html">linalg.h</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">vector_ops.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_products.html">vector_products.h</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">slap</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+      <li class="breadcrumb-item active">vector_ops.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/api/vector_ops.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vector-ops-h">
+<h1>vector_ops.h<a class="headerlink" href="#vector-ops-h" title="Permalink to this heading"></a></h1>
+<p>Methods that treat the matrix as a vector, including things like finding minimum or maximum values, norms, sums, etc. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Brian Jackson (<a class="reference external" href="mailto:bjack205&#37;&#52;&#48;gmail&#46;com">bjack205<span>&#64;</span>gmail<span>&#46;</span>com</a>) </p>
+</dd>
+<dt><strong>Date</strong></dt><dd><p>2022-01-30 </p>
+</dd>
+<dt><strong>Copyright</strong></dt><dd><p>Copyright (c) 2022 </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411slap_ArgMax6MatrixPd">
+<span id="_CPPv311slap_ArgMax6MatrixPd"></span><span id="_CPPv211slap_ArgMax6MatrixPd"></span><span id="slap_ArgMax__Matrix.doubleP"></span><span class="target" id="group__Basics_1ga2847e81fcbd1a0c27c1afb6f4cc91410"></span><a class="reference internal" href="iterator.html#_CPPv414MatrixIterator" title="MatrixIterator"><span class="n"><span class="pre">MatrixIterator</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_ArgMax</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">max_value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411slap_ArgMax6MatrixPd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Find the maximum value in the matrix. </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mat</strong> – <strong>[in]</strong> A valid matrix </p></li>
+<li><p><strong>max_value</strong> – <strong>[out]</strong> </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A <a class="reference internal" href="iterator.html#structMatrixIterator"><span class="std std-ref">MatrixIterator</span></a> pointing to the max value </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411slap_ArgMin6MatrixPd">
+<span id="_CPPv311slap_ArgMin6MatrixPd"></span><span id="_CPPv211slap_ArgMin6MatrixPd"></span><span id="slap_ArgMin__Matrix.doubleP"></span><span class="target" id="group__Basics_1gaef6e9144874cd09ff1d56237427f34f7"></span><a class="reference internal" href="iterator.html#_CPPv414MatrixIterator" title="MatrixIterator"><span class="n"><span class="pre">MatrixIterator</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_ArgMin</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">min_value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411slap_ArgMin6MatrixPd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Find the minimum value in the matrix. </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mat</strong> – <strong>[in]</strong> </p></li>
+<li><p><strong>min_value</strong> – <strong>[out]</strong> </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A <a class="reference internal" href="iterator.html#structMatrixIterator"><span class="std std-ref">MatrixIterator</span></a> pointing to the min value </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48slap_Max6Matrix">
+<span id="_CPPv38slap_Max6Matrix"></span><span id="_CPPv28slap_Max6Matrix"></span><span id="slap_Max__Matrix"></span><span class="target" id="group__Basics_1ga09f5c095a35dee9dd75a70fa21e71da7"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Max</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48slap_Max6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Find the maximum value in the matrix. </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – A valid <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The maximum value, or NaN if there was an error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48slap_Min6Matrix">
+<span id="_CPPv38slap_Min6Matrix"></span><span id="_CPPv28slap_Min6Matrix"></span><span id="slap_Min__Matrix"></span><span class="target" id="group__Basics_1ga8c5f44f5de7d99b2c107f3a6fdb4fc95"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Min</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48slap_Min6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Find the minimum value in the matrix. </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – A valid <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The minimum value, or NaN if there was an error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419slap_NormTwoSquared6Matrix">
+<span id="_CPPv319slap_NormTwoSquared6Matrix"></span><span id="_CPPv219slap_NormTwoSquared6Matrix"></span><span id="slap_NormTwoSquared__Matrix"></span><span class="target" id="group__Basics_1gab864342fa37d9662031a746fb36c254c"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NormTwoSquared</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419slap_NormTwoSquared6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calculate the squared 2-norm of the matrix (treating it like a vector) </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – A valid <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The two norm squared, or NaN if there was an error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412slap_NormTwo6Matrix">
+<span id="_CPPv312slap_NormTwo6Matrix"></span><span id="_CPPv212slap_NormTwo6Matrix"></span><span id="slap_NormTwo__Matrix"></span><span class="target" id="group__Basics_1gabbd26d9efd0715357e02ef21a597ec93"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NormTwo</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_NormTwo6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calculate the 2-norm, treating the matrix as a vector. </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – A valid matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The two-norm, or NaN if there was an error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412slap_NormInf6Matrix">
+<span id="_CPPv312slap_NormInf6Matrix"></span><span id="_CPPv212slap_NormInf6Matrix"></span><span id="slap_NormInf__Matrix"></span><span class="target" id="group__Basics_1ga2122f133a822ac18639f8533a87c475f"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NormInf</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_NormInf6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calculate the infinity norm, treating the matrix as a vector. </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – A valid matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The infinity norm, or NaN if there was an error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412slap_NormOne6Matrix">
+<span id="_CPPv312slap_NormOne6Matrix"></span><span id="_CPPv212slap_NormOne6Matrix"></span><span id="slap_NormOne__Matrix"></span><span class="target" id="group__Basics_1ga3e98afac5d7570f75d170b2686e2d9ae"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NormOne</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_NormOne6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calculate the one norm, treating the matrix as a vector. </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – A valid matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The one norm, or NaN if there was an error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48slap_Sum6Matrix">
+<span id="_CPPv38slap_Sum6Matrix"></span><span id="_CPPv28slap_Sum6Matrix"></span><span id="slap_Sum__Matrix"></span><span class="target" id="group__Basics_1ga760d830d277b6f676ccb1dd9560e0d07"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Sum</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48slap_Sum6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calculate the sum of all of the elements. </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – A valid matrix </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The sum of all of the elements, or NaN if there was an error </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="linalg.html" class="btn btn-neutral float-left" title="linalg.h" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vector_products.html" class="btn btn-neutral float-right" title="vector_products.h" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Brian Jackson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

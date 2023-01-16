@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vector_products.h &mdash; slap  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="vector_ops.h" href="vector_ops.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> slap
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic_ops.html">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">matrix.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unary_ops.html">unary_ops.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copy.html">copy_matrix.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_mapping.html">function_mapping.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterator.html">iterator.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linalg.html">linalg.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_ops.html">vector_ops.h</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">vector_products.h</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">slap</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+      <li class="breadcrumb-item active">vector_products.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/api/vector_products.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vector-products-h">
+<h1>vector_products.h<a class="headerlink" href="#vector-products-h" title="Permalink to this heading"></a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417slap_InnerProduct6Matrix6Matrix">
+<span id="_CPPv317slap_InnerProduct6Matrix6Matrix"></span><span id="_CPPv217slap_InnerProduct6Matrix6Matrix"></span><span id="slap_InnerProduct__Matrix.Matrix"></span><span class="target" id="vector__products_8h_1a3afb8471135fb7d52662f4739ec14ce9"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_InnerProduct</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417slap_InnerProduct6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calculate the inner (dot) product of two vectors. </p>
+<p>If the vectors are of unequal length, the inner product is taken up to the shortest length.</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">vector_products.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – A vector of length n </p></li>
+<li><p><strong>y</strong> – A vector of length n </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dot product of x,y. NAN if invalid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418slap_QuadraticForm6Matrix6Matrix6Matrix">
+<span id="_CPPv318slap_QuadraticForm6Matrix6Matrix6Matrix"></span><span id="_CPPv218slap_QuadraticForm6Matrix6Matrix6Matrix"></span><span id="slap_QuadraticForm__Matrix.Matrix.Matrix"></span><span class="target" id="vector__products_8h_1a25d84557bb15866023d6eb2dd611f5b7"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_QuadraticForm</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">Q</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418slap_QuadraticForm6Matrix6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calculate the scaled inner product <span class="math notranslate nohighlight">\( y^T A x \)</span>. </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">vector_products.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – A vector of length n </p></li>
+<li><p><strong>A</strong> – A matrix of size (n,m) </p></li>
+<li><p><strong>y</strong> – A vector of length m </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dot product, or NAN if invalid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417slap_OuterProduct6Matrix6Matrix6Matrix">
+<span id="_CPPv317slap_OuterProduct6Matrix6Matrix6Matrix"></span><span id="_CPPv217slap_OuterProduct6Matrix6Matrix6Matrix"></span><span id="slap_OuterProduct__Matrix.Matrix.Matrix"></span><span class="target" id="vector__products_8h_1afc3534c453a1a73f48e203cab485bb6b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_OuterProduct</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417slap_OuterProduct6Matrix6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Take the outer product of two vectors. </p>
+<p>Calculates x * y’</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">vector_products.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> – <strong>[out]</strong> An n x m matrix holding the result of the outer product. If either dimension is larger than the corresponding vector, the rest will be untouched.</p></li>
+<li><p><strong>x</strong> – <strong>[in]</strong> An n-dimensional vector </p></li>
+<li><p><strong>y</strong> – <strong>[in]</strong> An m-dimensional vector </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>slap return code indicating any errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417slap_CrossProduct6Matrix6Matrix6Matrix">
+<span id="_CPPv317slap_CrossProduct6Matrix6Matrix6Matrix"></span><span id="_CPPv217slap_CrossProduct6Matrix6Matrix6Matrix"></span><span id="slap_CrossProduct__Matrix.Matrix.Matrix"></span><span class="target" id="vector__products_8h_1aa779767e24a6ea15da876128d5c1f5b6"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_CrossProduct</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417slap_CrossProduct6Matrix6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>take the 3D cross product of 2 vectors </p>
+<p>The vectors must all have at least length 3. If the the length is greater than three, only the first 3 elements are used.</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">vector_products.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> – <strong>[out]</strong> cross product vector </p></li>
+<li><p><strong>x</strong> – <strong>[in]</strong> first input vector </p></li>
+<li><p><strong>y</strong> – <strong>[in]</strong> second input vector (order matters) </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>slap return code indicating any errors </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="vector_ops.html" class="btn btn-neutral float-left" title="vector_ops.h" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Brian Jackson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

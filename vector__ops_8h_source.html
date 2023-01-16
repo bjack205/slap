@@ -93,43 +93,48 @@ $(document).ready(function(){initNavTree('vector__ops_8h_source.html',''); initR
 <div class="title">vector_ops.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by Brian Jackson on 12/18/22.</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matrix_8h.html">matrix.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="iterator_8h.html">iterator.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<a class="code" href="structMatrixIterator.html">MatrixIterator</a> slap_ArgMax(<a class="code" href="structMatrix.html">Matrix</a> mat, <span class="keywordtype">double</span> *max_value);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<a class="code" href="structMatrixIterator.html">MatrixIterator</a> slap_ArgMin(<a class="code" href="structMatrix.html">Matrix</a> mat, <span class="keywordtype">double</span> *min_value);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">double</span> slap_Max(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">double</span> slap_Min(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
+<a href="vector__ops_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matrix_8h.html">matrix.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="iterator_8h.html">iterator.h</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">double</span> slap_NormTwoSquared(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">double</span> slap_NormTwo(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">double</span> slap_NormInf(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">double</span> slap_NormOne(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">double</span> slap_Sum(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<a class="code" href="structMatrixIterator.html">MatrixIterator</a> <a class="code" href="group__Basics.html#ga2847e81fcbd1a0c27c1afb6f4cc91410">slap_ArgMax</a>(<a class="code" href="structMatrix.html">Matrix</a> mat, <span class="keywordtype">double</span> *max_value);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="structMatrixIterator.html">MatrixIterator</a> <a class="code" href="group__Basics.html#gaef6e9144874cd09ff1d56237427f34f7">slap_ArgMin</a>(<a class="code" href="structMatrix.html">Matrix</a> mat, <span class="keywordtype">double</span> *min_value);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">double</span> <a class="code" href="group__Basics.html#ga09f5c095a35dee9dd75a70fa21e71da7">slap_Max</a>(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">double</span> <a class="code" href="group__Basics.html#ga8c5f44f5de7d99b2c107f3a6fdb4fc95">slap_Min</a>(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">double</span> <a class="code" href="group__Basics.html#gab864342fa37d9662031a746fb36c254c">slap_NormTwoSquared</a>(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">double</span> <a class="code" href="group__Basics.html#gabbd26d9efd0715357e02ef21a597ec93">slap_NormTwo</a>(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordtype">double</span> <a class="code" href="group__Basics.html#ga2122f133a822ac18639f8533a87c475f">slap_NormInf</a>(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">double</span> <a class="code" href="group__Basics.html#ga3e98afac5d7570f75d170b2686e2d9ae">slap_NormOne</a>(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">double</span> <a class="code" href="group__Basics.html#ga760d830d277b6f676ccb1dd9560e0d07">slap_Sum</a>(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>
+<div class="ttc" id="agroup__Basics_html_ga09f5c095a35dee9dd75a70fa21e71da7"><div class="ttname"><a href="group__Basics.html#ga09f5c095a35dee9dd75a70fa21e71da7">slap_Max</a></div><div class="ttdeci">double slap_Max(Matrix mat)</div><div class="ttdoc">Find the maximum value in the matrix.</div><div class="ttdef"><b>Definition:</b> vector_ops.c:27</div></div>
+<div class="ttc" id="agroup__Basics_html_ga2122f133a822ac18639f8533a87c475f"><div class="ttname"><a href="group__Basics.html#ga2122f133a822ac18639f8533a87c475f">slap_NormInf</a></div><div class="ttdeci">double slap_NormInf(Matrix mat)</div><div class="ttdoc">Calculate the infinity norm, treating the matrix as a vector.</div><div class="ttdef"><b>Definition:</b> vector_ops.c:71</div></div>
+<div class="ttc" id="agroup__Basics_html_ga2847e81fcbd1a0c27c1afb6f4cc91410"><div class="ttname"><a href="group__Basics.html#ga2847e81fcbd1a0c27c1afb6f4cc91410">slap_ArgMax</a></div><div class="ttdeci">MatrixIterator slap_ArgMax(Matrix mat, double *max_value)</div><div class="ttdoc">Find the maximum value in the matrix.</div><div class="ttdef"><b>Definition:</b> vector_ops.c:12</div></div>
+<div class="ttc" id="agroup__Basics_html_ga3e98afac5d7570f75d170b2686e2d9ae"><div class="ttname"><a href="group__Basics.html#ga3e98afac5d7570f75d170b2686e2d9ae">slap_NormOne</a></div><div class="ttdeci">double slap_NormOne(Matrix mat)</div><div class="ttdoc">Calculate the one norm, treating the matrix as a vector.</div><div class="ttdef"><b>Definition:</b> vector_ops.c:84</div></div>
+<div class="ttc" id="agroup__Basics_html_ga760d830d277b6f676ccb1dd9560e0d07"><div class="ttname"><a href="group__Basics.html#ga760d830d277b6f676ccb1dd9560e0d07">slap_Sum</a></div><div class="ttdeci">double slap_Sum(Matrix mat)</div><div class="ttdoc">Calculate the sum of all of the elements.</div><div class="ttdef"><b>Definition:</b> vector_ops.c:95</div></div>
+<div class="ttc" id="agroup__Basics_html_ga8c5f44f5de7d99b2c107f3a6fdb4fc95"><div class="ttname"><a href="group__Basics.html#ga8c5f44f5de7d99b2c107f3a6fdb4fc95">slap_Min</a></div><div class="ttdeci">double slap_Min(Matrix mat)</div><div class="ttdoc">Find the minimum value in the matrix.</div><div class="ttdef"><b>Definition:</b> vector_ops.c:48</div></div>
+<div class="ttc" id="agroup__Basics_html_gab864342fa37d9662031a746fb36c254c"><div class="ttname"><a href="group__Basics.html#gab864342fa37d9662031a746fb36c254c">slap_NormTwoSquared</a></div><div class="ttdeci">double slap_NormTwoSquared(Matrix mat)</div><div class="ttdoc">Calculate the squared 2-norm of the matrix (treating it like a vector)</div><div class="ttdef"><b>Definition:</b> vector_ops.c:54</div></div>
+<div class="ttc" id="agroup__Basics_html_gabbd26d9efd0715357e02ef21a597ec93"><div class="ttname"><a href="group__Basics.html#gabbd26d9efd0715357e02ef21a597ec93">slap_NormTwo</a></div><div class="ttdeci">double slap_NormTwo(Matrix mat)</div><div class="ttdoc">Calculate the 2-norm, treating the matrix as a vector.</div><div class="ttdef"><b>Definition:</b> vector_ops.c:65</div></div>
+<div class="ttc" id="agroup__Basics_html_gaef6e9144874cd09ff1d56237427f34f7"><div class="ttname"><a href="group__Basics.html#gaef6e9144874cd09ff1d56237427f34f7">slap_ArgMin</a></div><div class="ttdeci">MatrixIterator slap_ArgMin(Matrix mat, double *min_value)</div><div class="ttdoc">Find the minimum value in the matrix.</div><div class="ttdef"><b>Definition:</b> vector_ops.c:33</div></div>
 <div class="ttc" id="aiterator_8h_html"><div class="ttname"><a href="iterator_8h.html">iterator.h</a></div><div class="ttdoc">Functions for efficient iteration.</div></div>
 <div class="ttc" id="amatrix_8h_html"><div class="ttname"><a href="matrix_8h.html">matrix.h</a></div><div class="ttdoc">Matrix type and fundamental operations like indexing and size.</div></div>
 <div class="ttc" id="astructMatrixIterator_html"><div class="ttname"><a href="structMatrixIterator.html">MatrixIterator</a></div><div class="ttdoc">A struct for conveniently and efficiently iterating over strided matrices.</div><div class="ttdef"><b>Definition:</b> iterator.h:36</div></div>
-<div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdoc">Represents a matrix of double-precision data.</div><div class="ttdef"><b>Definition:</b> matrix.h:79</div></div>
+<div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdoc">Represents a matrix of double-precision data.</div><div class="ttdef"><b>Definition:</b> matrix.h:34</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_e1cfc5297ee7ab3c75c0f593509ba5cf.html">slap</a></li><li class="navelem"><b>vector_ops.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_e1cfc5297ee7ab3c75c0f593509ba5cf.html">slap</a></li><li class="navelem"><a class="el" href="vector__ops_8h.html">vector_ops.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

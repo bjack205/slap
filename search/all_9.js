@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['unary_5fops_2eh_42',['unary_ops.h',['../unary__ops_8h.html',1,'']]],
-  ['utilities_43',['Utilities',['../group__Utilities.html',1,'']]]
+  ['new_5fmatrix_2eh_14',['new_matrix.h',['../new__matrix_8h.html',1,'']]]
 ];
