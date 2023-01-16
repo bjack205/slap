@@ -1,7 +1,14 @@
-//
-// Created by Brian Jackson on 12/19/22.
-// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
-//
+/**
+ * @file cholesky.h
+ * @author Brian Jackson (bjack205@gmail.com)
+ * @brief Methods for solving systems of equations using a Cholesky dcomposition
+ * @date 2022-01-30
+ *
+ * @copyright Copyright (c) 2022
+ *
+ * @addtogroup LinearAlgebra
+ * @{
+ */
 
 #pragma once
 
@@ -13,6 +20,7 @@
  * Performs a Cholesky decomposition on the square matrix @p A, storing the result in the
  * lower triangular portion of @p A.
  *
+ * **Header File:** `slap/linalg.h`
  * @param  A a square symmetric matrix
  * @return slap error code. There is a dedicated code SLAP_CHOLESKY_FAIL if the factorization
  * fails due to a negative value on the diagonal (matrix isn't positive definite).
@@ -33,6 +41,7 @@ enum slap_ErrorCode slap_Cholesky(Matrix A);
  * if @p istransposed is true.
  *
  *
+ * **Header File:** `slap/linalg.h`
  * @param[in]          L A lower-triangular matrix
  * @param[inout]       b The right-hand-side vector. Stores the solution upon completion.
  * @return slap error code
@@ -49,6 +58,7 @@ enum slap_ErrorCode slap_LowerTriBackSub(Matrix L, Matrix b);
  * L' x = y
  * => x =  L' \ y
  *
+ * **Header File:** `slap/linalg.h`
  * @param[in]    A A square matrix whose Cholesky decomposition is stored in the lower
  *               triangular portion of the matrix
  * @param[inout] b The right-hand-side vector. Stores the solution upon completion of the

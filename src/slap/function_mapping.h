@@ -1,7 +1,14 @@
-//
-// Created by Brian Jackson on 12/18/22.
-// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
-//
+/**
+ * @file function_mapping.h
+ * @author Brian Jackson (bjack205@gmail.com)
+ * @brief Method for applying functions element-wise
+ * @date 2022-01-30
+ *
+ * @copyright Copyright (c) 2022
+ *
+ * @addtogroup Advanced
+ * @{
+ */
 
 #pragma once
 

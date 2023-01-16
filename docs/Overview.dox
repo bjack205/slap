@@ -1,0 +1,7 @@
+namespace slap {
+/**
+\mainpage Welcome to slap: A simpler way to do linear algebra in C
+
+Why a library for <b>s</b>imple <b>l</b>inear <b>a</b>lgebra <b>p</b>rotocols?
+*/
+}

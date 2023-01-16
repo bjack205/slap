@@ -5,7 +5,7 @@
 
 #include "new_matrix.h"
 
-#include <malloc.h>
+#include <stdlib.h>
 
 Matrix slap_NewMatrix(int rows, int cols) {
   double* data = (double*)malloc(rows * cols * sizeof(double));
@@ -19,7 +19,7 @@ Matrix slap_NewMatrixZeros(int rows, int cols) {
   return mat;
 }
 
-int slap_FreeMatrix(Matrix mat) {
+enum slap_ErrorCode slap_FreeMatrix(Matrix mat) {
   if (mat.data) {
     free(mat.data);
     mat.data = NULL;

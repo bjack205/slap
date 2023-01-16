@@ -5,7 +5,7 @@ Matrix slap_MatrixFromArray(int rows, int cols, double* data) {
   return mat;
 }
 
-void slap_Lin2Cart(const Matrix mat, int k, int* row, int* col) {
+void slap_Linear2Cart(Matrix mat, int k, int* row, int* col) {
   int rows = slap_NumRows(mat);
   *row = k % rows;
   *col = k / rows;
