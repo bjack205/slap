@@ -17,9 +17,9 @@ include(FetchContent)
 #   can be found when installed
 #   See 26.2.2 of Professional CMake
 file(RELATIVE_PATH relDir
-  ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}
-  ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}
-  )
+    ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}
+    ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}
+    )
 set(CMAKE_INSTALL_RPATH $ORIGIN $ORIGIN/${relDir})
 
 # Add compile options
@@ -66,9 +66,9 @@ if (SLAP_BUILD_DOCS)
 endif ()
 if (SLAP_BUILD_TESTS)
   FetchContent_Declare(googletest
-    GIT_REPOSITORY https://github.com/google/googletest
-    GIT_TAG 58d77fa8070e8cec2dc1ed015d66b454c8d78850
-    )
+      GIT_REPOSITORY https://github.com/google/googletest
+      GIT_TAG 58d77fa8070e8cec2dc1ed015d66b454c8d78850
+      )
   FetchContent_MakeAvailable(googletest)
   enable_testing()
   include(GoogleTest)

@@ -19,7 +19,7 @@ Matrix slap_NewMatrixZeros(int rows, int cols) {
   return mat;
 }
 
-int slap_FreeMatrix(Matrix mat) {
+enum slap_ErrorCode slap_FreeMatrix(Matrix mat) {
   if (mat.data) {
     free(mat.data);
     mat.data = NULL;

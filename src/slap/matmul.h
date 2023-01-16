@@ -7,7 +7,55 @@
 
 #include "matrix.h"
 
+/**
+ * @brief Perform in-place Matrix multiplication with addition
+ *
+ * \f[
+ * C = \beta C + \alpha A B
+ * \f]
+ *
+ * **Header File:** `slap/linalg.h`
+ * @param C Destination matrix
+ * @param[in] A Left input matrix
+ * @param[in] B Right input matrix
+ * @param[in] alpha Scaling factor on output
+ * @param[in] beta Scaling factor on input
+ */
 enum slap_ErrorCode slap_MatMulAdd(Matrix C, Matrix A, Matrix B, double alpha, double beta);
 
+/**
+ * @brief Simple in-place matrix multiplication
+ *
+ * This method performs basic matrix multiplication.
+ *
+ * This method ignores all metadata besides the size
+ * (including transpose state, strides, etc.) so should be used
+ * with care.
+ *
+ * It's provided mainly to give the lowest possible cost for matrix multiplication,
+ * by directly indexing into the underlying data without checking for transposes or striding.
+ *
+ * **Header File:** `slap/linalg.h`
+ * @param[out] C Destination matrix
+ * @param[in] A Left input matrix
+ * @param[in] B Right input matrix
+ */
 enum slap_ErrorCode slap_MatMulAB(Matrix C, Matrix A, Matrix B);
+
+/**
+ * @brief Simple matrix-transpose matrix multiplication
+ *
+ * Calculates
+ * \f[
+ * C = A^T B
+ * \f]
+ *
+ * Similar to slap_MatMulAB(), this method ignores all metadata information. See that
+ * method for more details.
+ *
+ * **Header File:** `slap/linalg.h`
+ * @param[out] C Destination matrix
+ * @param[in] A Left input matrix
+ * @param[in] B Right input matrix
+ */
 enum slap_ErrorCode slap_MatMulAtB(Matrix C, Matrix A, Matrix B);

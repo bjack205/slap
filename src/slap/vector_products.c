@@ -107,8 +107,7 @@ enum slap_ErrorCode slap_CrossProduct(Matrix z, Matrix x, Matrix y) {
               SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
               "CrossProduct: y vector must have length greater than or equal to 3 (got %d)",
               slap_NumElements(y));
-  if (slap_NumElements(z) < 3 || slap_NumElements(x) < 3 || slap_NumElements(y))
-    z.data[0] = x.data[1] * y.data[2] - x.data[2] * y.data[1];
+  z.data[0] = x.data[1] * y.data[2] - x.data[2] * y.data[1];
   z.data[1] = x.data[2] * y.data[0] - x.data[0] * y.data[2];
   z.data[2] = x.data[0] * y.data[1] - x.data[1] * y.data[0];
   return SLAP_NO_ERROR;

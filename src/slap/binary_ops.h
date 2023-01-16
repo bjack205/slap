@@ -1,15 +1,3 @@
-/**
- * @file binary_ops.h
- * @author Brian Jackson (bjack205@gmail.com)
- * @brief Basic operations between two matrices
- * @date 2022-01-30
- *
- * @copyright Copyright (c) 2022
- *
- * @addtogroup Basics
- * @{
- */
-
 #pragma once
 
 #include "matrix.h"
