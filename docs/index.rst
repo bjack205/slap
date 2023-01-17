@@ -48,6 +48,7 @@ Table of Contents
 =================
 .. toctree::
    src/getting_started
+   src/installation
    src/matrix
    src/indexing
    src/initialization
