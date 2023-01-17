@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting Started &mdash; slap  documentation</title>
+  <title>Installation &mdash; slap  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
@@ -21,8 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="Welcome to slap’s documentation!" href="../index.html" /> 
+    <link rel="next" title="Indexing" href="indexing.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,8 +41,12 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fetchcontent">FetchContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cpm">CPM</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="indexing.html">Indexing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initialization.html">Matrix Initialization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_ops.html">Basic Operations</a></li>
@@ -64,9 +68,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Getting Started</li>
+      <li class="breadcrumb-item active">Installation</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/src/getting_started.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/src/installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -74,20 +78,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
-<p>A quick background.</p>
-<p>Here’s some cool things to say.</p>
-<p>Let’s try a reference to <a href="#id1"><span class="problematic" id="id2">:doxygenstruct:`Matrix`</span></a></p>
-<p>Ref to <span class="xref std std-ref">matrix-basics</span>.</p>
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<p>This library currently supports the following mechanisms for incorporating
+it as a dependency in your C (or C++) project
+* CMake FetchContent
+* CPM</p>
+<p>While many libraries support local “installation” into system directories,
+as a lightweight library, <code class="docutils literal notranslate"><span class="pre">slap</span></code> is meant to be downloaded directly into
+the source project to be added as a dependency. This “new” way of using
+libraries has many advantages over the traditional method of locally installing
+all dependencies.</p>
+<section id="fetchcontent">
+<h2>FetchContent<a class="headerlink" href="#fetchcontent" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cpm">
+<h2>CPM<a class="headerlink" href="#cpm" title="Permalink to this heading"></a></h2>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to slap’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="indexing.html" class="btn btn-neutral float-right" title="Indexing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
