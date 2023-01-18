@@ -35,13 +35,13 @@ Key Design Principles
 =====================
 The library uses the following design principles:
 
-* Matrices are stored in a column-major format
-* All matrices are a single data type (``double``)
-* Matrices have a row stride of 1 (all elements in a column are adjacent in memory)
-* A matrix is just a pointer with some metadata
-* A matrix (as just a pointer with some metadata) is passed by value
-* Memory is owned by the user, and is never allocated by the library (except by the explicit ``NewMatrix`` and ``FreeMatrix`` commands)
-* Error checking is primarily the responsibility of the user, since extensive error checking is computationally expensive
+#. Matrices are stored in a column-major format
+#. All matrices are a single data type (``double``)
+#. Matrices have a row stride of 1 (all elements in a column are adjacent in memory)
+#. A matrix is just a pointer with some metadata
+#. A matrix (as just a pointer with some metadata) is passed by value
+#. Memory is owned by the user, and is never allocated by the library (except by the explicit ``NewMatrix`` and ``FreeMatrix`` commands)
+#. Error checking is primarily the responsibility of the user, since extensive error checking is computationally expensive
   (especially for low-level functions like indexing)
 
 
