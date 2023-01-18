@@ -15,6 +15,7 @@ var group__Basics =
     [ "slap_Cart2Index", "group__Basics.html#gae44a94a40d7b7fdce3f21d5710ea06b8", null ],
     [ "slap_CheckInbounds", "group__Basics.html#ga7d5c4174ae1309b811f6feb1272843ba", null ],
     [ "slap_Flatten", "group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7", null ],
+    [ "slap_GetData", "group__Basics.html#ga67406cb519a723c497e70e2390b39fde", null ],
     [ "slap_GetElement", "group__Basics.html#gae7b520403190dd344634ca33136151ab", null ],
     [ "slap_GetElementConst", "group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494", null ],
     [ "slap_IsDense", "group__Basics.html#gac0c4333dccc8b47037621c67252f62e0", null ],
@@ -49,6 +50,7 @@ var group__Basics =
     [ "slap_SetIdentity", "group__Basics.html#ga31e1152f9cea93be1719e5ea07e6c338", null ],
     [ "slap_SetNull", "group__Basics.html#gac5dce240ba6e93ee724e003d83de3564", null ],
     [ "slap_SetRange", "group__Basics.html#ga65b8623a0b862b3f67aa78115c64a692", null ],
+    [ "slap_Stride", "group__Basics.html#gaa56cba2dc52d0f802667ae7160546a58", null ],
     [ "slap_Sum", "group__Basics.html#ga760d830d277b6f676ccb1dd9560e0d07", null ],
     [ "slap_Transpose", "group__Basics.html#gaa5caf511c40b1206656d81c91edcdc2a", null ]
 ];

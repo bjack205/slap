@@ -43,8 +43,9 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matrix_overview.html">Matrix Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_ops.html">Basic Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear Algebra</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
@@ -58,6 +59,7 @@
 <li class="toctree-l2"><a class="reference internal" href="vector_products.html">vector_products.h</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 </ul>
 
         </div>
@@ -183,9 +185,9 @@
 <span id="_CPPv313slap_SetRange6Matrixdd"></span><span id="_CPPv213slap_SetRange6Matrixdd"></span><span id="slap_SetRange__Matrix.double.double"></span><span class="target" id="group__Basics_1ga65b8623a0b862b3f67aa78115c64a692"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_SetRange</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">start</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stop</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413slap_SetRange6Matrixdd" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Sets the matrix to a equally-spaced range. </p>
 <p>Fills the matrix in column-major order.</p>
-<section id="group__Basics_1autotoc_md6">
-<h2>Example<a class="headerlink" href="#group__Basics_1autotoc_md6" title="Permalink to this heading"></a></h2>
-<p id="group__Basics_1autotoc_md6"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span> {c&#39;}
+<section id="group__Basics_1autotoc_md8">
+<h2>Example<a class="headerlink" href="#group__Basics_1autotoc_md8" title="Permalink to this heading"></a></h2>
+<p id="group__Basics_1autotoc_md8"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span> {c&#39;}
 #include &quot;slap/new_matrix.h&quot;
 Matrix A = slap_NewMatrix(3, 3);
 slap_SetRange(A, 1, 9);

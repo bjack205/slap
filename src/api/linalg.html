@@ -44,8 +44,9 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matrix_overview.html">Matrix Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_ops.html">Basic Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear Algebra</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
@@ -63,6 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="vector_products.html">vector_products.h</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 </ul>
 
         </div>
@@ -106,7 +108,28 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p><div class="math notranslate nohighlight">
 \[ C = \beta C + \alpha A B \]</div>
 </p>
+<p>The two input matrices can be aliased, but neither can be aliased with the output, doing so will result in undefined behavior.</p>
+<section id="matmul_8h_1autotoc_md1">
+<h3>Examples<a class="headerlink" href="#matmul_8h_1autotoc_md1" title="Permalink to this heading"></a></h3>
+<p id="matmul_8h_1autotoc_md1">Normal matrix multiplication: <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p>With transpose: <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">slap_Transpose</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p>Add result to the output, with aliasing <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_MatMullAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">slap_Transpose</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p>Transposed output and input scaling <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">slap_Transpose</span><span class="p">(</span><span class="n">C</span><span class="p">),</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p>See also: slap_MatMulAB(), slap_MatMulAtB()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
+</section>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -124,9 +147,13 @@ which are all included by <code class="docutils literal notranslate"><span class
 <dt class="sig sig-object cpp" id="_CPPv413slap_MatMulAB6Matrix6Matrix6Matrix">
 <span id="_CPPv313slap_MatMulAB6Matrix6Matrix6Matrix"></span><span id="_CPPv213slap_MatMulAB6Matrix6Matrix6Matrix"></span><span id="slap_MatMulAB__Matrix.Matrix.Matrix"></span><span class="target" id="matmul_8h_1a8b8a91b22e0c0df49ff1b9297d85022b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MatMulAB</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413slap_MatMulAB6Matrix6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Simple in-place matrix multiplication. </p>
+<p>Calculates <div class="math notranslate nohighlight">
+\[ C = A B \]</div>
+</p>
 <p>This method performs basic matrix multiplication.</p>
 <p>This method ignores all metadata besides the size (including transpose state, strides, etc.) so should be used with care.</p>
 <p>It’s provided mainly to give the lowest possible cost for matrix multiplication, by directly indexing into the underlying data without checking for transposes or striding.</p>
+<p>See also: slap_MatMulAdd(), slap_MatMulAtB()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -147,6 +174,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 \[ C = A^T B \]</div>
 </p>
 <p>Similar to slap_MatMulAB(), this method ignores all metadata information. See that method for more details.</p>
+<p>See also: slap_MatMulAdd(), slap_MatMulAB()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -167,6 +195,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 \[ C = A^T B \]</div>
 </p>
 <p>Similar to slap_MatMulAB(), this method ignores all metadata information. See that method for more details.</p>
+<p>See also: slap_MatMulAdd(), slap_MatMulAB()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

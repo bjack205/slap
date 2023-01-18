@@ -43,8 +43,9 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matrix_overview.html">Matrix Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_ops.html">Basic Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear Algebra</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
@@ -65,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="vector_products.html">vector_products.h</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
 </ul>
 
         </div>
@@ -130,13 +132,14 @@
 <dt class="sig sig-object cpp" id="_CPPv415slap_NullMatrixv">
 <span id="_CPPv315slap_NullMatrixv"></span><span id="_CPPv215slap_NullMatrixv"></span><span id="slap_NullMatrix__void"></span><span class="target" id="group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NullMatrix</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415slap_NullMatrixv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Create a “Null” matrix. </p>
-<p>Useful for default initialization of the matrix where the data it wraps hasn’t been specified or allocated yet. Can check if a matrix is in this state using <a class="reference internal" href="../matrix_overview.html#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a>.</p>
-<section id="group__Basics_1autotoc_md1">
-<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md1" title="Permalink to this heading"></a></h3>
-<p id="group__Basics_1autotoc_md1"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NullMatrix</span><span class="p">();</span>
+<p>Useful for default initialization of the matrix where the data it wraps hasn’t been specified or allocated yet. Can check if a matrix is in this state using <a class="reference internal" href="../initialization.html#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a>.</p>
+<section id="group__Basics_1autotoc_md2">
+<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md2" title="Permalink to this heading"></a></h3>
+<p id="group__Basics_1autotoc_md2"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NullMatrix</span><span class="p">();</span>
 </pre></div>
 </div>
 </p>
+<p>See also: <a class="reference internal" href="../initialization.html#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a>, <a class="reference internal" href="../initialization.html#group__Basics_1gac5dce240ba6e93ee724e003d83de3564"><span class="std std-ref">slap_SetNull()</span></a></p>
 <p></p>
 </section>
 <dl class="field-list simple">
@@ -150,6 +153,7 @@
 <dt class="sig sig-object cpp" id="_CPPv412slap_SetNullP6Matrix">
 <span id="_CPPv312slap_SetNullP6Matrix"></span><span id="_CPPv212slap_SetNullP6Matrix"></span><span id="slap_SetNull__MatrixP"></span><span class="target" id="group__Basics_1gac5dce240ba6e93ee724e003d83de3564"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_SetNull</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_SetNullP6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Set a matrix to a “Null” instance. </p>
+<p>See also: <a class="reference internal" href="../initialization.html#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a>, <a class="reference internal" href="../initialization.html#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a> </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Pointer to the matrix to set to null </p>
@@ -165,6 +169,7 @@
 <span id="_CPPv317slap_IsTransposed6Matrix"></span><span id="_CPPv217slap_IsTransposed6Matrix"></span><span id="slap_IsTransposed__Matrix"></span><span class="target" id="group__Basics_1ga0e223aa2430aab4f7466f26008b9d4b4"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsTransposed</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417slap_IsTransposed6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Check if matrix is transposed. </p>
 <p>Matrices are transposed by setting a flag that flips the indexing operations. You can have two <code class="docutils literal notranslate"><a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref"><span class="pre">Matrix</span></span></a></code> instances that point to the same data, where one is transposed and the other is not. You can use this method to check whether a matrix is transposed.</p>
+<p>See also: <a class="reference internal" href="#group__Basics_1gaa5caf511c40b1206656d81c91edcdc2a"><span class="std std-ref">slap_Transpose()</span></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> to check </p>
@@ -235,7 +240,8 @@
 <dt class="sig sig-object cpp" id="_CPPv411slap_IsNull6Matrix">
 <span id="_CPPv311slap_IsNull6Matrix"></span><span id="_CPPv211slap_IsNull6Matrix"></span><span id="slap_IsNull__Matrix"></span><span class="target" id="group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsNull</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411slap_IsNull6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Check if matrix is a “Null” instance of a matrix (i.e. uninitialized) </p>
-<p>The “Null” state of a matrix is an internally-defined state created by the <a class="reference internal" href="../matrix_overview.html#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a> method.</p>
+<p>The “Null” state of a matrix is an internally-defined state created by the <a class="reference internal" href="../initialization.html#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a> method.</p>
+<p>See also: <a class="reference internal" href="../initialization.html#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a>, <a class="reference internal" href="../initialization.html#group__Basics_1gac5dce240ba6e93ee724e003d83de3564"><span class="std std-ref">slap_SetNull()</span></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> </p>
@@ -305,21 +311,82 @@
 </dl>
 </dd></dl>
 
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411slap_StrideK6Matrix">
+<span id="_CPPv311slap_StrideK6Matrix"></span><span id="_CPPv211slap_StrideK6Matrix"></span><span id="slap_Stride__MatrixC"></span><span class="target" id="group__Basics_1gaa56cba2dc52d0f802667ae7160546a58"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Stride</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411slap_StrideK6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the column-stride stride of the matrix. </p>
+<p>This is the distance in memory between adjacent elements of the same row. For a “Dense” slap matrix where all elements are contiguous in memory, the stride is equal to the number of rows.</p>
+<p>See also: <a class="reference internal" href="#group__Basics_1gac0c4333dccc8b47037621c67252f62e0"><span class="std std-ref">slap_IsDense()</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="indexing">
 <h2>Indexing<a class="headerlink" href="#indexing" title="Permalink to this heading"></a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find function “slap_NumCart2Index” in doxygen xml output for project “slap” from directory: _build/xml/</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find function “slap_NumLinear2Cart” in doxygen xml output for project “slap” from directory: _build/xml/</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find function “slap_NumLinear2Index” in doxygen xml output for project “slap” from directory: _build/xml/</p>
-</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415slap_Cart2IndexK6Matrixii">
+<span id="_CPPv315slap_Cart2IndexK6Matrixii"></span><span id="_CPPv215slap_Cart2IndexK6Matrixii"></span><span id="slap_Cart2Index__MatrixC.i.i"></span><span class="target" id="group__Basics_1gae44a94a40d7b7fdce3f21d5710ea06b8"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Cart2Index</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415slap_Cart2IndexK6Matrixii" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the linear index for a given row and column in the matrix. </p>
+<p>Converts a cartesian index of row and column into a linear index for accessing an element of the underlying data.</p>
+<p>Supports both strided and dense matrices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mat</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> with nonzero size and initialized data </p></li>
+<li><p><strong>row</strong> – Row index </p></li>
+<li><p><strong>col</strong> – Column index </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Linear index corresponding to <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">col</span></code>. Returns -1 for a bad input. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416slap_Linear2Cart6MatrixiPiPi">
+<span id="_CPPv316slap_Linear2Cart6MatrixiPiPi"></span><span id="_CPPv216slap_Linear2Cart6MatrixiPiPi"></span><span id="slap_Linear2Cart__Matrix.i.iP.iP"></span><span class="target" id="group__Basics_1ga21b12a660e297f3f55389b15983fab9c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Linear2Cart</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416slap_Linear2Cart6MatrixiPiPi" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Converts a linear index to a Cartesian index. </p>
+<p>This is moderately expensive, since it relies on modulus and division operations.</p>
+<p>Passing null pointers to <em>row</em> and <em>col</em> results in undefined behavior, since this method does not check that these are valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p></li>
+<li><p><strong>k</strong> – <strong>[in]</strong> Linear index, from 0 to <a class="reference internal" href="#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a> </p></li>
+<li><p><strong>row</strong> – <strong>[out]</strong> Destination for row index </p></li>
+<li><p><strong>col</strong> – <strong>[out]</strong> Destination for column index </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417slap_Linear2IndexK6Matrixi">
+<span id="_CPPv317slap_Linear2IndexK6Matrixi"></span><span id="_CPPv217slap_Linear2IndexK6Matrixi"></span><span id="slap_Linear2Index__MatrixC.i"></span><span class="target" id="group__Basics_1ga31ca2f635e3a299dce7de182b5b69664"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Linear2Index</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417slap_Linear2IndexK6Matrixi" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Converts a linear index to the index into the underlying array. </p>
+<p>If the matrix is Dense (stored contiguously in memory, see <a class="reference internal" href="#group__Basics_1gac0c4333dccc8b47037621c67252f62e0"><span class="std std-ref">slap_IsDense()</span></a>), the output is the same as the input. This method is most helpful for strided matrices.</p>
+<p>Note that for strided arrays, this method is fairly expensive since it converts the linear index into a Cartesian index, and then to the array index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mat</strong> – A dense or strided matrix </p></li>
+<li><p><strong>k</strong> – The linear index, ranging from 0 to <a class="reference internal" href="#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a> </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The index into mat.data corresponding the <code class="docutils literal notranslate"><span class="pre">k</span></code>th element of <em>mat</em> </p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv418slap_CheckInbounds6Matrixii">
 <span id="_CPPv318slap_CheckInbounds6Matrixii"></span><span id="_CPPv218slap_CheckInbounds6Matrixii"></span><span id="slap_CheckInbounds__Matrix.i.i"></span><span class="target" id="group__Basics_1ga7d5c4174ae1309b811f6feb1272843ba"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_CheckInbounds</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418slap_CheckInbounds6Matrixii" title="Permalink to this definition"></a><br /></dt>
@@ -343,9 +410,9 @@
 <span id="_CPPv315slap_GetElement6Matrixii"></span><span id="_CPPv215slap_GetElement6Matrixii"></span><span id="slap_GetElement__Matrix.i.i"></span><span class="target" id="group__Basics_1gae7b520403190dd344634ca33136151ab"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">slap_GetElement</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415slap_GetElement6Matrixii" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get a pointer to matrix element given row, column indices. </p>
 <p>Note that this method does NOT perform any bounds checking so can be used unsafely! Passing an index that is out of bounds is undefined behavior.</p>
-<section id="group__Basics_1autotoc_md2">
-<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md2" title="Permalink to this heading"></a></h3>
-<p id="group__Basics_1autotoc_md2">The following gets a pointer to the 1st element in the 2nd column, and then modifies it. <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_GetElement</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<section id="group__Basics_1autotoc_md3">
+<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md3" title="Permalink to this heading"></a></h3>
+<p id="group__Basics_1autotoc_md3">The following gets a pointer to the 1st element in the 2nd column, and then modifies it. <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_GetElement</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -374,9 +441,9 @@
 <dt class="sig sig-object cpp" id="_CPPv420slap_GetElementConstK6Matrixii">
 <span id="_CPPv320slap_GetElementConstK6Matrixii"></span><span id="_CPPv220slap_GetElementConstK6Matrixii"></span><span id="slap_GetElementConst__MatrixC.i.i"></span><span class="target" id="group__Basics_1ga07acae3b6d5138f608ffd9dbe1c2e494"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">slap_GetElementConst</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420slap_GetElementConstK6Matrixii" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get a const pointer to matrix element given row, column indices. </p>
-<section id="group__Basics_1autotoc_md3">
-<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md3" title="Permalink to this heading"></a></h3>
-<p id="group__Basics_1autotoc_md3">The following gets a pointer to the 1st element in the 2nd column. <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_GetElementConst</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<section id="group__Basics_1autotoc_md4">
+<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md4" title="Permalink to this heading"></a></h3>
+<p id="group__Basics_1autotoc_md4">The following gets a pointer to the 1st element in the 2nd column. <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_GetElementConst</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </p>
@@ -406,10 +473,14 @@
 <dd><p>Set an matrix element to a given value. </p>
 <p>This is a low-level function with no error checking. As such, it should be used carefully, as it can easily result in undefined behavior.</p>
 <p>The user should make sure the indices are within bounds and that the data pointer is valid.</p>
-<p>Example Set the 1st element of the 2nd column to 10.1; <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_SetElement</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10.1</span><span class="p">);</span>
+<section id="group__Basics_1autotoc_md5">
+<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md5" title="Permalink to this heading"></a></h3>
+<p id="group__Basics_1autotoc_md5">Set the 1st element of the 2nd column to 10.1; <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_SetElement</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10.1</span><span class="p">);</span>
 </pre></div>
 </div>
 </p>
+<p></p>
+</section>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -430,6 +501,7 @@
 <span id="_CPPv312slap_Flatten6Matrix"></span><span id="_CPPv212slap_Flatten6Matrix"></span><span id="slap_Flatten__Matrix"></span><span class="target" id="group__Basics_1ga34b0cf8ab431aba8466deb196b050ff7"></span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Flatten</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_Flatten6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Flatten a 2D matrix to a column vector. </p>
 <p>Changes the row and column data so that the matrix is now a column vector. The underlying data is unchanged.</p>
+<p>See also: <a class="reference internal" href="#group__Basics_1ga9c0ba68dd5be65c3ed135d1ffb0e3603"><span class="std std-ref">slap_Reshape()</span></a></p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">src/matrix.h</span></code> </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -446,6 +518,7 @@
 <span id="_CPPv314slap_Transpose6Matrix"></span><span id="_CPPv214slap_Transpose6Matrix"></span><span id="slap_Transpose__Matrix"></span><span class="target" id="group__Basics_1gaa5caf511c40b1206656d81c91edcdc2a"></span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Transpose</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414slap_Transpose6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Transpose a 2D matrix. </p>
 <p>This operation doesn’t change the data, just it’s interpretation.</p>
+<p>See also: <a class="reference internal" href="#group__Basics_1ga0e223aa2430aab4f7466f26008b9d4b4"><span class="std std-ref">slap_IsTransposed()</span></a></p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">src/matrix.h</span></code> </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -462,6 +535,7 @@
 <span id="_CPPv312slap_Reshape6Matrixii"></span><span id="_CPPv212slap_Reshape6Matrixii"></span><span id="slap_Reshape__Matrix.i.i"></span><span class="target" id="group__Basics_1ga9c0ba68dd5be65c3ed135d1ffb0e3603"></span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Reshape</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rows</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">cols</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_Reshape6Matrixii" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Set the dimensions of the matrix. </p>
 <p>Note that this does not change the underlying data, only it’s interpretation.</p>
+<p>See also: <a class="reference internal" href="#group__Basics_1ga34b0cf8ab431aba8466deb196b050ff7"><span class="std std-ref">slap_Flatten()</span></a>, slap_CreateSubMatrix()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">src/matrix.h</span></code> </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

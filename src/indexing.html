@@ -21,8 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Matrix Initialization" href="initialization.html" />
-    <link rel="prev" title="Installation" href="installation.html" /> 
+    <link rel="next" title="Basic Operations" href="basic_ops.html" />
+    <link rel="prev" title="Matrix Initialization" href="initialization.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,6 +43,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix_overview.html">Matrix Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initialization.html">Matrix Initialization</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Indexing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#getters">Getters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setters">Setters</a></li>
@@ -50,10 +52,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#error-checking">Error Checking</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="initialization.html">Matrix Initialization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_ops.html">Basic Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear_algebra.html">Linear Algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
 </ul>
 
         </div>
@@ -95,16 +97,15 @@ the cost of the function call (and object copy).</p>
 </div>
 <section id="getters">
 <h2>Getters<a class="headerlink" href="#getters" title="Permalink to this heading"></a></h2>
-<p>Use the following functions to obtain a pointer to an element of the matrix:
-The pointer from the first (non-const) function can be used to modify the element.</p>
+<p>Use the following functions to obtain a pointer to an element of the matrix:</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv415slap_GetElement6Matrixii">
 <span id="_CPPv315slap_GetElement6Matrixii"></span><span id="_CPPv215slap_GetElement6Matrixii"></span><span id="slap_GetElement__Matrix.i.i"></span><span class="target" id="group__Basics_1gae7b520403190dd344634ca33136151ab"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">slap_GetElement</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Get a pointer to matrix element given row, column indices. </p>
 <p>Note that this method does NOT perform any bounds checking so can be used unsafely! Passing an index that is out of bounds is undefined behavior.</p>
-<section id="group__Basics_1autotoc_md2">
-<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md2" title="Permalink to this heading"></a></h3>
-<p id="group__Basics_1autotoc_md2">The following gets a pointer to the 1st element in the 2nd column, and then modifies it. <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_GetElement</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<section id="group__Basics_1autotoc_md3">
+<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md3" title="Permalink to this heading"></a></h3>
+<p id="group__Basics_1autotoc_md3">The following gets a pointer to the 1st element in the 2nd column, and then modifies it. <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_GetElement</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -133,9 +134,9 @@ The pointer from the first (non-const) function can be used to modify the elemen
 <dt class="sig sig-object cpp" id="_CPPv420slap_GetElementConstK6Matrixii">
 <span id="_CPPv320slap_GetElementConstK6Matrixii"></span><span id="_CPPv220slap_GetElementConstK6Matrixii"></span><span id="slap_GetElementConst__MatrixC.i.i"></span><span class="target" id="group__Basics_1ga07acae3b6d5138f608ffd9dbe1c2e494"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">slap_GetElementConst</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Get a const pointer to matrix element given row, column indices. </p>
-<section id="group__Basics_1autotoc_md3">
-<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md3" title="Permalink to this heading"></a></h3>
-<p id="group__Basics_1autotoc_md3">The following gets a pointer to the 1st element in the 2nd column. <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_GetElementConst</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<section id="group__Basics_1autotoc_md4">
+<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md4" title="Permalink to this heading"></a></h3>
+<p id="group__Basics_1autotoc_md4">The following gets a pointer to the 1st element in the 2nd column. <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_GetElementConst</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </p>
@@ -159,6 +160,10 @@ The pointer from the first (non-const) function can be used to modify the elemen
 </dl>
 </dd></dl>
 
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The pointer from the first (non-const) function can be used to modify the element.</p>
+</div>
 </section>
 <section id="setters">
 <h2>Setters<a class="headerlink" href="#setters" title="Permalink to this heading"></a></h2>
@@ -169,10 +174,14 @@ The pointer from the first (non-const) function can be used to modify the elemen
 <dd><p>Set an matrix element to a given value. </p>
 <p>This is a low-level function with no error checking. As such, it should be used carefully, as it can easily result in undefined behavior.</p>
 <p>The user should make sure the indices are within bounds and that the data pointer is valid.</p>
-<p>Example Set the 1st element of the 2nd column to 10.1; <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_SetElement</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10.1</span><span class="p">);</span>
+<section id="group__Basics_1autotoc_md5">
+<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md5" title="Permalink to this heading"></a></h3>
+<p id="group__Basics_1autotoc_md5">Set the 1st element of the 2nd column to 10.1; <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_SetElement</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10.1</span><span class="p">);</span>
 </pre></div>
 </div>
 </p>
+<p></p>
+</section>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -189,18 +198,18 @@ The pointer from the first (non-const) function can be used to modify the elemen
 <section id="index-manipulation">
 <h2>Index Manipulation<a class="headerlink" href="#index-manipulation" title="Permalink to this heading"></a></h2>
 <p>Use the following methods to switch between linear and Cartesian indexing.</p>
-<dl>
-<dt>Terminology:</dt><dd><ul class="simple">
+<p><strong>Terminology</strong>:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Cart</span></code>: Cartesian, i.e. row and column</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Linear</span></code> Column-based linear index from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">N-1</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the output of <a class="reference internal" href="api/matrix.html#_CPPv416slap_NumElementsK6Matrix" title="slap_NumElements"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_NumElements()</span></code></a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Index</span></code>: Index into the underlying array in memory</p></li>
 </ul>
 <p>Note that <cite>Linear</cite> and <cite>Index</cite> are the same for a “dense” matrix, and different for a strided matrix.</p>
-</dd>
-</dl>
+</div></blockquote>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv415slap_Cart2IndexK6Matrixii">
-<span id="_CPPv315slap_Cart2IndexK6Matrixii"></span><span id="_CPPv215slap_Cart2IndexK6Matrixii"></span><span id="slap_Cart2Index__MatrixC.i.i"></span><span class="target" id="group__Basics_1gae44a94a40d7b7fdce3f21d5710ea06b8"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Cart2Index</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415slap_Cart2IndexK6Matrixii" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv315slap_Cart2IndexK6Matrixii"></span><span id="_CPPv215slap_Cart2IndexK6Matrixii"></span><span id="slap_Cart2Index__MatrixC.i.i"></span><span class="target" id="group__Basics_1gae44a94a40d7b7fdce3f21d5710ea06b8"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Cart2Index</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Get the linear index for a given row and column in the matrix. </p>
 <p>Converts a cartesian index of row and column into a linear index for accessing an element of the underlying data.</p>
 <p>Supports both strided and dense matrices.</p>
@@ -220,15 +229,15 @@ The pointer from the first (non-const) function can be used to modify the elemen
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv417slap_Linear2IndexK6Matrixi">
-<span id="_CPPv317slap_Linear2IndexK6Matrixi"></span><span id="_CPPv217slap_Linear2IndexK6Matrixi"></span><span id="slap_Linear2Index__MatrixC.i"></span><span class="target" id="group__Basics_1ga31ca2f635e3a299dce7de182b5b69664"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Linear2Index</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417slap_Linear2IndexK6Matrixi" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv317slap_Linear2IndexK6Matrixi"></span><span id="_CPPv217slap_Linear2IndexK6Matrixi"></span><span id="slap_Linear2Index__MatrixC.i"></span><span class="target" id="group__Basics_1ga31ca2f635e3a299dce7de182b5b69664"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Linear2Index</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Converts a linear index to the index into the underlying array. </p>
-<p>If the matrix is Dense (stored contiguously in memory, see <a class="reference internal" href="matrix_overview.html#group__Basics_1gac0c4333dccc8b47037621c67252f62e0"><span class="std std-ref">slap_IsDense()</span></a>), the output is the same as the input. This method is most helpful for strided matrices.</p>
+<p>If the matrix is Dense (stored contiguously in memory, see <a class="reference internal" href="api/matrix.html#group__Basics_1gac0c4333dccc8b47037621c67252f62e0"><span class="std std-ref">slap_IsDense()</span></a>), the output is the same as the input. This method is most helpful for strided matrices.</p>
 <p>Note that for strided arrays, this method is fairly expensive since it converts the linear index into a Cartesian index, and then to the array index.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – A dense or strided matrix </p></li>
-<li><p><strong>k</strong> – The linear index, ranging from 0 to <a class="reference internal" href="matrix_overview.html#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a> </p></li>
+<li><p><strong>k</strong> – The linear index, ranging from 0 to <a class="reference internal" href="api/matrix.html#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a> </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -239,7 +248,7 @@ The pointer from the first (non-const) function can be used to modify the elemen
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv416slap_Linear2Cart6MatrixiPiPi">
-<span id="_CPPv316slap_Linear2Cart6MatrixiPiPi"></span><span id="_CPPv216slap_Linear2Cart6MatrixiPiPi"></span><span id="slap_Linear2Cart__Matrix.i.iP.iP"></span><span class="target" id="group__Basics_1ga21b12a660e297f3f55389b15983fab9c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Linear2Cart</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416slap_Linear2Cart6MatrixiPiPi" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv316slap_Linear2Cart6MatrixiPiPi"></span><span id="_CPPv216slap_Linear2Cart6MatrixiPiPi"></span><span id="slap_Linear2Cart__Matrix.i.iP.iP"></span><span class="target" id="group__Basics_1ga21b12a660e297f3f55389b15983fab9c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Linear2Cart</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Converts a linear index to a Cartesian index. </p>
 <p>This is moderately expensive, since it relies on modulus and division operations.</p>
 <p>Passing null pointers to <em>row</em> and <em>col</em> results in undefined behavior, since this method does not check that these are valid.</p>
@@ -247,7 +256,7 @@ The pointer from the first (non-const) function can be used to modify the elemen
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p></li>
-<li><p><strong>k</strong> – <strong>[in]</strong> Linear index, from 0 to <a class="reference internal" href="matrix_overview.html#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a> </p></li>
+<li><p><strong>k</strong> – <strong>[in]</strong> Linear index, from 0 to <a class="reference internal" href="api/matrix.html#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a> </p></li>
 <li><p><strong>row</strong> – <strong>[out]</strong> Destination for row index </p></li>
 <li><p><strong>col</strong> – <strong>[out]</strong> Destination for column index </p></li>
 </ul>
@@ -283,8 +292,8 @@ The pointer from the first (non-const) function can be used to modify the elemen
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="initialization.html" class="btn btn-neutral float-right" title="Matrix Initialization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="initialization.html" class="btn btn-neutral float-left" title="Matrix Initialization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="basic_ops.html" class="btn btn-neutral float-right" title="Basic Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -156,6 +156,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaad6c5a960abe57f6c2b54b741f4b8ab2"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2">slap_IsNull</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
 <tr class="memdesc:gaad6c5a960abe57f6c2b54b741f4b8ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if matrix is a "Null" instance of a matrix (i.e. uninitialized)  <a href="group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2">More...</a><br /></td></tr>
 <tr class="separator:gaad6c5a960abe57f6c2b54b741f4b8ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67406cb519a723c497e70e2390b39fde"><td class="memItemLeft" align="right" valign="top">static double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga67406cb519a723c497e70e2390b39fde">slap_GetData</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:ga67406cb519a723c497e70e2390b39fde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the raw pointer stored by the matrix.  <a href="group__Basics.html#ga67406cb519a723c497e70e2390b39fde">More...</a><br /></td></tr>
+<tr class="separator:ga67406cb519a723c497e70e2390b39fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac97f7096614d53c84818b34fbabb3084"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gac97f7096614d53c84818b34fbabb3084">slap_MinDim</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
 <tr class="memdesc:gac97f7096614d53c84818b34fbabb3084"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the smallest dimension.  <a href="group__Basics.html#gac97f7096614d53c84818b34fbabb3084">More...</a><br /></td></tr>
 <tr class="separator:gac97f7096614d53c84818b34fbabb3084"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,6 +171,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga2d2fab80e90b514a60ac08b391a16a13"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga2d2fab80e90b514a60ac08b391a16a13">slap_NumElements</a> (const <a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
 <tr class="memdesc:ga2d2fab80e90b514a60ac08b391a16a13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of elements in a matrix, i.e. <code>m * n</code>.  <a href="group__Basics.html#ga2d2fab80e90b514a60ac08b391a16a13">More...</a><br /></td></tr>
 <tr class="separator:ga2d2fab80e90b514a60ac08b391a16a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa56cba2dc52d0f802667ae7160546a58"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gaa56cba2dc52d0f802667ae7160546a58">slap_Stride</a> (const <a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
+<tr class="memdesc:gaa56cba2dc52d0f802667ae7160546a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the column-stride stride of the matrix.  <a href="group__Basics.html#gaa56cba2dc52d0f802667ae7160546a58">More...</a><br /></td></tr>
+<tr class="separator:gaa56cba2dc52d0f802667ae7160546a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae44a94a40d7b7fdce3f21d5710ea06b8"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gae44a94a40d7b7fdce3f21d5710ea06b8">slap_Cart2Index</a> (const <a class="el" href="structMatrix.html">Matrix</a> mat, int row, int col)</td></tr>
 <tr class="memdesc:gae44a94a40d7b7fdce3f21d5710ea06b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the linear index for a given row and column in the matrix.  <a href="group__Basics.html#gae44a94a40d7b7fdce3f21d5710ea06b8">More...</a><br /></td></tr>
 <tr class="separator:gae44a94a40d7b7fdce3f21d5710ea06b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -506,6 +512,7 @@ Functions</h2></td></tr>
 
 <p>Flatten a 2D matrix to a column vector. </p>
 <p>Changes the row and column data so that the matrix is now a column vector. The underlying data is unchanged.</p>
+<p>See also: <a class="el" href="group__Basics.html#ga9c0ba68dd5be65c3ed135d1ffb0e3603" title="Set the dimensions of the matrix.">slap_Reshape()</a></p>
 <p><b>Header File:</b> <code>src/matrix.h</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> to be flattened. </td></tr>
@@ -513,6 +520,40 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Flattened <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga67406cb519a723c497e70e2390b39fde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga67406cb519a723c497e70e2390b39fde">&#9670;&nbsp;</a></span>slap_GetData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double* slap_GetData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the raw pointer stored by the matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>Any matrix </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -558,11 +599,11 @@ Functions</h2></td></tr>
 
 <p>Get a pointer to matrix element given row, column indices. </p>
 <p>Note that this method does NOT perform any bounds checking so can be used unsafely! Passing an index that is out of bounds is undefined behavior.</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Example</h1>
 <p>The following gets a pointer to the 1st element in the 2nd column, and then modifies it. </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> *x = <a class="code" href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a>(A, 0, 1);</div>
 <div class="line">*x = 10;</div>
-<div class="ttc" id="agroup__Basics_html_gae7b520403190dd344634ca33136151ab"><div class="ttname"><a href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a></div><div class="ttdeci">static double * slap_GetElement(Matrix mat, int row, int col)</div><div class="ttdoc">Get a pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:318</div></div>
+<div class="ttc" id="agroup__Basics_html_gae7b520403190dd344634ca33136151ab"><div class="ttname"><a href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a></div><div class="ttdeci">static double * slap_GetElement(Matrix mat, int row, int col)</div><div class="ttdoc">Get a pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:351</div></div>
 </div><!-- fragment --><p>To get the data directly, just de-reference the pointer at the call site: The following reads the data in the 2nd element of the 1st column. </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> y = *<a class="code" href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a>(A, 1, 0);</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -617,10 +658,10 @@ Example</h1>
 </div><div class="memdoc">
 
 <p>Get a const pointer to matrix element given row, column indices. </p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Example</h1>
 <p>The following gets a pointer to the 1st element in the 2nd column. </p><div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">double</span> *x = <a class="code" href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a>(A, 0, 1);</div>
-<div class="ttc" id="agroup__Basics_html_ga07acae3b6d5138f608ffd9dbe1c2e494"><div class="ttname"><a href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a></div><div class="ttdeci">static const double * slap_GetElementConst(const Matrix mat, int row, int col)</div><div class="ttdoc">Get a const pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:342</div></div>
+<div class="ttc" id="agroup__Basics_html_ga07acae3b6d5138f608ffd9dbe1c2e494"><div class="ttname"><a href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a></div><div class="ttdeci">static const double * slap_GetElementConst(const Matrix mat, int row, int col)</div><div class="ttdoc">Get a const pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:375</div></div>
 </div><!-- fragment --><p>To get the data directly, just de-reference the pointer at the call site: The following reads the data in the 2nd element of the 1st column. </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> y = *<a class="code" href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a>(A, 1, 0);</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -730,6 +771,7 @@ Example</h1>
 
 <p>Check if matrix is a "Null" instance of a matrix (i.e. uninitialized) </p>
 <p>The "Null" state of a matrix is an internally-defined state created by the <a class="el" href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2" title="Create a &quot;Null&quot; matrix.">slap_NullMatrix()</a> method.</p>
+<p>See also: <a class="el" href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2" title="Create a &quot;Null&quot; matrix.">slap_NullMatrix()</a>, <a class="el" href="group__Basics.html#gac5dce240ba6e93ee724e003d83de3564" title="Set a matrix to a &quot;Null&quot; instance.">slap_SetNull()</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td></td></tr>
@@ -802,6 +844,7 @@ Example</h1>
 
 <p>Check if matrix is transposed. </p>
 <p>Matrices are transposed by setting a flag that flips the indexing operations. You can have two <code><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a></code> instances that point to the same data, where one is transposed and the other is not. You can use this method to check whether a matrix is transposed.</p>
+<p>See also: <a class="el" href="group__Basics.html#gaa5caf511c40b1206656d81c91edcdc2a" title="Transpose a 2D matrix.">slap_Transpose()</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> to check </td></tr>
@@ -1392,11 +1435,12 @@ Example</h1>
 
 <p>Create a "Null" matrix. </p>
 <p>Useful for default initialization of the matrix where the data it wraps hasn't been specified or allocated yet. Can check if a matrix is in this state using <a class="el" href="group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2" title="Check if matrix is a &quot;Null&quot; instance of a matrix (i.e. uninitialized)">slap_IsNull()</a>.</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Example</h1>
 <div class="fragment"><div class="line"><a class="code" href="structMatrix.html">Matrix</a> A = <a class="code" href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a>();</div>
-<div class="ttc" id="agroup__Basics_html_gae2ddadd4c37bb616a95bdcd73b3c5ff2"><div class="ttname"><a href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a></div><div class="ttdeci">static Matrix slap_NullMatrix(void)</div><div class="ttdoc">Create a &quot;Null&quot; matrix.</div><div class="ttdef"><b>Definition:</b> matrix.h:86</div></div>
-</div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd>A default "Null" instance of a matrix. </dd></dl>
+<div class="ttc" id="agroup__Basics_html_gae2ddadd4c37bb616a95bdcd73b3c5ff2"><div class="ttname"><a href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a></div><div class="ttdeci">static Matrix slap_NullMatrix(void)</div><div class="ttdoc">Create a &quot;Null&quot; matrix.</div><div class="ttdef"><b>Definition:</b> matrix.h:88</div></div>
+</div><!-- fragment --><p>See also: <a class="el" href="group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2" title="Check if matrix is a &quot;Null&quot; instance of a matrix (i.e. uninitialized)">slap_IsNull()</a>, <a class="el" href="group__Basics.html#gac5dce240ba6e93ee724e003d83de3564" title="Set a matrix to a &quot;Null&quot; instance.">slap_SetNull()</a></p>
+<dl class="section return"><dt>Returns</dt><dd>A default "Null" instance of a matrix. </dd></dl>
 
 </div>
 </div>
@@ -1539,6 +1583,7 @@ Example</h1>
 
 <p>Set the dimensions of the matrix. </p>
 <p>Note that this does not change the underlying data, only it's interpretation.</p>
+<p>See also: <a class="el" href="group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7" title="Flatten a 2D matrix to a column vector.">slap_Flatten()</a>, slap_CreateSubMatrix()</p>
 <p><b>Header File:</b> <code>src/matrix.h</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> </td></tr>
@@ -1719,8 +1764,10 @@ Example</h1>
 <p>Set an matrix element to a given value. </p>
 <p>This is a low-level function with no error checking. As such, it should be used carefully, as it can easily result in undefined behavior.</p>
 <p>The user should make sure the indices are within bounds and that the data pointer is valid.</p>
-<p>Example Set the 1st element of the 2nd column to 10.1; </p><div class="fragment"><div class="line"><a class="code" href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a>(A, 0, 1, 10.1);</div>
-<div class="ttc" id="agroup__Basics_html_ga432445f932b69ce19c78e985f186bb5b"><div class="ttname"><a href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a></div><div class="ttdeci">static void slap_SetElement(Matrix mat, int row, int col, double val)</div><div class="ttdoc">Set an matrix element to a given value.</div><div class="ttdef"><b>Definition:</b> matrix.h:366</div></div>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Example</h1>
+<p>Set the 1st element of the 2nd column to 10.1; </p><div class="fragment"><div class="line"><a class="code" href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a>(A, 0, 1, 10.1);</div>
+<div class="ttc" id="agroup__Basics_html_ga432445f932b69ce19c78e985f186bb5b"><div class="ttname"><a href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a></div><div class="ttdeci">static void slap_SetElement(Matrix mat, int row, int col, double val)</div><div class="ttdoc">Set an matrix element to a given value.</div><div class="ttdef"><b>Definition:</b> matrix.h:399</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> with nonzero size and initialized data </td></tr>
@@ -1795,7 +1842,7 @@ Example</h1>
 </div><div class="memdoc">
 
 <p>Set a matrix to a "Null" instance. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>See also: <a class="el" href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2" title="Create a &quot;Null&quot; matrix.">slap_NullMatrix()</a>, <a class="el" href="group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2" title="Check if matrix is a &quot;Null&quot; instance of a matrix (i.e. uninitialized)">slap_IsNull()</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>Pointer to the matrix to set to null </td></tr>
   </table>
@@ -1838,7 +1885,7 @@ Example</h1>
 
 <p>Sets the matrix to a equally-spaced range. </p>
 <p>Fills the matrix in column-major order.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Example</h1>
 <div class="fragment"><div class="line"> {c<span class="stringliteral">&#39;}</span></div>
 <div class="line"><span class="stringliteral">#include &quot;slap/new_matrix.h&quot;</span></div>
@@ -1858,6 +1905,43 @@ Example</h1>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="gaa56cba2dc52d0f802667ae7160546a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa56cba2dc52d0f802667ae7160546a58">&#9670;&nbsp;</a></span>slap_Stride()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int slap_Stride </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>mat</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the column-stride stride of the matrix. </p>
+<p>This is the distance in memory between adjacent elements of the same row. For a "Dense" slap matrix where all elements are contiguous in memory, the stride is equal to the number of rows.</p>
+<p>See also: <a class="el" href="group__Basics.html#gac0c4333dccc8b47037621c67252f62e0" title="Check if all elements are adjacent in memory.">slap_IsDense()</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -1906,6 +1990,7 @@ Example</h1>
 
 <p>Transpose a 2D matrix. </p>
 <p>This operation doesn't change the data, just it's interpretation.</p>
+<p>See also: <a class="el" href="group__Basics.html#ga0e223aa2430aab4f7466f26008b9d4b4" title="Check if matrix is transposed.">slap_IsTransposed()</a></p>
 <p><b>Header File:</b> <code>src/matrix.h</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td>The matrix to transpose </td></tr>

@@ -42,11 +42,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="src/getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="src/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/matrix_overview.html">Matrix Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="src/initialization.html">Matrix Initialization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/indexing.html">Indexing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="src/basic_ops.html">Basic Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="src/linear_algebra.html">Linear Algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="src/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/documentation.html">Documentation</a></li>
 </ul>
 
         </div>
@@ -101,6 +103,7 @@ cost of everything else), this library prioritizes the following:</p>
 <p>The library uses the following design principles:</p>
 <ul class="simple">
 <li><p>Matrices are stored in a column-major format</p></li>
+<li><p>All matrices are a single data type (<code class="docutils literal notranslate"><span class="pre">double</span></code>)</p></li>
 <li><p>Matrices have a row stride of 1 (all elements in a column are adjacent in memory)</p></li>
 <li><p>A matrix is just a pointer with some metadata</p></li>
 <li><p>A matrix (as just a pointer with some metadata) is passed by value</p></li>
@@ -119,11 +122,10 @@ cost of everything else), this library prioritizes the following:</p>
 <li class="toctree-l2"><a class="reference internal" href="src/installation.html#cpm">CPM</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="src/indexing.html">Indexing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#getters">Getters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#setters">Setters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#index-manipulation">Index Manipulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#error-checking">Error Checking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/matrix_overview.html">Matrix Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/matrix_overview.html#the-matrix-struct">The <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/matrix_overview.html#size-information">Size Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/matrix_overview.html#boolean-checks">Boolean Checks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="src/initialization.html">Matrix Initialization</a><ul>
@@ -132,32 +134,37 @@ cost of everything else), this library prioritizes the following:</p>
 <li class="toctree-l2"><a class="reference internal" href="src/initialization.html#allocating-initialization">Allocating Initialization</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="src/indexing.html">Indexing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#getters">Getters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#setters">Setters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#index-manipulation">Index Manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/indexing.html#error-checking">Error Checking</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="src/basic_ops.html">Basic Operations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="src/basic_ops.html#unary-operations">Unary Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/basic_ops.html#transformations">Transformations</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="src/linear_algebra.html">Linear Algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/api.html">API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="src/api/matrix.html">matrix.h</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="src/api/matrix.html#initialization">Initialization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="src/api/matrix.html#boolean-checks">Boolean Checks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="src/api/matrix.html#dimensions">Dimensions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="src/api/matrix.html#indexing">Indexing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="src/api/matrix.html#transformations">Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/linear_algebra.html">Linear Algebra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/linear_algebra.html#matrix-multiplication">Matrix Multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/linear_algebra.html#solving-linear-systems">Solving Linear Systems</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="src/api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/api/matrix.html">matrix.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api/unary_ops.html">unary_ops.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api/copy.html">copy_matrix.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api/function_mapping.html">function_mapping.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api/iterator.html">iterator.h</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src/api/linalg.html">linalg.h</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="src/api/linalg.html#matrix-multiplication">Matrix Multiplication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="src/api/linalg.html#cholesky">Cholesky</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="src/api/linalg.html">linalg.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api/vector_ops.html">vector_ops.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api/vector_products.html">vector_products.h</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/documentation.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/documentation.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/documentation.html#macos">MacOS</a></li>
 </ul>
 </li>
 </ul>

@@ -21,8 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Basic Operations" href="basic_ops.html" />
-    <link rel="prev" title="Indexing" href="indexing.html" /> 
+    <link rel="next" title="Indexing" href="indexing.html" />
+    <link rel="prev" title="Matrix Basics" href="matrix_overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,16 +43,18 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="indexing.html">Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix_overview.html">Matrix Basics</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Matrix Initialization</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#from-an-array">From an Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#default-initialization">Default Initialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#allocating-initialization">Allocating Initialization</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="indexing.html">Indexing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic_ops.html">Basic Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear_algebra.html">Linear Algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
 </ul>
 
         </div>
@@ -126,13 +128,14 @@ creating and checking for Null matrices:</p>
 <dt class="sig sig-object cpp" id="_CPPv415slap_NullMatrixv">
 <span id="_CPPv315slap_NullMatrixv"></span><span id="_CPPv215slap_NullMatrixv"></span><span id="slap_NullMatrix__void"></span><span class="target" id="group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NullMatrix</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Create a “Null” matrix. </p>
-<p>Useful for default initialization of the matrix where the data it wraps hasn’t been specified or allocated yet. Can check if a matrix is in this state using <a class="reference internal" href="matrix_overview.html#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a>.</p>
-<section id="group__Basics_1autotoc_md1">
-<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md1" title="Permalink to this heading"></a></h3>
-<p id="group__Basics_1autotoc_md1"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NullMatrix</span><span class="p">();</span>
+<p>Useful for default initialization of the matrix where the data it wraps hasn’t been specified or allocated yet. Can check if a matrix is in this state using <a class="reference internal" href="#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a>.</p>
+<section id="group__Basics_1autotoc_md2">
+<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md2" title="Permalink to this heading"></a></h3>
+<p id="group__Basics_1autotoc_md2"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NullMatrix</span><span class="p">();</span>
 </pre></div>
 </div>
 </p>
+<p>See also: <a class="reference internal" href="#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a>, <a class="reference internal" href="#group__Basics_1gac5dce240ba6e93ee724e003d83de3564"><span class="std std-ref">slap_SetNull()</span></a></p>
 <p></p>
 </section>
 <dl class="field-list simple">
@@ -146,6 +149,7 @@ creating and checking for Null matrices:</p>
 <dt class="sig sig-object cpp" id="_CPPv412slap_SetNullP6Matrix">
 <span id="_CPPv312slap_SetNullP6Matrix"></span><span id="_CPPv212slap_SetNullP6Matrix"></span><span id="slap_SetNull__MatrixP"></span><span class="target" id="group__Basics_1gac5dce240ba6e93ee724e003d83de3564"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_SetNull</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Set a matrix to a “Null” instance. </p>
+<p>See also: <a class="reference internal" href="#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a>, <a class="reference internal" href="#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a> </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Pointer to the matrix to set to null </p>
@@ -157,7 +161,8 @@ creating and checking for Null matrices:</p>
 <dt class="sig sig-object cpp" id="_CPPv411slap_IsNull6Matrix">
 <span id="_CPPv311slap_IsNull6Matrix"></span><span id="_CPPv211slap_IsNull6Matrix"></span><span id="slap_IsNull__Matrix"></span><span class="target" id="group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsNull</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Check if matrix is a “Null” instance of a matrix (i.e. uninitialized) </p>
-<p>The “Null” state of a matrix is an internally-defined state created by the <a class="reference internal" href="matrix_overview.html#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a> method.</p>
+<p>The “Null” state of a matrix is an internally-defined state created by the <a class="reference internal" href="#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a> method.</p>
+<p>See also: <a class="reference internal" href="#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a>, <a class="reference internal" href="#group__Basics_1gac5dce240ba6e93ee724e003d83de3564"><span class="std std-ref">slap_SetNull()</span></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> </p>
@@ -178,9 +183,9 @@ provide some convenient methods for initializing matrices on the heap.</p>
 <span id="_CPPv314slap_NewMatrixii"></span><span id="_CPPv214slap_NewMatrixii"></span><span id="slap_NewMatrix__i.i"></span><span class="target" id="new__matrix_8h_1a9019c40a4c65f48d3b3da9bcf24bf65c"></span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NewMatrix</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rows</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">cols</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414slap_NewMatrixii" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Allocate a new matrix on the heap. </p>
 <p>Data will not be initialized. Wrapper around a call to <code class="docutils literal notranslate"><span class="pre">malloc</span></code>. Must be followed by a call to <code class="docutils literal notranslate"><span class="pre">FreeMatrix</span></code>.</p>
-<section id="new__matrix_8h_1autotoc_md4">
-<h3>Example<a class="headerlink" href="#new__matrix_8h_1autotoc_md4" title="Permalink to this heading"></a></h3>
-<p id="new__matrix_8h_1autotoc_md4"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<section id="new__matrix_8h_1autotoc_md6">
+<h3>Example<a class="headerlink" href="#new__matrix_8h_1autotoc_md6" title="Permalink to this heading"></a></h3>
+<p id="new__matrix_8h_1autotoc_md6"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
 <span class="n">slap_FreeMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -205,9 +210,9 @@ provide some convenient methods for initializing matrices on the heap.</p>
 <span id="_CPPv319slap_NewMatrixZerosii"></span><span id="_CPPv219slap_NewMatrixZerosii"></span><span id="slap_NewMatrixZeros__i.i"></span><span class="target" id="new__matrix_8h_1aad0c3a859d46fb892c5a9e758d119c6d"></span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NewMatrixZeros</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rows</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">cols</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419slap_NewMatrixZerosii" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Allocate a new matrix on the heap, initialized with zeros. </p>
 <p>Data will be initialized to zeros. Wrapper around a call to <code class="docutils literal notranslate"><span class="pre">calloc</span></code>. Must be followed by a call to <code class="docutils literal notranslate"><span class="pre">FreeMatrix</span></code>.</p>
-<section id="new__matrix_8h_1autotoc_md5">
-<h3>Example<a class="headerlink" href="#new__matrix_8h_1autotoc_md5" title="Permalink to this heading"></a></h3>
-<p id="new__matrix_8h_1autotoc_md5"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrixZeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<section id="new__matrix_8h_1autotoc_md7">
+<h3>Example<a class="headerlink" href="#new__matrix_8h_1autotoc_md7" title="Permalink to this heading"></a></h3>
+<p id="new__matrix_8h_1autotoc_md7"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrixZeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
 <span class="n">slap_FreeMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -248,8 +253,8 @@ and must be explicitly brought in by including <code class="docutils literal not
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="indexing.html" class="btn btn-neutral float-left" title="Indexing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="basic_ops.html" class="btn btn-neutral float-right" title="Basic Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="matrix_overview.html" class="btn btn-neutral float-left" title="Matrix Basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="indexing.html" class="btn btn-neutral float-right" title="Indexing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
