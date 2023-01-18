@@ -1,7 +1,7 @@
 #pragma once
 
 #ifndef PRECISION
-#define PRECISION 5
+#define PRECISION 3
 #endif
 
 #include "matrix.h"
