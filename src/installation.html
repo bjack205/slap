@@ -44,7 +44,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#fetchcontent">FetchContent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cpm">CPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">CPM</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="matrix_overview.html">Matrix Basics</a></li>
@@ -83,9 +83,11 @@
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
 <p>This library currently supports the following mechanisms for incorporating
-it as a dependency in your C (or C++) project
-* CMake FetchContent
-* CPM</p>
+it as a dependency in your C (or C++) project</p>
+<ol class="arabic simple">
+<li><p>CMake <code class="docutils literal notranslate"><span class="pre">FetchContent</span></code>.</p></li>
+<li><p><a class="reference external" href="https://github.com/cpm-cmake/CPM.cmake">CPM</a>.</p></li>
+</ol>
 <p>While many libraries support local “installation” into system directories,
 as a lightweight library, <code class="docutils literal notranslate"><span class="pre">slap</span></code> is meant to be downloaded directly into
 the source project to be added as a dependency. This “new” way of using
@@ -93,9 +95,29 @@ libraries has many advantages over the traditional method of locally installing
 all dependencies.</p>
 <section id="fetchcontent">
 <h2>FetchContent<a class="headerlink" href="#fetchcontent" title="Permalink to this heading"></a></h2>
+<p>Add the following to your <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code></p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+<span class="nb">FetchContent_Declare</span><span class="p">(</span><span class="s">slap</span>
+<span class="w">    </span><span class="s">GIT_REPOSITORY</span><span class="w"> </span><span class="s">https://github.com/bjack205/slap</span>
+<span class="w">    </span><span class="s">GIT_TAG</span><span class="w"> </span><span class="s">main</span>
+<span class="p">)</span>
+<span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">slap</span><span class="p">)</span>
+
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">main</span><span class="w"> </span><span class="s">main.c</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">main</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">slap::slap</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
-<section id="cpm">
-<h2>CPM<a class="headerlink" href="#cpm" title="Permalink to this heading"></a></h2>
+<section id="id1">
+<h2>CPM<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p>Add the following to your <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code></p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">include</span><span class="p">(</span><span class="s">CPM.cmake</span><span class="p">)</span>
+<span class="nb">CPMAddPackage</span><span class="p">(</span><span class="s2">&quot;gh:bjack205/slap#main&quot;</span><span class="p">)</span>
+
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">main</span><span class="w"> </span><span class="s">main.c</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">main</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">slap::slap</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 

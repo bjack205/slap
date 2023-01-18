@@ -101,16 +101,18 @@ cost of everything else), this library prioritizes the following:</p>
 <section id="key-design-principles">
 <h1>Key Design Principles<a class="headerlink" href="#key-design-principles" title="Permalink to this heading"></a></h1>
 <p>The library uses the following design principles:</p>
-<ul class="simple">
+<ol class="arabic simple">
 <li><p>Matrices are stored in a column-major format</p></li>
 <li><p>All matrices are a single data type (<code class="docutils literal notranslate"><span class="pre">double</span></code>)</p></li>
 <li><p>Matrices have a row stride of 1 (all elements in a column are adjacent in memory)</p></li>
 <li><p>A matrix is just a pointer with some metadata</p></li>
 <li><p>A matrix (as just a pointer with some metadata) is passed by value</p></li>
 <li><p>Memory is owned by the user, and is never allocated by the library (except by the explicit <code class="docutils literal notranslate"><span class="pre">NewMatrix</span></code> and <code class="docutils literal notranslate"><span class="pre">FreeMatrix</span></code> commands)</p></li>
-<li><p>Error checking is primarily the responsibility of the user, since extensive error checking is computationally expensive
-(especially for low-level functions like indexing)</p></li>
-</ul>
+<li><p>Error checking is primarily the responsibility of the user, since extensive error checking is computationally expensive</p></li>
+</ol>
+<blockquote>
+<div><p>(especially for low-level functions like indexing)</p>
+</div></blockquote>
 </section>
 <section id="table-of-contents">
 <h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading"></a></h1>
@@ -119,7 +121,7 @@ cost of everything else), this library prioritizes the following:</p>
 <li class="toctree-l1"><a class="reference internal" href="src/getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="src/installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="src/installation.html#fetchcontent">FetchContent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src/installation.html#cpm">CPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/installation.html#id1">CPM</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="src/matrix_overview.html">Matrix Basics</a><ul>
