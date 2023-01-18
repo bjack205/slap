@@ -15,11 +15,13 @@ Getters
 -------
 
 Use the following functions to obtain a pointer to an element of the matrix:
-The pointer from the first (non-const) function can be used to modify the element.
+
 
 .. doxygenfunction:: slap_GetElement
 
 .. doxygenfunction:: slap_GetElementConst
+
+.. tip:: The pointer from the first (non-const) function can be used to modify the element.
 
 Setters
 -------
@@ -32,7 +34,8 @@ Index Manipulation
 ------------------
 Use the following methods to switch between linear and Cartesian indexing.
 
-Terminology:
+**Terminology**:
+
  * ``Cart``: Cartesian, i.e. row and column
  * ``Linear`` Column-based linear index from ``0`` to ``N-1``, where ``N`` is the output of :cpp:func:`slap_NumElements`
  * ``Index``: Index into the underlying array in memory

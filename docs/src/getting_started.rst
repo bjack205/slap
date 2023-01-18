@@ -1,10 +1,9 @@
 Getting Started
 ===============
 
-A quick background.
+The following is a long, running example highlighting most of the features in ``slap``,
+and is included in the repository at ``examples/getting_started.c``.
 
-Here's some cool things to say.
-
-Let's try a reference to :doxygenstruct:`Matrix`
-
-Ref to :ref:`matrix-basics`.
+.. literalinclude:: ../../examples/getting_started.c
+   :language: c
+   :linenos:

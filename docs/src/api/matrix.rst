@@ -36,14 +36,16 @@ Dimensions
 
 .. doxygenfunction:: slap_NumElements
 
+.. doxygenfunction:: slap_Stride
+
 
 Indexing
 --------
-.. doxygenfunction:: slap_NumCart2Index
+.. doxygenfunction:: slap_Cart2Index
 
-.. doxygenfunction:: slap_NumLinear2Cart
+.. doxygenfunction:: slap_Linear2Cart
 
-.. doxygenfunction:: slap_NumLinear2Index
+.. doxygenfunction:: slap_Linear2Index
 
 .. doxygenfunction:: slap_CheckInbounds
 

@@ -34,7 +34,7 @@
  * }
  */
 typedef struct MatrixIterator {
-  uint16_t len;    // TODO (brian): safeguard against integer overflow
+  uint32_t len;    // TODO (brian): safeguard against integer overflow
   uint16_t rows;
   uint16_t dx;     // index delta for movement in x
   uint16_t dy;     // index delta for movement in y

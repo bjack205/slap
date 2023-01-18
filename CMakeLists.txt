@@ -116,3 +116,10 @@ endif ()
 # Packaging / Installation 
 ##############################
 # add_subdirectory(packaging)
+
+
+##############################
+# Examples
+##############################
+add_executable(getting_started examples/getting_started.c)
+target_link_libraries(getting_started PRIVATE slap::slap)

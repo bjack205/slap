@@ -81,6 +81,8 @@ Matrix slap_MatrixFromArray(int rows, int cols, double* data);
  * Matrix A = slap_NullMatrix();
  * ```
  *
+ * See also: slap_IsNull(), slap_SetNull()
+ *
  * @return A default "Null" instance of a matrix.
  */
 static inline Matrix slap_NullMatrix(void) {
@@ -94,6 +96,8 @@ static inline Matrix slap_NullMatrix(void) {
 
 /**
  * @brief Set a matrix to a "Null" instance
+ *
+ * See also: slap_NullMatrix(), slap_IsNull()
  * @param[in] mat Pointer to the matrix to set to null
  */
 static inline void slap_SetNull(Matrix* mat) {
@@ -116,6 +120,8 @@ static inline void slap_SetNull(Matrix* mat) {
  * You can have two `Matrix` instances that point to the same data, where one is
  * transposed and the other is not. You can use this method to check whether a matrix
  * is transposed.
+ *
+ * See also: slap_Transpose()
  *
  * @param[in] mat Matrix to check
  * @return true if transposed, false otherwise
@@ -167,6 +173,8 @@ static inline bool slap_IsValid(Matrix mat) {
  * The "Null" state of a matrix is an internally-defined state created by the
  * slap_NullMatrix() method.
  *
+ * See also: slap_NullMatrix(), slap_SetNull()
+ *
  * @param[in] mat
  * @return true if matrix is a "Null" matrix
  */
@@ -175,8 +183,19 @@ static inline bool slap_IsNull(Matrix mat) {
 }
 
 //*********************************************//
+// Getters
+//*********************************************//
+
+/**
+ * @brief Return the raw pointer stored by the matrix
+ * @param mat Any matrix
+ */
+static inline double *slap_GetData(Matrix mat) { return mat.data; }
+
+//*********************************************//
 // Dimensions
 //*********************************************//
+
 /**
  * @brief Returns the smallest dimension
  * @param[in] mat Any matrix
@@ -213,6 +232,20 @@ static inline int slap_NumCols(Matrix mat) {
  * @return Number of elements in the matrix
  */
 static inline int slap_NumElements(const Matrix mat) { return mat.rows * mat.cols; }
+
+/**
+ * @brief Get the column-stride stride of the matrix
+ *
+ * This is the distance in memory between adjacent elements of the same row.
+ * For a "Dense" slap matrix where all elements are contiguous in memory, the stride is
+ * equal to the number of rows.
+ *
+ * See also: slap_IsDense()
+ *
+ * @param mat
+ * @return
+ */
+static inline int slap_Stride(const Matrix mat) { return mat.sy; }
 
 //*********************************************//
 // Indexing
@@ -352,7 +385,7 @@ static inline const double* slap_GetElementConst(const Matrix mat, int row, int 
  * The user should make sure the indices are within bounds and that the
  * data pointer is valid.
  *
- * Example
+ * # Example
  * Set the 1st element of the 2nd column to 10.1;
  * ```c
  * slap_SetElement(A, 0, 1, 10.1);
@@ -387,6 +420,8 @@ double slap_MatrixNormedDifference(Matrix A, Matrix B);
  * Changes the row and column data so that the matrix is now a column vector. The
  * underlying data is unchanged.
  *
+ * See also: slap_Reshape()
+ *
  * **Header File:** `src/matrix.h`
  * @param mat Matrix to be flattened.
  * @return Flattened Matrix
@@ -398,6 +433,8 @@ Matrix slap_Flatten(Matrix mat);
  *
  * This operation doesn't change the data, just it's interpretation.
  *
+ * See also: slap_IsTransposed()
+ *
  * **Header File:** `src/matrix.h`
  * @param mat The matrix to transpose
  * @return Transposed Matrix
@@ -408,6 +445,8 @@ Matrix slap_Transpose(Matrix mat);
  * @brief Set the dimensions of the matrix
  *
  * Note that this does not change the underlying data, only it's interpretation.
+ *
+ * See also: slap_Flatten(), slap_CreateSubMatrix()
  *
  * **Header File:** `src/matrix.h`
  * @param mat  Matrix

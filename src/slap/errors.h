@@ -52,6 +52,9 @@ const char* slap_ErrorString(enum slap_ErrorCode error_code);
     return return_value;                                      \
   }
 
+#define SLAP_ASSERT_OK(error_code) \
+  SLAP_ASSERT((error_code) == SLAP_NO_ERROR, error_code, EXIT_FAILURE, "Got Bad Return Code");
+
 #define SLAP_ASSERT_VALID(mat, return_value, ...) \
   SLAP_ASSERT(slap_IsValid(mat), SLAP_INVALID_MATRIX, return_value, __VA_ARGS__)
 
