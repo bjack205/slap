@@ -6,6 +6,7 @@
 # -- Path setup ----------------------------------------------------------
 from sphinx.builders.html import StandaloneHTMLBuilder
 import subprocess, os
+# import sphinx_theme
 
 # Doxygen
 subprocess.call('doxygen Doxyfile', shell=True)
@@ -49,6 +50,10 @@ highlight_language = 'c++'
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_material'
+# html_theme = 'stanford_theme'
+# html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
+
 html_theme_options = {
     'canonical_url': '',
     'analytics_id': '',
