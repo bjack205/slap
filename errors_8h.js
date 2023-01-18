@@ -2,6 +2,7 @@ var errors_8h =
 [
     [ "SLAP_ASSERT", "group__Utilities.html#ga9b9f9c563d5c09492f0cbce65314ab9a", null ],
     [ "SLAP_ASSERT_DENSE", "group__Utilities.html#ga90eadafcec9e46c3feea8cbe51f8b9e8", null ],
+    [ "SLAP_ASSERT_OK", "group__Utilities.html#gaacba356ab4827647e91ec01674341fc9", null ],
     [ "SLAP_ASSERT_SAME_SIZE", "group__Utilities.html#ga94a4d442f781ad84b119e91d42a65d6f", null ],
     [ "SLAP_ASSERT_VALID", "group__Utilities.html#ga66d988bd2a0bc69ccaa348ed13ef6812", null ],
     [ "SLAP_COLOR_RED", "group__Utilities.html#gad880e416567f4ec714cc145bd994187f", null ],

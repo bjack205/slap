@@ -1015,6 +1015,7 @@ Example</h1>
 
 <p>Copy the data from an array into the matrix. </p>
 <p>The data is always copied into the same order as the underlying memory layout, so this method ignores whether the matrix is transposed or not.</p>
+<p>The source array must be at least as long as the destination <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a>, otherwise this function will result in undefined behavior.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td>A valid matrix </td></tr>

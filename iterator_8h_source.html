@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('iterator_8h_source.html',''); initResi
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matrix_8h.html">matrix.h</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structMatrixIterator.html">   36</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structMatrixIterator.html">MatrixIterator</a> {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  uint16_t len;    <span class="comment">// TODO (brian): safeguard against integer overflow</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  uint32_t len;    <span class="comment">// TODO (brian): safeguard against integer overflow</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  uint16_t rows;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  uint16_t dx;     <span class="comment">// index delta for movement in x</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  uint16_t dy;     <span class="comment">// index delta for movement in y</span></div>

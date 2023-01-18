@@ -6,6 +6,6 @@ var structMatrixIterator =
     [ "index", "group__Advanced.html#ga5e59449a4ff4d566c627b4f56c6e4123", null ],
     [ "j", "group__Advanced.html#ga54accebefc4bdd97750d34eac00c1d7b", null ],
     [ "k", "group__Advanced.html#ga6151bb7c16e7429130aca63912f4911a", null ],
-    [ "len", "group__Advanced.html#gacedb6e3baabafa7140e300d6205f260d", null ],
+    [ "len", "group__Advanced.html#gad7c796246ca0801c1c440d2385c394e7", null ],
     [ "rows", "group__Advanced.html#gab09f191fd2fdd160f1944aabe9b8573e", null ]
 ];
