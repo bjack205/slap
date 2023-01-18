@@ -45,10 +45,22 @@ add_library(slap
   strided_matrix.h
   strided_matrix.c
 
-  function_mapping.c function_mapping.h matmul.c matmul.h cholesky.c cholesky.h)
+  function_mapping.h
+  function_mapping.c
+
+  matmul.h
+  matmul.c
+
+  cholesky.h
+  cholesky.c)
 
 target_include_directories(slap
   INTERFACE
   $<BUILD_INTERFACE:${slap_SOURCE_DIR}
   $<INSTALL_INTERFACE:"include">
   )
+
+# Link math library
+target_link_libraries(slap PUBLIC m)
+
+add_library(slap::slap ALIAS slap)
