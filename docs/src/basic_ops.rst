@@ -15,13 +15,25 @@ These operations all operate on the data in the array.
 ============================== ====================================
 Function                       Header
 ============================== ====================================
-:cpp:func:`slap_SetConst`      ``src/unary_opts.h``
+:cpp:func:`slap_SetConst`      ``src/unary_ops.h``
 :cpp:func:`slap_ScaleByConst`  ``src/unary_ops.h``
 :cpp:func:`slap_SetIdentity`   ``src/unary_ops.h``
 :cpp:func:`slap_SetDiagonal`   ``src/unary_ops.h``
 :cpp:func:`slap_AddIdentity`   ``src/unary_ops.h``
 :cpp:func:`slap_SetRange`      ``src/unary_ops.h``
 ============================== ====================================
+
+Binary Operations
+-----------------
+These calculations take in two matrices. The input matrices can usually
+be aliased, but check verify in the documentation for each function.
+
+======================================= ====================================
+Function                                Header
+======================================= ====================================
+:cpp:func:`slap_MatrixAddition`         ``src/binary_opts.h``
+:cpp:func:`slap_MatrixNormedDifference` ``src/binary_ops.h``
+======================================= ====================================
 
 
 Transformations
