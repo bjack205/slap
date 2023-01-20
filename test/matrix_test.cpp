@@ -323,7 +323,7 @@ TEST(MatrixUnaryOps, MatrixScale) {
   }
 }
 
-TEST(MatrixUnaryOpts, SetDiagonal) {
+TEST(MatrixUnaryOps, SetDiagonal) {
   enum slap_ErrorCode err;
   double dataA[6] = {1, 2, 3, 4, 5, 6};
   double data_diag[2] = {10,11};
@@ -418,6 +418,82 @@ TEST(MatrixBinaryOps, NormedDiff) {
   err = slap_MatrixNormedDifference(A, B);
   EXPECT_DOUBLE_EQ(err, 2);
 }
+
+TEST(MatrixBinaryOps, Addition) {
+  double dataA[6] = {1, 2, 3, 4, 5, 6};
+  double dataB[6] = {3, 2, -1, -4, 10, 0};
+  double dataC[6];
+  double dataD[6] = {4, 4, 2, 0, 15, 6};
+  Matrix A = slap_MatrixFromArray(2, 3, dataA);
+  Matrix B = slap_MatrixFromArray(2, 3, dataB);
+  Matrix C = slap_MatrixFromArray(2, 3, dataC);
+  Matrix D = slap_MatrixFromArray(2, 3, dataD);
+  slap_MatrixAddition(C, A, B, 1.0);
+  double err = slap_MatrixNormedDifference(C, D);
+  EXPECT_LT(err, 1e-6);
+
+  // Aliased addition
+  slap_MatrixAddition(A, B, A, 1.0);
+  err = slap_MatrixNormedDifference(A, D);
+  EXPECT_LT(err, 1e-6);
+}
+
+TEST(MatrixBinaryOps, Subtraction) {
+  double dataA[6] = {1, 2, 3, 4, 5, 6};
+  double dataB[6] = {3, 2, -1, -4, 10, 0};
+  double dataC[6];
+  double dataD[6] = {-2, 0, 4, 8, -5, 6};
+  Matrix A = slap_MatrixFromArray(2, 3, dataA);
+  Matrix B = slap_MatrixFromArray(2, 3, dataB);
+  Matrix C = slap_MatrixFromArray(2, 3, dataC);
+  Matrix D = slap_MatrixFromArray(2, 3, dataD);
+  slap_MatrixAddition(C, A, B, -1.0);
+  double err = slap_MatrixNormedDifference(C, D);
+  EXPECT_LT(err, 1e-6);
+
+  // Aliased subtraction
+  slap_MatrixAddition(A, A, B, -1.0);
+  err = slap_MatrixNormedDifference(A, D);
+  EXPECT_LT(err, 1e-6);
+}
+
+TEST(MatrixBinaryOps, AdditionWithScaling) {
+  double dataA[6] = {1, 2, 3, 4, 5, 6};
+  double dataB[6] = {3, 2, -1, -4, 10, 0};
+  double dataC[6];
+  double dataD[6] = {4.5, 5, 3.5, 2, 17.5, 9};
+  Matrix A = slap_MatrixFromArray(2, 3, dataA);
+  Matrix B = slap_MatrixFromArray(2, 3, dataB);
+  Matrix C = slap_MatrixFromArray(2, 3, dataC);
+  Matrix D = slap_MatrixFromArray(2, 3, dataD);
+  slap_MatrixAddition(C, B, A, 1.5);
+  double err = slap_MatrixNormedDifference(C, D);
+  EXPECT_LT(err, 1e-6);
+}
+
+double binary_op(double x, double y) {
+   return 2 * x - y * x;
+}
+
+TEST(MatrixBinaryOps, BinaryMap) {
+  double dataA[6] = {1, 2, 3, 4, 5, 6};
+  double dataB[6] = {3, 2, -1, -4, 10, 0};
+  double dataC[6];
+  double dataD[6] = {-1, 0, 9, 24, -40, 12};
+  Matrix A = slap_MatrixFromArray(2, 3, dataA);
+  Matrix B = slap_MatrixFromArray(2, 3, dataB);
+  Matrix C = slap_MatrixFromArray(2, 3, dataC);
+  Matrix D = slap_MatrixFromArray(2, 3, dataD);
+  slap_BinaryMap(C, A, B, binary_op);
+  double err = slap_MatrixNormedDifference(C, D);
+  EXPECT_LT(err, 1e-6);
+
+  // Aliased
+  slap_BinaryMap(A, A, B, binary_op);
+  err = slap_MatrixNormedDifference(A, D);
+  EXPECT_LT(err, 1e-6);
+}
+
 
 TEST(MatrixTransformations, Flatten) {
   double dataA[6] = {1, 2, 3, 4, 5, 6};

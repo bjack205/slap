@@ -400,17 +400,6 @@ static inline void slap_SetElement(Matrix mat, int row, int col, double val) {
   mat.data[slap_Cart2Index(mat, row, col)] = val;
 }
 
-/**
- * @brief Return the normed difference between 2 matrices of the same size
- *
- * Returns \f$ \sqrt{\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} (A_{ij} - B_{ij})^2 } \f$
- *
- * @param A A matrix of dimension (m,n)
- * @param B A matrix of dimension (m,n)
- * @return
- */
-double slap_MatrixNormedDifference(Matrix A, Matrix B);
-
 //*********************************************//
 // Transformations
 //*********************************************//

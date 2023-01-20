@@ -1,3 +1,11 @@
+/**
+ * @file binary_ops.h
+ * @author Brian Jackson (bjack205@gmail.com)
+ * @copyright Copyright (c) 2022
+ * @date 2023-01-30
+ *
+ * @brief Operations between two matrices
+ */
 #pragma once
 
 #include "matrix.h"
@@ -13,4 +21,29 @@
  */
 double slap_MatrixNormedDifference(Matrix A, Matrix B);
 
-enum slap_ErrorCode slap_MatAdd(Matrix C, Matrix A, Matrix B, double alpha);
+/**
+ * @brief Add two matrices, with scaling
+ *
+ * Calculates \f$C = A + \alpha B\f$
+ *
+ * Matrices must all be the same size.
+ *
+ * Any of the matrices can be aliased.
+ *
+ * # Examples
+ * Normal matrix addition
+ * ```c
+ * slap_MatrixAddition(C, A, B, 1.0);
+ * ```
+ *
+ * Subtract a matrix from another, in-place
+ * ```c
+ * slap_MatrixAddition(A, A, B, -1);
+ * ```
+ *
+ * @param[out] C Destination matrix
+ * @param[in] A Input matrix
+ * @param[in] B Input matrix
+ * @param alpha Scaling on B
+ */
+enum slap_ErrorCode slap_MatrixAddition(Matrix C, Matrix A, Matrix B, double alpha);
