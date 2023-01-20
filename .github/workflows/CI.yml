@@ -69,5 +69,8 @@ jobs:
     - name: Process code coverage results
       run: gcov **/*.o
     - name: Upload Coverage to Codecov
-      run: bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports."
+      run: |
+        curl -Os https://uploader.codecov.io/latest/linux/codecov 
+        chmod +x codecov 
+        ./codecov
 
