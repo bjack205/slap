@@ -21,6 +21,7 @@ Function                       Header
 :cpp:func:`slap_SetDiagonal`   ``src/unary_ops.h``
 :cpp:func:`slap_AddIdentity`   ``src/unary_ops.h``
 :cpp:func:`slap_SetRange`      ``src/unary_ops.h``
+:cpp:func:`slap_Map`           ``src/unary_ops.h``
 ============================== ====================================
 
 Binary Operations
@@ -33,6 +34,7 @@ Function                                Header
 ======================================= ====================================
 :cpp:func:`slap_MatrixAddition`         ``src/binary_opts.h``
 :cpp:func:`slap_MatrixNormedDifference` ``src/binary_ops.h``
+:cpp:func:`slap_BinaryMap`              ``src/binary_ops.h``
 ======================================= ====================================
 
 
