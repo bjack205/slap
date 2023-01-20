@@ -133,7 +133,7 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>index</b></td></t
 <p>This iterator provides the user to access the elements via either the linear or cartesian indices.</p>
 <p>Note that this will always iterate linearly over the underlying memory, so is invariant to whether or not the matrix is transposed.</p>
 <p>Note that if the matrix data is dense (there are no gaps in the memory), it is most efficient to iterate directly over the elements of the underlying array.</p>
-<h1><a class="anchor" id="autotoc_md0"></a>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Example</h1>
 <p>for (<a class="el" href="structMatrixIterator.html" title="A struct for conveniently and efficiently iterating over strided matrices.">MatrixIterator</a> it = slap_Iterator(mat); !slap_IsFinished(&amp;it); slap_Step(&amp;it)) { double value = mat.data[it.index]; // Use <code>index</code> to directly index the array int linear_index = it.k; // <code>k</code> is the linear index into the array slap_SetElement(mat, it.i, it.j); // <code>i</code> and <code>j</code> are the cartesian indices } </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>

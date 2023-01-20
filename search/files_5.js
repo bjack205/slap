@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['new_5fmatrix_2eh_84',['new_matrix.h',['../new__matrix_8h.html',1,'']]]
+  ['matrix_2eh_87',['matrix.h',['../matrix_8h.html',1,'']]]
 ];

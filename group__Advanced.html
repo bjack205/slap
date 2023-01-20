@@ -116,6 +116,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaa52b21761237305f651da7852b20b434"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Advanced.html#gaa52b21761237305f651da7852b20b434">slap_Map</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double(*function)(double))</td></tr>
 <tr class="memdesc:gaa52b21761237305f651da7852b20b434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a function element-wise to every element in the matrix.  <a href="group__Advanced.html#gaa52b21761237305f651da7852b20b434">More...</a><br /></td></tr>
 <tr class="separator:gaa52b21761237305f651da7852b20b434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa652d12b20ebe3334440cd3225ab08e"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Advanced.html#gaaa652d12b20ebe3334440cd3225ab08e">slap_BinaryMap</a> (<a class="el" href="structMatrix.html">Matrix</a> C, <a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B, double(*function)(double, double))</td></tr>
+<tr class="memdesc:gaaa652d12b20ebe3334440cd3225ab08e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a function element-wise to a pair of matrices.  <a href="group__Advanced.html#gaaa652d12b20ebe3334440cd3225ab08e">More...</a><br /></td></tr>
+<tr class="separator:gaaa652d12b20ebe3334440cd3225ab08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaaed5ad568212c1273063201d12122b99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMatrixIterator.html">MatrixIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Advanced.html#gaaed5ad568212c1273063201d12122b99">slap_Iterator</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
 <tr class="memdesc:gaaed5ad568212c1273063201d12122b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an iterator at the beginning of the matrix.  <a href="group__Advanced.html#gaaed5ad568212c1273063201d12122b99">More...</a><br /></td></tr>
 <tr class="separator:gaaed5ad568212c1273063201d12122b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,13 +174,79 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixIterator::i
 <p>This iterator provides the user to access the elements via either the linear or cartesian indices.</p>
 <p>Note that this will always iterate linearly over the underlying memory, so is invariant to whether or not the matrix is transposed.</p>
 <p>Note that if the matrix data is dense (there are no gaps in the memory), it is most efficient to iterate directly over the elements of the underlying array.</p>
-<h1><a class="anchor" id="autotoc_md0"></a>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Example</h1>
 <p>for (<a class="el" href="structMatrixIterator.html" title="A struct for conveniently and efficiently iterating over strided matrices.">MatrixIterator</a> it = slap_Iterator(mat); !slap_IsFinished(&amp;it); slap_Step(&amp;it)) { double value = mat.data[it.index]; // Use <code>index</code> to directly index the array int linear_index = it.k; // <code>k</code> is the linear index into the array slap_SetElement(mat, it.i, it.j); // <code>i</code> and <code>j</code> are the cartesian indices } </p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gaaa652d12b20ebe3334440cd3225ab08e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa652d12b20ebe3334440cd3225ab08e">&#9670;&nbsp;</a></span>slap_BinaryMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum slap_ErrorCode slap_BinaryMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>C</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>B</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double(*)(double, double)&#160;</td>
+          <td class="paramname"><em>function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applies a function element-wise to a pair of matrices. </p>
+<p>Given a function pointer \(c = f(x,y)\), this function applies this operation element-wise, storing the output in C.</p>
+<p>The matrices must all be the same size (but can have different strides).</p>
+<p>The matrices can be aliased.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Example</h1>
+<div class="fragment"><div class="line">double binary_op(double x, double y) {</div>
+<div class="line">  return 2 * x - y * x;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">int main() {</div>
+<div class="line">// Initialize matrices ...</div>
+<div class="line">slap_BinaryMap(C, A, B, binary_op);</div>
+<div class="line">// Clean-up operations ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> For more details, see the <code>BinaryMap</code> test in <code>test/matrix_test.cpp</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">C</td><td>Destination matrix </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>Input matrix, provides first arguments to function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>Input matrix, provides second arguments to function </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">function</td><td>A function that takes two doubles and returns a double </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga574bf6aedf0e48911fbefa91bfd88d1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga574bf6aedf0e48911fbefa91bfd88d1c">&#9670;&nbsp;</a></span>slap_IsFinished()</h2>
 

@@ -1,6 +1,6 @@
 var dir_e1cfc5297ee7ab3c75c0f593509ba5cf =
 [
-    [ "binary_ops.h", "binary__ops_8h_source.html", null ],
+    [ "binary_ops.h", "binary__ops_8h.html", "binary__ops_8h" ],
     [ "cholesky.h", "cholesky_8h.html", "cholesky_8h" ],
     [ "copy_matrix.h", "copy__matrix_8h.html", "copy__matrix_8h" ],
     [ "errors.h", "errors_8h.html", "errors_8h" ],

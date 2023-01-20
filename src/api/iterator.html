@@ -96,9 +96,9 @@
 <p>This iterator provides the user to access the elements via either the linear or cartesian indices.</p>
 <p>Note that this will always iterate linearly over the underlying memory, so is invariant to whether or not the matrix is transposed.</p>
 <p>Note that if the matrix data is dense (there are no gaps in the memory), it is most efficient to iterate directly over the elements of the underlying array.</p>
-<section id="group__Advanced_1autotoc_md0">
-<h2>Example<a class="headerlink" href="#group__Advanced_1autotoc_md0" title="Permalink to this heading"></a></h2>
-<p id="group__Advanced_1autotoc_md0">for (<a class="reference internal" href="#structMatrixIterator"><span class="std std-ref">MatrixIterator</span></a> it = slap_Iterator(mat); !slap_IsFinished(&amp;it); slap_Step(&amp;it)) { double value = mat.data[it.index]; // Use <code class="docutils literal notranslate"><span class="pre">index</span></code> to directly index the array int linear_index = it.k; // <code class="docutils literal notranslate"><span class="pre">k</span></code> is the linear index into the array slap_SetElement(mat, it.i, it.j); // <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> are the cartesian indices } </p>
+<section id="group__Advanced_1autotoc_md2">
+<h2>Example<a class="headerlink" href="#group__Advanced_1autotoc_md2" title="Permalink to this heading"></a></h2>
+<p id="group__Advanced_1autotoc_md2">for (<a class="reference internal" href="#structMatrixIterator"><span class="std std-ref">MatrixIterator</span></a> it = slap_Iterator(mat); !slap_IsFinished(&amp;it); slap_Step(&amp;it)) { double value = mat.data[it.index]; // Use <code class="docutils literal notranslate"><span class="pre">index</span></code> to directly index the array int linear_index = it.k; // <code class="docutils literal notranslate"><span class="pre">k</span></code> is the linear index into the array slap_SetElement(mat, it.i, it.j); // <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> are the cartesian indices } </p>
 </section>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>

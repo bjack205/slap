@@ -30,7 +30,6 @@ var group__Basics =
     [ "slap_MatrixCopyFromArray", "group__Basics.html#ga80bb91ed80c4b244200c9e85aa8d29a5", null ],
     [ "slap_MatrixCopyTranspose", "group__Basics.html#gabb25378616bb72a36fac9329ed6b1ae4", null ],
     [ "slap_MatrixFromArray", "group__Basics.html#ga2cff64efb8b596f8116b7b2075086035", null ],
-    [ "slap_MatrixNormedDifference", "group__Basics.html#ga3976ffa2a3dff0a7f9f2f1b1cd70291b", null ],
     [ "slap_Max", "group__Basics.html#ga09f5c095a35dee9dd75a70fa21e71da7", null ],
     [ "slap_Min", "group__Basics.html#ga8c5f44f5de7d99b2c107f3a6fdb4fc95", null ],
     [ "slap_MinDim", "group__Basics.html#gac97f7096614d53c84818b34fbabb3084", null ],

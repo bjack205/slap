@@ -11,6 +11,7 @@ var group__Advanced =
       [ "rows", "group__Advanced.html#gab09f191fd2fdd160f1944aabe9b8573e", null ]
     ] ],
     [ "MatrixIterator", "group__Advanced.html#gaeb718791d51b121ab1996f1619c40731", null ],
+    [ "slap_BinaryMap", "group__Advanced.html#gaaa652d12b20ebe3334440cd3225ab08e", null ],
     [ "slap_IsFinished", "group__Advanced.html#ga574bf6aedf0e48911fbefa91bfd88d1c", null ],
     [ "slap_Iterator", "group__Advanced.html#gaaed5ad568212c1273063201d12122b99", null ],
     [ "slap_Map", "group__Advanced.html#gaa52b21761237305f651da7852b20b434", null ],

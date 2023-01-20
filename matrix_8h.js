@@ -20,7 +20,6 @@ var matrix_8h =
     [ "slap_Linear2Cart", "group__Basics.html#ga21b12a660e297f3f55389b15983fab9c", null ],
     [ "slap_Linear2Index", "group__Basics.html#ga31ca2f635e3a299dce7de182b5b69664", null ],
     [ "slap_MatrixFromArray", "group__Basics.html#ga2cff64efb8b596f8116b7b2075086035", null ],
-    [ "slap_MatrixNormedDifference", "group__Basics.html#ga3976ffa2a3dff0a7f9f2f1b1cd70291b", null ],
     [ "slap_MinDim", "group__Basics.html#gac97f7096614d53c84818b34fbabb3084", null ],
     [ "slap_NullMatrix", "group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2", null ],
     [ "slap_NumCols", "group__Basics.html#ga071d0aa79b77aa923a2216d11b1d5b99", null ],

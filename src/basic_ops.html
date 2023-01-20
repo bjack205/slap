@@ -48,6 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="indexing.html">Indexing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Operations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#unary-operations">Unary Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binary-operations">Binary Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#transformations">Transformations</a></li>
 </ul>
 </li>
@@ -101,7 +102,7 @@ decompositions are covered in <a class="reference internal" href="linear_algebra
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="api/unary_ops.html#_CPPv413slap_SetConst6Matrixd" title="slap_SetConst"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_SetConst()</span></code></a></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">src/unary_opts.h</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">src/unary_ops.h</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/unary_ops.html#_CPPv417slap_ScaleByConst6Matrixd" title="slap_ScaleByConst"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_ScaleByConst()</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">src/unary_ops.h</span></code></p></td>
@@ -117,6 +118,36 @@ decompositions are covered in <a class="reference internal" href="linear_algebra
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/unary_ops.html#_CPPv413slap_SetRange6Matrixdd" title="slap_SetRange"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_SetRange()</span></code></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">src/unary_ops.h</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/function_mapping.html#_CPPv48slap_Map6MatrixPFddE" title="slap_Map"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_Map()</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">src/unary_ops.h</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="binary-operations">
+<h2>Binary Operations<a class="headerlink" href="#binary-operations" title="Permalink to this heading"></a></h2>
+<p>These calculations take in two matrices. The input matrices can usually
+be aliased, but check verify in the documentation for each function.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Header</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="api/binary_ops.html#_CPPv419slap_MatrixAddition6Matrix6Matrix6Matrixd" title="slap_MatrixAddition"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_MatrixAddition()</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">src/binary_opts.h</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/binary_ops.html#_CPPv427slap_MatrixNormedDifference6Matrix6Matrix" title="slap_MatrixNormedDifference"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_MatrixNormedDifference()</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">src/binary_ops.h</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/function_mapping.html#_CPPv414slap_BinaryMap6Matrix6Matrix6MatrixPFdddE" title="slap_BinaryMap"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_BinaryMap()</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">src/binary_ops.h</span></code></p></td>
 </tr>
 </tbody>
 </table>

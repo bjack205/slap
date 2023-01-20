@@ -1,4 +1,4 @@
 function_mapping.h
 ==================
 
-.. doxygenfunction:: slap_Map
+.. doxygenfile:: function_mapping.h

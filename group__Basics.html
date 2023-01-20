@@ -195,9 +195,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ga432445f932b69ce19c78e985f186bb5b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, int row, int col, double val)</td></tr>
 <tr class="memdesc:ga432445f932b69ce19c78e985f186bb5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an matrix element to a given value.  <a href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">More...</a><br /></td></tr>
 <tr class="separator:ga432445f932b69ce19c78e985f186bb5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga3976ffa2a3dff0a7f9f2f1b1cd70291b">slap_MatrixNormedDifference</a> (<a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B)</td></tr>
-<tr class="memdesc:ga3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the normed difference between 2 matrices of the same size.  <a href="group__Basics.html#ga3976ffa2a3dff0a7f9f2f1b1cd70291b">More...</a><br /></td></tr>
-<tr class="separator:ga3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga34b0cf8ab431aba8466deb196b050ff7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7">slap_Flatten</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
 <tr class="memdesc:ga34b0cf8ab431aba8466deb196b050ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flatten a 2D matrix to a column vector.  <a href="group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7">More...</a><br /></td></tr>
 <tr class="separator:ga34b0cf8ab431aba8466deb196b050ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -599,7 +596,7 @@ Functions</h2></td></tr>
 
 <p>Get a pointer to matrix element given row, column indices. </p>
 <p>Note that this method does NOT perform any bounds checking so can be used unsafely! Passing an index that is out of bounds is undefined behavior.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Example</h1>
 <p>The following gets a pointer to the 1st element in the 2nd column, and then modifies it. </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> *x = <a class="code" href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a>(A, 0, 1);</div>
 <div class="line">*x = 10;</div>
@@ -658,7 +655,7 @@ Example</h1>
 </div><div class="memdoc">
 
 <p>Get a const pointer to matrix element given row, column indices. </p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md6"></a>
 Example</h1>
 <p>The following gets a pointer to the 1st element in the 2nd column. </p><div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">double</span> *x = <a class="code" href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a>(A, 0, 1);</div>
 <div class="ttc" id="agroup__Basics_html_ga07acae3b6d5138f608ffd9dbe1c2e494"><div class="ttname"><a href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a></div><div class="ttdeci">static const double * slap_GetElementConst(const Matrix mat, int row, int col)</div><div class="ttdoc">Get a const pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:375</div></div>
@@ -1164,54 +1161,6 @@ Example</h1>
 
 </div>
 </div>
-<a id="ga3976ffa2a3dff0a7f9f2f1b1cd70291b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3976ffa2a3dff0a7f9f2f1b1cd70291b">&#9670;&nbsp;</a></span>slap_MatrixNormedDifference()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double slap_MatrixNormedDifference </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
-          <td class="paramname"><em>B</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the normed difference between 2 matrices of the same size. </p>
-<p>Returns \( \sqrt{\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} (A_{ij} - B_{ij})^2 } \)</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">A</td><td>A matrix of dimension (m,n) </td></tr>
-    <tr><td class="paramname">B</td><td>A matrix of dimension (m,n) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<p>Returns \( \sqrt{\sum_{i=0}^{m-1} \sum_{j=0}^{n-1} (A_{ij} - B_{ij})^2 } \)</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">A</td><td>A matrix of dimension (m,n) </td></tr>
-    <tr><td class="paramname">B</td><td>A matrix of dimension (m,n) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>NAN if input is invalid, normed difference otherwise </dd></dl>
-
-</div>
-</div>
 <a id="ga09f5c095a35dee9dd75a70fa21e71da7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga09f5c095a35dee9dd75a70fa21e71da7">&#9670;&nbsp;</a></span>slap_Max()</h2>
 
@@ -1435,7 +1384,7 @@ Example</h1>
 
 <p>Create a "Null" matrix. </p>
 <p>Useful for default initialization of the matrix where the data it wraps hasn't been specified or allocated yet. Can check if a matrix is in this state using <a class="el" href="group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2" title="Check if matrix is a &quot;Null&quot; instance of a matrix (i.e. uninitialized)">slap_IsNull()</a>.</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Example</h1>
 <div class="fragment"><div class="line"><a class="code" href="structMatrix.html">Matrix</a> A = <a class="code" href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a>();</div>
 <div class="ttc" id="agroup__Basics_html_gae2ddadd4c37bb616a95bdcd73b3c5ff2"><div class="ttname"><a href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a></div><div class="ttdeci">static Matrix slap_NullMatrix(void)</div><div class="ttdoc">Create a &quot;Null&quot; matrix.</div><div class="ttdef"><b>Definition:</b> matrix.h:88</div></div>
@@ -1764,7 +1713,7 @@ Example</h1>
 <p>Set an matrix element to a given value. </p>
 <p>This is a low-level function with no error checking. As such, it should be used carefully, as it can easily result in undefined behavior.</p>
 <p>The user should make sure the indices are within bounds and that the data pointer is valid.</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Example</h1>
 <p>Set the 1st element of the 2nd column to 10.1; </p><div class="fragment"><div class="line"><a class="code" href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a>(A, 0, 1, 10.1);</div>
 <div class="ttc" id="agroup__Basics_html_ga432445f932b69ce19c78e985f186bb5b"><div class="ttname"><a href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a></div><div class="ttdeci">static void slap_SetElement(Matrix mat, int row, int col, double val)</div><div class="ttdoc">Set an matrix element to a given value.</div><div class="ttdef"><b>Definition:</b> matrix.h:399</div></div>
@@ -1885,7 +1834,7 @@ Example</h1>
 
 <p>Sets the matrix to a equally-spaced range. </p>
 <p>Fills the matrix in column-major order.</p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Example</h1>
 <div class="fragment"><div class="line"> {c<span class="stringliteral">&#39;}</span></div>
 <div class="line"><span class="stringliteral">#include &quot;slap/new_matrix.h&quot;</span></div>
