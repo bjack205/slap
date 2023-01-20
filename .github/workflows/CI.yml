@@ -59,7 +59,7 @@ jobs:
       run: |
         mkdir ${{github.workspace}}/build && cd build
         cmake -D CMAKE_BUILD_TYPE=Debug \
-              -D ULQR_CODE_COVERAGE=ON \
+              -D SLAP_CODE_COVERAGE=ON \
               --log-context ..
     - name: Build
       run: cmake --build ${{ github.workspace }}/build
