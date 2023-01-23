@@ -165,3 +165,100 @@ TEST_F(LinearAlgebraTest, CholeskySolve) {
   slap_FreeMatrix(x);
   slap_FreeMatrix(b2);
 }
+
+class QRDecompTest : public ::testing::Test {
+ public:
+  static constexpr int m1 = 5;
+  static constexpr int n1 = 5;
+
+  static constexpr int m2 = 5;
+  static constexpr int n2 = 3;
+
+  // clang-format off
+  double dataA1[m1 * n1] = {
+      1.0, 0.5, 0.3333333333333333, 0.25, 0.2,
+      0.5, 0.3333333333333333, 0.25, 0.2, 0.16666666666666666,
+      0.3333333333333333, 0.25, 0.2, 0.16666666666666666, 0.14285714285714285,
+      0.25, 0.2, 0.16666666666666666, 0.14285714285714285, 0.125,
+      0.2, 0.16666666666666666, 0.14285714285714285, 0.125, 0.1111111111111111
+  };
+  double datab[m1] = {
+      -1.5642880600352318, 0.7840050512892108, -0.9899090197378724, -1.078415320831164, 1.169221916323157
+  };
+  double dataA2[m2 * n1] = {
+      -0.6074563212311672, 0.6925987046273734, -0.04830701721338945,
+      0.11756669437635717, 0.51871450539862, 0.599358857883042,
+      0.8758814599020377, 0.4518331708655029, -0.508535666126173,
+      1.6553198217895213, -0.22706518216748067, -0.15012100723414903,
+      -0.4349328686059969, -0.36455753152400444, 0.16025126740928738
+  };
+  double dataR1[m1 * n1];
+  double dataR2[m2 * n2];
+  double data_beta1[m1];
+  double data_beta2[m2];
+
+  double data_temp1[m1];
+  double data_temp2[m2];
+  // clang-format on
+  Matrix A1;
+  Matrix A2;
+  Matrix b;
+
+  Matrix R1;
+  Matrix R2;
+
+  Matrix beta1;
+  Matrix beta2;
+
+  Matrix temp1;
+  Matrix temp2;
+
+ protected:
+  void SetUp() override {
+    A1 = slap_MatrixFromArray(m1, n1, dataA1);
+    A2 = slap_MatrixFromArray(m2, n2, dataA2);
+    b = slap_MatrixFromArray(m1, 1, datab);
+
+    R1 = slap_MatrixFromArray(m1, n1, dataR1);
+    R2 = slap_MatrixFromArray(m2, n2, dataR2);
+
+    beta1 = slap_MatrixFromArray(m1, 1, data_beta1);
+    beta2 = slap_MatrixFromArray(m2, 1, data_beta2);
+
+    temp1 = slap_MatrixFromArray(m1, 1, data_temp1);
+    temp2 = slap_MatrixFromArray(m2, 1, data_temp2);
+  }
+};
+
+TEST_F(QRDecompTest, QRDecomp_Square) {
+  slap_MatrixCopy(R1, A1);
+  slap_QR(R1, beta1, temp1);
+  Matrix Q = slap_NewMatrix(m1, m1);
+  Matrix Q_work = slap_NewMatrix(m1, m1);
+  Matrix I_m = slap_NewMatrix(m1, m1);
+  Matrix QR = slap_NewMatrix(m1, n1);
+  slap_SetIdentity(I_m, 1.0);
+
+  slap_ComputeQ(Q, R1, beta1, Q_work);
+
+  // Check Q orthogonality (Q'Q = I)
+  slap_MatMulAtB(Q_work, Q, Q);
+  double diff = slap_MatrixNormedDifference(Q_work, I_m);
+  EXPECT_LT(diff, 1e-10);
+
+  // Check decomposition (Q * R = A)
+  for (int j = 0; j < m1; j++) {
+    for (int i = j + 1; i < n1; ++i) {
+      slap_SetElement(R1, i, j, 0);
+    }
+  }
+  slap_MatMulAB(QR, Q, R1);
+  diff = slap_MatrixNormedDifference(QR, A1);
+  EXPECT_LT(diff, 1e-10);
+
+  // Clean up temporaries
+  slap_FreeMatrix(Q);
+  slap_FreeMatrix(Q_work);
+  slap_FreeMatrix(I_m);
+  slap_FreeMatrix(QR);
+}

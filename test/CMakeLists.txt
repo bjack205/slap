@@ -13,7 +13,8 @@ function (add_slap_test name)
     gtest_main
     m  # math library
   )
-  add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+#  add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+  gtest_discover_tests(${TEST_NAME})
 endfunction()
 
 ## Build the testing library
