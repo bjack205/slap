@@ -149,8 +149,8 @@ $(document).ready(function(){initNavTree('errors_8h_source.html',''); initResiza
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#define SLAP_ASSERT_SAME_SIZE(A, B, return_value, method_name)                          \</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">  SLAP_ASSERT(slap_NumRows(A) == slap_NumRows(B) &amp;&amp; slap_NumCols(A) == slap_NumCols(B), \</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">              SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, (return_value),                      \</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">              &quot;$s: matrices must be the same size. Got sizes (%d,%d) and (%d,%d)&quot;</span>,      \</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;              slap_NumRows(A), slap_NumCols(A), slap_NumRows(B), slap_NumCols(B))</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">              &quot;%s: matrices must be the same size. Got sizes (%d,%d) and (%d,%d)&quot;</span>,      \</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;              method_name, slap_NumRows(A), slap_NumCols(A), slap_NumRows(B), slap_NumCols(B))</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

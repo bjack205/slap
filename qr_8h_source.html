@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>slap: /home/runner/work/slap/slap/src/slap/cholesky.h Source File</title>
+<title>slap: /home/runner/work/slap/slap/src/slap/qr.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,7 +70,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('cholesky_8h_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('qr_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -90,22 +90,26 @@ $(document).ready(function(){initNavTree('cholesky_8h_source.html',''); initResi
 
 <div class="header">
   <div class="headertitle">
-<div class="title">cholesky.h</div>  </div>
+<div class="title">qr.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="cholesky_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matrix_8h.html">matrix.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">enum</span> slap_ErrorCode <a class="code" href="group__LinearAlgebra.html#gafd495e62e1fd29197ab77bd4e27c8379">slap_Cholesky</a>(<a class="code" href="structMatrix.html">Matrix</a> A);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">enum</span> slap_ErrorCode <a class="code" href="group__LinearAlgebra.html#gaf8ca733754d02de5b5a6380af70003c8">slap_LowerTriBackSub</a>(<a class="code" href="structMatrix.html">Matrix</a> L, <a class="code" href="structMatrix.html">Matrix</a> b);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">enum</span> slap_ErrorCode <a class="code" href="group__LinearAlgebra.html#ga792058bb09344ca5bcb82a56317d618f">slap_CholeskySolve</a>(<a class="code" href="structMatrix.html">Matrix</a> A, <a class="code" href="structMatrix.html">Matrix</a> b);</div>
-<div class="ttc" id="agroup__LinearAlgebra_html_ga792058bb09344ca5bcb82a56317d618f"><div class="ttname"><a href="group__LinearAlgebra.html#ga792058bb09344ca5bcb82a56317d618f">slap_CholeskySolve</a></div><div class="ttdeci">enum slap_ErrorCode slap_CholeskySolve(Matrix A, Matrix b)</div><div class="ttdoc">Solve a linear system of equation with a precomputed Cholesky decomposition.</div><div class="ttdef"><b>Definition:</b> cholesky.c:64</div></div>
-<div class="ttc" id="agroup__LinearAlgebra_html_gaf8ca733754d02de5b5a6380af70003c8"><div class="ttname"><a href="group__LinearAlgebra.html#gaf8ca733754d02de5b5a6380af70003c8">slap_LowerTriBackSub</a></div><div class="ttdeci">enum slap_ErrorCode slap_LowerTriBackSub(Matrix L, Matrix b)</div><div class="ttdoc">Solve a linear system of equation for a lower triangular matrix.</div><div class="ttdef"><b>Definition:</b> cholesky.c:36</div></div>
-<div class="ttc" id="agroup__LinearAlgebra_html_gafd495e62e1fd29197ab77bd4e27c8379"><div class="ttname"><a href="group__LinearAlgebra.html#gafd495e62e1fd29197ab77bd4e27c8379">slap_Cholesky</a></div><div class="ttdeci">enum slap_ErrorCode slap_Cholesky(Matrix A)</div><div class="ttdoc">Perform a Cholesky decomposition.</div><div class="ttdef"><b>Definition:</b> cholesky.c:10</div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by Brian Jackson on 1/22/23.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (c) 2023 Robotic Exploration Lab. All rights reserved.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matrix_8h.html">matrix.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">enum</span> slap_ErrorCode slap_QR(<a class="code" href="structMatrix.html">Matrix</a> A, <a class="code" href="structMatrix.html">Matrix</a> betas, <a class="code" href="structMatrix.html">Matrix</a> temp);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">enum</span> slap_ErrorCode slap_ComputeQ(<a class="code" href="structMatrix.html">Matrix</a> Q, <span class="keyword">const</span> <a class="code" href="structMatrix.html">Matrix</a> R, <span class="keyword">const</span> <a class="code" href="structMatrix.html">Matrix</a> betas,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                  <a class="code" href="structMatrix.html">Matrix</a> Q_work);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">enum</span> slap_ErrorCode slap_Qtb(<span class="keyword">const</span> <a class="code" href="structMatrix.html">Matrix</a> R, <span class="keyword">const</span> <a class="code" href="structMatrix.html">Matrix</a> betas, <a class="code" href="structMatrix.html">Matrix</a> b);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">enum</span> slap_ErrorCode slap_LeastSquares(<a class="code" href="structMatrix.html">Matrix</a> A, <a class="code" href="structMatrix.html">Matrix</a> b, <a class="code" href="structMatrix.html">Matrix</a> betas, <a class="code" href="structMatrix.html">Matrix</a> temp);</div>
 <div class="ttc" id="amatrix_8h_html"><div class="ttname"><a href="matrix_8h.html">matrix.h</a></div><div class="ttdoc">Matrix type and fundamental operations like indexing and size.</div></div>
 <div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdoc">Represents a matrix of double-precision data.</div><div class="ttdef"><b>Definition:</b> matrix.h:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -113,7 +117,7 @@ $(document).ready(function(){initNavTree('cholesky_8h_source.html',''); initResi
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_e1cfc5297ee7ab3c75c0f593509ba5cf.html">slap</a></li><li class="navelem"><a class="el" href="cholesky_8h.html">cholesky.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_e1cfc5297ee7ab3c75c0f593509ba5cf.html">slap</a></li><li class="navelem"><b>qr.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

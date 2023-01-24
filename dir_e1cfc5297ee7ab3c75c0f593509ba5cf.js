@@ -12,6 +12,7 @@ var dir_e1cfc5297ee7ab3c75c0f593509ba5cf =
     [ "matrix_checks.h", "matrix__checks_8h_source.html", null ],
     [ "new_matrix.h", "new__matrix_8h.html", "new__matrix_8h" ],
     [ "printing.h", "printing_8h_source.html", null ],
+    [ "qr.h", "qr_8h_source.html", null ],
     [ "slap.h", "slap_8h_source.html", null ],
     [ "strided_matrix.h", "strided__matrix_8h_source.html", null ],
     [ "unary_ops.h", "unary__ops_8h.html", "unary__ops_8h" ],

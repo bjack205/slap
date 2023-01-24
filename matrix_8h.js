@@ -3,7 +3,9 @@ var matrix_8h =
     [ "Matrix", "group__Basics.html#ga9570374e3dbc873595100dae1e584459", null ],
     [ "slap_MatrixType", "group__Basics.html#ga8fcc121b0708680f09fd9a9464fd8381", [
       [ "slap_DENSE", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381a41efb78bba7d4b372d1238bba8785305", null ],
-      [ "slap_TRANSPOSED", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381afc5fa65484d0caee1062b29816958390", null ]
+      [ "slap_TRANSPOSED", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381afc5fa65484d0caee1062b29816958390", null ],
+      [ "slap_TRIANGULAR_UPPER", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381a31b9b84ef137750ef66c84c07c5cd841", null ],
+      [ "slap_TRIANGULAR_LOWER", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381ae638a5bd1788e81a48d58590921d2e12", null ]
     ] ],
     [ "slap_Cart2Index", "group__Basics.html#gae44a94a40d7b7fdce3f21d5710ea06b8", null ],
     [ "slap_CheckInbounds", "group__Basics.html#ga7d5c4174ae1309b811f6feb1272843ba", null ],
@@ -29,5 +31,7 @@ var matrix_8h =
     [ "slap_SetElement", "group__Basics.html#ga432445f932b69ce19c78e985f186bb5b", null ],
     [ "slap_SetNull", "group__Basics.html#gac5dce240ba6e93ee724e003d83de3564", null ],
     [ "slap_Stride", "group__Basics.html#gaa56cba2dc52d0f802667ae7160546a58", null ],
-    [ "slap_Transpose", "group__Basics.html#gaa5caf511c40b1206656d81c91edcdc2a", null ]
+    [ "slap_Transpose", "group__Basics.html#gaa5caf511c40b1206656d81c91edcdc2a", null ],
+    [ "slap_TriLower", "group__Basics.html#ga706d844efcde4d68854aed19d92cf5a7", null ],
+    [ "slap_TriUpper", "group__Basics.html#ga3863917574c9c52b6ac5bc87dce47dba", null ]
 ];
