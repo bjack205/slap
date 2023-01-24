@@ -22,15 +22,16 @@
  *
  * **Header File:** `slap/linalg.h`
  * @param  A a square symmetric matrix
- * @return slap error code. There is a dedicated code SLAP_CHOLESKY_FAIL if the factorization
- * fails due to a negative value on the diagonal (matrix isn't positive definite).
+ * @return slap error code. There is a dedicated code SLAP_CHOLESKY_FAIL if the
+ * factorization fails due to a negative value on the diagonal (matrix isn't positive
+ * definite).
  */
 enum slap_ErrorCode slap_Cholesky(Matrix A);
 
 /**
- * @brief Solve a linear system of equation for a lower triangular matrix
+ * @brief Solve a linear system of equation for a triangular matrix
  *
- * Uses backsubstitution to solve a system of equations of the following form:
+ * Uses back-substitution to solve a system of equations of the following form:
  * \f[
  *  L x = b
  * \f]
@@ -38,25 +39,41 @@ enum slap_ErrorCode slap_Cholesky(Matrix A);
  * \f[
  *  L^T x = b
  * \f]
- * if @p istransposed is true.
- *
+ * if `slap_IsTransposed(L)` is true, or
+ * \f[
+ * R x = b
+ * \f]
+ * if `slap_GetType(L) == slap_TRIANGULAR_UPPER`.
  *
  * **Header File:** `slap/linalg.h`
- * @param[in]          L A lower-triangular matrix
+ * @param[in]          L A triangular matrix. Assumed to be lower-triangular unless its
+ *                       slap_MatrixType is slap_TRIANGULAR_UPPER
  * @param[inout]       b The right-hand-side vector. Stores the solution upon completion.
  * @return slap error code
  */
-enum slap_ErrorCode slap_LowerTriBackSub(Matrix L, Matrix b);
+enum slap_ErrorCode slap_TriSolve(Matrix L, Matrix b);
 
 /**
  * @brief Solve a linear system of equation with a precomputed Cholesky decomposition.
  *
- * A x = b
- * L * L' x = b
- * L * y = b
- * => y = L \ b
- * L' x = y
- * => x =  L' \ y
+ * Here's a simple derivation of how the decomposition works:
+ * \f{align}{
+ * &Ax = b \\
+ * &L L^T x = b \\
+ * &\implies y = L^{-1} b \;\text{ solved using back-substitution} \\
+ * &L^T x = y \\
+ * &\implies x = L^{-T} y \;\text{ solved using back-substitution} \\
+ * \f}
+ *
+ * # Example
+ * ```c
+ * enum slap_ErrorCode err;
+ * err = slap_Cholesky(A);
+ * if (err == SLAP_CHOLESKY_FAIL) {
+ *   printf("Matrix not positive definite!\n);
+ * }
+ * slap_CholeskySolve(A, x);
+ * ```
  *
  * **Header File:** `slap/linalg.h`
  * @param[in]    A A square matrix whose Cholesky decomposition is stored in the lower

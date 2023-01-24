@@ -18,7 +18,7 @@
 
 enum slap_MatrixType {
   slap_DENSE,
-  slap_TRANSPOSED,
+//  slap_TRANSPOSED,
   slap_TRIANGULAR_UPPER,
   slap_TRIANGULAR_LOWER,
   //  slap_DIAGONAL
@@ -34,11 +34,11 @@ enum slap_MatrixType {
  * matrix.
  */
 typedef struct Matrix {
-  uint16_t rows;  //!< number of rows
-  uint16_t cols;  //!< number of columns
-  uint16_t sx;    //!< row stride (deprecated)
-  uint16_t sy;    //!< column stride (distance between adjacent elements in the same row)
-  double* data;   //!< pointer to the start of the data
+  uint16_t rows;      //!< number of rows
+  uint16_t cols;      //!< number of columns
+  uint16_t sy;        //!< column stride (distance between adjacent elements in the same row)
+  bool is_transposed; //!< is transposed
+  double* data;       //!< pointer to the start of the data
   enum slap_MatrixType mattype;  //!< type of matrix
 } Matrix;
 
@@ -105,8 +105,8 @@ static inline Matrix slap_NullMatrix(void) {
 static inline void slap_SetNull(Matrix* mat) {
   mat->rows = 0;
   mat->cols = 0;
-  mat->sx = 0;
   mat->sy = 0;
+  mat->is_transposed = 0;
   mat->data = NULL;
   mat->mattype = slap_DENSE;
 }
@@ -128,7 +128,7 @@ static inline void slap_SetNull(Matrix* mat) {
  * @param[in] mat Matrix to check
  * @return true if transposed, false otherwise
  */
-static inline bool slap_IsTransposed(Matrix mat) { return mat.mattype == slap_TRANSPOSED; }
+static inline bool slap_IsTransposed(Matrix mat) { return mat.is_transposed; }
 
 /**
  * @brief Check if matrix is empty, i.e. if any dimension is 0
@@ -154,7 +154,7 @@ static inline bool slap_IsSquare(Matrix mat) { return mat.rows == mat.cols; }
  *
  * @param[in] mat Any matrix
  */
-static inline bool slap_IsDense(Matrix mat) { return mat.sx == 1 && mat.sy == mat.rows; }
+static inline bool slap_IsDense(Matrix mat) { return mat.sy == mat.rows; }
 
 /**
  * @brief Check if a matrix is valid
@@ -165,7 +165,7 @@ static inline bool slap_IsDense(Matrix mat) { return mat.sx == 1 && mat.sy == ma
  * @return true if matrix is valid
  */
 static inline bool slap_IsValid(Matrix mat) {
-  return (mat.data != NULL) && mat.sx > 0 && mat.sy > 0;
+  return (mat.data != NULL);
 }
 
 
@@ -181,7 +181,7 @@ static inline bool slap_IsValid(Matrix mat) {
  * @return true if matrix is a "Null" matrix
  */
 static inline bool slap_IsNull(Matrix mat) {
-  return slap_IsEmpty(mat) && mat.data == NULL && mat.sx == 0 && mat.sy == 0;
+  return slap_IsEmpty(mat) && mat.data == NULL && mat.sy == 0;
 }
 
 //*********************************************//
@@ -193,6 +193,17 @@ static inline bool slap_IsNull(Matrix mat) {
  * @param mat Any matrix
  */
 static inline double *slap_GetData(Matrix mat) { return mat.data; }
+
+/**
+ * @brief Return the type of the matrix
+ *
+ * The type is mostly used internally, and changes how the data is interpreted.
+ * It is used by methods to specify things like whether a matrix is upper or lower
+ * triangular.
+ *
+ * @param mat Any matrix
+ */
+static inline enum slap_MatrixType slap_GetType(Matrix mat) { return mat.mattype; }
 
 //*********************************************//
 // Dimensions
@@ -268,8 +279,10 @@ static inline int slap_Stride(const Matrix mat) { return mat.sy; }
            Returns -1 for a bad input.
  */
 static inline int slap_Cart2Index(const Matrix mat, int row, int col) {
-  return (mat.mattype == slap_TRANSPOSED) ? col * (int)mat.sx + (int)mat.sy * row
-                                          : row * (int)mat.sx + (int)mat.sy * col;
+  // clang-format off
+  return (mat.is_transposed) ? col + (int)mat.sy * row
+                             : row + (int)mat.sy * col;
+  // clang-format on
 }
 
 /**

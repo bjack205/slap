@@ -220,6 +220,6 @@ enum slap_ErrorCode slap_LeastSquares(Matrix A, Matrix b, Matrix betas, Matrix t
   int n = slap_NumCols(A);
   Matrix R = slap_TriUpper(slap_CreateSubMatrix(A, 0, 0, n, n));
   Matrix x = slap_CreateSubMatrix(b, 0, 0, n, 1);
-  slap_LowerTriBackSub(R, x);
+  slap_TriSolve(R, x);
   return SLAP_NO_ERROR;
 }

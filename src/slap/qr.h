@@ -15,6 +15,9 @@
  * while the reflection vectors are stored below the diagonal, which
  * can be used to recover the Q matrix.
  *
+ * See also: slap_ComputeQ(), slap_Qtb(), slap_LeastSquares()
+ *
+ * **Header File:** `slap/qr.h`
  * @param A A square or skinny matrix
  * @param[out] betas Stores scaling factors needed to recover Q. Must have
  *                   the same number of rows as A.
@@ -24,6 +27,10 @@ enum slap_ErrorCode slap_QR(Matrix A, Matrix betas, Matrix temp);
 
 /**
  * @brief Computes the Q matrix from a previously-computed QR decomposition
+ *
+ * See also: slap_QR(), slap_LeastSquares(), slap_Qtb()
+ *
+ * **Header File:** `slap/qr.h`
  * @param[out] A A square matrix with the same number of rows as R.
  * @param[in] R A square or skinny matrix containing the results from a QR decomposition.
  * @param[in] betas A vector of scaling factors needed to recover the Q matrix.
@@ -40,6 +47,9 @@ enum slap_ErrorCode slap_ComputeQ(Matrix Q, const Matrix R, const Matrix betas,
  *
  * The result is stored in b.
  *
+ * See also: slap_QR(), slap_LeastSquares()
+ *
+ * **Header File:** `slap/qr.h`
  * @param[in] R
  * @param[in] betas Scaling factors for reflections
  * @param[in,out] b Vector to multiply in-place
@@ -55,6 +65,9 @@ enum slap_ErrorCode slap_Qtb(const Matrix R, const Matrix betas, Matrix b);
  * Both `A` and `b` are over-written by this method. `A` is overwritten with the it's QR
  * decomposition, and the first \f$n\f$ rows of `b` contain the solution.
  *
+ * See also: slap_QR(), slap_Qtb()
+ *
+ * **Header File:** `slap/qr.h`
  * @param[in,out] A A "skinny" matrix
  * @param[in,out] b
  * @param[out] betas A vector of scaling factors to recover Q. Must have the same number of

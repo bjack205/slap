@@ -9,13 +9,23 @@
 
 Matrix slap_NewMatrix(int rows, int cols) {
   double* data = (double*)malloc(rows * cols * sizeof(double));
-  Matrix mat = {rows, cols, 1, rows, data, slap_DENSE};
+  Matrix mat = {.rows = rows,
+                .cols = cols,
+                .sy = rows,
+                .is_transposed = 0,
+                .data = data,
+                .mattype = slap_DENSE};
   return mat;
 }
 
 Matrix slap_NewMatrixZeros(int rows, int cols) {
   double* data = (double*)calloc(rows * cols, sizeof(double));
-  Matrix mat = {rows, cols, 1, rows, data, slap_DENSE};
+  Matrix mat = {.rows = rows,
+                .cols = cols,
+                .sy = rows,
+                .is_transposed = false,
+                .data = data,
+                .mattype = slap_DENSE};
   return mat;
 }
 

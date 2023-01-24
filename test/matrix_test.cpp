@@ -9,7 +9,6 @@ TEST(MatrixBasics, MatrixFromArray) {
   Matrix A = slap_MatrixFromArray(2, 3, data);
   EXPECT_EQ(slap_NumElements(A), 6);
   EXPECT_EQ(A.data, data);
-  EXPECT_EQ(A.sx, 1);
   EXPECT_EQ(A.sy, 2);
   EXPECT_EQ(slap_NumRows(A), 2);
   EXPECT_EQ(slap_NumCols(A), 3);

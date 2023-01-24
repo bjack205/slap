@@ -33,7 +33,7 @@ enum slap_ErrorCode slap_Cholesky(Matrix A) {
   return SLAP_NO_ERROR;
 }
 
-enum slap_ErrorCode slap_LowerTriBackSub(Matrix L, Matrix b) {
+enum slap_ErrorCode slap_TriSolve(Matrix L, Matrix b) {
   SLAP_ASSERT_VALID(L, SLAP_INVALID_MATRIX, "LowerTriBackSub: L matrix invalid");
   SLAP_ASSERT_VALID(b, SLAP_INVALID_MATRIX, "LowerTriBackSub: b matrix invalid");
   SLAP_ASSERT(slap_NumCols(L) == slap_NumRows(b), SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
@@ -42,7 +42,7 @@ enum slap_ErrorCode slap_LowerTriBackSub(Matrix L, Matrix b) {
               slap_NumRows(b));
   int n = b.rows;
   int m = b.cols;
-  bool tL = L.mattype == slap_TRIANGULAR_UPPER || L.mattype == slap_TRANSPOSED;
+  bool tL = L.mattype == slap_TRIANGULAR_UPPER || slap_IsTransposed(L);
 
   for (int j_ = 0; j_ < n; ++j_) {
     int j = tL ? n - j_ - 1 : j_;
@@ -64,9 +64,9 @@ enum slap_ErrorCode slap_LowerTriBackSub(Matrix L, Matrix b) {
 enum slap_ErrorCode slap_CholeskySolve(const Matrix A, Matrix b) {
   // NOTE: Validity checks are done by the sub-methods
   enum slap_ErrorCode err;
-  err = slap_LowerTriBackSub(A, b);
+  err = slap_TriSolve(A, b);
   if (err != SLAP_NO_ERROR) return err;
-  err = slap_LowerTriBackSub(slap_Transpose(A), b);
+  err = slap_TriSolve(slap_Transpose(A), b);
   if (err != SLAP_NO_ERROR) return err;
   return SLAP_NO_ERROR;
 }

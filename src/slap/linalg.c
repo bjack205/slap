@@ -22,8 +22,8 @@ int slap_MatrixMultiply(Matrix* C, const Matrix A, const Matrix B,
                         double alpha, double beta) {
   int n;
   int m;
-  bool tA = A.mattype == slap_TRANSPOSED;
-  bool tB = B.mattype == slap_TRANSPOSED;
+  bool tA = slap_IsTransposed(A);
+  bool tB = slap_IsTransposed(B);
   if (tA) {
     n = A.cols;
     m = A.rows;

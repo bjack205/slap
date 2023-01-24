@@ -22,8 +22,8 @@ Matrix slap_CreateSubMatrix(Matrix mat, int top_left_row, int top_left_col, int 
 
   new_mat.rows = new_rows;
   new_mat.cols = new_cols;
-  new_mat.sx = mat.sx;
   new_mat.sy = mat.sy;
+  new_mat.is_transposed = mat.is_transposed;
   int top_left_index = slap_Cart2Index(mat, top_left_row, top_left_col);
   new_mat.data = mat.data + top_left_index;
   new_mat.mattype = mat.mattype;

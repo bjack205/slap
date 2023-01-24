@@ -20,6 +20,11 @@ Cholesky
 --------
 .. doxygenfunction:: slap_Cholesky
 
-.. doxygenfunction:: slap_LowerTriBackSub
+.. doxygenfunction:: slap_TriSolve
 
 .. doxygenfunction:: slap_CholeskySolve
+
+QR
+----
+
+.. doxygenfile:: qr.h

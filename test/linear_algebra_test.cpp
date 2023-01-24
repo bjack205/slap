@@ -123,16 +123,16 @@ TEST_F(LinearAlgebraTest, TriBackSub) {
   double ydata[n] = {-2.0, 7.0, -3.142857142857143};
   double xdata[n] = {-19.142857142857142, 9.693877551020408, -0.4489795918367347};
 
-  Matrix L = slap_MatrixFromArray(n, n, Ldata);
+  Matrix L = slap_TriLower(slap_MatrixFromArray(n, n, Ldata));
   Matrix b = slap_MatrixFromArray(n, 1, bdata);
   Matrix y = slap_MatrixFromArray(n, 1, ydata);
   Matrix x = slap_MatrixFromArray(n, 1, xdata);
 
-  err = slap_LowerTriBackSub(L, b);
+  err = slap_TriSolve(L, b);
   EXPECT_EQ(err, SLAP_NO_ERROR);
   EXPECT_LT(slap_MatrixNormedDifference(b, y), 1e-10);
 
-  err = slap_LowerTriBackSub(slap_Transpose(L), y);
+  err = slap_TriSolve(slap_Transpose(L), y);
   EXPECT_EQ(err, SLAP_NO_ERROR);
   EXPECT_LT(slap_MatrixNormedDifference(x, y), 1e-10);
   (void)x;
@@ -317,7 +317,7 @@ TEST_F(QRDecompTest, QRDecomp_LeastSquares) {
   // Triangular solve
   Matrix R_ = slap_CreateSubMatrix(R2, 0, 0, n2, n2);
   Matrix x = slap_CreateSubMatrix(Qtb, 0, 0, n2, 1);
-  slap_LowerTriBackSub(R_, x);
+  slap_TriSolve(R_, x);
   double err = slap_MatrixNormedDifference(x, x_ans);
   EXPECT_LT(err, 1e-10);
 }
