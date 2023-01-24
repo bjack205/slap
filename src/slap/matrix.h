@@ -19,6 +19,8 @@
 enum slap_MatrixType {
   slap_DENSE,
   slap_TRANSPOSED,
+  slap_TRIANGULAR_UPPER,
+  slap_TRIANGULAR_LOWER,
   //  slap_DIAGONAL
 };
 
@@ -429,6 +431,10 @@ Matrix slap_Flatten(Matrix mat);
  * @return Transposed Matrix
  */
 Matrix slap_Transpose(Matrix mat);
+
+Matrix slap_TriUpper(Matrix mat);
+
+Matrix slap_TriLower(Matrix mat);
 
 /**
  * @brief Set the dimensions of the matrix

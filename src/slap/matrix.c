@@ -56,12 +56,35 @@ Matrix slap_Reshape(Matrix mat, int rows, int cols) {
   Matrix new_mat = {
       .rows = rows,
       .cols = cols,
-      .data = mat.data,
       .sx = 1,
       .sy = rows,
+      .data = mat.data,
       .mattype = mat.mattype,
   };
   new_mat.rows = rows;
   new_mat.cols = cols;
+  return new_mat;
+}
+Matrix slap_TriUpper(Matrix mat) {
+  Matrix new_mat = {
+      .rows = mat.rows,
+      .cols = mat.cols,
+      .sx = 1,
+      .sy = mat.sy,
+      .data = mat.data,
+      .mattype = slap_TRIANGULAR_UPPER,
+  };
+  return new_mat;
+}
+
+Matrix slap_TriLower(Matrix mat) {
+  Matrix new_mat = {
+      .rows = mat.rows,
+      .cols = mat.cols,
+      .sx = 1,
+      .sy = mat.sy,
+      .data = mat.data,
+      .mattype = slap_TRIANGULAR_LOWER,
+  };
   return new_mat;
 }

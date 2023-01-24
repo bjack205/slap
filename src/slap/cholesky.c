@@ -42,7 +42,7 @@ enum slap_ErrorCode slap_LowerTriBackSub(Matrix L, Matrix b) {
               slap_NumRows(b));
   int n = b.rows;
   int m = b.cols;
-  bool tL = slap_IsTransposed(L);
+  bool tL = L.mattype == slap_TRIANGULAR_UPPER || L.mattype == slap_TRANSPOSED;
 
   for (int j_ = 0; j_ < n; ++j_) {
     int j = tL ? n - j_ - 1 : j_;

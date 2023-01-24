@@ -9,6 +9,8 @@
 
 #include "printing.h"
 #include "unary_ops.h"
+#include "strided_matrix.h"
+#include "cholesky.h"
 
 #define ZERO_TOL 1e-10
 
@@ -76,7 +78,7 @@ void Qmuly(Matrix Q_bar, Matrix Q, Matrix R, double alpha, int k) {
 
 //  printf("Qmuly with k = %d\n", k);
 //  printf("  Looping columns %d to %d\n", k, m - 1);
-  for (int j = k; j < m; j++) {
+  for (int j = k; j < m; ++j) {
     double v_j = 1;
     if (j > k) {
       v_j = *slap_GetElement(R, j, k);
@@ -85,11 +87,11 @@ void Qmuly(Matrix Q_bar, Matrix Q, Matrix R, double alpha, int k) {
 
     // Top right corner: Q12 - alpha * Q12 * v * v'
 //    printf("    Looping rows %d to %d\n", 0, k - 1);
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; ++i) {
       Qiv = 0;
 
       // Calculate Q[i,:] * v
-      for (int kk = k; kk < m; kk++) {
+      for (int kk = k; kk < m; ++kk) {
         double v_kk = 1.0;
         if (kk > k) {
           v_kk = *slap_GetElement(R, kk, k);
@@ -104,7 +106,7 @@ void Qmuly(Matrix Q_bar, Matrix Q, Matrix R, double alpha, int k) {
     }
 
     // Bottom right corner: Q22 - alpha * A22 * v * v'
-    for (int i = k; i < m; i++) {
+    for (int i = k; i < m; ++i) {
       Qiv = 0;
 
       // Calculate Q[i,:] * v
@@ -140,16 +142,16 @@ enum slap_ErrorCode slap_QR(Matrix A, Matrix betas, Matrix temp) {
     // A = (I - beta * v * v') * A
 
     // 1. Calculate temp = v'A
-    for (int j = k; j < n; j++) {    // loop over columns
+    for (int j = k; j < n; ++j) {    // loop over columns
       temp.data[j] = 0;
-      for (int i = k; i < m; i++) {  // loop over rows
+      for (int i = k; i < m; ++i) {  // loop over rows
         temp.data[j] += *slap_GetElement(A, i, j) * v.data[i];
       }
     }
 
     // 2. Calculate A = A - beta *  v * temp
-    for (int j = k; j < n; j++) {    // loop over columns
-      for (int i = k; i < m; i++) {  // loop over rows
+    for (int j = k; j < n; ++j) {    // loop over columns
+      for (int i = k; i < m; ++i) {  // loop over rows
         double *Aij = slap_GetElement(A, i, j);
         *Aij -= beta * v.data[i] * temp.data[j];
       }
@@ -158,7 +160,7 @@ enum slap_ErrorCode slap_QR(Matrix A, Matrix betas, Matrix temp) {
     // Store y = v / v[1] below the diagonal
     // Discards the first element, which is known to be 1
     double v_k = v.data[k];
-    for (int i = k + 1; i < m; i++) {
+    for (int i = k + 1; i < m; ++i) {
       slap_SetElement(A, i, k, v.data[i] / v_k);
     }
     v.data[k] = v_k * v_k * beta;  // save the scaling
@@ -173,19 +175,51 @@ enum slap_ErrorCode slap_ComputeQ(Matrix Q, const Matrix R, const Matrix betas,
   int n = slap_NumCols(R);
   slap_SetIdentity(Q, 1.0);
   slap_SetIdentity(Q_work, 1.0);
-  for (int k = 0; k < n; k++) {
+  for (int k = 0; k < n; ++k) {
     // Calculate Q_work = Q * (I - beta * v * v')
     Qmuly(Q_work, Q, R, betas.data[k], k);
-    if (k == 0) {
-      slap_PrintMatrix(Q_work);
-    }
 
     // Copy the modified columns on the right back to Q
-    for (int j = k; j < m; j++) {
-      for (int i = 0; i < m; i++) {
+    for (int j = k; j < m; ++j) {
+      for (int i = 0; i < m; ++i) {
         slap_SetElement(Q, i, j, *slap_GetElement(Q_work, i, j));
       }
     }
   }
+  return SLAP_NO_ERROR;
+}
+enum slap_ErrorCode slap_Qtb(const Matrix R, const Matrix betas, Matrix b) {
+  int m = slap_NumRows(R);
+  int n = slap_NumCols(R);
+  for (int k = 0; k < n; ++k) {
+    // b[k+1] = b[k] - beta[k] * v[k] * (v[k]'b[k])
+
+    // alpha = beta[k] * v[k]'b[k]
+    double alpha = b.data[k];
+    for (int i = k + 1; i < m; ++i) {
+        alpha += *slap_GetElement(R, i, k) * b.data[i];
+    }
+    alpha *= betas.data[k];
+
+    // b[k+1] = b[k] - alpha * v[k]
+    b.data[k] -= alpha;
+    for (int i = k + 1; i < m; ++i) {
+      b.data[i] -= alpha * *slap_GetElement(R, i, k);
+    }
+  }
+  return SLAP_NO_ERROR;
+}
+enum slap_ErrorCode slap_LeastSquares(Matrix A, Matrix b, Matrix betas, Matrix temp) {
+  // Perform QR on A
+  slap_QR(A, betas, temp);
+
+  // Calculate Q'b
+  slap_Qtb(A, betas, b);
+
+  // Triangular solve R x = Q'b
+  int n = slap_NumCols(A);
+  Matrix R = slap_TriUpper(slap_CreateSubMatrix(A, 0, 0, n, n));
+  Matrix x = slap_CreateSubMatrix(b, 0, 0, n, 1);
+  slap_LowerTriBackSub(R, x);
   return SLAP_NO_ERROR;
 }

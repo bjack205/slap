@@ -41,6 +41,26 @@ enum slap_ErrorCode slap_ComputeQ(Matrix Q, const Matrix R, const Matrix betas,
  * The result is stored in b.
  *
  * @param[in] R
- * @param b
+ * @param[in] betas Scaling factors for reflections
+ * @param[in,out] b Vector to multiply in-place
  */
-enum slap_ErrorCode slap_Qtb(const Matrix R, Matrix b);
+enum slap_ErrorCode slap_Qtb(const Matrix R, const Matrix betas, Matrix b);
+
+/**
+ * @brief Solve a least squares problem
+ *
+ * Solves \f$ \text{minimize} || A x - b || \f$, where \f$A\f$ has more
+ * rows (\f$m\f$) than columns (\f$n\f$).
+ *
+ * Both `A` and `b` are over-written by this method. `A` is overwritten with the it's QR
+ * decomposition, and the first \f$n\f$ rows of `b` contain the solution.
+ *
+ * @param[in,out] A A "skinny" matrix
+ * @param[in,out] b
+ * @param[out] betas A vector of scaling factors to recover Q. Must have the same number of
+ *                   rows as `A`.
+ * @param temp A temporary vector used to compute the QR decomposition of `A`.
+ *             Must have the same number of rows as `A`.
+ * @return
+ */
+enum slap_ErrorCode slap_LeastSquares(Matrix A, Matrix b, Matrix betas, Matrix temp);

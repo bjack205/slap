@@ -5,6 +5,7 @@
 
 #include "gtest/gtest.h"
 #include "slap/slap.h"
+#include "slap/cholesky.h"
 
 class LinearAlgebraTest : public ::testing::Test {
  public:
@@ -182,9 +183,6 @@ class QRDecompTest : public ::testing::Test {
       0.25, 0.2, 0.16666666666666666, 0.14285714285714285, 0.125,
       0.2, 0.16666666666666666, 0.14285714285714285, 0.125, 0.1111111111111111
   };
-  double datab[m1] = {
-      -1.5642880600352318, 0.7840050512892108, -0.9899090197378724, -1.078415320831164, 1.169221916323157
-  };
   double dataA2[m2 * n1] = {
       -0.6074563212311672, 0.6925987046273734, -0.04830701721338945,
       0.11756669437635717, 0.51871450539862, 0.599358857883042,
@@ -192,6 +190,14 @@ class QRDecompTest : public ::testing::Test {
       1.6553198217895213, -0.22706518216748067, -0.15012100723414903,
       -0.4349328686059969, -0.36455753152400444, 0.16025126740928738
   };
+  double datab[m2] = {
+      -1.5642880600352318, 0.7840050512892108, -0.9899090197378724, -1.078415320831164, 1.169221916323157
+  };
+  double datax[m2] = {
+      1.5015975917105808, 0.06697808740320454, 2.622899732853888,
+  };
+  // clang-format on
+
   double dataR1[m1 * n1];
   double dataR2[m2 * n2];
   double data_beta1[m1];
@@ -199,10 +205,10 @@ class QRDecompTest : public ::testing::Test {
 
   double data_temp1[m1];
   double data_temp2[m2];
-  // clang-format on
   Matrix A1;
   Matrix A2;
   Matrix b;
+  Matrix x_ans;
 
   Matrix R1;
   Matrix R2;
@@ -217,7 +223,8 @@ class QRDecompTest : public ::testing::Test {
   void SetUp() override {
     A1 = slap_MatrixFromArray(m1, n1, dataA1);
     A2 = slap_MatrixFromArray(m2, n2, dataA2);
-    b = slap_MatrixFromArray(m1, 1, datab);
+    b = slap_MatrixFromArray(m2, 1, datab);
+    x_ans = slap_MatrixFromArray(n2, 1, datax);
 
     R1 = slap_MatrixFromArray(m1, n1, dataR1);
     R2 = slap_MatrixFromArray(m2, n2, dataR2);
@@ -247,8 +254,8 @@ TEST_F(QRDecompTest, QRDecomp_Square) {
   EXPECT_LT(diff, 1e-10);
 
   // Check decomposition (Q * R = A)
-  for (int j = 0; j < m1; j++) {
-    for (int i = j + 1; i < n1; ++i) {
+  for (int j = 0; j < n1; j++) {
+    for (int i = j + 1; i < m1; ++i) {
       slap_SetElement(R1, i, j, 0);
     }
   }
@@ -261,4 +268,63 @@ TEST_F(QRDecompTest, QRDecomp_Square) {
   slap_FreeMatrix(Q_work);
   slap_FreeMatrix(I_m);
   slap_FreeMatrix(QR);
+}
+
+TEST_F(QRDecompTest, QRDecomp_Skinny) {
+  slap_MatrixCopy(R2, A2);
+  slap_QR(R2, beta2, temp2);
+  Matrix Q = slap_NewMatrix(m2, m2);
+  Matrix Q_work = slap_NewMatrix(m2, m2);
+  Matrix I_m = slap_NewMatrix(m2, m2);
+  Matrix QR = slap_NewMatrix(m2, n2);
+  slap_SetIdentity(I_m, 1.0);
+
+  slap_ComputeQ(Q, R2, beta2, Q_work);
+
+  // Check Q orthogonality (Q'Q = I)
+  slap_MatMulAtB(Q_work, Q, Q);
+  double diff = slap_MatrixNormedDifference(Q_work, I_m);
+  EXPECT_LT(diff, 1e-10);
+
+  // Check decomposition (Q * R = A)
+  for (int j = 0; j < n2; j++) {
+    for (int i = j + 1; i < m2; ++i) {
+      slap_SetElement(R2, i, j, 0);
+    }
+  }
+  slap_MatMulAB(QR, Q, R2);
+  diff = slap_MatrixNormedDifference(QR, A2);
+  EXPECT_LT(diff, 1e-10);
+
+  // Clean up temporaries
+  slap_FreeMatrix(Q);
+  slap_FreeMatrix(Q_work);
+  slap_FreeMatrix(I_m);
+  slap_FreeMatrix(QR);
+}
+
+TEST_F(QRDecompTest, QRDecomp_LeastSquares) {
+  // Compute QR decomp
+  slap_MatrixCopy(R2, A2);
+  R2 = slap_TriUpper(R2);
+  slap_QR(R2, beta2, temp2);
+
+  // Get Q'b
+  Matrix Qtb = slap_NewMatrix(m2, 1);
+  slap_MatrixCopy(Qtb, b);
+  slap_Qtb(R2, beta2, Qtb);
+
+  // Triangular solve
+  Matrix R_ = slap_CreateSubMatrix(R2, 0, 0, n2, n2);
+  Matrix x = slap_CreateSubMatrix(Qtb, 0, 0, n2, 1);
+  slap_LowerTriBackSub(R_, x);
+  double err = slap_MatrixNormedDifference(x, x_ans);
+  EXPECT_LT(err, 1e-10);
+}
+
+TEST_F(QRDecompTest, QRDecomp_LeastSquaresFunction) {
+  slap_LeastSquares(A2, b, beta2, temp2);
+  Matrix x = slap_CreateSubMatrix(b, 0, 0, n2, 1);
+  double err = slap_MatrixNormedDifference(x, x_ans);
+  EXPECT_LT(err, 1e-10);
 }
