@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rows_150',['rows',['../structMatrix.html#a47480e706bdcf890857edea454d08c3f',1,'Matrix']]]
+  ['mattype_152',['mattype',['../structMatrix.html#a830b32b428cf9740e3eb9eb53e4407de',1,'Matrix']]]
 ];

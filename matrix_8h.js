@@ -3,7 +3,6 @@ var matrix_8h =
     [ "Matrix", "group__Basics.html#ga9570374e3dbc873595100dae1e584459", null ],
     [ "slap_MatrixType", "group__Basics.html#ga8fcc121b0708680f09fd9a9464fd8381", [
       [ "slap_DENSE", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381a41efb78bba7d4b372d1238bba8785305", null ],
-      [ "slap_TRANSPOSED", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381afc5fa65484d0caee1062b29816958390", null ],
       [ "slap_TRIANGULAR_UPPER", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381a31b9b84ef137750ef66c84c07c5cd841", null ],
       [ "slap_TRIANGULAR_LOWER", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381ae638a5bd1788e81a48d58590921d2e12", null ]
     ] ],
@@ -13,6 +12,7 @@ var matrix_8h =
     [ "slap_GetData", "group__Basics.html#ga67406cb519a723c497e70e2390b39fde", null ],
     [ "slap_GetElement", "group__Basics.html#gae7b520403190dd344634ca33136151ab", null ],
     [ "slap_GetElementConst", "group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494", null ],
+    [ "slap_GetType", "group__Basics.html#ga1a92789cc8578dd59326fd11d972078a", null ],
     [ "slap_IsDense", "group__Basics.html#gac0c4333dccc8b47037621c67252f62e0", null ],
     [ "slap_IsEmpty", "group__Basics.html#gae596da56330a975b4fb6219e0e03f7ed", null ],
     [ "slap_IsNull", "group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2", null ],

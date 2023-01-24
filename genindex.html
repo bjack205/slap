@@ -89,11 +89,11 @@
 </li>
       <li><a href="src/matrix_overview.html#_CPPv4N6Matrix4dataE">Matrix::data (C++ member)</a>
 </li>
+      <li><a href="src/matrix_overview.html#_CPPv4N6Matrix13is_transposedE">Matrix::is_transposed (C++ member)</a>
+</li>
       <li><a href="src/matrix_overview.html#_CPPv4N6Matrix7mattypeE">Matrix::mattype (C++ member)</a>
 </li>
       <li><a href="src/matrix_overview.html#_CPPv4N6Matrix4rowsE">Matrix::rows (C++ member)</a>
-</li>
-      <li><a href="src/matrix_overview.html#_CPPv4N6Matrix2sxE">Matrix::sx (C++ member)</a>
 </li>
       <li><a href="src/matrix_overview.html#_CPPv4N6Matrix2syE">Matrix::sy (C++ member)</a>
 </li>
@@ -135,9 +135,11 @@
 </li>
       <li><a href="src/api/matrix.html#_CPPv418slap_CheckInbounds6Matrixii">slap_CheckInbounds (C++ function)</a>, <a href="src/indexing.html#_CPPv418slap_CheckInbounds6Matrixii">[1]</a>
 </li>
-      <li><a href="src/api/linalg.html#_CPPv413slap_Cholesky6Matrix">slap_Cholesky (C++ function)</a>, <a href="src/linear_algebra.html#_CPPv413slap_Cholesky6Matrix">[1]</a>
+      <li><a href="src/api/linalg.html#_CPPv413slap_Cholesky6Matrix">slap_Cholesky (C++ function)</a>
 </li>
-      <li><a href="src/api/linalg.html#_CPPv418slap_CholeskySolve6Matrix6Matrix">slap_CholeskySolve (C++ function)</a>, <a href="src/linear_algebra.html#_CPPv418slap_CholeskySolve6Matrix6Matrix">[1]</a>
+      <li><a href="src/api/linalg.html#_CPPv418slap_CholeskySolve6Matrix6Matrix">slap_CholeskySolve (C++ function)</a>
+</li>
+      <li><a href="src/api/linalg.html#_CPPv413slap_ComputeQ6MatrixK6MatrixK6Matrix6Matrix">slap_ComputeQ (C++ function)</a>
 </li>
       <li><a href="src/api/vector_products.html#_CPPv417slap_CrossProduct6Matrix6Matrix6Matrix">slap_CrossProduct (C++ function)</a>
 </li>
@@ -169,26 +171,26 @@
 </li>
       <li><a href="src/api/iterator.html#_CPPv413slap_Iterator6Matrix">slap_Iterator (C++ function)</a>
 </li>
+      <li><a href="src/api/linalg.html#_CPPv417slap_LeastSquares6Matrix6Matrix6Matrix6Matrix">slap_LeastSquares (C++ function)</a>
+</li>
       <li><a href="src/api/matrix.html#_CPPv416slap_Linear2Cart6MatrixiPiPi">slap_Linear2Cart (C++ function)</a>, <a href="src/indexing.html#_CPPv416slap_Linear2Cart6MatrixiPiPi">[1]</a>
 </li>
       <li><a href="src/api/matrix.html#_CPPv417slap_Linear2IndexK6Matrixi">slap_Linear2Index (C++ function)</a>, <a href="src/indexing.html#_CPPv417slap_Linear2IndexK6Matrixi">[1]</a>
 </li>
-      <li><a href="src/api/linalg.html#_CPPv420slap_LowerTriBackSub6Matrix6Matrix">slap_LowerTriBackSub (C++ function)</a>
-</li>
       <li><a href="src/api/function_mapping.html#_CPPv48slap_Map6MatrixPFddE">slap_Map (C++ function)</a>
 </li>
-      <li><a href="src/api/linalg.html#_CPPv413slap_MatMulAB6Matrix6Matrix6Matrix">slap_MatMulAB (C++ function)</a>, <a href="src/linear_algebra.html#_CPPv413slap_MatMulAB6Matrix6Matrix6Matrix">[1]</a>
+      <li><a href="src/api/linalg.html#_CPPv413slap_MatMulAB6Matrix6Matrix6Matrix">slap_MatMulAB (C++ function)</a>
 </li>
-      <li><a href="src/api/linalg.html#_CPPv414slap_MatMulAdd6Matrix6Matrix6Matrixdd">slap_MatMulAdd (C++ function)</a>, <a href="src/linear_algebra.html#_CPPv414slap_MatMulAdd6Matrix6Matrix6Matrixdd">[1]</a>
+      <li><a href="src/api/linalg.html#_CPPv414slap_MatMulAdd6Matrix6Matrix6Matrixdd">slap_MatMulAdd (C++ function)</a>
 </li>
-      <li><a href="src/api/linalg.html#_CPPv414slap_MatMulAtB6Matrix6Matrix6Matrix">slap_MatMulAtB (C++ function)</a>, <a href="src/api/linalg.html#_CPPv414slap_MatMulAtB6Matrix6Matrix6Matrix">[1]</a>, <a href="src/linear_algebra.html#_CPPv414slap_MatMulAtB6Matrix6Matrix6Matrix">[2]</a>
+      <li><a href="src/api/linalg.html#_CPPv414slap_MatMulAtB6Matrix6Matrix6Matrix">slap_MatMulAtB (C++ function)</a>, <a href="src/api/linalg.html#_CPPv414slap_MatMulAtB6Matrix6Matrix6Matrix">[1]</a>
 </li>
       <li><a href="src/api/binary_ops.html#_CPPv419slap_MatrixAddition6Matrix6Matrix6Matrixd">slap_MatrixAddition (C++ function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/api/copy.html#_CPPv415slap_MatrixCopy6Matrix6Matrix">slap_MatrixCopy (C++ function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/api/copy.html#_CPPv424slap_MatrixCopyFromArray6MatrixPKd">slap_MatrixCopyFromArray (C++ function)</a>
 </li>
       <li><a href="src/api/copy.html#_CPPv424slap_MatrixCopyTranspose6Matrix6Matrix">slap_MatrixCopyTranspose (C++ function)</a>
@@ -225,6 +227,10 @@
 </li>
       <li><a href="src/api/vector_products.html#_CPPv417slap_OuterProduct6Matrix6Matrix6Matrix">slap_OuterProduct (C++ function)</a>
 </li>
+      <li><a href="src/api/linalg.html#_CPPv47slap_QR6Matrix6Matrix6Matrix">slap_QR (C++ function)</a>
+</li>
+      <li><a href="src/api/linalg.html#_CPPv48slap_QtbK6MatrixK6Matrix6Matrix">slap_Qtb (C++ function)</a>
+</li>
       <li><a href="src/api/vector_products.html#_CPPv418slap_QuadraticForm6Matrix6Matrix6Matrix">slap_QuadraticForm (C++ function)</a>
 </li>
       <li><a href="src/api/matrix.html#_CPPv412slap_Reshape6Matrixii">slap_Reshape (C++ function)</a>
@@ -250,6 +256,8 @@
       <li><a href="src/api/vector_ops.html#_CPPv48slap_Sum6Matrix">slap_Sum (C++ function)</a>
 </li>
       <li><a href="src/api/matrix.html#_CPPv414slap_Transpose6Matrix">slap_Transpose (C++ function)</a>
+</li>
+      <li><a href="src/api/linalg.html#_CPPv413slap_TriSolve6Matrix6Matrix">slap_TriSolve (C++ function)</a>
 </li>
   </ul></td>
 </tr></table>

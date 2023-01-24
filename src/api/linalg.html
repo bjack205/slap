@@ -58,6 +58,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">linalg.h</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#matrix-multiplication">Matrix Multiplication</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cholesky">Cholesky</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qr">QR</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="vector_ops.html">vector_ops.h</a></li>
@@ -109,9 +110,9 @@ which are all included by <code class="docutils literal notranslate"><span class
 \[ C = \beta C + \alpha A B \]</div>
 </p>
 <p>The two input matrices can be aliased, but neither can be aliased with the output, doing so will result in undefined behavior.</p>
-<section id="matmul_8h_1autotoc_md3">
-<h3>Examples<a class="headerlink" href="#matmul_8h_1autotoc_md3" title="Permalink to this heading"></a></h3>
-<p id="matmul_8h_1autotoc_md3">Normal matrix multiplication: <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<section id="matmul_8h_1autotoc_md4">
+<h3>Examples<a class="headerlink" href="#matmul_8h_1autotoc_md4" title="Permalink to this heading"></a></h3>
+<p id="matmul_8h_1autotoc_md4">Normal matrix multiplication: <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </pre></div>
 </div>
 </p>
@@ -228,19 +229,21 @@ which are all included by <code class="docutils literal notranslate"><span class
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv420slap_LowerTriBackSub6Matrix6Matrix">
-<span id="_CPPv320slap_LowerTriBackSub6Matrix6Matrix"></span><span id="_CPPv220slap_LowerTriBackSub6Matrix6Matrix"></span><span id="slap_LowerTriBackSub__Matrix.Matrix"></span><span class="target" id="group__LinearAlgebra_1gaf8ca733754d02de5b5a6380af70003c8"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_LowerTriBackSub</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">L</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420slap_LowerTriBackSub6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Solve a linear system of equation for a lower triangular matrix. </p>
-<p>Uses backsubstitution to solve a system of equations of the following form: <div class="math notranslate nohighlight">
+<dt class="sig sig-object cpp" id="_CPPv413slap_TriSolve6Matrix6Matrix">
+<span id="_CPPv313slap_TriSolve6Matrix6Matrix"></span><span id="_CPPv213slap_TriSolve6Matrix6Matrix"></span><span id="slap_TriSolve__Matrix.Matrix"></span><span class="target" id="group__LinearAlgebra_1ga7dba897242200e00f7bc5f04c06a2b92"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_TriSolve</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">L</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413slap_TriSolve6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Solve a linear system of equation for a triangular matrix. </p>
+<p>Uses back-substitution to solve a system of equations of the following form: <div class="math notranslate nohighlight">
 \[ L x = b \]</div>
  for a lower-triangular matrix <span class="math notranslate nohighlight">\( L \)</span>, or <div class="math notranslate nohighlight">
 \[ L^T x = b \]</div>
- if <code class="docutils literal notranslate"><span class="pre">istransposed</span></code> is true.</p>
+ if <code class="docutils literal notranslate"><span class="pre">slap_IsTransposed(L)</span></code> is true, or <div class="math notranslate nohighlight">
+\[ R x = b \]</div>
+ if <code class="docutils literal notranslate"><span class="pre">slap_GetType(L)</span> <span class="pre">==</span> <span class="pre">slap_TRIANGULAR_UPPER</span></code>.</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>L</strong> – <strong>[in]</strong> A lower-triangular matrix </p></li>
+<li><p><strong>L</strong> – <strong>[in]</strong> A triangular matrix. Assumed to be lower-triangular unless its slap_MatrixType is slap_TRIANGULAR_UPPER </p></li>
 <li><p><strong>b</strong> – <strong>[inout]</strong> The right-hand-side vector. Stores the solution upon completion. </p></li>
 </ul>
 </dd>
@@ -254,8 +257,22 @@ which are all included by <code class="docutils literal notranslate"><span class
 <dt class="sig sig-object cpp" id="_CPPv418slap_CholeskySolve6Matrix6Matrix">
 <span id="_CPPv318slap_CholeskySolve6Matrix6Matrix"></span><span id="_CPPv218slap_CholeskySolve6Matrix6Matrix"></span><span id="slap_CholeskySolve__Matrix.Matrix"></span><span class="target" id="group__LinearAlgebra_1ga792058bb09344ca5bcb82a56317d618f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_CholeskySolve</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418slap_CholeskySolve6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Solve a linear system of equation with a precomputed Cholesky decomposition. </p>
-<p>A x = b L * L’ x = b L * y = b =&gt; y = L \ b L’ x = y =&gt; x = L’ \ y</p>
+<p>Here’s a simple derivation of how the decomposition works: <div class="math notranslate nohighlight">
+\[\begin{split}\begin{align} &amp;Ax = b \\ &amp;L L^T x = b \\ &amp;\implies y = L^{-1} b \;\text{ solved using back-substitution} \\ &amp;L^T x = y \\ &amp;\implies x = L^{-T} y \;\text{ solved using back-substitution} \\ \end{align}\end{split}\]</div>
+</p>
+<section id="group__LinearAlgebra_1autotoc_md1">
+<h3>Example<a class="headerlink" href="#group__LinearAlgebra_1autotoc_md1" title="Permalink to this heading"></a></h3>
+<p id="group__LinearAlgebra_1autotoc_md1"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">slap_ErrorCode</span><span class="w"> </span><span class="n">err</span><span class="p">;</span>
+<span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_Cholesky</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SLAP_CHOLESKY_FAIL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Matrix not positive definite!</span><span class="se">\n</span><span class="s">);</span>
+<span class="p">}</span>
+<span class="n">slap_CholeskySolve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
+</section>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -269,6 +286,90 @@ which are all included by <code class="docutils literal notranslate"><span class
 </dl>
 </dd></dl>
 
+</section>
+<section id="qr">
+<h2>QR<a class="headerlink" href="#qr" title="Permalink to this heading"></a></h2>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv47slap_QR6Matrix6Matrix6Matrix">
+<span id="_CPPv37slap_QR6Matrix6Matrix6Matrix"></span><span id="_CPPv27slap_QR6Matrix6Matrix6Matrix"></span><span id="slap_QR__Matrix.Matrix.Matrix"></span><span class="target" id="qr_8h_1af8b11bc217ed8b87bbf0ed0f56f1fb9c"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_QR</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">betas</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">temp</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47slap_QR6Matrix6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Performs QR decomposition. </p>
+<p>Calculates the QR decomposition using Householder reflections. The R factor is stored in the upper triangular portion of A, while the reflection vectors are stored below the diagonal, which can be used to recover the Q matrix.</p>
+<p>See also: slap_ComputeQ(), slap_Qtb(), slap_LeastSquares()</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/qr.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> – A square or skinny matrix </p></li>
+<li><p><strong>betas</strong> – <strong>[out]</strong> Stores scaling factors needed to recover Q. Must have the same number of rows as A. </p></li>
+<li><p><strong>temp</strong> – <strong>[in]</strong> A temporary vector with the same number of rows as A. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413slap_ComputeQ6MatrixK6MatrixK6Matrix6Matrix">
+<span id="_CPPv313slap_ComputeQ6MatrixK6MatrixK6Matrix6Matrix"></span><span id="_CPPv213slap_ComputeQ6MatrixK6MatrixK6Matrix6Matrix"></span><span id="slap_ComputeQ__Matrix.MatrixC.MatrixC.Matrix"></span><span class="target" id="qr_8h_1ae4fa3bdaea2a4080cdf8b6b22b093d78"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_ComputeQ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">Q</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">R</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">betas</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">Q_work</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413slap_ComputeQ6MatrixK6MatrixK6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Computes the Q matrix from a previously-computed QR decomposition. </p>
+<p>See also: slap_QR(), slap_LeastSquares(), slap_Qtb()</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/qr.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> – <strong>[out]</strong> A square matrix with the same number of rows as R. </p></li>
+<li><p><strong>R</strong> – <strong>[in]</strong> A square or skinny matrix containing the results from a QR decomposition. </p></li>
+<li><p><strong>betas</strong> – <strong>[in]</strong> A vector of scaling factors needed to recover the Q matrix. </p></li>
+<li><p><strong>Q_work</strong> – A temporary matrix of the same size as Q for intermediate calculations </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48slap_QtbK6MatrixK6Matrix6Matrix">
+<span id="_CPPv38slap_QtbK6MatrixK6Matrix6Matrix"></span><span id="_CPPv28slap_QtbK6MatrixK6Matrix6Matrix"></span><span id="slap_Qtb__MatrixC.MatrixC.Matrix"></span><span class="target" id="qr_8h_1a219fd4dd79383f3ce33862e526838216"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Qtb</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">R</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">betas</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48slap_QtbK6MatrixK6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calculates <span class="math notranslate nohighlight">\(Q^T b\)</span> where $Q$ is the orthogonal matrix from a QR decomposition. </p>
+<p>This method is useful for solving linear systems with the QR decomposition, where the right side needs to be multiplied by <span class="math notranslate nohighlight">\(Q^T\)</span>.</p>
+<p>The result is stored in b.</p>
+<p>See also: slap_QR(), slap_LeastSquares()</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/qr.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>R</strong> – <strong>[in]</strong> </p></li>
+<li><p><strong>betas</strong> – <strong>[in]</strong> Scaling factors for reflections </p></li>
+<li><p><strong>b</strong> – <strong>[inout]</strong> Vector to multiply in-place </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417slap_LeastSquares6Matrix6Matrix6Matrix6Matrix">
+<span id="_CPPv317slap_LeastSquares6Matrix6Matrix6Matrix6Matrix"></span><span id="_CPPv217slap_LeastSquares6Matrix6Matrix6Matrix6Matrix"></span><span id="slap_LeastSquares__Matrix.Matrix.Matrix.Matrix"></span><span class="target" id="qr_8h_1ae7247a2aad59e5dc88f28f22cff1b8c9"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_LeastSquares</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">betas</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">temp</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417slap_LeastSquares6Matrix6Matrix6Matrix6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Solve a least squares problem. </p>
+<p>Solves <span class="math notranslate nohighlight">\( \text{minimize} || A x - b || \)</span>, where <span class="math notranslate nohighlight">\(A\)</span> has more rows ( <span class="math notranslate nohighlight">\(m\)</span>) than columns ( <span class="math notranslate nohighlight">\(n\)</span>).</p>
+<p>Both <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are over-written by this method. <code class="docutils literal notranslate"><span class="pre">A</span></code> is overwritten with the it’s QR decomposition, and the first <span class="math notranslate nohighlight">\(n\)</span> rows of <code class="docutils literal notranslate"><span class="pre">b</span></code> contain the solution.</p>
+<p>See also: slap_QR(), slap_Qtb()</p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/qr.h</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> – <strong>[inout]</strong> A “skinny” matrix </p></li>
+<li><p><strong>b</strong> – <strong>[inout]</strong> </p></li>
+<li><p><strong>betas</strong> – <strong>[out]</strong> A vector of scaling factors to recover Q. Must have the same number of rows as <code class="docutils literal notranslate"><span class="pre">A</span></code>. </p></li>
+<li><p><strong>temp</strong> – A temporary vector used to compute the QR decomposition of <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must have the same number of rows as <code class="docutils literal notranslate"><span class="pre">A</span></code>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 </section>
 </section>
 

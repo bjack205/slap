@@ -129,9 +129,9 @@ creating and checking for Null matrices:</p>
 <span id="_CPPv315slap_NullMatrixv"></span><span id="_CPPv215slap_NullMatrixv"></span><span id="slap_NullMatrix__void"></span><span class="target" id="group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NullMatrix</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Create a “Null” matrix. </p>
 <p>Useful for default initialization of the matrix where the data it wraps hasn’t been specified or allocated yet. Can check if a matrix is in this state using <a class="reference internal" href="#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a>.</p>
-<section id="group__Basics_1autotoc_md4">
-<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md4" title="Permalink to this heading"></a></h3>
-<p id="group__Basics_1autotoc_md4"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NullMatrix</span><span class="p">();</span>
+<section id="group__Basics_1autotoc_md5">
+<h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md5" title="Permalink to this heading"></a></h3>
+<p id="group__Basics_1autotoc_md5"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NullMatrix</span><span class="p">();</span>
 </pre></div>
 </div>
 </p>
@@ -183,9 +183,9 @@ provide some convenient methods for initializing matrices on the heap.</p>
 <span id="_CPPv314slap_NewMatrixii"></span><span id="_CPPv214slap_NewMatrixii"></span><span id="slap_NewMatrix__i.i"></span><span class="target" id="new__matrix_8h_1a9019c40a4c65f48d3b3da9bcf24bf65c"></span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NewMatrix</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rows</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">cols</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414slap_NewMatrixii" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Allocate a new matrix on the heap. </p>
 <p>Data will not be initialized. Wrapper around a call to <code class="docutils literal notranslate"><span class="pre">malloc</span></code>. Must be followed by a call to <code class="docutils literal notranslate"><span class="pre">FreeMatrix</span></code>.</p>
-<section id="new__matrix_8h_1autotoc_md8">
-<h3>Example<a class="headerlink" href="#new__matrix_8h_1autotoc_md8" title="Permalink to this heading"></a></h3>
-<p id="new__matrix_8h_1autotoc_md8"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<section id="new__matrix_8h_1autotoc_md9">
+<h3>Example<a class="headerlink" href="#new__matrix_8h_1autotoc_md9" title="Permalink to this heading"></a></h3>
+<p id="new__matrix_8h_1autotoc_md9"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
 <span class="n">slap_FreeMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -210,9 +210,9 @@ provide some convenient methods for initializing matrices on the heap.</p>
 <span id="_CPPv319slap_NewMatrixZerosii"></span><span id="_CPPv219slap_NewMatrixZerosii"></span><span id="slap_NewMatrixZeros__i.i"></span><span class="target" id="new__matrix_8h_1aad0c3a859d46fb892c5a9e758d119c6d"></span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NewMatrixZeros</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rows</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">cols</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419slap_NewMatrixZerosii" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Allocate a new matrix on the heap, initialized with zeros. </p>
 <p>Data will be initialized to zeros. Wrapper around a call to <code class="docutils literal notranslate"><span class="pre">calloc</span></code>. Must be followed by a call to <code class="docutils literal notranslate"><span class="pre">FreeMatrix</span></code>.</p>
-<section id="new__matrix_8h_1autotoc_md9">
-<h3>Example<a class="headerlink" href="#new__matrix_8h_1autotoc_md9" title="Permalink to this heading"></a></h3>
-<p id="new__matrix_8h_1autotoc_md9"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrixZeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<section id="new__matrix_8h_1autotoc_md10">
+<h3>Example<a class="headerlink" href="#new__matrix_8h_1autotoc_md10" title="Permalink to this heading"></a></h3>
+<p id="new__matrix_8h_1autotoc_md10"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrixZeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
 <span class="n">slap_FreeMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
 </pre></div>
 </div>

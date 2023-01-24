@@ -50,7 +50,11 @@
 <li class="toctree-l1"><a class="reference internal" href="basic_ops.html">Basic Operations</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linear Algebra</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#matrix-multiplication">Matrix Multiplication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#solving-linear-systems">Solving Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#solving-linear-systems">Solving Linear Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cholesky-example">Cholesky Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#least-squares-example">Least Squares Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
@@ -85,104 +89,96 @@
 <h1>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this heading"></a></h1>
 <section id="matrix-multiplication">
 <h2>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this heading"></a></h2>
-<p>For general matrix multiplication, use the following:</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv414slap_MatMulAdd6Matrix6Matrix6Matrixdd">
-<span id="_CPPv314slap_MatMulAdd6Matrix6Matrix6Matrixdd"></span><span id="_CPPv214slap_MatMulAdd6Matrix6Matrix6Matrixdd"></span><span id="slap_MatMulAdd__Matrix.Matrix.Matrix.double.double"></span><span class="target" id="matmul_8h_1ace372bccf4c6d5e4637075d56a784ff1"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MatMulAdd</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">beta</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Perform in-place <a class="reference internal" href="matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> multiplication with addition. </p>
-<p><div class="math notranslate nohighlight">
-\[ C = \beta C + \alpha A B \]</div>
-</p>
-<p>The two input matrices can be aliased, but neither can be aliased with the output, doing so will result in undefined behavior.</p>
-<section id="matmul_8h_1autotoc_md3">
-<h3>Examples<a class="headerlink" href="#matmul_8h_1autotoc_md3" title="Permalink to this heading"></a></h3>
-<p id="matmul_8h_1autotoc_md3">Normal matrix multiplication: <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<p>For general matrix multiplication, use <a class="reference internal" href="api/linalg.html#_CPPv414slap_MatMulAdd6Matrix6Matrix6Matrixdd" title="slap_MatMulAdd"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_MatMulAdd()</span></code></a>.</p>
+<p>It is a 5-argument matrix multiplication of the form:</p>
+<div class="math notranslate nohighlight">
+\[C = \alpha A B + \beta C\]</div>
+<p>where any of the matrices can be transposed, and <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> can be aliased.</p>
+<p>Here are some examples:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">// C = A * B</span>
+<span class="linenos">2</span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="c1">// C = A&#39; * B</span>
+<span class="linenos">5</span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">slap_Transpose</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="c1">// C = A * A&#39; + C</span>
+<span class="linenos">8</span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">slap_Transpose</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
-</p>
-<p>With transpose: <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">slap_Transpose</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-</pre></div>
-</div>
-</p>
-<p>Add result to the output, with aliasing <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_MatMullAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">slap_Transpose</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-</pre></div>
-</div>
-</p>
-<p>Transposed output and input scaling <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">slap_MatMulAdd</span><span class="p">(</span><span class="n">slap_Transpose</span><span class="p">(</span><span class="n">C</span><span class="p">),</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-</pre></div>
-</div>
-</p>
-<p>See also: slap_MatMulAB(), slap_MatMulAtB()</p>
-<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
-</section>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>C</strong> – Destination matrix </p></li>
-<li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
-<li><p><strong>B</strong> – <strong>[in]</strong> Right input matrix </p></li>
-<li><p><strong>alpha</strong> – <strong>[in]</strong> Scaling factor on output </p></li>
-<li><p><strong>beta</strong> – <strong>[in]</strong> Scaling factor on input </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<p>The following methods are specializations for performance, and are meant to be used
+<p>Additionally, the following methods are specializations for performance, and are meant to be used
 <strong>ONLY WITH DENSE ARRAYS</strong> that are <strong>NOT TRANSPOSED</strong>. Since the general indexing
 functions (like <a class="reference internal" href="api/matrix.html#_CPPv415slap_Cart2IndexK6Matrixii" title="slap_Cart2Index"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_Cart2Index()</span></code></a>) take both striding and transposes into
 account they bring some overhead. For maximum performance, the following methods
 discard the information from <a class="reference internal" href="api/matrix.html#_CPPv417slap_IsTransposed6Matrix" title="slap_IsTransposed"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_IsTransposed()</span></code></a> and <a class="reference internal" href="api/matrix.html#_CPPv411slap_StrideK6Matrix" title="slap_Stride"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_Stride()</span></code></a>
 and should be used with caution:</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv413slap_MatMulAB6Matrix6Matrix6Matrix">
-<span id="_CPPv313slap_MatMulAB6Matrix6Matrix6Matrix"></span><span id="_CPPv213slap_MatMulAB6Matrix6Matrix6Matrix"></span><span id="slap_MatMulAB__Matrix.Matrix.Matrix"></span><span class="target" id="matmul_8h_1a8b8a91b22e0c0df49ff1b9297d85022b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MatMulAB</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Simple in-place matrix multiplication. </p>
-<p>Calculates <div class="math notranslate nohighlight">
-\[ C = A B \]</div>
-</p>
-<p>This method performs basic matrix multiplication.</p>
-<p>This method ignores all metadata besides the size (including transpose state, strides, etc.) so should be used with care.</p>
-<p>It’s provided mainly to give the lowest possible cost for matrix multiplication, by directly indexing into the underlying data without checking for transposes or striding.</p>
-<p>See also: slap_MatMulAdd(), slap_MatMulAtB()</p>
-<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>C</strong> – <strong>[out]</strong> Destination matrix </p></li>
-<li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
-<li><p><strong>B</strong> – <strong>[in]</strong> Right input matrix </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv414slap_MatMulAtB6Matrix6Matrix6Matrix">
-<span id="_CPPv314slap_MatMulAtB6Matrix6Matrix6Matrix"></span><span id="_CPPv214slap_MatMulAtB6Matrix6Matrix6Matrix"></span><span id="slap_MatMulAtB__Matrix.Matrix.Matrix"></span><span class="target" id="matmul_8h_1aa7b692648107761f9ffa93e8c1f7671b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MatMulAtB</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Simple matrix-transpose matrix multiplication. </p>
-<p>Calculates <div class="math notranslate nohighlight">
-\[ C = A^T B \]</div>
-</p>
-<p>Similar to slap_MatMulAB(), this method ignores all metadata information. See that method for more details.</p>
-<p>See also: slap_MatMulAdd(), slap_MatMulAB()</p>
-<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>C</strong> – <strong>[out]</strong> Destination matrix </p></li>
-<li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
-<li><p><strong>B</strong> – <strong>[in]</strong> Right input matrix </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="api/linalg.html#_CPPv413slap_MatMulAB6Matrix6Matrix6Matrix" title="slap_MatMulAB"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_MatMulAB()</span></code></a></p></td>
+<td><p>Dense matrix multiplication</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/linalg.html#_CPPv414slap_MatMulAtB6Matrix6Matrix6Matrix" title="slap_MatMulAtB"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_MatMulAtB()</span></code></a></p></td>
+<td><p>Dense matrix-transposed multiplication</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="solving-linear-systems">
 <h2>Solving Linear Systems<a class="headerlink" href="#solving-linear-systems" title="Permalink to this heading"></a></h2>
-<p>Currently, only positive-definite systems are supported, via a Cholesky decomposition.</p>
-<p>The following example shows the basic flow for solving a linear system:</p>
+<p>Currently the following linear system solves are supported:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Positive-definite systems via <a class="reference internal" href="api/linalg.html#_CPPv413slap_Cholesky6Matrix" title="slap_Cholesky"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_Cholesky()</span></code></a></p></li>
+<li><p>General square systems via <a class="reference internal" href="api/linalg.html#_CPPv47slap_QR6Matrix6Matrix6Matrix" title="slap_QR"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_QR()</span></code></a></p></li>
+<li><p>Least-squares problems via <a class="reference internal" href="api/linalg.html#_CPPv47slap_QR6Matrix6Matrix6Matrix" title="slap_QR"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_QR()</span></code></a> and/or <a class="reference internal" href="api/linalg.html#_CPPv417slap_LeastSquares6Matrix6Matrix6Matrix6Matrix" title="slap_LeastSquares"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_LeastSquares()</span></code></a></p></li>
+</ol>
+</div></blockquote>
+<p>Here’s a summary of the relevant methods provided by <cite>slap</cite>:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="api/linalg.html#_CPPv413slap_TriSolve6Matrix6Matrix" title="slap_TriSolve"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_TriSolve()</span></code></a></p></td>
+<td><p>Solve a system with a triangular matrix, using back-substitution</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/linalg.html#_CPPv413slap_Cholesky6Matrix" title="slap_Cholesky"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_Cholesky()</span></code></a></p></td>
+<td><p>Cholesky decomposition</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/linalg.html#_CPPv418slap_CholeskySolve6Matrix6Matrix" title="slap_CholeskySolve"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_CholeskySolve()</span></code></a></p></td>
+<td><p>Solve a system with a Cholesky decomposition</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/linalg.html#_CPPv47slap_QR6Matrix6Matrix6Matrix" title="slap_QR"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_QR()</span></code></a></p></td>
+<td><p>“Q-less” QR decomposition via Householder reflections</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/linalg.html#_CPPv413slap_ComputeQ6MatrixK6MatrixK6Matrix6Matrix" title="slap_ComputeQ"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_ComputeQ()</span></code></a></p></td>
+<td><p>Compute the “Q” matrix from a QR decomposition</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_QtB()</span></code></p></td>
+<td><p>Calculate <span class="math notranslate nohighlight">\(Q^T b\)</span> from a QR decomposition, without forming <span class="math notranslate nohighlight">\(Q\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/linalg.html#_CPPv417slap_LeastSquares6Matrix6Matrix6Matrix6Matrix" title="slap_LeastSquares"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">slap_LeastSquares()</span></code></a></p></td>
+<td><p>Solve a linear system using a QR decomposition, with support for “skinny” matrices.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="cholesky-example">
+<h3>Cholesky Example<a class="headerlink" href="#cholesky-example" title="Permalink to this heading"></a></h3>
+<p>The following example shows the basic flow for solving a linear system using Cholesky:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Make a positive-definite matrix</span>
 <span class="n">Matrix</span><span class="w"> </span><span class="n">A2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 <span class="n">slap_MatMulAtB</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">);</span><span class="w">    </span><span class="c1">// make it positive semi-definite</span>
@@ -207,41 +203,36 @@ and should be used with caution:</p>
 <span class="kt">double</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_MatrixNormedDifference</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </pre></div>
 </div>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv413slap_Cholesky6Matrix">
-<span id="_CPPv313slap_Cholesky6Matrix"></span><span id="_CPPv213slap_Cholesky6Matrix"></span><span id="slap_Cholesky__Matrix"></span><span class="target" id="group__LinearAlgebra_1gafd495e62e1fd29197ab77bd4e27c8379"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Cholesky</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Perform a Cholesky decomposition. </p>
-<p>Performs a Cholesky decomposition on the square matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>, storing the result in the lower triangular portion of <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
-<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>A</strong> – a square symmetric matrix </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>slap error code. There is a dedicated code SLAP_CHOLESKY_FAIL if the factorization fails due to a negative value on the diagonal (matrix isn’t positive definite). </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv418slap_CholeskySolve6Matrix6Matrix">
-<span id="_CPPv318slap_CholeskySolve6Matrix6Matrix"></span><span id="_CPPv218slap_CholeskySolve6Matrix6Matrix"></span><span id="slap_CholeskySolve__Matrix.Matrix"></span><span class="target" id="group__LinearAlgebra_1ga792058bb09344ca5bcb82a56317d618f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_CholeskySolve</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p>Solve a linear system of equation with a precomputed Cholesky decomposition. </p>
-<p>A x = b L * L’ x = b L * y = b =&gt; y = L \ b L’ x = y =&gt; x = L’ \ y</p>
-<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>A</strong> – <strong>[in]</strong> A square matrix whose Cholesky decomposition is stored in the lower triangular portion of the matrix </p></li>
-<li><p><strong>b</strong> – <strong>[inout]</strong> The right-hand-side vector. Stores the solution upon completion of the function. </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>slap error code </p>
-</dd>
-</dl>
-</dd></dl>
-
+</section>
+<section id="least-squares-example">
+<h3>Least Squares Example<a class="headerlink" href="#least-squares-example" title="Permalink to this heading"></a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// Initialize arrays</span>
+<span class="linenos"> 2</span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="linenos"> 3</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="linenos"> 5</span><span class="n">Matrix</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos"> 6</span><span class="n">Matrix</span><span class="w"> </span><span class="n">betas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos"> 7</span><span class="n">Matrix</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="c1">// Set data for A and b here...</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1">// Calculate QR decomposition</span>
+<span class="linenos">12</span><span class="c1">//   Stores R in the upper-triangular portion of A</span>
+<span class="linenos">13</span><span class="c1">//   Stores the Householder reflection vectors below the diagonal</span>
+<span class="linenos">14</span><span class="n">slap_QR</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">betas</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">);</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1">// Form Q (not usually recommended or needed)</span>
+<span class="linenos">17</span><span class="n">Matrix</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">);</span>
+<span class="linenos">18</span><span class="n">Matrix</span><span class="w"> </span><span class="n">Q_work</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w">  </span><span class="c1">// extra memory needed to form Q</span>
+<span class="linenos">19</span><span class="n">slap_ComputeQ</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">,</span><span class="w"> </span><span class="n">Q_work</span><span class="p">);</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="c1">// Solve for b</span>
+<span class="linenos">22</span><span class="c1">//   Result is stored in the top n rows of b</span>
+<span class="linenos">23</span><span class="n">slap_Qtb</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">                 </span><span class="c1">// Calculate Q&#39;b, directly from QR factorization</span>
+<span class="linenos">24</span><span class="n">slap_TriSolve</span><span class="p">(</span><span class="n">slap_TriUpper</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 

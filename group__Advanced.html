@@ -174,7 +174,7 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixIterator::i
 <p>This iterator provides the user to access the elements via either the linear or cartesian indices.</p>
 <p>Note that this will always iterate linearly over the underlying memory, so is invariant to whether or not the matrix is transposed.</p>
 <p>Note that if the matrix data is dense (there are no gaps in the memory), it is most efficient to iterate directly over the elements of the underlying array.</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Example</h1>
 <p>for (<a class="el" href="structMatrixIterator.html" title="A struct for conveniently and efficiently iterating over strided matrices.">MatrixIterator</a> it = slap_Iterator(mat); !slap_IsFinished(&amp;it); slap_Step(&amp;it)) { double value = mat.data[it.index]; // Use <code>index</code> to directly index the array int linear_index = it.k; // <code>k</code> is the linear index into the array slap_SetElement(mat, it.i, it.j); // <code>i</code> and <code>j</code> are the cartesian indices } </p>
 
@@ -223,7 +223,7 @@ Example</h1>
 <p>Given a function pointer \(c = f(x,y)\), this function applies this operation element-wise, storing the output in C.</p>
 <p>The matrices must all be the same size (but can have different strides).</p>
 <p>The matrices can be aliased.</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Example</h1>
 <div class="fragment"><div class="line">double binary_op(double x, double y) {</div>
 <div class="line">  return 2 * x - y * x;</div>

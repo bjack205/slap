@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mattype_149',['mattype',['../structMatrix.html#a830b32b428cf9740e3eb9eb53e4407de',1,'Matrix']]]
+  ['is_5ftransposed_151',['is_transposed',['../structMatrix.html#a53b3baa8b259d552053f99c74a1a26a6',1,'Matrix']]]
 ];
