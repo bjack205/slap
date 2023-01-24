@@ -52,7 +52,7 @@ add_library(slap
   matmul.c
 
   cholesky.h
-  cholesky.c)
+  cholesky.c qr.c qr.h)
 
 target_include_directories(slap
   INTERFACE

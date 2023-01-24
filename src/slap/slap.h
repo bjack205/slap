@@ -15,6 +15,7 @@ extern "C" {
 #include "strided_matrix.h"
 #include "matmul.h"
 #include "cholesky.h"
+#include "qr.h"
 
 #ifdef __cplusplus
 }

@@ -9,7 +9,7 @@ MatrixIterator slap_Iterator(Matrix mat) {
   MatrixIterator iterator = {
       .len = mat.rows * mat.cols,
       .rows = mat.rows,
-      .dx = mat.sx,
+      .dx = 1,
       .dy = mat.sy - mat.rows + 1,
       .i = 0,
       .j = 0,

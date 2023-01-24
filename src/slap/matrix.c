@@ -1,7 +1,7 @@
 #include "matrix.h"
 
 Matrix slap_MatrixFromArray(int rows, int cols, double* data) {
-  Matrix mat = {rows, cols, 1, rows, data, slap_DENSE};
+  Matrix mat = {rows, cols, rows, 0, data, slap_DENSE};
   return mat;
 }
 
@@ -18,30 +18,22 @@ Matrix slap_Flatten(const Matrix mat) {
   Matrix vec = {
       .rows = size,
       .cols = 1,
-      .sx = mat.sx,
       .sy = mat.sy,
+      .is_transposed = mat.is_transposed,
       .data = mat.data,
       .mattype = mat.mattype,
   };
   return vec;
 }
 
-Matrix slap_Transpose(Matrix A) {
-  enum slap_MatrixType transposed_type;
-  if (A.mattype == slap_DENSE) {
-    transposed_type = slap_TRANSPOSED;
-  } else if (A.mattype == slap_TRANSPOSED) {
-    transposed_type = slap_DENSE;
-  } else {
-    transposed_type = A.mattype;
-  }
+Matrix slap_Transpose(Matrix mat) {
   Matrix new_mat = {
-      .rows = A.rows,
-      .cols = A.cols,
-      .sx = A.sx,
-      .sy = A.sy,
-      .data = A.data,
-      .mattype = transposed_type,
+      .rows = mat.rows,
+      .cols = mat.cols,
+      .sy = mat.sy,
+      .is_transposed = !mat.is_transposed,
+      .data = mat.data,
+      .mattype = mat.mattype,
   };
   return new_mat;
 }
@@ -56,12 +48,35 @@ Matrix slap_Reshape(Matrix mat, int rows, int cols) {
   Matrix new_mat = {
       .rows = rows,
       .cols = cols,
-      .data = mat.data,
-      .sx = 1,
       .sy = rows,
+      .is_transposed = mat.is_transposed,
+      .data = mat.data,
       .mattype = mat.mattype,
   };
   new_mat.rows = rows;
   new_mat.cols = cols;
+  return new_mat;
+}
+Matrix slap_TriUpper(Matrix mat) {
+  Matrix new_mat = {
+      .rows = mat.rows,
+      .cols = mat.cols,
+      .sy = mat.sy,
+      .is_transposed = mat.is_transposed,
+      .data = mat.data,
+      .mattype = slap_TRIANGULAR_UPPER,
+  };
+  return new_mat;
+}
+
+Matrix slap_TriLower(Matrix mat) {
+  Matrix new_mat = {
+      .rows = mat.rows,
+      .cols = mat.cols,
+      .sy = mat.sy,
+      .is_transposed = mat.is_transposed,
+      .data = mat.data,
+      .mattype = slap_TRIANGULAR_LOWER,
+  };
   return new_mat;
 }
