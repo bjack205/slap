@@ -81,13 +81,8 @@ jobs:
     - name: Setup Arduino CLI
       uses: arduino/setup-arduino-cli@v1
 
-    - name: Install Arduino CLI
-      run: |
-        arduino-cli core update-index
-        arduino-cli core install teensy:avr --additional-urls https://www.pjrc.com/teensy/td_156/package_teensy_index.json
-
     - name: Compile Arduino Example
       run: |
         cd ${{ github.workspace }}/examples
-        arduino-cli compile -b teensy:avr:teensy40 --libraries ../.. arduino_slap
+        arduinc-cli compile -b arduino:avr:nano --libraries ../.. arduino_slap
         

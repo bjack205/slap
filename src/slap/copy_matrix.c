@@ -5,8 +5,6 @@
 
 #include "copy_matrix.h"
 
-#include <memory.h>
-
 #include "iterator.h"
 #include "matrix_checks.h"
 
