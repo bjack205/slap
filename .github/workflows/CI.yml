@@ -72,6 +72,9 @@ jobs:
       run: bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports."
 
   arduino:
+    runs-on: ubuntu-latest
+
+    steps:
     - uses: actions/checkout@v2
     - name: Install Arduino CLI
       run: |
