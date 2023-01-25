@@ -71,3 +71,14 @@ jobs:
     - name: Upload Coverage to Codecov
       run: bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports."
 
+  arduino:
+    - uses: actions/checkout@v2
+    - name: Install Arduino CLI
+      run: |
+        curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+        arduino-cli core install teensy:avr
+    - name: Compile Arduino Example
+      run: |
+        cd ${{ github.workspace }}/examples
+        arduino-cli compile -b teensy:avr:teensy40 --libraries ../.. arduino_slap
+        
