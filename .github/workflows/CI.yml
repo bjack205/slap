@@ -84,5 +84,5 @@ jobs:
     - name: Compile Arduino Example
       run: |
         cd ${{ github.workspace }}/examples
-        arduinc-cli compile -b arduino:avr:nano --libraries ../.. arduino_slap
+        arduino-cli compile -b arduino:avr:nano --libraries ../.. arduino_slap
         
