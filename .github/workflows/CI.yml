@@ -84,7 +84,7 @@ jobs:
     - name: Install Arduino CLI
       run: |
         arduino-cli core update-index
-        ard core install teensy:avr --additional-urls https://www.pjrc.com/teensy/td_156/package_teensy_index.json
+        arduino-cli core install teensy:avr --additional-urls https://www.pjrc.com/teensy/td_156/package_teensy_index.json
 
     - name: Compile Arduino Example
       run: |
