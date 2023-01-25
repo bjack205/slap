@@ -1,4 +1,4 @@
-name: CMake
+name: Build
 
 on:
   push:
@@ -75,11 +75,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Arduino CLI
+      uses: arduino/setup-arduino-cli@v1
+
     - name: Install Arduino CLI
       run: |
-        curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+        arduino-cli core update-index
         arduino-cli core install teensy:avr
+        
     - name: Compile Arduino Example
       run: |
         cd ${{ github.workspace }}/examples
