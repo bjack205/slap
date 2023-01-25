@@ -45,6 +45,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#fetchcontent">FetchContent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">CPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arduino">Arduino</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="matrix_overview.html">Matrix Basics</a></li>
@@ -117,6 +118,30 @@ all dependencies.</p>
 <span class="nb">add_executable</span><span class="p">(</span><span class="s">main</span><span class="w"> </span><span class="s">main.c</span><span class="p">)</span>
 <span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">main</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">slap::slap</span><span class="p">)</span>
 </pre></div>
+</div>
+</section>
+<section id="arduino">
+<h2>Arduino<a class="headerlink" href="#arduino" title="Permalink to this heading"></a></h2>
+<p>This repository is compliant with the Arduino library format.
+Either clone the repository directly into the system Arduino
+library path (if using the IDE), or include it via the <code class="docutils literal notranslate"><span class="pre">--library</span></code> or <code class="docutils literal notranslate"><span class="pre">--libraries</span></code>
+flags in the CLI.</p>
+<p>For instance, to compile the sketch in <code class="docutils literal notranslate"><span class="pre">examples/arduino_slap</span></code>
+with the Arduino CLI, run the following from inside the <code class="docutils literal notranslate"><span class="pre">examples/</span></code> directory:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>arduino-cli<span class="w"> </span>core<span class="w"> </span>install<span class="w"> </span>arduino:avr
+arduino-cli<span class="w"> </span>compile<span class="w"> </span>-b<span class="w"> </span>arduino:avr:nano<span class="w"> </span>--libraries<span class="w"> </span>../..<span class="w"> </span>arduino_slap
+</pre></div>
+</div>
+<p>To use the library from within an Arduino script, simply include</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;slap_arduino.h&quot;</span>
+</pre></div>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">examples/arduino_slap/README.md</span></code> for more details.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This package may be added as an official Arduino library
+package in the future, which will simplify adding it to
+Arduino projects.</p>
 </div>
 </section>
 </section>
