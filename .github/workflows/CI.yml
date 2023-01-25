@@ -81,6 +81,11 @@ jobs:
     - name: Setup Arduino CLI
       uses: arduino/setup-arduino-cli@v1
 
+    - name: Install Arduino CLI
+      run: |
+        arduino-cli core update-index
+        arduino-cli core install arduino:avr
+
     - name: Compile Arduino Example
       run: |
         cd ${{ github.workspace }}/examples
