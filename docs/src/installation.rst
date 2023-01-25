@@ -41,3 +41,31 @@ Add the following to your ``CMakeLists.txt``
 
     add_executable(main main.c)
     target_link_libraries(main PRIVATE slap::slap)
+
+Arduino
+-------
+This repository is compliant with the Arduino library format.
+Either clone the repository directly into the system Arduino
+library path (if using the IDE), or include it via the ``--library`` or ``--libraries``
+flags in the CLI.
+
+For instance, to compile the sketch in ``examples/arduino_slap``
+with the Arduino CLI, run the following from inside the ``examples/`` directory:
+
+.. code-block:: shell
+
+    arduino-cli core install arduino:avr
+    arduino-cli compile -b arduino:avr:nano --libraries ../.. arduino_slap
+
+To use the library from within an Arduino script, simply include
+
+.. code-block:: c
+
+    #include "slap_arduino.h"
+
+See ``examples/arduino_slap/README.md`` for more details.
+
+.. note::
+    This package may be added as an official Arduino library
+    package in the future, which will simplify adding it to
+    Arduino projects.

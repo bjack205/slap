@@ -1,4 +1,4 @@
-name: CMake
+name: Build
 
 on:
   push:
@@ -71,3 +71,23 @@ jobs:
     - name: Upload Coverage to Codecov
       run: bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports."
 
+  arduino:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Arduino CLI
+      uses: arduino/setup-arduino-cli@v1
+
+    - name: Install Arduino CLI
+      run: |
+        arduino-cli core update-index
+        arduino-cli core install arduino:avr
+
+    - name: Compile Arduino Example
+      run: |
+        cd ${{ github.workspace }}/examples
+        arduino-cli compile -b arduino:avr:nano --libraries ../.. arduino_slap
+        
