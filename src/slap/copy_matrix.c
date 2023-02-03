@@ -9,9 +9,9 @@
 #include "matrix_checks.h"
 
 enum slap_ErrorCode slap_MatrixCopy(Matrix dest, const Matrix src) {
-  SLAP_ASSERT_VALID(dest, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
+  SLAP_ASSERT_VALID(dest, SLAP_INVALID_MATRIX,
                     "MatrixCopy: invalid destination matrix");
-  SLAP_ASSERT_VALID(src, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
+  SLAP_ASSERT_VALID(src, SLAP_INVALID_MATRIX,
                     "MatrixCopy: invalid source matrix");
   SLAP_ASSERT_SAME_SIZE(dest, src, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, "MatrixCopy");
   int n = slap_NumRows(src);

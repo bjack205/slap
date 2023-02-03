@@ -14,6 +14,25 @@ TEST(MatrixBasics, MatrixFromArray) {
   EXPECT_EQ(slap_NumCols(A), 3);
 }
 
+TEST(MatrixBasics, MatrixFromBuffer) {
+  void *buf = malloc(12 * sizeof(double));
+  void *buf_next = buf;
+  Matrix A = slap_MatrixFromBuffer(3, 2, &buf_next);
+  EXPECT_EQ((char*)buf_next, (char*)buf + 6 * sizeof(double));
+  Matrix B = slap_MatrixFromBuffer(2, 3, &buf_next);
+  EXPECT_EQ((char*)buf_next, (char*)buf + 12 * sizeof(double));
+
+  double *data = (double*)buf;
+  slap_SetConst(A, 2.2);
+  slap_SetConst(B, 33.3);
+  for (int i = 0; i < 6; ++i) {
+    EXPECT_DOUBLE_EQ(data[i], 2.2);
+    EXPECT_DOUBLE_EQ(data[i+6], 33.3);
+  }
+  (void)A;
+  free(buf);
+}
+
 TEST(MatrixBasics, NewMatrix) {
   Matrix mat = slap_NewMatrix(5, 4);
   EXPECT_EQ(mat.rows, 5);

@@ -123,3 +123,5 @@ endif ()
 ##############################
 add_executable(getting_started examples/getting_started.c)
 target_link_libraries(getting_started PRIVATE slap::slap)
+
+add_subdirectory(examples/riccati)

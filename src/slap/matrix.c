@@ -5,6 +5,17 @@ Matrix slap_MatrixFromArray(int rows, int cols, double* data) {
   return mat;
 }
 
+Matrix slap_MatrixFromBuffer(int rows, int cols, void** buf) {
+  // Create a matrix from the beginning of the buffer
+  double *data = (double*)*buf;
+  Matrix mat = {rows, cols, rows, 0, data, slap_DENSE};
+
+  // Advance buffer by the number of bytes in the matrix
+  *buf = (void*)(data + rows * cols);
+
+  return mat;
+}
+
 void slap_Linear2Cart(Matrix mat, int k, int* row, int* col) {
   int rows = slap_NumRows(mat);
   *row = k % rows;
@@ -80,3 +91,4 @@ Matrix slap_TriLower(Matrix mat) {
   };
   return new_mat;
 }
+

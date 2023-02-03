@@ -10,6 +10,12 @@ initialized from a pointer, along with the size information:
 
 .. doxygenfunction:: slap_MatrixFromArray
 
+It is often convenient to allocated storage for multiple arrays all at once, so that the memory
+is all stored contiguously on the heap. The following method is more convenient for working with
+memory buffers, since the pointer is automatically advanced by the size of the matrix.
+
+.. doxygenfunction:: slap_MatrixFromBuffer
+
 Default Initialization
 ----------------------
 A "default initialized" matrix is considered a "Null" matrix, a internally-defined

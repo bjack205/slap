@@ -73,6 +73,28 @@ typedef struct Matrix {
 Matrix slap_MatrixFromArray(int rows, int cols, double* data);
 
 /**
+ * @brief Allocate a matrix from a memory buffer, advancing the buffer
+ *
+ * Useful for allocating a matrix from a pre-allocated buffer, especially when multiple
+ * arrays are allocated from the same chunk of heap-allocated memory.
+ *
+ * # Example
+ * ```c
+ * void *buf = malloc(12 * sizeof(double));
+ * void *buf_next = buf;
+ * Matrix A = slap_MatrixFromBuffer(2, 3, &buf_start);
+ * Matrix B = slap_MatrixFromBuffer(3, 2, &buf_start);
+ * ```
+ *
+ * @param rows Number of rows in the new matrix
+ * @param cols Number of columns in the new matrix
+ * @param buf The start of the memory buffer where the data for the array should "taken"
+ *            from. It is shifted forward by the number of bytes used by the matrix.
+ * @return Matrix of the given size, with data pointing to the start of @p buf
+ */
+Matrix slap_MatrixFromBuffer(int rows, int cols, void **buf);
+
+/**
  * @brief Create a "Null" matrix
  *
  * Useful for default initialization of the matrix where the data it wraps hasn't been
