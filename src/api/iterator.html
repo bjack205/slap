@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>iterator.h &mdash; slap  documentation</title>
@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> slap
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            slap
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -75,7 +79,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">API</a></li>
       <li class="breadcrumb-item active">iterator.h</li>
       <li class="wy-breadcrumbs-aside">
@@ -150,10 +154,10 @@
 <span id="_CPPv313slap_Iterator6Matrix"></span><span id="_CPPv213slap_Iterator6Matrix"></span><span id="slap_Iterator__Matrix"></span><span class="target" id="group__Advanced_1gaaed5ad568212c1273063201d12122b99"></span><a class="reference internal" href="#_CPPv414MatrixIterator" title="MatrixIterator"><span class="n"><span class="pre">MatrixIterator</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Iterator</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413slap_Iterator6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Create an iterator at the beginning of the matrix. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – A valid dense or strided matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A <a class="reference internal" href="#structMatrixIterator"><span class="std std-ref">MatrixIterator</span></a> for the matrix </p>
 </dd>
 </dl>
@@ -164,7 +168,7 @@
 <span id="_CPPv39slap_StepP14MatrixIterator"></span><span id="_CPPv29slap_StepP14MatrixIterator"></span><span id="slap_Step__MatrixIteratorP"></span><span class="target" id="group__Advanced_1ga391dbbebf0f989899410952a88b2e249"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Step</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv414MatrixIterator" title="MatrixIterator"><span class="n"><span class="pre">MatrixIterator</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">iterator</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49slap_StepP14MatrixIterator" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Progress the iterator by one index. Updates the iterator-in-place. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>iterator</strong> – A valid iterator </p>
 </dd>
 </dl>
@@ -175,10 +179,10 @@
 <span id="_CPPv315slap_IsFinishedPK14MatrixIterator"></span><span id="_CPPv215slap_IsFinishedPK14MatrixIterator"></span><span id="slap_IsFinished__MatrixIteratorCP"></span><span class="target" id="group__Advanced_1ga574bf6aedf0e48911fbefa91bfd88d1c"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsFinished</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv414MatrixIterator" title="MatrixIterator"><span class="n"><span class="pre">MatrixIterator</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">iterator</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415slap_IsFinishedPK14MatrixIterator" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Checks if the iterator is past the end of the matrix. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>iterator</strong> – A valid iterator </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>true if the iterator refers to a point past the end of the matrix </p>
 </dd>
 </dl>

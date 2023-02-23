@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>vector_products.h &mdash; slap  documentation</title>
@@ -31,11 +31,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> slap
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            slap
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -76,7 +80,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">API</a></li>
       <li class="breadcrumb-item active">vector_products.h</li>
       <li class="wy-breadcrumbs-aside">
@@ -99,13 +103,13 @@
 <p>If the vectors are of unequal length, the inner product is taken up to the shortest length.</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">vector_products.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> – A vector of length n </p></li>
 <li><p><strong>y</strong> – A vector of length n </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Dot product of x,y. NAN if invalid. </p>
 </dd>
 </dl>
@@ -117,14 +121,14 @@
 <dd><p>Calculate the scaled inner product <span class="math notranslate nohighlight">\( y^T A x \)</span>. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">vector_products.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> – A vector of length n </p></li>
 <li><p><strong>A</strong> – A matrix of size (n,m) </p></li>
 <li><p><strong>y</strong> – A vector of length m </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The dot product, or NAN if invalid. </p>
 </dd>
 </dl>
@@ -137,14 +141,14 @@
 <p>Calculates x * y’</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">vector_products.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>C</strong> – <strong>[out]</strong> An n x m matrix holding the result of the outer product. If either dimension is larger than the corresponding vector, the rest will be untouched.</p></li>
 <li><p><strong>x</strong> – <strong>[in]</strong> An n-dimensional vector </p></li>
 <li><p><strong>y</strong> – <strong>[in]</strong> An m-dimensional vector </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>slap return code indicating any errors </p>
 </dd>
 </dl>
@@ -157,14 +161,14 @@
 <p>The vectors must all have at least length 3. If the the length is greater than three, only the first 3 elements are used.</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">vector_products.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>z</strong> – <strong>[out]</strong> cross product vector </p></li>
 <li><p><strong>x</strong> – <strong>[in]</strong> first input vector </p></li>
 <li><p><strong>y</strong> – <strong>[in]</strong> second input vector (order matters) </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>slap return code indicating any errors </p>
 </dd>
 </dl>

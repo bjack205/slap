@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>vector_ops.h &mdash; slap  documentation</title>
@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> slap
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            slap
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -75,7 +79,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">API</a></li>
       <li class="breadcrumb-item active">vector_ops.h</li>
       <li class="wy-breadcrumbs-aside">
@@ -107,13 +111,13 @@
 <dd><p>Find the maximum value in the matrix. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <strong>[in]</strong> A valid matrix </p></li>
 <li><p><strong>max_value</strong> – <strong>[out]</strong> </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A <a class="reference internal" href="iterator.html#structMatrixIterator"><span class="std std-ref">MatrixIterator</span></a> pointing to the max value </p>
 </dd>
 </dl>
@@ -125,13 +129,13 @@
 <dd><p>Find the minimum value in the matrix. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <strong>[in]</strong> </p></li>
 <li><p><strong>min_value</strong> – <strong>[out]</strong> </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A <a class="reference internal" href="iterator.html#structMatrixIterator"><span class="std std-ref">MatrixIterator</span></a> pointing to the min value </p>
 </dd>
 </dl>
@@ -143,10 +147,10 @@
 <dd><p>Find the maximum value in the matrix. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – A valid <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The maximum value, or NaN if there was an error </p>
 </dd>
 </dl>
@@ -158,10 +162,10 @@
 <dd><p>Find the minimum value in the matrix. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – A valid <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The minimum value, or NaN if there was an error </p>
 </dd>
 </dl>
@@ -173,10 +177,10 @@
 <dd><p>Calculate the squared 2-norm of the matrix (treating it like a vector) </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – A valid <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The two norm squared, or NaN if there was an error </p>
 </dd>
 </dl>
@@ -188,10 +192,10 @@
 <dd><p>Calculate the 2-norm, treating the matrix as a vector. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – A valid matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The two-norm, or NaN if there was an error </p>
 </dd>
 </dl>
@@ -203,10 +207,10 @@
 <dd><p>Calculate the infinity norm, treating the matrix as a vector. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – A valid matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The infinity norm, or NaN if there was an error </p>
 </dd>
 </dl>
@@ -218,10 +222,10 @@
 <dd><p>Calculate the one norm, treating the matrix as a vector. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – A valid matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The one norm, or NaN if there was an error </p>
 </dd>
 </dl>
@@ -233,10 +237,10 @@
 <dd><p>Calculate the sum of all of the elements. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/vector_ops.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – A valid matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The sum of all of the elements, or NaN if there was an error </p>
 </dd>
 </dl>

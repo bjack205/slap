@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>unary_ops.h &mdash; slap  documentation</title>
@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> slap
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            slap
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -75,7 +79,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">API</a></li>
       <li class="breadcrumb-item active">unary_ops.h</li>
       <li class="wy-breadcrumbs-aside">
@@ -107,13 +111,13 @@
 <dd><p>Sets all of the elements in a matrix to a single value. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/unary_ops.h&quot;</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> to be modified </p></li>
 <li><p><strong>val</strong> – Value to which each element will be set </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 if successful </p>
 </dd>
 </dl>
@@ -125,7 +129,7 @@
 <dd><p>Scale a matrix by a constant factor. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/unary_ops.h&quot;</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – Fully initialized matrix of non-zero size. Values will be modified. </p></li>
 <li><p><strong>alpha</strong> – scalar by which to multiply the matrix </p></li>
@@ -140,7 +144,7 @@
 <dd><p>Set the diagonal elements of the matrix to val, and the rest to zeros. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/unary_ops.h&quot;</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – Square matrix </p></li>
 <li><p><strong>val</strong> – Value for the diagonal elements </p></li>
@@ -156,7 +160,7 @@
 <p>If <em>len</em> is greater than the minimum dimension, only the minimum dimension will be set. Doesn’t touch any of the off-diagonal elements.</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/unary_ops.h&quot;</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> (nrows &gt;= ncols) </p></li>
 <li><p><strong>diag</strong> – Array of length <code class="docutils literal notranslate"><span class="pre">nrows</span></code>. </p></li>
@@ -171,7 +175,7 @@
 <dd><p>Add a multiple of the identity to the matrix. </p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/unary_ops.h&quot;</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – A valid matrix </p></li>
 <li><p><strong>alpha</strong> – The value to add to the diagonal elements </p></li>
@@ -205,7 +209,7 @@ slap_FreeMatrix(A);
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/unary_ops.h&quot;</span></code> </p>
 </section>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – A valid, non-empty matrix </p></li>
 <li><p><strong>start</strong> – Value of the first element </p></li>

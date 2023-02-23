@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matrix Initialization &mdash; slap  documentation</title>
@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> slap
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            slap
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -70,7 +74,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Matrix Initialization</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/src/initialization.rst.txt" rel="nofollow"> View page source</a>
@@ -105,14 +109,14 @@ initialized from a pointer, along with the size information:</p>
 </div>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>rows</strong> – Number of rows in the matrix </p></li>
 <li><p><strong>cols</strong> – Number of columns in the matrix </p></li>
 <li><p><strong>data</strong> – Data for the matrix. Must not be NULL, and should have at least <em>rows</em> * <em>cols</em> elements. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A new matrix </p>
 </dd>
 </dl>
@@ -139,7 +143,7 @@ creating and checking for Null matrices:</p>
 <p></p>
 </section>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A default “Null” instance of a matrix. </p>
 </dd>
 </dl>
@@ -151,7 +155,7 @@ creating and checking for Null matrices:</p>
 <dd><p>Set a matrix to a “Null” instance. </p>
 <p>See also: <a class="reference internal" href="#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a>, <a class="reference internal" href="#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Pointer to the matrix to set to null </p>
 </dd>
 </dl>
@@ -164,10 +168,10 @@ creating and checking for Null matrices:</p>
 <p>The “Null” state of a matrix is an internally-defined state created by the <a class="reference internal" href="#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a> method.</p>
 <p>See also: <a class="reference internal" href="#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a>, <a class="reference internal" href="#group__Basics_1gac5dce240ba6e93ee724e003d83de3564"><span class="std std-ref">slap_SetNull()</span></a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>true if matrix is a “Null” matrix </p>
 </dd>
 </dl>
@@ -193,13 +197,13 @@ provide some convenient methods for initializing matrices on the heap.</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/new_matrix.h&quot;</span></code> </p>
 </section>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>rows</strong> – number of rows in the matrix </p></li>
 <li><p><strong>cols</strong> – number of columns in the matrix </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A new matrix </p>
 </dd>
 </dl>
@@ -220,13 +224,13 @@ provide some convenient methods for initializing matrices on the heap.</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/new_matrix.h&quot;</span></code> </p>
 </section>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>rows</strong> – number of rows in the matrix </p></li>
 <li><p><strong>cols</strong> – number of columns in the matrix </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A new matrix </p>
 </dd>
 </dl>

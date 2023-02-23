@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>matrix.h &mdash; slap  documentation</title>
@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> slap
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            slap
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -82,7 +86,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">API</a></li>
       <li class="breadcrumb-item active">matrix.h</li>
       <li class="wy-breadcrumbs-aside">
@@ -115,14 +119,14 @@
 </div>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>rows</strong> – Number of rows in the matrix </p></li>
 <li><p><strong>cols</strong> – Number of columns in the matrix </p></li>
 <li><p><strong>data</strong> – Data for the matrix. Must not be NULL, and should have at least <em>rows</em> * <em>cols</em> elements. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A new matrix </p>
 </dd>
 </dl>
@@ -143,7 +147,7 @@
 <p></p>
 </section>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A default “Null” instance of a matrix. </p>
 </dd>
 </dl>
@@ -155,7 +159,7 @@
 <dd><p>Set a matrix to a “Null” instance. </p>
 <p>See also: <a class="reference internal" href="../initialization.html#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a>, <a class="reference internal" href="../initialization.html#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Pointer to the matrix to set to null </p>
 </dd>
 </dl>
@@ -171,10 +175,10 @@
 <p>Matrices are transposed by setting a flag that flips the indexing operations. You can have two <code class="docutils literal notranslate"><a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref"><span class="pre">Matrix</span></span></a></code> instances that point to the same data, where one is transposed and the other is not. You can use this method to check whether a matrix is transposed.</p>
 <p>See also: <a class="reference internal" href="#group__Basics_1gaa5caf511c40b1206656d81c91edcdc2a"><span class="std std-ref">slap_Transpose()</span></a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> to check </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>true if transposed, false otherwise </p>
 </dd>
 </dl>
@@ -185,10 +189,10 @@
 <span id="_CPPv312slap_IsEmpty6Matrix"></span><span id="_CPPv212slap_IsEmpty6Matrix"></span><span id="slap_IsEmpty__Matrix"></span><span class="target" id="group__Basics_1gae596da56330a975b4fb6219e0e03f7ed"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_IsEmpty</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_IsEmpty6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Check if matrix is empty, i.e. if any dimension is 0. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>true if the matrix is empty </p>
 </dd>
 </dl>
@@ -200,10 +204,10 @@
 <dd><p>Check if both dimensions are the same. </p>
 <p>Note this will still return true if both dimensions are 0.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>true if matrix is square </p>
 </dd>
 </dl>
@@ -215,7 +219,7 @@
 <dd><p>Check if all elements are adjacent in memory. </p>
 <p>True if column stride is equal to the number of rows.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p>
 </dd>
 </dl>
@@ -227,10 +231,10 @@
 <dd><p>Check if a matrix is valid. </p>
 <p>Check if the matrix contains data: if matrix is not empty and pointer isn’t null.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>true if matrix is valid </p>
 </dd>
 </dl>
@@ -243,10 +247,10 @@
 <p>The “Null” state of a matrix is an internally-defined state created by the <a class="reference internal" href="../initialization.html#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a> method.</p>
 <p>See also: <a class="reference internal" href="../initialization.html#group__Basics_1gae2ddadd4c37bb616a95bdcd73b3c5ff2"><span class="std std-ref">slap_NullMatrix()</span></a>, <a class="reference internal" href="../initialization.html#group__Basics_1gac5dce240ba6e93ee724e003d83de3564"><span class="std std-ref">slap_SetNull()</span></a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>true if matrix is a “Null” matrix </p>
 </dd>
 </dl>
@@ -260,10 +264,10 @@
 <span id="_CPPv311slap_MinDim6Matrix"></span><span id="_CPPv211slap_MinDim6Matrix"></span><span id="slap_MinDim__Matrix"></span><span class="target" id="group__Basics_1gac97f7096614d53c84818b34fbabb3084"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MinDim</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411slap_MinDim6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Returns the smallest dimension. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Smaller of the number of rows and columns </p>
 </dd>
 </dl>
@@ -274,10 +278,10 @@
 <span id="_CPPv312slap_NumRows6Matrix"></span><span id="_CPPv212slap_NumRows6Matrix"></span><span id="slap_NumRows__Matrix"></span><span class="target" id="group__Basics_1gab0383430bd19fca031cbf13ed08f9f2d"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NumRows</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_NumRows6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get the number of rows. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Number of rows </p>
 </dd>
 </dl>
@@ -288,10 +292,10 @@
 <span id="_CPPv312slap_NumCols6Matrix"></span><span id="_CPPv212slap_NumCols6Matrix"></span><span id="slap_NumCols__Matrix"></span><span class="target" id="group__Basics_1ga071d0aa79b77aa923a2216d11b1d5b99"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NumCols</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_NumCols6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get the number of columns. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Number of columns </p>
 </dd>
 </dl>
@@ -302,10 +306,10 @@
 <span id="_CPPv316slap_NumElementsK6Matrix"></span><span id="_CPPv216slap_NumElementsK6Matrix"></span><span id="slap_NumElements__MatrixC"></span><span class="target" id="group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_NumElements</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416slap_NumElementsK6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get the number of elements in a matrix, i.e. <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">*</span> <span class="pre">n</span></code>. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – Any matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Number of elements in the matrix </p>
 </dd>
 </dl>
@@ -318,10 +322,10 @@
 <p>This is the distance in memory between adjacent elements of the same row. For a “Dense” slap matrix where all elements are contiguous in memory, the stride is equal to the number of rows.</p>
 <p>See also: <a class="reference internal" href="#group__Basics_1gac0c4333dccc8b47037621c67252f62e0"><span class="std std-ref">slap_IsDense()</span></a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p></p>
 </dd>
 </dl>
@@ -337,14 +341,14 @@
 <p>Converts a cartesian index of row and column into a linear index for accessing an element of the underlying data.</p>
 <p>Supports both strided and dense matrices.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> with nonzero size and initialized data </p></li>
 <li><p><strong>row</strong> – Row index </p></li>
 <li><p><strong>col</strong> – Column index </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Linear index corresponding to <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">col</span></code>. Returns -1 for a bad input. </p>
 </dd>
 </dl>
@@ -357,7 +361,7 @@
 <p>This is moderately expensive, since it relies on modulus and division operations.</p>
 <p>Passing null pointers to <em>row</em> and <em>col</em> results in undefined behavior, since this method does not check that these are valid.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p></li>
 <li><p><strong>k</strong> – <strong>[in]</strong> Linear index, from 0 to <a class="reference internal" href="#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a> </p></li>
@@ -375,13 +379,13 @@
 <p>If the matrix is Dense (stored contiguously in memory, see <a class="reference internal" href="#group__Basics_1gac0c4333dccc8b47037621c67252f62e0"><span class="std std-ref">slap_IsDense()</span></a>), the output is the same as the input. This method is most helpful for strided matrices.</p>
 <p>Note that for strided arrays, this method is fairly expensive since it converts the linear index into a Cartesian index, and then to the array index.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – A dense or strided matrix </p></li>
 <li><p><strong>k</strong> – The linear index, ranging from 0 to <a class="reference internal" href="#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a> </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The index into mat.data corresponding the <code class="docutils literal notranslate"><span class="pre">k</span></code>th element of <em>mat</em> </p>
 </dd>
 </dl>
@@ -392,14 +396,14 @@
 <span id="_CPPv318slap_CheckInbounds6Matrixii"></span><span id="_CPPv218slap_CheckInbounds6Matrixii"></span><span id="slap_CheckInbounds__Matrix.i.i"></span><span class="target" id="group__Basics_1ga7d5c4174ae1309b811f6feb1272843ba"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_CheckInbounds</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">col</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418slap_CheckInbounds6Matrixii" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Check if the row and column index is in the bounds of the matrix. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> to be indexed </p></li>
 <li><p><strong>row</strong> – Row index </p></li>
 <li><p><strong>col</strong> – Column index </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>true if the row and column index is in bounds for the matrix </p>
 </dd>
 </dl>
@@ -424,14 +428,14 @@
 <p></p>
 </section>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> of nonzero size </p></li>
 <li><p><strong>row</strong> – Row index </p></li>
 <li><p><strong>col</strong> – Column index </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A pointer to the element of the matrix. NULL for invalid input. </p>
 </dd>
 </dl>
@@ -454,14 +458,14 @@
 <p></p>
 </section>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> of nonzero size </p></li>
 <li><p><strong>row</strong> – Row index </p></li>
 <li><p><strong>col</strong> – Column index </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A pointer to the element of the matrix. NULL for invalid input. </p>
 </dd>
 </dl>
@@ -482,7 +486,7 @@
 <p></p>
 </section>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> with nonzero size and initialized data </p></li>
 <li><p><strong>row</strong> – Row index </p></li>
@@ -504,10 +508,10 @@
 <p>See also: <a class="reference internal" href="#group__Basics_1ga9c0ba68dd5be65c3ed135d1ffb0e3603"><span class="std std-ref">slap_Reshape()</span></a></p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">src/matrix.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> to be flattened. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Flattened <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
 </dd>
 </dl>
@@ -521,10 +525,10 @@
 <p>See also: <a class="reference internal" href="#group__Basics_1ga0e223aa2430aab4f7466f26008b9d4b4"><span class="std std-ref">slap_IsTransposed()</span></a></p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">src/matrix.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – The matrix to transpose </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Transposed <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
 </dd>
 </dl>
@@ -538,14 +542,14 @@
 <p>See also: <a class="reference internal" href="#group__Basics_1ga34b0cf8ab431aba8466deb196b050ff7"><span class="std std-ref">slap_Flatten()</span></a>, slap_CreateSubMatrix()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">src/matrix.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p></li>
 <li><p><strong>rows</strong> – New number of rows </p></li>
 <li><p><strong>cols</strong> – New number of columns </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Resized <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> </p>
 </dd>
 </dl>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>linalg.h &mdash; slap  documentation</title>
@@ -31,11 +31,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> slap
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            slap
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -81,7 +85,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">API</a></li>
       <li class="breadcrumb-item active">linalg.h</li>
       <li class="wy-breadcrumbs-aside">
@@ -132,7 +136,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 </section>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>C</strong> – Destination matrix </p></li>
 <li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
@@ -157,7 +161,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p>See also: slap_MatMulAdd(), slap_MatMulAtB()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>C</strong> – <strong>[out]</strong> Destination matrix </p></li>
 <li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
@@ -178,7 +182,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p>See also: slap_MatMulAdd(), slap_MatMulAB()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>C</strong> – <strong>[out]</strong> Destination matrix </p></li>
 <li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
@@ -199,7 +203,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p>See also: slap_MatMulAdd(), slap_MatMulAB()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>C</strong> – <strong>[out]</strong> Destination matrix </p></li>
 <li><p><strong>A</strong> – <strong>[in]</strong> Left input matrix </p></li>
@@ -219,10 +223,10 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p>Performs a Cholesky decomposition on the square matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>, storing the result in the lower triangular portion of <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>A</strong> – a square symmetric matrix </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>slap error code. There is a dedicated code SLAP_CHOLESKY_FAIL if the factorization fails due to a negative value on the diagonal (matrix isn’t positive definite). </p>
 </dd>
 </dl>
@@ -241,13 +245,13 @@ which are all included by <code class="docutils literal notranslate"><span class
  if <code class="docutils literal notranslate"><span class="pre">slap_GetType(L)</span> <span class="pre">==</span> <span class="pre">slap_TRIANGULAR_UPPER</span></code>.</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>L</strong> – <strong>[in]</strong> A triangular matrix. Assumed to be lower-triangular unless its slap_MatrixType is slap_TRIANGULAR_UPPER </p></li>
 <li><p><strong>b</strong> – <strong>[inout]</strong> The right-hand-side vector. Stores the solution upon completion. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>slap error code </p>
 </dd>
 </dl>
@@ -274,13 +278,13 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 </section>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>A</strong> – <strong>[in]</strong> A square matrix whose Cholesky decomposition is stored in the lower triangular portion of the matrix </p></li>
 <li><p><strong>b</strong> – <strong>[inout]</strong> The right-hand-side vector. Stores the solution upon completion of the function. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>slap error code </p>
 </dd>
 </dl>
@@ -299,7 +303,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p>See also: slap_ComputeQ(), slap_Qtb(), slap_LeastSquares()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/qr.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>A</strong> – A square or skinny matrix </p></li>
 <li><p><strong>betas</strong> – <strong>[out]</strong> Stores scaling factors needed to recover Q. Must have the same number of rows as A. </p></li>
@@ -316,7 +320,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p>See also: slap_QR(), slap_LeastSquares(), slap_Qtb()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/qr.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>A</strong> – <strong>[out]</strong> A square matrix with the same number of rows as R. </p></li>
 <li><p><strong>R</strong> – <strong>[in]</strong> A square or skinny matrix containing the results from a QR decomposition. </p></li>
@@ -336,7 +340,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p>See also: slap_QR(), slap_LeastSquares()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/qr.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>R</strong> – <strong>[in]</strong> </p></li>
 <li><p><strong>betas</strong> – <strong>[in]</strong> Scaling factors for reflections </p></li>
@@ -355,7 +359,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 <p>See also: slap_QR(), slap_Qtb()</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/qr.h</span></code> </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>A</strong> – <strong>[inout]</strong> A “skinny” matrix </p></li>
 <li><p><strong>b</strong> – <strong>[inout]</strong> </p></li>
@@ -363,7 +367,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 <li><p><strong>temp</strong> – A temporary vector used to compute the QR decomposition of <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must have the same number of rows as <code class="docutils literal notranslate"><span class="pre">A</span></code>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p></p>
 </dd>
 </dl>

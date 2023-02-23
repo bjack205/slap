@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matrix Basics &mdash; slap  documentation</title>
@@ -31,11 +31,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> slap
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            slap
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -71,7 +75,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Matrix Basics</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/src/matrix_overview.rst.txt" rel="nofollow"> View page source</a>
@@ -82,8 +86,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="id1">
-<h1>Matrix Basics<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+  <section id="matrix-basics">
+<span id="id1"></span><h1>Matrix Basics<a class="headerlink" href="#matrix-basics" title="Permalink to this heading"></a></h1>
 <p>This page covers the basics of the matrix struct in <code class="docutils literal notranslate"><span class="pre">slap</span></code> and
 several of the fundamental operations.</p>
 <section id="the-matrix-struct">
@@ -143,7 +147,7 @@ for things like the size, stride, and type.</p>
 <span id="_CPPv312slap_GetData6Matrix"></span><span id="_CPPv212slap_GetData6Matrix"></span><span id="slap_GetData__Matrix"></span><span class="target" id="group__Basics_1ga67406cb519a723c497e70e2390b39fde"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">slap_GetData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_GetData6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Return the raw pointer stored by the matrix. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mat</strong> – Any matrix </p>
 </dd>
 </dl>
@@ -163,10 +167,6 @@ size of a matrix. Please use these functions over directly accessing the
 fields of the <a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><code class="xref cpp cpp-struct docutils literal notranslate"><span class="pre">Matrix</span></code></a> type. All size information in <code class="docutils literal notranslate"><span class="pre">slap</span></code>
 is represented by the <code class="docutils literal notranslate"><span class="pre">int</span></code> type.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 41%" />
-<col style="width: 59%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -206,10 +206,6 @@ set by the user as a CMake variable.</p>
 <h2>Boolean Checks<a class="headerlink" href="#boolean-checks" title="Permalink to this heading"></a></h2>
 <p>Use the following functions to perform various checks on a matrix.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 41%" />
-<col style="width: 59%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
