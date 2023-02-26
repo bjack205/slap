@@ -67,8 +67,11 @@ jobs:
       working-directory: ${{ github.workspace }}/build
       run: ctest .
     - name: Process code coverage results
-      working-directory: ${{ github.workspace }}/build
-      run: gcov **/*.o
+      workspaceking-directory: ${{ github.workspace }}/build
+      run: ${{ github.workspace }}/build/src/slap/CMakeFiles/slap.dir
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
+      with:
+        gcov: true
+        directory: ${{ github.workspace }}/build/src/slap/CMakeFiles/slap.dir
 
