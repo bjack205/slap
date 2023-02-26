@@ -73,6 +73,7 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         gcov: true
-        gcov-include: ${{ github.workspace }}/src/slap
+        gcov_include: ${{ github.workspace }}/src/slap
         directory: ${{ github.workspace }}/build/src/slap/CMakeFiles/slap.dir
+        fail_ci_if_error: true
 
