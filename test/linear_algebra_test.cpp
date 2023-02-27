@@ -112,7 +112,7 @@ TEST_F(LinearAlgebraTest, CholeskyFactorization) {
   err = slap_Cholesky(Achol);
   EXPECT_EQ(err, SLAP_CHOLESKY_FAIL);
 
-  slap_FreeMatrix(A);
+  slap_FreeMatrix(&A);
 }
 
 TEST_F(LinearAlgebraTest, TriBackSub) {
@@ -162,9 +162,9 @@ TEST_F(LinearAlgebraTest, CholeskySolve) {
   slap_MatMulAB(b2, A, x);
   EXPECT_LT(slap_MatrixNormedDifference(b2, b), 1e-10);
 
-  slap_FreeMatrix(A);
-  slap_FreeMatrix(x);
-  slap_FreeMatrix(b2);
+  slap_FreeMatrix(&A);
+  slap_FreeMatrix(&x);
+  slap_FreeMatrix(&b2);
 }
 
 class QRDecompTest : public ::testing::Test {
@@ -264,10 +264,10 @@ TEST_F(QRDecompTest, QRDecomp_Square) {
   EXPECT_LT(diff, 1e-10);
 
   // Clean up temporaries
-  slap_FreeMatrix(Q);
-  slap_FreeMatrix(Q_work);
-  slap_FreeMatrix(I_m);
-  slap_FreeMatrix(QR);
+  slap_FreeMatrix(&Q);
+  slap_FreeMatrix(&Q_work);
+  slap_FreeMatrix(&I_m);
+  slap_FreeMatrix(&QR);
 }
 
 TEST_F(QRDecompTest, QRDecomp_Skinny) {
@@ -297,10 +297,10 @@ TEST_F(QRDecompTest, QRDecomp_Skinny) {
   EXPECT_LT(diff, 1e-10);
 
   // Clean up temporaries
-  slap_FreeMatrix(Q);
-  slap_FreeMatrix(Q_work);
-  slap_FreeMatrix(I_m);
-  slap_FreeMatrix(QR);
+  slap_FreeMatrix(&Q);
+  slap_FreeMatrix(&Q_work);
+  slap_FreeMatrix(&I_m);
+  slap_FreeMatrix(&QR);
 }
 
 TEST_F(QRDecompTest, QRDecomp_LeastSquares) {

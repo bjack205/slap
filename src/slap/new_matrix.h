@@ -54,6 +54,9 @@ Matrix slap_NewMatrixZeros(int rows, int cols);
 /**
  * @brief Free the data for a matrix
  *
+ * Note that this methods takes the pointer to the matrix as a argument, so that it can
+ * set the internal data pointer to NULL after the free.
+ *
  * Note this does NOT attempt to free the matrix object itself, only the data
  * it wraps.
  *
@@ -61,4 +64,4 @@ Matrix slap_NewMatrixZeros(int rows, int cols);
  *
  * **Header File:** `"slap/new_matrix.h"`
  */
-enum slap_ErrorCode slap_FreeMatrix(Matrix mat);
+enum slap_ErrorCode slap_FreeMatrix(Matrix* mat);

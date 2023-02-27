@@ -306,10 +306,10 @@ int main(void) {
   /////////////////////////////////////////////
 
   free(data_B);
-  slap_FreeMatrix(x);
-  slap_FreeMatrix(y);
-  slap_FreeMatrix(z);
-  slap_FreeMatrix(Z);
-  slap_FreeMatrix(C);
+  slap_FreeMatrix(&x);
+  slap_FreeMatrix(&y);
+  slap_FreeMatrix(&z);
+  slap_FreeMatrix(&Z);
+  slap_FreeMatrix(&C);
   return EXIT_SUCCESS;
 }

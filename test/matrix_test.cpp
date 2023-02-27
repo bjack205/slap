@@ -19,7 +19,27 @@ TEST(MatrixBasics, NewMatrix) {
   EXPECT_EQ(mat.rows, 5);
   EXPECT_EQ(mat.cols, 4);
   EXPECT_EQ(slap_NumElements(mat), 20);
-  slap_FreeMatrix(mat);
+  slap_FreeMatrix(&mat);
+}
+
+TEST(MatrixBasics, NewMatrix_Zeros) {
+  Matrix mat = slap_NewMatrixZeros(5, 4);
+  EXPECT_EQ(mat.rows, 5);
+  EXPECT_EQ(mat.cols, 4);
+  EXPECT_EQ(slap_NumElements(mat), 20);
+  for (int i = 0; i < 20; ++i) {
+    EXPECT_DOUBLE_EQ(mat.data[i], 0);
+  }
+  slap_FreeMatrix(&mat);
+}
+
+TEST(MatrixBasics, NewMatrix_DoubleFree) {
+  Matrix mat = slap_NewMatrixZeros(5, 4);
+  enum slap_ErrorCode code = slap_FreeMatrix(&mat);
+  EXPECT_EQ(code, SLAP_NO_ERROR);
+  code = slap_FreeMatrix(&mat);
+  EXPECT_EQ(code, SLAP_BAD_MATRIX_DATA_POINTER);
+
 }
 
 TEST(MatrixBasics, GetLinearIndex_2x3) {
@@ -532,3 +552,12 @@ TEST(MatrixTransformations, Reshape) {
   EXPECT_EQ(slap_Cart2Index(B, 0, 1), 2);
   EXPECT_EQ(*slap_GetElement(B, 0, 1), 3);
 }
+
+TEST(MatrixPrinting, PrintRow) {
+  double data_x[4] = {1,2,3,4};
+  Matrix x = slap_MatrixFromArray(4, 1, data_x);
+  slap_PrintRowVector(x);
+  slap_PrintRowVector(slap_Transpose(x));
+}
+
+
