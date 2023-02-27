@@ -29,10 +29,10 @@ Matrix slap_NewMatrixZeros(int rows, int cols) {
   return mat;
 }
 
-enum slap_ErrorCode slap_FreeMatrix(Matrix mat) {
-  if (mat.data) {
-    free(mat.data);
-    mat.data = NULL;
+enum slap_ErrorCode slap_FreeMatrix(Matrix* mat) {
+  if (mat->data) {
+    free(mat->data);
+    mat->data = NULL;
     return SLAP_NO_ERROR;
   }
   return SLAP_BAD_MATRIX_DATA_POINTER;

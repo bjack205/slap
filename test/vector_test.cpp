@@ -91,13 +91,28 @@ TEST_F(VectorTests, QuadraticForm) {
   EXPECT_DOUBLE_EQ(dot, 1522.5);
 }
 
+TEST_F(VectorTests, QuadraticForm_BadPointers) {
+  double data_A[DATA_LEN * (DATA_LEN + 3)] = {1.0, -4.0, 1.0, -5.0, -9.0, 10.0, 5.0, 3.0, 8.0, 0.0, -6.0, 8.0, 1.0, 3.0, -7.0, -9.0, -2.0, -10.0, -3.0, -3.0, 9.0, 2.0, -8.0, 1.0, 0.0, 1.0, 1.0, -4.0, 0.0, 0.0, -8.0, -6.0, -8.0, 7.0, 7.0, -8.0, -2.0, -4.0, 0.0, -9.0, 9.0, -7.0, 0.0, -6.0, -8.0, 6.0, 10.0, -6.0, 8.0, 6.0, -6.0, 2.0, 9.0, 2.0};
+  Matrix A = slap_MatrixFromArray(DATA_LEN + 3, DATA_LEN, NULL);
+  double dot = slap_QuadraticForm(y, A, x);
+  EXPECT_TRUE(isnan(dot));
+
+  A.data = data_A;
+  y.data = NULL;
+  dot = slap_QuadraticForm(y, A, x);
+
+  y.data = data_y;
+  x.data = NULL;
+  dot = slap_QuadraticForm(y, A, x);
+}
+
 TEST_F(VectorTests, OuterProduct) {
   double data_C[DATA_LEN * (DATA_LEN + 3)] = {5.0, 5.0, 4.0, 3.0, -2.0, 8.0, 8.0, -8.0, 9.0, 0.0, 0.0, 0.0, 0.0, -0.0, 0.0, 0.0, -0.0, 0.0, -30.0, -30.0, -24.0, -18.0, 12.0, -48.0, -48.0, 48.0, -54.0, -50.0, -50.0, -40.0, -30.0, 20.0, -80.0, -80.0, 80.0, -90.0, 2.5, 2.5, 2.0, 1.5, -1.0, 4.0, 4.0, -4.0, 4.5, 5.0, 5.0, 4.0, 3.0, -2.0, 8.0, 8.0, -8.0, 9.0};
   Matrix C = slap_MatrixFromArray(DATA_LEN + 3, DATA_LEN, data_C);
   Matrix A = slap_NewMatrix(DATA_LEN + 3, DATA_LEN);
   slap_OuterProduct(A, y, x);
   EXPECT_LT(slap_MatrixNormedDifference(A, C), 1e-10);
-  slap_FreeMatrix(A);
+  slap_FreeMatrix(&A);
 }
 
 TEST_F(VectorTests, CrossProduct_OutputTooShort) {
@@ -105,7 +120,7 @@ TEST_F(VectorTests, CrossProduct_OutputTooShort) {
   Matrix z = slap_NewMatrix(2, 1);
   err = slap_CrossProduct(z, x, y);
   EXPECT_EQ(err, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS);
-  slap_FreeMatrix(z);
+  slap_FreeMatrix(&z);
 }
 
 TEST_F(VectorTests, CrossProduct) {
@@ -122,5 +137,5 @@ TEST_F(VectorTests, CrossProduct) {
   EXPECT_DOUBLE_EQ(z.data[0], -30);
   EXPECT_DOUBLE_EQ(z.data[1], +34);
   EXPECT_DOUBLE_EQ(z.data[2], -5);
-  slap_FreeMatrix(z);
+  slap_FreeMatrix(&z);
 }
