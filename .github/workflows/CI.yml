@@ -67,11 +67,12 @@ jobs:
       working-directory: ${{ github.workspace }}/build
       run: ctest .
     - name: Process code coverage results
-      working-directory: ${{ github.workspace }}/build
       run: |
+        cd build
+        ls C
         gcov -pb **/*.o
-        ls ${{ github.workspace }}/build/src/slap/CMakeFiles/slap.dir
-        ls ${{ github.workspace }}/build
+        echo "ls build"
+        ls .
     - name: Upload Results
       run: bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports."
 
