@@ -16,6 +16,7 @@
 
 #include "errors.h"
 
+
 enum slap_MatrixType {
   slap_DENSE,
 //  slap_TRANSPOSED,

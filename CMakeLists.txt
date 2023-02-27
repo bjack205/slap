@@ -42,12 +42,7 @@ endif ()
 option(SLAP_BUILD_TESTS "Build tests for slap" ON)
 
 # Code Coverage
-option(SLAP_CODE_COVERAGE "Compile rsLQR with Code Coverage." OFF)
-if (SLAP_CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-  message(STATUS "Compiling slap with coverage info.")
-  add_compile_options(-O0 -g -fprofile-arcs -ftest-coverage)
-  add_link_options(-fprofile-arcs -ftest-coverage)
-endif ()
+option(SLAP_CODE_COVERAGE "Compile slap with Code Coverage." OFF)
 
 # Documentation
 option(SLAP_BUILD_DOCS "Build documentation for slap." OFF)

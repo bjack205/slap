@@ -1,5 +1,6 @@
 [![CMake](https://github.com/bjack205/slap/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/bjack205/slap/actions/workflows/CI.yml)
 [![Documentation](https://github.com/bjack205/slap/actions/workflows/Documentation.yml/badge.svg?branch=main)](https://github.com/bjack205/slap/actions/workflows/Documentation.yml)
+[![codecov](https://codecov.io/gh/bjack205/slap/branch/main/graph/badge.svg?token=vEkwQfXy4q)](https://codecov.io/gh/bjack205/slap)
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://bjack205.github.io/slap/)
 
 # slap

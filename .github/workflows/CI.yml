@@ -59,17 +59,28 @@ jobs:
       run: |
         mkdir ${{github.workspace}}/build && cd build
         cmake -D CMAKE_BUILD_TYPE=Debug \
-              -D ULQR_CODE_COVERAGE=ON \
+              -D SLAP_CODE_COVERAGE=ON \
               --log-context ..
     - name: Build
       run: cmake --build ${{ github.workspace }}/build
     - name: Run Tests
       working-directory: ${{ github.workspace }}/build
       run: ctest .
-    - name: Process code coverage results
-      run: gcov **/*.o
-    - name: Upload Coverage to Codecov
-      run: bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports."
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+       gcov: true
+       fail_ci_if_error: true
+#    - name: Process code coverage results
+#      run: |
+#        cd build
+#        echo "ls slap.dir"
+#        ls src/slap/CMakeFiles/slap.dir
+#        gcov -pb **/*.o
+#        echo "ls build"
+#        ls .
+#    - name: Upload Results
+#      run: bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports."
 
   arduino:
     runs-on: ubuntu-latest
