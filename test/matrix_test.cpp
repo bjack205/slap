@@ -1,8 +1,8 @@
-#include "slap/slap.h"
 
 #include <math.h>
 
 #include "gtest/gtest.h"
+#include "slap/slap.h"
 
 TEST(MatrixBasics, MatrixFromArray) {
   double data[6] = {1, 2, 3, 4, 5, 6};
