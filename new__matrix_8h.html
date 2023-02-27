@@ -110,9 +110,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aad0c3a859d46fb892c5a9e758d119c6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="new__matrix_8h.html#aad0c3a859d46fb892c5a9e758d119c6d">slap_NewMatrixZeros</a> (int rows, int cols)</td></tr>
 <tr class="memdesc:aad0c3a859d46fb892c5a9e758d119c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a new matrix on the heap, initialized with zeros.  <a href="new__matrix_8h.html#aad0c3a859d46fb892c5a9e758d119c6d">More...</a><br /></td></tr>
 <tr class="separator:aad0c3a859d46fb892c5a9e758d119c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4940e99c1a3815670434c0b96171472a"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="new__matrix_8h.html#a4940e99c1a3815670434c0b96171472a">slap_FreeMatrix</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
-<tr class="memdesc:a4940e99c1a3815670434c0b96171472a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the data for a matrix.  <a href="new__matrix_8h.html#a4940e99c1a3815670434c0b96171472a">More...</a><br /></td></tr>
-<tr class="separator:a4940e99c1a3815670434c0b96171472a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a533a9e2d6835a58c406a7350e82a16a3"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="new__matrix_8h.html#a533a9e2d6835a58c406a7350e82a16a3">slap_FreeMatrix</a> (<a class="el" href="structMatrix.html">Matrix</a> *mat)</td></tr>
+<tr class="memdesc:a533a9e2d6835a58c406a7350e82a16a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the data for a matrix.  <a href="new__matrix_8h.html#a533a9e2d6835a58c406a7350e82a16a3">More...</a><br /></td></tr>
+<tr class="separator:a533a9e2d6835a58c406a7350e82a16a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sole methods that allocate and free memory. Provided to conveniently create and free matrices whose data is stored on the heap. </p>
@@ -120,8 +120,8 @@ Functions</h2></td></tr>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-01-16 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a4940e99c1a3815670434c0b96171472a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4940e99c1a3815670434c0b96171472a">&#9670;&nbsp;</a></span>slap_FreeMatrix()</h2>
+<a id="a533a9e2d6835a58c406a7350e82a16a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533a9e2d6835a58c406a7350e82a16a3">&#9670;&nbsp;</a></span>slap_FreeMatrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,7 +129,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">enum slap_ErrorCode slap_FreeMatrix </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a> *&#160;</td>
           <td class="paramname"><em>mat</em></td><td>)</td>
           <td></td>
         </tr>
@@ -137,6 +137,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Free the data for a matrix. </p>
+<p>Note that this methods takes the pointer to the matrix as a argument, so that it can set the internal data pointer to NULL after the free.</p>
 <p>Note this does NOT attempt to free the matrix object itself, only the data it wraps.</p>
 <p>Should only be used in conjunction with <a class="el" href="new__matrix_8h.html#a9019c40a4c65f48d3b3da9bcf24bf65c" title="Allocate a new matrix on the heap.">slap_NewMatrix()</a> or <a class="el" href="new__matrix_8h.html#aad0c3a859d46fb892c5a9e758d119c6d" title="Allocate a new matrix on the heap, initialized with zeros.">slap_NewMatrixZeros()</a>.</p>
 <p><b>Header File:</b> <code>"slap/new_matrix.h"</code> </p>
@@ -174,8 +175,8 @@ Functions</h2></td></tr>
 <h1><a class="anchor" id="autotoc_md9"></a>
 Example</h1>
 <div class="fragment"><div class="line"><a class="code" href="structMatrix.html">Matrix</a> A = <a class="code" href="new__matrix_8h.html#a9019c40a4c65f48d3b3da9bcf24bf65c">slap_NewMatrix</a>(3,4);</div>
-<div class="line"><a class="code" href="new__matrix_8h.html#a4940e99c1a3815670434c0b96171472a">slap_FreeMatrix</a>(A);</div>
-<div class="ttc" id="anew__matrix_8h_html_a4940e99c1a3815670434c0b96171472a"><div class="ttname"><a href="new__matrix_8h.html#a4940e99c1a3815670434c0b96171472a">slap_FreeMatrix</a></div><div class="ttdeci">enum slap_ErrorCode slap_FreeMatrix(Matrix mat)</div><div class="ttdoc">Free the data for a matrix.</div><div class="ttdef"><b>Definition:</b> new_matrix.c:32</div></div>
+<div class="line"><a class="code" href="new__matrix_8h.html#a533a9e2d6835a58c406a7350e82a16a3">slap_FreeMatrix</a>(A);</div>
+<div class="ttc" id="anew__matrix_8h_html_a533a9e2d6835a58c406a7350e82a16a3"><div class="ttname"><a href="new__matrix_8h.html#a533a9e2d6835a58c406a7350e82a16a3">slap_FreeMatrix</a></div><div class="ttdeci">enum slap_ErrorCode slap_FreeMatrix(Matrix *mat)</div><div class="ttdoc">Free the data for a matrix.</div><div class="ttdef"><b>Definition:</b> new_matrix.c:32</div></div>
 <div class="ttc" id="anew__matrix_8h_html_a9019c40a4c65f48d3b3da9bcf24bf65c"><div class="ttname"><a href="new__matrix_8h.html#a9019c40a4c65f48d3b3da9bcf24bf65c">slap_NewMatrix</a></div><div class="ttdeci">Matrix slap_NewMatrix(int rows, int cols)</div><div class="ttdoc">Allocate a new matrix on the heap.</div><div class="ttdef"><b>Definition:</b> new_matrix.c:10</div></div>
 <div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdoc">Represents a matrix of double-precision data.</div><div class="ttdef"><b>Definition:</b> matrix.h:37</div></div>
 </div><!-- fragment --><p><b>Header File:</b> <code>"slap/new_matrix.h"</code> </p><dl class="params"><dt>Parameters</dt><dd>
@@ -220,7 +221,7 @@ Example</h1>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Example</h1>
 <div class="fragment"><div class="line"><a class="code" href="structMatrix.html">Matrix</a> A = <a class="code" href="new__matrix_8h.html#aad0c3a859d46fb892c5a9e758d119c6d">slap_NewMatrixZeros</a>(3,4);</div>
-<div class="line"><a class="code" href="new__matrix_8h.html#a4940e99c1a3815670434c0b96171472a">slap_FreeMatrix</a>(A);</div>
+<div class="line"><a class="code" href="new__matrix_8h.html#a533a9e2d6835a58c406a7350e82a16a3">slap_FreeMatrix</a>(A);</div>
 <div class="ttc" id="anew__matrix_8h_html_aad0c3a859d46fb892c5a9e758d119c6d"><div class="ttname"><a href="new__matrix_8h.html#aad0c3a859d46fb892c5a9e758d119c6d">slap_NewMatrixZeros</a></div><div class="ttdeci">Matrix slap_NewMatrixZeros(int rows, int cols)</div><div class="ttdoc">Allocate a new matrix on the heap, initialized with zeros.</div><div class="ttdef"><b>Definition:</b> new_matrix.c:21</div></div>
 </div><!-- fragment --><p><b>Header File:</b> <code>"slap/new_matrix.h"</code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

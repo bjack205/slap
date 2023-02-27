@@ -9,7 +9,7 @@ var searchData=
   ['slap_5fcholesky_98',['slap_Cholesky',['../group__LinearAlgebra.html#gafd495e62e1fd29197ab77bd4e27c8379',1,'slap_Cholesky(Matrix A):&#160;cholesky.c'],['../group__LinearAlgebra.html#gafd495e62e1fd29197ab77bd4e27c8379',1,'slap_Cholesky(Matrix A):&#160;cholesky.c']]],
   ['slap_5fcholeskysolve_99',['slap_CholeskySolve',['../group__LinearAlgebra.html#ga792058bb09344ca5bcb82a56317d618f',1,'slap_CholeskySolve(Matrix A, Matrix b):&#160;cholesky.c'],['../group__LinearAlgebra.html#ga792058bb09344ca5bcb82a56317d618f',1,'slap_CholeskySolve(const Matrix A, Matrix b):&#160;cholesky.c']]],
   ['slap_5fflatten_100',['slap_Flatten',['../group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7',1,'slap_Flatten(const Matrix mat):&#160;matrix.c'],['../group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7',1,'slap_Flatten(Matrix mat):&#160;matrix.c']]],
-  ['slap_5ffreematrix_101',['slap_FreeMatrix',['../new__matrix_8h.html#a4940e99c1a3815670434c0b96171472a',1,'new_matrix.c']]],
+  ['slap_5ffreematrix_101',['slap_FreeMatrix',['../new__matrix_8h.html#a533a9e2d6835a58c406a7350e82a16a3',1,'new_matrix.c']]],
   ['slap_5fgetdata_102',['slap_GetData',['../group__Basics.html#ga67406cb519a723c497e70e2390b39fde',1,'matrix.h']]],
   ['slap_5fgetelement_103',['slap_GetElement',['../group__Basics.html#gae7b520403190dd344634ca33136151ab',1,'matrix.h']]],
   ['slap_5fgetelementconst_104',['slap_GetElementConst',['../group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494',1,'matrix.h']]],

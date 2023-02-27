@@ -180,7 +180,7 @@ var NAVTREEINDEX0 =
 "matrix__checks_8h_source.html":[3,0,0,0,9],
 "modules.html":[1],
 "new__matrix_8h.html":[3,0,0,0,10],
-"new__matrix_8h.html#a4940e99c1a3815670434c0b96171472a":[3,0,0,0,10,0],
+"new__matrix_8h.html#a533a9e2d6835a58c406a7350e82a16a3":[3,0,0,0,10,0],
 "new__matrix_8h.html#a9019c40a4c65f48d3b3da9bcf24bf65c":[3,0,0,0,10,1],
 "new__matrix_8h.html#aad0c3a859d46fb892c5a9e758d119c6d":[3,0,0,0,10,2],
 "new__matrix_8h_source.html":[3,0,0,0,10],
