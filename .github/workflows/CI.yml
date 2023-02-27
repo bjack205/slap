@@ -69,7 +69,8 @@ jobs:
     - name: Process code coverage results
       run: |
         cd build
-        ls C
+        echo "ls slap.dir"
+        ls src/slap/CMakeFiles/slap.dir
         gcov -pb **/*.o
         echo "ls build"
         ls .
