@@ -16,6 +16,8 @@
 
 #include "errors.h"
 
+void __gcov_flush(void);
+
 enum slap_MatrixType {
   slap_DENSE,
   slap_TRANSPOSED,
