@@ -3,6 +3,8 @@
 extern "C" {
 #endif
 
+void __gcov_flush(void);
+
 #include "matrix.h"
 #include "new_matrix.h"
 #include "copy_matrix.h"
