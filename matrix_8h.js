@@ -6,7 +6,6 @@ var matrix_8h =
       [ "slap_TRIANGULAR_UPPER", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381a31b9b84ef137750ef66c84c07c5cd841", null ],
       [ "slap_TRIANGULAR_LOWER", "group__Basics.html#gga8fcc121b0708680f09fd9a9464fd8381ae638a5bd1788e81a48d58590921d2e12", null ]
     ] ],
-    [ "__gcov_flush", "group__Basics.html#ga5fcd0710e7b6d6e379068c4cc7a76fdf", null ],
     [ "slap_Cart2Index", "group__Basics.html#gae44a94a40d7b7fdce3f21d5710ea06b8", null ],
     [ "slap_CheckInbounds", "group__Basics.html#ga7d5c4174ae1309b811f6feb1272843ba", null ],
     [ "slap_Flatten", "group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7", null ],

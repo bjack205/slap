@@ -130,9 +130,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ga80bb91ed80c4b244200c9e85aa8d29a5"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga80bb91ed80c4b244200c9e85aa8d29a5">slap_MatrixCopyFromArray</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, const double *data)</td></tr>
 <tr class="memdesc:ga80bb91ed80c4b244200c9e85aa8d29a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the data from an array into the matrix.  <a href="group__Basics.html#ga80bb91ed80c4b244200c9e85aa8d29a5">More...</a><br /></td></tr>
 <tr class="separator:ga80bb91ed80c4b244200c9e85aa8d29a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5fcd0710e7b6d6e379068c4cc7a76fdf"><td class="memItemLeft" align="right" valign="top"><a id="ga5fcd0710e7b6d6e379068c4cc7a76fdf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>__gcov_flush</b> (void)</td></tr>
-<tr class="separator:ga5fcd0710e7b6d6e379068c4cc7a76fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2cff64efb8b596f8116b7b2075086035"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga2cff64efb8b596f8116b7b2075086035">slap_MatrixFromArray</a> (int rows, int cols, double *data)</td></tr>
 <tr class="memdesc:ga2cff64efb8b596f8116b7b2075086035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wraps existing data in a <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> class.  <a href="group__Basics.html#ga2cff64efb8b596f8116b7b2075086035">More...</a><br /></td></tr>
 <tr class="separator:ga2cff64efb8b596f8116b7b2075086035"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -613,7 +610,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>__gcov_flush</b> (voi
 Example</h1>
 <p>The following gets a pointer to the 1st element in the 2nd column, and then modifies it. </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> *x = <a class="code" href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a>(A, 0, 1);</div>
 <div class="line">*x = 10;</div>
-<div class="ttc" id="agroup__Basics_html_gae7b520403190dd344634ca33136151ab"><div class="ttname"><a href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a></div><div class="ttdeci">static double * slap_GetElement(Matrix mat, int row, int col)</div><div class="ttdoc">Get a pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:368</div></div>
+<div class="ttc" id="agroup__Basics_html_gae7b520403190dd344634ca33136151ab"><div class="ttname"><a href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a></div><div class="ttdeci">static double * slap_GetElement(Matrix mat, int row, int col)</div><div class="ttdoc">Get a pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:367</div></div>
 </div><!-- fragment --><p>To get the data directly, just de-reference the pointer at the call site: The following reads the data in the 2nd element of the 1st column. </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> y = *<a class="code" href="group__Basics.html#gae7b520403190dd344634ca33136151ab">slap_GetElement</a>(A, 1, 0);</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -671,7 +668,7 @@ Example</h1>
 <h1><a class="anchor" id="autotoc_md7"></a>
 Example</h1>
 <p>The following gets a pointer to the 1st element in the 2nd column. </p><div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">double</span> *x = <a class="code" href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a>(A, 0, 1);</div>
-<div class="ttc" id="agroup__Basics_html_ga07acae3b6d5138f608ffd9dbe1c2e494"><div class="ttname"><a href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a></div><div class="ttdeci">static const double * slap_GetElementConst(const Matrix mat, int row, int col)</div><div class="ttdoc">Get a const pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:392</div></div>
+<div class="ttc" id="agroup__Basics_html_ga07acae3b6d5138f608ffd9dbe1c2e494"><div class="ttname"><a href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a></div><div class="ttdeci">static const double * slap_GetElementConst(const Matrix mat, int row, int col)</div><div class="ttdoc">Get a const pointer to matrix element given row, column indices.</div><div class="ttdef"><b>Definition:</b> matrix.h:391</div></div>
 </div><!-- fragment --><p>To get the data directly, just de-reference the pointer at the call site: The following reads the data in the 2nd element of the 1st column. </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> y = *<a class="code" href="group__Basics.html#ga07acae3b6d5138f608ffd9dbe1c2e494">slap_GetElementConst</a>(A, 1, 0);</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1196,7 +1193,7 @@ Example</h1>
 <div class="line"><a class="code" href="structMatrix.html">Matrix</a> B = <a class="code" href="group__Basics.html#ga2cff64efb8b596f8116b7b2075086035">slap_MatrixFromArray</a>(6, 4, data_heap);</div>
 <div class="line">free(data_heap);</div>
 <div class="ttc" id="agroup__Basics_html_ga2cff64efb8b596f8116b7b2075086035"><div class="ttname"><a href="group__Basics.html#ga2cff64efb8b596f8116b7b2075086035">slap_MatrixFromArray</a></div><div class="ttdeci">Matrix slap_MatrixFromArray(int rows, int cols, double *data)</div><div class="ttdoc">Wraps existing data in a Matrix class.</div><div class="ttdef"><b>Definition:</b> matrix.c:3</div></div>
-<div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdoc">Represents a matrix of double-precision data.</div><div class="ttdef"><b>Definition:</b> matrix.h:38</div></div>
+<div class="ttc" id="astructMatrix_html"><div class="ttname"><a href="structMatrix.html">Matrix</a></div><div class="ttdoc">Represents a matrix of double-precision data.</div><div class="ttdef"><b>Definition:</b> matrix.h:37</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rows</td><td>Number of rows in the matrix </td></tr>
@@ -1435,7 +1432,7 @@ Example</h1>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Example</h1>
 <div class="fragment"><div class="line"><a class="code" href="structMatrix.html">Matrix</a> A = <a class="code" href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a>();</div>
-<div class="ttc" id="agroup__Basics_html_gae2ddadd4c37bb616a95bdcd73b3c5ff2"><div class="ttname"><a href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a></div><div class="ttdeci">static Matrix slap_NullMatrix(void)</div><div class="ttdoc">Create a &quot;Null&quot; matrix.</div><div class="ttdef"><b>Definition:</b> matrix.h:92</div></div>
+<div class="ttc" id="agroup__Basics_html_gae2ddadd4c37bb616a95bdcd73b3c5ff2"><div class="ttname"><a href="group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2">slap_NullMatrix</a></div><div class="ttdeci">static Matrix slap_NullMatrix(void)</div><div class="ttdoc">Create a &quot;Null&quot; matrix.</div><div class="ttdef"><b>Definition:</b> matrix.h:91</div></div>
 </div><!-- fragment --><p>See also: <a class="el" href="group__Basics.html#gaad6c5a960abe57f6c2b54b741f4b8ab2" title="Check if matrix is a &quot;Null&quot; instance of a matrix (i.e. uninitialized)">slap_IsNull()</a>, <a class="el" href="group__Basics.html#gac5dce240ba6e93ee724e003d83de3564" title="Set a matrix to a &quot;Null&quot; instance.">slap_SetNull()</a></p>
 <dl class="section return"><dt>Returns</dt><dd>A default "Null" instance of a matrix. </dd></dl>
 
@@ -1764,7 +1761,7 @@ Example</h1>
 <h1><a class="anchor" id="autotoc_md8"></a>
 Example</h1>
 <p>Set the 1st element of the 2nd column to 10.1; </p><div class="fragment"><div class="line"><a class="code" href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a>(A, 0, 1, 10.1);</div>
-<div class="ttc" id="agroup__Basics_html_ga432445f932b69ce19c78e985f186bb5b"><div class="ttname"><a href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a></div><div class="ttdeci">static void slap_SetElement(Matrix mat, int row, int col, double val)</div><div class="ttdoc">Set an matrix element to a given value.</div><div class="ttdef"><b>Definition:</b> matrix.h:416</div></div>
+<div class="ttc" id="agroup__Basics_html_ga432445f932b69ce19c78e985f186bb5b"><div class="ttname"><a href="group__Basics.html#ga432445f932b69ce19c78e985f186bb5b">slap_SetElement</a></div><div class="ttdeci">static void slap_SetElement(Matrix mat, int row, int col, double val)</div><div class="ttdoc">Set an matrix element to a given value.</div><div class="ttdef"><b>Definition:</b> matrix.h:415</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td><a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> with nonzero size and initialized data </td></tr>
