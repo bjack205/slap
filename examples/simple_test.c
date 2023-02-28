@@ -21,5 +21,8 @@ int main(void) {
   double a = *slap_GetElement(A, 0, 1);
   (void)pa;
   (void)a;
+  printf("A[0,0] = %0.3g\n", *pa);
+  printf("A[0,1] = %0.3g\n", a);
+
   return 0;
 }
