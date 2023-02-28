@@ -173,6 +173,9 @@ int main(void) {
   Matrix x = slap_NewMatrix(3, 1);
   Matrix y = slap_NewMatrix(3, 1);
   Matrix z = slap_NewMatrixZeros(3, 1);
+  (void)x;
+  (void)y;
+  (void)z;
 
 //  // Set some values
 //  slap_SetRange(x, 1, 3);
