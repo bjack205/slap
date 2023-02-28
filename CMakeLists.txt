@@ -85,7 +85,7 @@ endif ()
 
 if (${APPLE})
   message(STATUS "Adding macosx-version-min")
-  add_compile_options(-mmacosx-version-min=10.5)
+  add_compile_options(-mmacosx-version-min=10.5 -stdlib=libc++)
 endif()
 
 
