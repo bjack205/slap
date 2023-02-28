@@ -77,7 +77,7 @@ int main(void) {
 //  slap_SetRange(A, 0, 1);
 //  printf("\nA: (Set Range 0 to 1)\n");
 //  slap_PrintMatrix(A);
-  
+
   /////////////////////////////////////////////
   // Transformations
   /////////////////////////////////////////////
@@ -161,6 +161,56 @@ int main(void) {
   A_sub = slap_CreateSubMatrix(A, 1, 1, 1, 2);
   printf("\nMiddle of A\n");
   slap_PrintMatrix(A_sub);
+  
+  /////////////////////////////////////////////
+  // Vector Operations
+  /////////////////////////////////////////////
+
+  printf("\n~~~~~~~~~~~~~~ VECTOR OPS ~~~~~~~~~~~~~~\n");
+
+  // Create Matrices (vectors) on the heap
+  // Note the calls to slap_FreeMatrix at the bottom of this function
+  Matrix x = slap_NewMatrix(3, 1);
+  Matrix y = slap_NewMatrix(3, 1);
+  Matrix z = slap_NewMatrixZeros(3, 1);
+
+  // Set some values
+  slap_SetRange(x, 1, 3);
+  slap_SetConst(y, 1.5);
+
+  // Inner product
+  double dot_xy = slap_InnerProduct(x, y);
+  printf("Inner product = %0.3g\n", dot_xy);
+
+  // Cross product
+  slap_CrossProduct(z, x, y);
+  printf("Cross product: ");
+  slap_PrintMatrix(slap_Transpose(z));
+
+  // Norms (only for dense)
+  printf("Two Norm Squared: %0.2g\n", slap_NormTwoSquared(z));
+  printf("Two Norm:         %0.2g\n", slap_NormTwo(z));
+  printf("One Norm:         %0.2g\n", slap_NormOne(z));
+  printf("Inf Norm:         %0.2g\n", slap_NormInf(z));
+
+  // Max/Min
+  printf("Max: %0.2g\n", slap_Max(z));
+  printf("Min: %0.2g\n", slap_Min(z));
+
+  // Argmax/Argmin
+  double z_max, z_min;
+  MatrixIterator it_max = slap_ArgMax(z, &z_max);
+  MatrixIterator it_min = slap_ArgMin(z, &z_min);
+  printf("ArgMax: %0.2g at linear index, %d, Cartesian index (%d,%d)\n", z_max,
+         it_max.k, it_max.i, it_max.j);
+  printf("ArgMin: %0.2g at linear index, %d, Cartesian index (%d,%d)\n", z_max,
+         it_min.k, it_min.i, it_min.j);
+
+  // Outer Product
+  Matrix Z = slap_NewMatrix(3, 3);
+  slap_OuterProduct(Z, x, y);
+  printf("\nOuter Product:\n");
+  slap_PrintMatrix(Z);
 
   return 0;
 }
