@@ -1,0 +1,38 @@
+name: CodeCov
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  codecov:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+        fetch-depth: 0
+    - name: Configure CMake
+      run: |
+        mkdir ${{github.workspace}}/build && cd build
+        cmake -D CMAKE_BUILD_TYPE=Debug \
+              -D SLAP_CODE_COVERAGE=ON \
+              --log-context ..
+    - name: Build
+      run: cmake --build ${{ github.workspace }}/build
+    - name: Run Tests
+      working-directory: ${{ github.workspace }}/build
+      run: ctest .
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+       token: ${{ secrets.CODECOV_TOKEN }}
+       gcov: true
+       fail_ci_if_error: true
