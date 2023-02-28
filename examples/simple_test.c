@@ -75,10 +75,10 @@ int main(void) {
   printf("\nA: (Set Partial Diagonal)\n");
   slap_PrintMatrix(A);
 
-//  // Set Range
-//  slap_SetRange(A, 1, slap_NumElements(A));
-//  printf("\nA: (Set Range)\n");
-//  slap_PrintMatrix(A);
+  // Set Range
+  slap_SetRange(A, 1, slap_NumElements(A));
+  printf("\nA: (Set Range)\n");
+  slap_PrintMatrix(A);
 
 //  slap_SetRange(A, 0, 1);
 //  printf("\nA: (Set Range 0 to 1)\n");
