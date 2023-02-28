@@ -26,7 +26,7 @@ jobs:
           - os: ubuntu-latest
             c_compiler: clang
             cxx_compiler: clang++
-          - os: macos-latest
+          - os: macos-11
             c_compiler: clang
             cxx_compiler: clang++
 
