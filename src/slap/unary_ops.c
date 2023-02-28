@@ -55,26 +55,6 @@ enum slap_ErrorCode slap_AddIdentity(Matrix mat, double alpha) {
   return SLAP_NO_ERROR;
 }
 
-//enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
-//  SLAP_ASSERT_VALID(mat, SLAP_INVALID_MATRIX, "SetRange: invalid matrix");
-//  double range = stop - start;
-//  int num_el = slap_NumElements(mat) - 1;
-//  double step = ((double)range) / ((double)num_el);
-//  (void)range;
-//  (void)num_el;
-//  step = (stop - start) * 0.1;
-//  // NOTE: Don't use iterator here since iteration order matters
-//  int k = 0;
-//  double val = start;
-//  for (int j = 0; j < slap_NumCols(mat); ++j) {
-//    for (int i = 0; i < slap_NumRows(mat); ++i) {
-//      val = step * k;
-//      slap_SetElement(mat, i, j, val);
-//      ++k;
-//    }
-//  }
-//  return SLAP_NO_ERROR;
-//}
 
 enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
   SLAP_CHECK_MATRIX(mat);
@@ -83,13 +63,14 @@ enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
   double step = range / (double)num_el;
   int k = 0;
   double val = 0;
+  printf("step = %0.2f\n", step);
   for (int j = 0; j < slap_NumCols(mat); ++j) {
     for (int i = 0; i < slap_NumRows(mat); ++i) {
       val = start + step * k;
+      printf("mat[%d,%d] = %0.2f\n", i, j, val);
       slap_SetElement(mat, i, j, val);
       ++k;
     }
   }
-  slap_SetConst(mat, step);
   return SLAP_NO_ERROR;
 }
