@@ -3,6 +3,10 @@
 // Copyright (c) 2023 Albedo. All rights reserved.
 //
 
-int main() {
+#include "slap/slap.h"
+
+int main(void) {
+  Matrix mat;
+  mat.rows = 0;
   return 0;
 }
