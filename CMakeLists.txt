@@ -83,6 +83,12 @@ endif ()
 # Build
 ##############################
 
+if (${APPLE})
+  message(STATUS "Adding macosx-version-min")
+  add_compile_options(-mmacosx-version-min=10.5)
+endif()
+
+
 # Compile options
 add_compile_options(-Wall -Wextra -pedantic -Werror)
 
