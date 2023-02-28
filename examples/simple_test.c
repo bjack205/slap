@@ -31,6 +31,12 @@ int main(void) {
   // Set an element directly
   slap_SetElement(A, 1, 2, 25.5);
   printf("A[1,2] = %0.3g (after set)\n", *slap_GetElement(A, 1, 2));
+  
+  printf("\n~~~~~~~~~~~~~~~ UNARY OPS ~~~~~~~~~~~~~~\n");
+
+  // Printing
+  printf("\nA:\n");
+  slap_PrintMatrix(A);
 
   return 0;
 }
