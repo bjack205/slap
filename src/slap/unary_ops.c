@@ -66,7 +66,8 @@ enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
   int k = 0;
   for (int j = 0; j < slap_NumCols(mat); ++j) {
     for (int i = 0; i < slap_NumRows(mat); ++i) {
-      slap_SetElement(mat, i, j, start + k * step);
+      double val = start + step * (double)k;
+      slap_SetElement(mat, i, j, val);
       ++k;
     }
   }
