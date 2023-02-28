@@ -55,16 +55,20 @@ enum slap_ErrorCode slap_AddIdentity(Matrix mat, double alpha) {
   return SLAP_NO_ERROR;
 }
 
+
 enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
-  SLAP_ASSERT_VALID(mat, SLAP_INVALID_MATRIX, "SetRange: invalid matrix");
+  SLAP_CHECK_MATRIX(mat);
   double range = stop - start;
-  double num_el = slap_NumElements(mat) - 1;
-  double step = range / num_el;
-  // NOTE: Don't use iterator here since iteration order matters
+  int num_el = slap_NumElements(mat) - 1;
+  double step = range / (double)num_el;
   int k = 0;
+  double val = 0;
+  printf("step = %0.2f\n", step);
   for (int j = 0; j < slap_NumCols(mat); ++j) {
     for (int i = 0; i < slap_NumRows(mat); ++i) {
-      slap_SetElement(mat, i, j, start + k * step);
+      val = start + step * k;
+      printf("mat[%d,%d] = %0.2f\n", i, j, val);
+      slap_SetElement(mat, i, j, val);
       ++k;
     }
   }

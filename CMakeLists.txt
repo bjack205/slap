@@ -22,10 +22,6 @@ file(RELATIVE_PATH relDir
     )
 set(CMAKE_INSTALL_RPATH $ORIGIN $ORIGIN/${relDir})
 
-# Add compile options
-add_compile_options(-Wall -Wextra -pedantic -Werror -Wno-error=unknown-pragmas)
-add_compile_options(-mavx2 -mfma)
-
 ##############################
 # Options
 ##############################
@@ -83,8 +79,11 @@ endif ()
 # Build
 ##############################
 
-# Compile options
-add_compile_options(-Wall -Wextra -pedantic -Werror)
+# Add compile options
+if (NOT WIN32)
+  add_compile_options(-Wall -Wextra -pedantic -Werror -Wno-error=unknown-pragmas)
+  add_compile_options(-march=native)
+endif()
 
 # Make all includes relative to src/ directory
 include_directories(${PROJECT_SOURCE_DIR}/src)
@@ -117,5 +116,5 @@ endif ()
 # Examples
 ##############################
 add_executable(getting_started examples/getting_started.c)
-target_link_libraries(getting_started PRIVATE slap::slap)
+target_link_libraries(getting_started PUBLIC slap::slap)
 add_test(NAME getting_started COMMAND getting_started)

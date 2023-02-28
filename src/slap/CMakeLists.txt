@@ -61,6 +61,8 @@ target_include_directories(slap
   )
 
 # Link math library
-target_link_libraries(slap PUBLIC m)
+if (NOT APPLE AND NOT WIN32)
+  target_link_libraries(slap PUBLIC m)
+endif()
 
 add_library(slap::slap ALIAS slap)
