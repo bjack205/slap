@@ -44,28 +44,28 @@ int main(void) {
   printf("\nA: (set const)\n");
   slap_PrintMatrix(A);
 
-//  // Scale by constant
-//  slap_ScaleByConst(A, -1);
-//  printf("\nA: (Scale by const)\n");
-//  slap_PrintMatrix(A);
-//
-//  // Set Identity
-//  slap_SetIdentity(A, 2.1);
-//  printf("\nA: (Set to identity)\n");
-//  slap_PrintMatrix(A);
-//
-//  // Set Diagonal
-//  double diag[3] = {1,2,3};
-//  slap_SetDiagonal(A, diag, 3);
-//  printf("\nA: (Set Diagonal)\n");
-//  slap_PrintMatrix(A);
-//
-//  // Set first n elements of diagonal
-//  diag[0] = 10;
-//  diag[1] = 11;
-//  slap_SetDiagonal(A, diag, 2);
-//  printf("\nA: (Set Partial Diagonal)\n");
-//  slap_PrintMatrix(A);
+  // Scale by constant
+  slap_ScaleByConst(A, -1);
+  printf("\nA: (Scale by const)\n");
+  slap_PrintMatrix(A);
+
+  // Set Identity
+  slap_SetIdentity(A, 2.1);
+  printf("\nA: (Set to identity)\n");
+  slap_PrintMatrix(A);
+
+  // Set Diagonal
+  double diag[3] = {1,2,3};
+  slap_SetDiagonal(A, diag, 3);
+  printf("\nA: (Set Diagonal)\n");
+  slap_PrintMatrix(A);
+
+  // Set first n elements of diagonal
+  diag[0] = 10;
+  diag[1] = 11;
+  slap_SetDiagonal(A, diag, 2);
+  printf("\nA: (Set Partial Diagonal)\n");
+  slap_PrintMatrix(A);
 //
 //  // Set Range
 //  slap_SetRange(A, 1, slap_NumElements(A));
