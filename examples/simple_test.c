@@ -3,6 +3,8 @@
 // Copyright (c) 2023 Albedo. All rights reserved.
 //
 
+#include <stdlib.h>
+
 #include "slap/slap.h"
 
 int main(void) {
@@ -67,14 +69,25 @@ int main(void) {
   printf("\nA: (Set Partial Diagonal)\n");
   slap_PrintMatrix(A);
 
-  // Set Range
-  slap_SetRange(A, 1, slap_NumElements(A));
-  printf("\nA: (Set Range)\n");
-  slap_PrintMatrix(A);
+//  // Set Range
+//  slap_SetRange(A, 1, slap_NumElements(A));
+//  printf("\nA: (Set Range)\n");
+//  slap_PrintMatrix(A);
 
 //  slap_SetRange(A, 0, 1);
 //  printf("\nA: (Set Range 0 to 1)\n");
 //  slap_PrintMatrix(A);
+
+  /////////////////////////////////////////////
+  // Copying
+  /////////////////////////////////////////////
+
+  printf("\n~~~~~~~~~~~~~~~ COPYING ~~~~~~~~~~~~~~~\n");
+
+  // Matrix with heap-allocated memory
+  double *data_B = (double*)malloc(n_el * sizeof(double));
+  Matrix B = slap_MatrixFromArray(4, 3, data_B);
+  (void)B;
 
   return 0;
 }
