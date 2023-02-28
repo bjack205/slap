@@ -58,7 +58,7 @@ enum slap_ErrorCode slap_AddIdentity(Matrix mat, double alpha) {
 enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
   SLAP_ASSERT_VALID(mat, SLAP_INVALID_MATRIX, "SetRange: invalid matrix");
   double range = stop - start;
-  double num_el = slap_NumElements(mat) - 1;
+  int num_el = slap_NumElements(mat) - 1;
 //  double step = range / (double)num_el;
   (void)range;
   double step = num_el * 0.1;
@@ -66,7 +66,7 @@ enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
   int k = 0;
   for (int j = 0; j < slap_NumCols(mat); ++j) {
     for (int i = 0; i < slap_NumRows(mat); ++i) {
-      double val = start + step * (double)k;
+      double val = step * k;
       slap_SetElement(mat, i, j, val);
       ++k;
     }
