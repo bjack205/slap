@@ -77,6 +77,40 @@ int main(void) {
 //  slap_SetRange(A, 0, 1);
 //  printf("\nA: (Set Range 0 to 1)\n");
 //  slap_PrintMatrix(A);
+  
+  /////////////////////////////////////////////
+  // Transformations
+  /////////////////////////////////////////////
+
+  printf("\n~~~~~~~~~~~~ TRANSFORMATIONS ~~~~~~~~~~~\n");
+
+  // Transpose
+  Matrix At = slap_Transpose(A);
+  printf("\nA transpose:\n");
+  slap_PrintMatrix(At);
+  bool tA = slap_IsTransposed(At);
+  printf("At is transposed? %d\n", tA);
+
+  // Flatten
+  Matrix vec_a = slap_Flatten(A);
+  printf("\nA Flatten\n");
+  slap_PrintMatrix(vec_a);
+
+  // Reshape
+  Matrix A2 = slap_Reshape(A, 2, 6);
+  printf("\nA2\n");
+  slap_PrintMatrix(A2);
+
+  // Modify reshape (note that it changes the original)
+  slap_SetElement(A2, 0, 1, 100);
+  printf("\nA (after edit via reshape)\n");
+  slap_PrintMatrix(A);
+
+  // Reshape to smaller
+  // note this is 1st 4 elements, not top left corner
+  Matrix A_resize = slap_Reshape(A, 2, 2);
+  printf("\nA resize\n");
+  slap_PrintMatrix(A_resize);
 
   /////////////////////////////////////////////
   // Copying
@@ -87,7 +121,7 @@ int main(void) {
   // Matrix with heap-allocated memory
   double *data_B = (double*)malloc(n_el * sizeof(double));
   Matrix B = slap_MatrixFromArray(4, 3, data_B);
-  
+
   // Copy from transposed array
   slap_MatrixCopy(B, At);
 
@@ -103,6 +137,30 @@ int main(void) {
 
   printf("\nA (after array copy):\n");
   slap_PrintMatrix(A);
+
+  /////////////////////////////////////////////
+  // Sub-Arrays
+  /////////////////////////////////////////////
+
+  printf("\n~~~~~~~~~~~~~~ SUB-ARRAYS ~~~~~~~~~~~~~~\n");
+
+  // Get view of top-left 2x2 corner
+  Matrix A_sub = slap_CreateSubMatrix(A, 0, 0, 2, 2);
+  printf("\nTop-left corner of A\n");
+  slap_PrintMatrix(A_sub);
+  printf("A is Dense?     %d\n", slap_IsDense(A));
+  printf("A sub is Dense? %d\n", slap_IsDense(A_sub));
+
+  // Copy to Sub-matrix
+  data_C[3] = -50;
+  slap_MatrixCopyFromArray(A_sub, data_C);
+  printf("\nA (after copying to sub-matrix)\n");
+  slap_PrintMatrix(A);
+
+  // Get middle elements
+  A_sub = slap_CreateSubMatrix(A, 1, 1, 1, 2);
+  printf("\nMiddle of A\n");
+  slap_PrintMatrix(A_sub);
 
   return 0;
 }
