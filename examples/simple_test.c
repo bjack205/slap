@@ -218,5 +218,50 @@ int main(void) {
   printf("\nOuter Product:\n");
   slap_PrintMatrix(Z);
 
+  /////////////////////////////////////////////
+  // Linear Algebra
+  /////////////////////////////////////////////
+
+  printf("\n~~~~~~~~~~~~~~ LINEAR ALG ~~~~~~~~~~~~~~\n");
+
+  // Reshape A to be square
+  A = slap_Reshape(A, 3, 3);
+
+  // Create output C matrix
+  Matrix C = slap_NewMatrix(3, 4);
+  slap_SetConst(C, 1);
+
+  // Matrix Multiplication (C = beta * C + alpha * A * B)
+  double alpha = 1.0;
+  double beta = 0.5;
+  slap_MatMulAdd(C, A, slap_Transpose(B), alpha, beta);
+  printf("\nC (MatMulAdd)\n");
+  slap_PrintMatrix(C);
+
+  // Linear Solve w/ Cholesky
+  double data_A2[9];                       // data for PD matrix
+  double data_b[3] = {10.1, -11.2, 12.3};  // rhs vector
+  A2 = slap_MatrixFromArray(3, 3, data_A2);
+  Matrix b = slap_MatrixFromArray(3, 1, data_b);
+
+  slap_MatMulAtB(A2, A, A);    // A2 = A'A. NOTE: Use with caution. Please see docs.
+  slap_AddIdentity(A2, 0.01);  // Ensure A2 > 0
+  slap_MatrixCopy(A, A2);      // Save A2 back to A for later
+
+  enum slap_ErrorCode err;
+  err = slap_Cholesky(A2);     // Perform Cholesky decomposition
+  if (err == SLAP_CHOLESKY_FAIL) {
+    printf("Matrix is not Positive-Definite!\n");
+  }
+
+  slap_MatrixCopy(x, b);        // copy rhs to x
+  slap_CholeskySolve(A2, x);    // solve for x
+
+  slap_MatMulAB(y, A, x);       // Calculate y = A * x (y should equal b)
+  printf("\nCholesky Solve (these should be equal):\n");
+  printf("b = ");
+  slap_PrintMatrix(slap_Transpose(b));
+  printf("y = ");
+  slap_PrintMatrix(slap_Transpose(y));
   return 0;
 }
