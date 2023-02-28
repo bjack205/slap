@@ -60,6 +60,10 @@ if (SLAP_BUILD_TESTS)
       GIT_REPOSITORY https://github.com/google/googletest
       GIT_TAG 58d77fa8070e8cec2dc1ed015d66b454c8d78850
       )
+  # Prevent GoogleTest from overriding our compiler/linker options
+  # when building with Visual Studio
+  set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+  
   FetchContent_MakeAvailable(googletest)
   enable_testing()
   include(GoogleTest)

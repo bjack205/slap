@@ -29,16 +29,25 @@ jobs:
           - os: macos-11
             c_compiler: clang
             cxx_compiler: clang++
+          - os: windows-latest
+
     steps:
     - uses: actions/checkout@v3
 
     - name: Configure CMake
+      if: (!contains(matrix.os, 'windows'))
       run: |
         mkdir ${{github.workspace}}/build && cd build
         cmake -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
               -D CMAKE_C_COMPILER=${{ matrix.c_compiler }} \
               -D CMAKE_CXX_COMPILER=${{ matrix.cxx_compiler }} \
               --log-context ..
+
+    - name: Configure CMake (Windows)
+      if: contains(matrix.os, 'windows')
+      run: |
+        mkdir ${{github.workspace}}/build && cd build
+        cmake -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} ..
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{ env.BUILD_TYPE }}
