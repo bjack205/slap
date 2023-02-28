@@ -87,7 +87,22 @@ int main(void) {
   // Matrix with heap-allocated memory
   double *data_B = (double*)malloc(n_el * sizeof(double));
   Matrix B = slap_MatrixFromArray(4, 3, data_B);
-  (void)B;
+  
+  // Copy from transposed array
+  slap_MatrixCopy(B, At);
+
+  printf("\nCopy from A to B:\n");
+  printf("A:\n");
+  slap_PrintMatrix(A);
+  printf("B:\n");
+  slap_PrintMatrix(B);
+
+  // Copy from array
+  double data_C[4] = {-1,2,-3,4};
+  slap_MatrixCopyFromArray(A_resize, data_C);  // note we're copying to a reshaped version of A
+
+  printf("\nA (after array copy):\n");
+  slap_PrintMatrix(A);
 
   return 0;
 }
