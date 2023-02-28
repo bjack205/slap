@@ -22,10 +22,6 @@ file(RELATIVE_PATH relDir
     )
 set(CMAKE_INSTALL_RPATH $ORIGIN $ORIGIN/${relDir})
 
-# Add compile options
-add_compile_options(-Wall -Wextra -pedantic -Werror -Wno-error=unknown-pragmas)
-add_compile_options(-mavx2 -mfma)
-
 ##############################
 # Options
 ##############################
@@ -83,14 +79,11 @@ endif ()
 # Build
 ##############################
 
-#if (${APPLE})
-#  message(STATUS "Adding macosx-version-min")
-#  add_compile_options(-mmacosx-version-min=10.5 -stdlib=libc++)
-#endif()
-
-
-# Compile options
-add_compile_options(-Wall -Wextra -pedantic -Werror)
+# Add compile options
+if (NOT APPLE AND NOT WIN32)
+  add_compile_options(-Wall -Wextra -pedantic -Werror -Wno-error=unknown-pragmas)
+  add_compile_options(-mavx2 -mfma)
+endif()
 
 # Make all includes relative to src/ directory
 include_directories(${PROJECT_SOURCE_DIR}/src)
