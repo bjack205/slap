@@ -62,12 +62,12 @@ enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
   double step = ((double)range) / ((double)num_el);
   (void)range;
   (void)num_el;
-  step = 0.1;
+//  step = 0.1;
   // NOTE: Don't use iterator here since iteration order matters
   int k = 0;
   for (int j = 0; j < slap_NumCols(mat); ++j) {
     for (int i = 0; i < slap_NumRows(mat); ++i) {
-      double val = step * k;
+      double val = start + step * k;
       slap_SetElement(mat, i, j, val);
       ++k;
     }
