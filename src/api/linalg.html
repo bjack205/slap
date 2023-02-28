@@ -12,10 +12,8 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -266,7 +264,7 @@ which are all included by <code class="docutils literal notranslate"><span class
 </p>
 <section id="group__LinearAlgebra_1autotoc_md1">
 <h3>Example<a class="headerlink" href="#group__LinearAlgebra_1autotoc_md1" title="Permalink to this heading"></a></h3>
-<p id="group__LinearAlgebra_1autotoc_md1"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">slap_ErrorCode</span><span class="w"> </span><span class="n">err</span><span class="p">;</span>
+<div class="highlight-c notranslate" id="group__LinearAlgebra_1autotoc_md1"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">slap_ErrorCode</span><span class="w"> </span><span class="n">err</span><span class="p">;</span>
 <span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_Cholesky</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SLAP_CHOLESKY_FAIL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Matrix not positive definite!</span><span class="se">\n</span><span class="s">);</span>
@@ -274,7 +272,6 @@ which are all included by <code class="docutils literal notranslate"><span class
 <span class="n">slap_CholeskySolve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 </pre></div>
 </div>
-</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">slap/linalg.h</span></code> </p>
 </section>
 <dl class="field-list simple">

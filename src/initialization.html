@@ -12,10 +12,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -97,7 +95,7 @@ initialized from a pointer, along with the size information:</p>
 <span id="_CPPv320slap_MatrixFromArrayiiPd"></span><span id="_CPPv220slap_MatrixFromArrayiiPd"></span><span id="slap_MatrixFromArray__i.i.doubleP"></span><span class="target" id="group__Basics_1ga2cff64efb8b596f8116b7b2075086035"></span><a class="reference internal" href="matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MatrixFromArray</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rows</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">cols</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Wraps existing data in a <a class="reference internal" href="matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> class. </p>
 <p>This is the most common way to “create” a matrix. Typical usage will look something like this:</p>
-<p><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Stack-allocated memory</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Stack-allocated memory</span>
 <span class="kt">double</span><span class="w"> </span><span class="n">data_stack</span><span class="p">[</span><span class="mi">24</span><span class="p">];</span>
 <span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_MatrixFromArray</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">data_stack</span><span class="p">);</span>
 
@@ -107,7 +105,6 @@ initialized from a pointer, along with the size information:</p>
 <span class="n">free</span><span class="p">(</span><span class="n">data_heap</span><span class="p">);</span>
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -135,10 +132,9 @@ creating and checking for Null matrices:</p>
 <p>Useful for default initialization of the matrix where the data it wraps hasn’t been specified or allocated yet. Can check if a matrix is in this state using <a class="reference internal" href="#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a>.</p>
 <section id="group__Basics_1autotoc_md5">
 <h3>Example<a class="headerlink" href="#group__Basics_1autotoc_md5" title="Permalink to this heading"></a></h3>
-<p id="group__Basics_1autotoc_md5"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NullMatrix</span><span class="p">();</span>
+<div class="highlight-c notranslate" id="group__Basics_1autotoc_md5"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NullMatrix</span><span class="p">();</span>
 </pre></div>
 </div>
-</p>
 <p>See also: <a class="reference internal" href="#group__Basics_1gaad6c5a960abe57f6c2b54b741f4b8ab2"><span class="std std-ref">slap_IsNull()</span></a>, <a class="reference internal" href="#group__Basics_1gac5dce240ba6e93ee724e003d83de3564"><span class="std std-ref">slap_SetNull()</span></a></p>
 <p></p>
 </section>
@@ -189,11 +185,10 @@ provide some convenient methods for initializing matrices on the heap.</p>
 <p>Data will not be initialized. Wrapper around a call to <code class="docutils literal notranslate"><span class="pre">malloc</span></code>. Must be followed by a call to <code class="docutils literal notranslate"><span class="pre">FreeMatrix</span></code>.</p>
 <section id="new__matrix_8h_1autotoc_md9">
 <h3>Example<a class="headerlink" href="#new__matrix_8h_1autotoc_md9" title="Permalink to this heading"></a></h3>
-<p id="new__matrix_8h_1autotoc_md9"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<div class="highlight-c notranslate" id="new__matrix_8h_1autotoc_md9"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
 <span class="n">slap_FreeMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
 </pre></div>
 </div>
-</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/new_matrix.h&quot;</span></code> </p>
 </section>
 <dl class="field-list simple">
@@ -216,11 +211,10 @@ provide some convenient methods for initializing matrices on the heap.</p>
 <p>Data will be initialized to zeros. Wrapper around a call to <code class="docutils literal notranslate"><span class="pre">calloc</span></code>. Must be followed by a call to <code class="docutils literal notranslate"><span class="pre">FreeMatrix</span></code>.</p>
 <section id="new__matrix_8h_1autotoc_md10">
 <h3>Example<a class="headerlink" href="#new__matrix_8h_1autotoc_md10" title="Permalink to this heading"></a></h3>
-<p id="new__matrix_8h_1autotoc_md10"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrixZeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<div class="highlight-c notranslate" id="new__matrix_8h_1autotoc_md10"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrixZeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
 <span class="n">slap_FreeMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
 </pre></div>
 </div>
-</p>
 <p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/new_matrix.h&quot;</span></code> </p>
 </section>
 <dl class="field-list simple">
@@ -243,7 +237,7 @@ provide some convenient methods for initializing matrices on the heap.</p>
 <p>Note that this methods takes the pointer to the matrix as a argument, so that it can set the internal data pointer to NULL after the free.</p>
 <p>Note this does NOT attempt to free the matrix object itself, only the data it wraps.</p>
 <p>Should only be used in conjunction with <a class="reference internal" href="#new__matrix_8h_1a9019c40a4c65f48d3b3da9bcf24bf65c"><span class="std std-ref">slap_NewMatrix()</span></a> or <a class="reference internal" href="#new__matrix_8h_1aad0c3a859d46fb892c5a9e758d119c6d"><span class="std std-ref">slap_NewMatrixZeros()</span></a>.</p>
-<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/new_matrix.h&quot;</span></code> </p>
+<p><strong>Header File:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;slap/new_matrix.h&quot;</span></code></p>
 </dd></dl>
 
 <div class="admonition note">

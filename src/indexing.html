@@ -12,10 +12,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -241,11 +239,11 @@ the cost of the function call (and object copy).</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – A dense or strided matrix </p></li>
-<li><p><strong>k</strong> – The linear index, ranging from 0 to <a class="reference internal" href="api/matrix.html#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a> </p></li>
+<li><p><strong>k</strong> – The linear index, ranging from 0 to <a class="reference internal" href="api/matrix.html#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a></p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The index into mat.data corresponding the <code class="docutils literal notranslate"><span class="pre">k</span></code>th element of <em>mat</em> </p>
+<dd class="field-even"><p>The index into mat.data corresponding the <code class="docutils literal notranslate"><span class="pre">k</span></code>th element of <em>mat</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -260,7 +258,7 @@ the cost of the function call (and object copy).</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – <strong>[in]</strong> Any matrix </p></li>
-<li><p><strong>k</strong> – <strong>[in]</strong> Linear index, from 0 to <a class="reference internal" href="api/matrix.html#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a> </p></li>
+<li><p><strong>k</strong> – <strong>[in]</strong> Linear index, from 0 to <a class="reference internal" href="api/matrix.html#group__Basics_1ga2d2fab80e90b514a60ac08b391a16a13"><span class="std std-ref">slap_NumElements()</span></a></p></li>
 <li><p><strong>row</strong> – <strong>[out]</strong> Destination for row index </p></li>
 <li><p><strong>col</strong> – <strong>[out]</strong> Destination for column index </p></li>
 </ul>
