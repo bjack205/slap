@@ -77,6 +77,7 @@ enum slap_ErrorCode slap_AddIdentity(Matrix mat, double alpha) {
 //}
 
 enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
+  SLAP_CHECK_MATRIX(mat);
   double range = stop - start;
   int num_el = slap_NumElements(mat) - 1;
   double step = range / (double)num_el;
