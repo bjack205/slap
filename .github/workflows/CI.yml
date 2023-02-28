@@ -15,7 +15,7 @@ jobs:
     # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
     # You can convert this to a matrix build if you need cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
-    name: OS ${{ matrix.os }} - {{ matrix.c_compiler }}
+    name: OS ${{ matrix.os }} - ${{ matrix.c_compiler }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -33,10 +33,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Dependencies
+    - name: Install Linux Dependencies
+      if: matrix.os == 'ubuntu-latest'
       run: | 
         sudo apt-get install libeigen3-dev -y
         sudo apt-get install clang -y
+        
+    - name: Install MacOS Depedencies
+      if: matrix.os == 'macos-latest'
+      run: brew install eigen
 
     - name: Configure CMake
       run: |
