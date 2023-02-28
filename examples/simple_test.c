@@ -7,6 +7,10 @@
 
 #include "slap/slap.h"
 
+double myfun(double x) {
+  return 2 * x * sin(x);
+}
+
 int main(void) {
   double data_A[12] = {1,2,3, 4,5,6, 7,8,9, 10,11,12};
   Matrix A = slap_MatrixFromArray(3, 4, data_A);
