@@ -4,8 +4,10 @@
 //
 
 #include <stdlib.h>
+#include <math.h>
 
 #include "slap/slap.h"
+
 
 double myfun(double x) {
   return 2 * x * sin(x);
