@@ -263,5 +263,50 @@ int main(void) {
   slap_PrintMatrix(slap_Transpose(b));
   printf("y = ");
   slap_PrintMatrix(slap_Transpose(y));
+  
+  /////////////////////////////////////////////
+  // Advanced Ops
+  /////////////////////////////////////////////
+
+  printf("\n~~~~~~~~~~~~~ ADVANCED OPS ~~~~~~~~~~~~~\n");
+
+  // Efficient Iteration (including Sub-Arrays)
+  Matrix B_sub = slap_CreateSubMatrix(B, 1, 1, 3, 2);
+  printf("\nB\n");
+  slap_PrintMatrix(B);
+
+  printf("\nB_sub\n");
+  slap_PrintMatrix(B_sub);
+
+  printf("\nIteration over Sub-Array:\n");
+  for (MatrixIterator it = slap_Iterator(B_sub); !slap_IsFinished(&it); slap_Step(&it)) {
+    int mem_index = it.index;
+    int lin_index = it.k;
+    int row_index = it.i;
+    int col_index = it.j;
+    double B_val = B_sub.data[mem_index];
+    printf("B_sub[%d,%d] = % 4.2f at linear index %d and memory index %d\n", row_index,
+           col_index, B_val, lin_index, mem_index);
+  }
+
+  // Function Mapping
+  printf("\nB (before map)\n");
+  slap_PrintMatrix(B);
+
+  slap_Map(B_sub, myfun);
+
+  printf("\nB (after map)\n");
+  slap_PrintMatrix(B);
+
+  /////////////////////////////////////////////
+  // Memory Cleanup (DON'T FORGET THIS)
+  /////////////////////////////////////////////
+
+  free(data_B);
+  slap_FreeMatrix(&x);
+  slap_FreeMatrix(&y);
+  slap_FreeMatrix(&z);
+  slap_FreeMatrix(&Z);
+  slap_FreeMatrix(&C);
   return 0;
 }
