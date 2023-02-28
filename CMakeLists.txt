@@ -80,9 +80,9 @@ endif ()
 ##############################
 
 # Add compile options
-if (NOT APPLE AND NOT WIN32)
+if (NOT WIN32)
   add_compile_options(-Wall -Wextra -pedantic -Werror -Wno-error=unknown-pragmas)
-  add_compile_options(-mavx2 -mfma)
+  add_compile_options(-march=native)
 endif()
 
 # Make all includes relative to src/ directory

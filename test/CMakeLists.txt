@@ -11,9 +11,10 @@ function (add_slap_test name)
     PRIVATE 
     slap
     gtest_main
-    m  # math library
   )
-#  add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+  if (NOT APPLE AND NOT WIN32)
+    target_link_libraries(${TEST_NAME} PUBLIC m)
+  endif()
   gtest_discover_tests(${TEST_NAME})
 endfunction()
 
