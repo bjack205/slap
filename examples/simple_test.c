@@ -6,7 +6,8 @@
 #include "slap/slap.h"
 
 int main(void) {
-  Matrix mat;
+  double data[12];
+  Matrix mat = slap_MatrixFromArray(3,4,data);
   mat.rows = 0;
   (void)mat;
   return 0;
