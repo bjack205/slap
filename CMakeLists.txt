@@ -119,3 +119,6 @@ endif ()
 add_executable(getting_started examples/getting_started.c)
 target_link_libraries(getting_started PRIVATE slap::slap)
 add_test(NAME getting_started COMMAND getting_started)
+
+add_executable(simple_test examples/simple_test.c)
+add_test(NAME simple_test COMMAND simple_test)
