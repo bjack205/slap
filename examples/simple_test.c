@@ -12,9 +12,14 @@ int main(void) {
   int n_rows = slap_NumRows(A);
   int n_cols = slap_NumCols(A);
   int n_el = slap_NumElements(A);
+  (void)n_rows;
+  (void)n_cols;
+  (void)n_el;
 
   // Get a pointer to an element
   double *pa = slap_GetElement(A, 0, 0);
   double a = *slap_GetElement(A, 0, 1);
+  (void)pa;
+  (void)a;
   return 0;
 }
