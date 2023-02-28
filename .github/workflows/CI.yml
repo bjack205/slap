@@ -44,7 +44,7 @@ jobs:
               --log-context ..
 
     - name: Configure CMake (Windows)
-      if: matrix.os == 'windows-latest'
+      if: contains(${{ matrix.os }}, 'windows')
       run: |
         mkdir ${{github.workspace}}/build && cd build
         cmake -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} ..
