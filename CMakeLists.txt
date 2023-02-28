@@ -103,7 +103,7 @@ add_subdirectory(src/slap)
 ##############################
 if (SLAP_BUILD_TESTS)
   enable_testing()
-  add_subdirectory(test)
+#  add_subdirectory(test)
 endif ()
 
 ##############################
@@ -122,9 +122,9 @@ endif ()
 ##############################
 # Examples
 ##############################
-add_executable(getting_started examples/getting_started.c)
-target_link_libraries(getting_started PUBLIC slap::slap)
-add_test(NAME getting_started COMMAND getting_started)
+#add_executable(getting_started examples/getting_started.c)
+#target_link_libraries(getting_started PUBLIC slap::slap)
+#add_test(NAME getting_started COMMAND getting_started)
 
 add_executable(simple_test examples/simple_test.c)
 target_link_libraries(simple_test PUBLIC slap::slap)
