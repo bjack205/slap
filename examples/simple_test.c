@@ -8,5 +8,6 @@
 int main(void) {
   Matrix mat;
   mat.rows = 0;
+  (void)mat;
   return 0;
 }
