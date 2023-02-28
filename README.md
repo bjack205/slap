@@ -1,4 +1,7 @@
-[![CMake](https://github.com/bjack205/slap/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/bjack205/slap/actions/workflows/CI.yml)
+[![Linux](https://github.com/bjack205/slap/actions/workflows/Linux.yml/badge.svg)](https://github.com/bjack205/slap/actions/workflows/Linux.yml)
+[![MacOS](https://github.com/bjack205/slap/actions/workflows/MacOS.yml/badge.svg)](https://github.com/bjack205/slap/actions/workflows/MacOS.yml)
+[![Windows](https://github.com/bjack205/slap/actions/workflows/Windows.yml/badge.svg)](https://github.com/bjack205/slap/actions/workflows/Windows.yml)
+[![Arduino](https://github.com/bjack205/slap/actions/workflows/Arduino.yml/badge.svg)](https://github.com/bjack205/slap/actions/workflows/Arduino.yml)
 [![Documentation](https://github.com/bjack205/slap/actions/workflows/Documentation.yml/badge.svg?branch=main)](https://github.com/bjack205/slap/actions/workflows/Documentation.yml)
 [![codecov](https://codecov.io/gh/bjack205/slap/branch/main/graph/badge.svg?token=vEkwQfXy4q)](https://codecov.io/gh/bjack205/slap)
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://bjack205.github.io/slap/)
