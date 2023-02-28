@@ -24,5 +24,13 @@ int main(void) {
   printf("A[0,0] = %0.3g\n", *pa);
   printf("A[0,1] = %0.3g\n", a);
 
+  // Set an element via pointer
+  *pa = -20;
+  printf("A[0,0] = %0.3g (after set)\n", *slap_GetElement(A, 0, 0));
+
+  // Set an element directly
+  slap_SetElement(A, 1, 2, 25.5);
+  printf("A[1,2] = %0.3g (after set)\n", *slap_GetElement(A, 1, 2));
+
   return 0;
 }
