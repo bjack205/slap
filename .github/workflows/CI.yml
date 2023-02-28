@@ -33,15 +33,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Linux Dependencies
-      if: matrix.os == 'ubuntu-latest'
-      run: | 
-        sudo apt-get install libeigen3-dev -y
-        sudo apt-get install clang -y
-        
-    - name: Install MacOS Depedencies
-      if: matrix.os == 'macos-latest'
-      run: brew install eigen
+#    - name: Install Linux Dependencies
+#      if: matrix.os == 'ubuntu-latest'
+#      run: |
+#        sudo apt-get install libeigen3-dev -y
+#        sudo apt-get install clang -y
+#
+#    - name: Install MacOS Depedencies
+#      if: matrix.os == 'macos-latest'
+#      run: brew install eigen
 
     - name: Configure CMake
       run: |
