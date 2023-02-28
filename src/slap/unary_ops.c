@@ -80,6 +80,15 @@ enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
   double range = start - stop;
   int num_el = slap_NumElements(mat) - 1;
   double step = range / (double)num_el;
+  int k = 0;
+  double val;
+  for (int j = 0; j < slap_NumCols(mat); ++j) {
+    for (int i = 0; i < slap_NumRows(mat); ++i) {
+      val = start + step * k;
+      slap_SetElement(mat, i, j, val);
+      ++k;
+    }
+  }
   slap_SetConst(mat, step);
   return SLAP_NO_ERROR;
 }
