@@ -1,0 +1,33 @@
+name: Arduino
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Arduino CLI
+      uses: arduino/setup-arduino-cli@v1
+
+    - name: Install Arduino CLI
+      run: |
+        arduino-cli core update-index
+        arduino-cli core install arduino:avr
+
+    - name: Compile Arduino Example
+      run: |
+        cd ${{ github.workspace }}/examples
+        arduino-cli compile -b arduino:avr:nano --libraries ../.. arduino_slap
+        
