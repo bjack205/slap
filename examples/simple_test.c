@@ -263,7 +263,7 @@ int main(void) {
   slap_PrintMatrix(slap_Transpose(b));
   printf("y = ");
   slap_PrintMatrix(slap_Transpose(y));
-  
+
   /////////////////////////////////////////////
   // Advanced Ops
   /////////////////////////////////////////////

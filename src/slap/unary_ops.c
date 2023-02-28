@@ -8,6 +8,10 @@
 #include "iterator.h"
 #include "matrix_checks.h"
 
+double myfun(double x) {
+  return 2 * x * sin(x);
+}
+
 enum slap_ErrorCode slap_SetConst(Matrix mat, double val) {
   SLAP_ASSERT_VALID(mat, SLAP_INVALID_MATRIX, "SetConst: invalid matrix");
   for (MatrixIterator it = slap_Iterator(mat); !slap_IsFinished(&it); slap_Step(&it)) {
