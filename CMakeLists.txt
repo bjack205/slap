@@ -59,7 +59,6 @@ if (SLAP_BUILD_DOCS)
   find_package(Doxygen REQUIRED)
 endif ()
 if (SLAP_BUILD_TESTS)
-<<<<<<< HEAD
   # Google Test (Testing)
   CPMAddPackage(
       NAME googletest
@@ -70,17 +69,6 @@ if (SLAP_BUILD_TESTS)
       "gtest_force_shared_crt ON"
   )
   add_library(gtest::gtest ALIAS gtest_main)
-=======
-  FetchContent_Declare(googletest
-      GIT_REPOSITORY https://github.com/google/googletest
-      GIT_TAG 58d77fa8070e8cec2dc1ed015d66b454c8d78850
-      )
-  # Prevent GoogleTest from overriding our compiler/linker options
-  # when building with Visual Studio
-  set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
-  FetchContent_MakeAvailable(googletest)
->>>>>>> main
   enable_testing()
   include(GoogleTest)
   include(CTest)
