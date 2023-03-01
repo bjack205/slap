@@ -63,11 +63,9 @@ enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop) {
   double step = range / (double)num_el;
   int k = 0;
   double val = 0;
-  printf("step = %0.2f\n", step);
   for (int j = 0; j < slap_NumCols(mat); ++j) {
     for (int i = 0; i < slap_NumRows(mat); ++i) {
       val = start + step * k;
-      printf("mat[%d,%d] = %0.2f\n", i, j, val);
       slap_SetElement(mat, i, j, val);
       ++k;
     }

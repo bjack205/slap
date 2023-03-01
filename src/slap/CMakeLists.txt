@@ -55,10 +55,10 @@ add_library(slap
   cholesky.c qr.c qr.h)
 
 target_include_directories(slap
-  INTERFACE
-  $<BUILD_INTERFACE:${slap_SOURCE_DIR}
+  PUBLIC
+  $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>
   $<INSTALL_INTERFACE:"include">
-  )
+)
 
 # Link math library
 if (NOT APPLE AND NOT WIN32)
