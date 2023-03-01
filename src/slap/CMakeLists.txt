@@ -60,6 +60,8 @@ target_include_directories(slap
   $<INSTALL_INTERFACE:"include">
 )
 
+target_compile_definitions(slap PUBLIC SLAP_FLOAT=${SLAP_FLOAT})
+
 # Link math library
 if (NOT APPLE AND NOT WIN32)
   target_link_libraries(slap PUBLIC m)

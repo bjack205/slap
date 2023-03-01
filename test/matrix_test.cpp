@@ -5,7 +5,7 @@
 #include "slap/slap.h"
 
 TEST(MatrixBasics, MatrixFromArray) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, data);
   EXPECT_EQ(slap_NumElements(A), 6);
   EXPECT_EQ(A.data, data);
@@ -43,7 +43,7 @@ TEST(MatrixBasics, NewMatrix_DoubleFree) {
 }
 
 TEST(MatrixBasics, GetLinearIndex_2x3) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, data);
   EXPECT_EQ(slap_Cart2Index(A, 0, 0), 0);
   EXPECT_EQ(slap_Cart2Index(A, 1, 0), 1);
@@ -52,7 +52,7 @@ TEST(MatrixBasics, GetLinearIndex_2x3) {
 }
 
 TEST(MatrixBasics, GetLinearIndex_3x2) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(3, 2, data);
   EXPECT_EQ(slap_Cart2Index(A, 0, 0), 0);
   EXPECT_EQ(slap_Cart2Index(A, 1, 0), 1);
@@ -61,7 +61,7 @@ TEST(MatrixBasics, GetLinearIndex_3x2) {
 }
 
 TEST(MatrixBasics, GetLinearIndex_6x1) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(6, 1, data);
   EXPECT_EQ(slap_Cart2Index(A, 0, 0), 0);
   EXPECT_EQ(slap_Cart2Index(A, 1, 0), 1);
@@ -69,7 +69,7 @@ TEST(MatrixBasics, GetLinearIndex_6x1) {
 }
 
 TEST(MatrixBasics, GetLinearIndex_1x6) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(1, 6, data);
   EXPECT_EQ(slap_Cart2Index(A, 0, 0), 0);
   EXPECT_EQ(slap_Cart2Index(A, 0, 1), 1);
@@ -77,7 +77,7 @@ TEST(MatrixBasics, GetLinearIndex_1x6) {
 }
 
 TEST(MatrixBasics, CheckBounds_2x3) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, data);
   EXPECT_TRUE(slap_CheckInbounds(A, 0, 0));
   EXPECT_TRUE(slap_CheckInbounds(A, 1, 0));
@@ -91,7 +91,7 @@ TEST(MatrixBasics, CheckBounds_2x3) {
 }
 
 TEST(MatrixBasics, CheckBounds_6x1) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(6, 1, data);
   EXPECT_TRUE(slap_CheckInbounds(A, 0, 0));
   EXPECT_TRUE(slap_CheckInbounds(A, 1, 0));
@@ -104,7 +104,7 @@ TEST(MatrixBasics, CheckBounds_6x1) {
 }
 
 TEST(MatrixBasics, GetElement_2x3) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, data);
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 0), 1);
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, 0), 2);
@@ -114,7 +114,7 @@ TEST(MatrixBasics, GetElement_2x3) {
 }
 
 TEST(MatrixBasics, GetElement_3x2) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(3, 2, data);
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 0), 1);
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, 0), 2);
@@ -123,7 +123,7 @@ TEST(MatrixBasics, GetElement_3x2) {
 }
 
 TEST(MatrixBasics, GetElement_6x1) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(6, 1, data);
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 0), 1);
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, 0), 2);
@@ -132,7 +132,7 @@ TEST(MatrixBasics, GetElement_6x1) {
 }
 
 TEST(MatrixBasics, GetElement_1x6) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(1, 6, data);
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 0), 1);
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 1), 2);
@@ -141,7 +141,7 @@ TEST(MatrixBasics, GetElement_1x6) {
 }
 
 TEST(MatrixBasics, SetElement_2x3) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, data);
   slap_SetElement(A, 0, 0, 10);
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 0), 10);
@@ -152,7 +152,7 @@ TEST(MatrixBasics, SetElement_2x3) {
 }
 
 TEST(TransposeBasics, TransposeOp) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, data);
   Matrix At = slap_Transpose(A);
   EXPECT_TRUE(slap_IsTransposed(At));
@@ -162,7 +162,7 @@ TEST(TransposeBasics, TransposeOp) {
 }
 
 TEST(TransposeBasics, GetElement_2x3) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, data);
   Matrix At = slap_Transpose(A);
   EXPECT_DOUBLE_EQ(*slap_GetElement(At, 0, 0), 1);
@@ -171,7 +171,7 @@ TEST(TransposeBasics, GetElement_2x3) {
 }
 
 TEST(TransposeBasics, SetElement_2x3) {
-  double data[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, data);
   Matrix At = slap_Transpose(A);
   slap_SetElement(At, 0, 0, 10);
@@ -183,7 +183,7 @@ TEST(TransposeBasics, SetElement_2x3) {
 }
 
 TEST(MatrixAssignments, SetConst) {
-  double data[6];
+  sfloat data[6];
   Matrix A = slap_MatrixFromArray(2, 3, data);
   slap_SetConst(A, 10);
   for (int i = 0; i < slap_NumElements(A); ++i) {
@@ -193,8 +193,8 @@ TEST(MatrixAssignments, SetConst) {
 
 TEST(MatrixAssignments, Copy) {
   enum slap_ErrorCode err;
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double dataB[6];
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataB[6];
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix B = slap_MatrixFromArray(2, 3, dataB);
   err = slap_MatrixCopy(B, A);
@@ -206,8 +206,8 @@ TEST(MatrixAssignments, Copy) {
 
 TEST(MatrixAssignments, CopyBadSize) {
   enum slap_ErrorCode err;
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double dataB[6] = {0, 0, 0, 0, 0, 0};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataB[6] = {0, 0, 0, 0, 0, 0};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix B = slap_MatrixFromArray(3, 2, dataB);
   err = slap_MatrixCopy(B, A);
@@ -221,8 +221,8 @@ TEST(MatrixAssignments, CopyBadSize) {
 
 TEST(MatrixAssignments, CopyTranspose) {
   enum slap_ErrorCode err;
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double dataB[6] = {0, 0, 0, 0, 0, 0};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataB[6] = {0, 0, 0, 0, 0, 0};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix B = slap_MatrixFromArray(3, 2, dataB);
   err = slap_MatrixCopyTranspose(B, A);
@@ -233,7 +233,7 @@ TEST(MatrixAssignments, CopyTranspose) {
   EXPECT_DOUBLE_EQ(*slap_GetElement(B, 0, 1), 2);
 
   // Copy to transposed matrix
-  double dataC[6] = {0, 0, 0, 0, 0, 0};
+  sfloat dataC[6] = {0, 0, 0, 0, 0, 0};
   Matrix C = slap_MatrixFromArray(2, 3, dataC);
   Matrix Ct = slap_Transpose(C);
   err = slap_MatrixCopyTranspose(Ct, A);
@@ -249,7 +249,7 @@ TEST(MatrixAssignments, CopyTranspose) {
   }
 
   // Copy from transposed matrix
-  double dataD[6] = {0, 0, 0, 0, 0, 0};
+  sfloat dataD[6] = {0, 0, 0, 0, 0, 0};
   Matrix D = slap_MatrixFromArray(2, 3, dataD);
   err = slap_MatrixCopyTranspose(D, slap_Transpose(A));
   EXPECT_EQ(err, SLAP_NO_ERROR);
@@ -262,8 +262,8 @@ TEST(MatrixAssignments, CopyTranspose) {
 
 TEST(MatrixAssignments, CopyFromArray) {
   enum slap_ErrorCode err;
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double data[6] = {2, 4, 6, 7, 5, 3};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data[6] = {2, 4, 6, 7, 5, 3};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   err = slap_MatrixCopyFromArray(A, data);
   EXPECT_EQ(err, SLAP_NO_ERROR);
@@ -274,8 +274,8 @@ TEST(MatrixAssignments, CopyFromArray) {
 
 TEST(MatrixAssignments, CopyFromArray_BadPointer) {
   enum slap_ErrorCode err;
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double* data = NULL;
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat* data = NULL;
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   err = slap_MatrixCopyFromArray(A, data);
   EXPECT_EQ(err, SLAP_BAD_POINTER);
@@ -285,9 +285,9 @@ TEST(MatrixAssignments, CopyFromArray_BadPointer) {
 }
 
 TEST(MatrixAssignments, SetIdentity) {
-  double data[9];
+  sfloat data[9];
   Matrix A = slap_MatrixFromArray(3, 3, data);
-  const double val = 2.1;
+  const sfloat val = 2.1;
   slap_SetIdentity(A, val);
   for (int i = 0; i < 3; ++i) {
     for (int j = 0; j < 3; ++j) {
@@ -302,9 +302,9 @@ TEST(MatrixAssignments, SetIdentity) {
 
 TEST(MatrixAssignments, SetIdentity_NonSquare) {
   // Fat matrix
-  double data[6];
+  sfloat data[6];
   Matrix A = slap_MatrixFromArray(2, 3, data);
-  const double val = 2.1;
+  const sfloat val = 2.1;
   slap_SetIdentity(A, val);
   for (int i = 0; i < 2; ++i) {
     for (int j = 0; j < 3; ++j) {
@@ -333,7 +333,7 @@ TEST(MatrixAssignments, SetIdentity_NonSquare) {
 
 TEST(MatrixUnaryOps, MatrixScale) {
   enum slap_ErrorCode err;
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   err = slap_ScaleByConst(A, 3);
   EXPECT_EQ(err, SLAP_NO_ERROR);
@@ -344,8 +344,8 @@ TEST(MatrixUnaryOps, MatrixScale) {
 
 TEST(MatrixUnaryOps, SetDiagonal) {
   enum slap_ErrorCode err;
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double data_diag[2] = {10,11};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat data_diag[2] = {10,11};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   err = slap_SetDiagonal(A, data_diag, 2);
   EXPECT_EQ(err, SLAP_NO_ERROR);
@@ -356,7 +356,7 @@ TEST(MatrixUnaryOps, SetDiagonal) {
 
   // Reshape matrix
   A = slap_MatrixFromArray(3, 2, dataA);
-  double data_prev = data_diag[1];
+  sfloat data_prev = data_diag[1];
   data_diag[0] = 100;
   data_diag[1] = 101;
   err = slap_SetDiagonal(A, data_diag, 3);
@@ -376,9 +376,9 @@ TEST(MatrixUnaryOps, SetDiagonal) {
 }
 
 TEST(MatrixUnaryOps, MatrixArgMax) {
-  double dataA[6] = {0, -2, -5, 2, 1, 2};
+  sfloat dataA[6] = {0, -2, -5, 2, 1, 2};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
-  double max_value;
+  sfloat max_value;
   MatrixIterator it = slap_ArgMax(A, &max_value);
   EXPECT_EQ(it.i, 1);
   EXPECT_EQ(it.j, 1);
@@ -387,8 +387,8 @@ TEST(MatrixUnaryOps, MatrixArgMax) {
 }
 
 TEST(MatrixUnaryOps, MapAbs) {
-  double data[6] = {0, -2, -5, 2, 1, 2};
-  double dataA[6];
+  sfloat data[6] = {0, -2, -5, 2, 1, 2};
+  sfloat dataA[6];
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   slap_MatrixCopyFromArray(A, data);
   slap_Map(A, fabs);
@@ -398,8 +398,8 @@ TEST(MatrixUnaryOps, MapAbs) {
 }
 
 TEST(MatrixUnaryOps, MapSin) {
-  double data[6] = {0, -2, -5, 2, 1, 2};
-  double dataA[6];
+  sfloat data[6] = {0, -2, -5, 2, 1, 2};
+  sfloat dataA[6];
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   slap_MatrixCopyFromArray(A, data);
   slap_Map(A, sin);
@@ -410,7 +410,7 @@ TEST(MatrixUnaryOps, MapSin) {
 
 TEST(MatrixUnaryOps, SetRange) {
   constexpr int size = 10;
-  double data[size];
+  sfloat data[size];
   Matrix A = slap_MatrixFromArray(2, size / 2, data);
   slap_SetRange(A, 1, 10);
   for (int k = 0; k < 10; ++k) {
@@ -420,18 +420,18 @@ TEST(MatrixUnaryOps, SetRange) {
   slap_SetRange(A, 1.5, 2);  // NOLINT
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 0), 1.5);
   EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, size / 2 - 1), 2);
-  double step1 = *slap_GetElement(A, 1, 0) - *slap_GetElement(A, 0, 0);
-  double step2 = *slap_GetElement(A, 0, 1) - *slap_GetElement(A, 1, 0);
+  sfloat step1 = *slap_GetElement(A, 1, 0) - *slap_GetElement(A, 0, 0);
+  sfloat step2 = *slap_GetElement(A, 0, 1) - *slap_GetElement(A, 1, 0);
   EXPECT_DOUBLE_EQ(step1, step2);
   slap_PrintMatrix(A);
 }
 
 TEST(MatrixBinaryOps, NormedDiff) {
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double dataB[6] = {3, 2, 3, 4, 5, 6};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataB[6] = {3, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix B = slap_MatrixFromArray(2, 3, dataB);
-  double err;
+  sfloat err;
   err = slap_MatrixNormedDifference(A, A);
   EXPECT_DOUBLE_EQ(err, 0);
   err = slap_MatrixNormedDifference(A, B);
@@ -439,16 +439,16 @@ TEST(MatrixBinaryOps, NormedDiff) {
 }
 
 TEST(MatrixBinaryOps, Addition) {
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double dataB[6] = {3, 2, -1, -4, 10, 0};
-  double dataC[6];
-  double dataD[6] = {4, 4, 2, 0, 15, 6};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataB[6] = {3, 2, -1, -4, 10, 0};
+  sfloat dataC[6];
+  sfloat dataD[6] = {4, 4, 2, 0, 15, 6};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix B = slap_MatrixFromArray(2, 3, dataB);
   Matrix C = slap_MatrixFromArray(2, 3, dataC);
   Matrix D = slap_MatrixFromArray(2, 3, dataD);
   slap_MatrixAddition(C, A, B, 1.0);
-  double err = slap_MatrixNormedDifference(C, D);
+  sfloat err = slap_MatrixNormedDifference(C, D);
   EXPECT_LT(err, 1e-6);
 
   // Aliased addition
@@ -458,16 +458,16 @@ TEST(MatrixBinaryOps, Addition) {
 }
 
 TEST(MatrixBinaryOps, Subtraction) {
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double dataB[6] = {3, 2, -1, -4, 10, 0};
-  double dataC[6];
-  double dataD[6] = {-2, 0, 4, 8, -5, 6};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataB[6] = {3, 2, -1, -4, 10, 0};
+  sfloat dataC[6];
+  sfloat dataD[6] = {-2, 0, 4, 8, -5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix B = slap_MatrixFromArray(2, 3, dataB);
   Matrix C = slap_MatrixFromArray(2, 3, dataC);
   Matrix D = slap_MatrixFromArray(2, 3, dataD);
   slap_MatrixAddition(C, A, B, -1.0);
-  double err = slap_MatrixNormedDifference(C, D);
+  sfloat err = slap_MatrixNormedDifference(C, D);
   EXPECT_LT(err, 1e-6);
 
   // Aliased subtraction
@@ -477,34 +477,34 @@ TEST(MatrixBinaryOps, Subtraction) {
 }
 
 TEST(MatrixBinaryOps, AdditionWithScaling) {
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double dataB[6] = {3, 2, -1, -4, 10, 0};
-  double dataC[6];
-  double dataD[6] = {4.5, 5, 3.5, 2, 17.5, 9};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataB[6] = {3, 2, -1, -4, 10, 0};
+  sfloat dataC[6];
+  sfloat dataD[6] = {4.5, 5, 3.5, 2, 17.5, 9};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix B = slap_MatrixFromArray(2, 3, dataB);
   Matrix C = slap_MatrixFromArray(2, 3, dataC);
   Matrix D = slap_MatrixFromArray(2, 3, dataD);
   slap_MatrixAddition(C, B, A, 1.5);
-  double err = slap_MatrixNormedDifference(C, D);
+  sfloat err = slap_MatrixNormedDifference(C, D);
   EXPECT_LT(err, 1e-6);
 }
 
-double binary_op(double x, double y) {
+sfloat binary_op(sfloat x, sfloat y) {
    return 2 * x - y * x;
 }
 
 TEST(MatrixBinaryOps, BinaryMap) {
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
-  double dataB[6] = {3, 2, -1, -4, 10, 0};
-  double dataC[6];
-  double dataD[6] = {-1, 0, 9, 24, -40, 12};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataB[6] = {3, 2, -1, -4, 10, 0};
+  sfloat dataC[6];
+  sfloat dataD[6] = {-1, 0, 9, 24, -40, 12};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix B = slap_MatrixFromArray(2, 3, dataB);
   Matrix C = slap_MatrixFromArray(2, 3, dataC);
   Matrix D = slap_MatrixFromArray(2, 3, dataD);
   slap_BinaryMap(C, A, B, binary_op);
-  double err = slap_MatrixNormedDifference(C, D);
+  sfloat err = slap_MatrixNormedDifference(C, D);
   EXPECT_LT(err, 1e-6);
 
   // Aliased
@@ -515,7 +515,7 @@ TEST(MatrixBinaryOps, BinaryMap) {
 
 
 TEST(MatrixTransformations, Flatten) {
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix a = slap_Flatten(A);
   EXPECT_EQ(slap_NumRows(a), 6);
@@ -538,7 +538,7 @@ TEST(MatrixTransformations, Flatten) {
 }
 
 TEST(MatrixTransformations, Reshape) {
-  double dataA[6] = {1, 2, 3, 4, 5, 6};
+  sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix B = slap_Reshape(A, 3, 2);
   EXPECT_EQ(slap_NumRows(B), 3);
@@ -554,7 +554,7 @@ TEST(MatrixTransformations, Reshape) {
 }
 
 TEST(MatrixPrinting, PrintRow) {
-  double data_x[4] = {1,2,3,4};
+  sfloat data_x[4] = {1,2,3,4};
   Matrix x = slap_MatrixFromArray(4, 1, data_x);
   slap_PrintRowVector(x);
   slap_PrintRowVector(slap_Transpose(x));
