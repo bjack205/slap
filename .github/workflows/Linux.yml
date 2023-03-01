@@ -31,7 +31,7 @@ jobs:
           - os: ubuntu-latest
             c_compiler: clang
             cxx_compiler: clang++
-            float: single
+            float: float
 
     steps:
     - uses: actions/checkout@v3
