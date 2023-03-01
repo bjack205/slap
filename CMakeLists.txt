@@ -127,3 +127,7 @@ target_link_libraries(getting_started PUBLIC slap::slap)
 add_test(NAME getting_started COMMAND getting_started)
 
 add_subdirectory(examples/CPM_project)
+add_test(NAME fetchcontent_example COMMAND fetchcontent_example)
+
+add_subdirectory(examples/FetchContent_Project)
+add_test(NAME cpm_slap_example COMMAND cpm_slap_example)
