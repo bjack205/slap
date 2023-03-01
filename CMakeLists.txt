@@ -52,6 +52,9 @@ option(SLAP_CODE_COVERAGE "Compile slap with code coverage information." OFF)
 # Enable clang-tidy analysis
 option(SLAP_CLANG_TIDY "Run clang-tidy analyzer on the source code." OFF)
 
+# Floating point precision
+set(SLAP_FLOAT double CACHE STRING "Floating point precision for slap (float,double).")
+
 ##############################
 # Dependencies
 ##############################

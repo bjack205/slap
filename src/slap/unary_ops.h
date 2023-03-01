@@ -89,6 +89,6 @@ enum slap_ErrorCode slap_AddIdentity(Matrix mat, double alpha);
  * @param start Value of the first element
  * @param stop Value of the last element
  */
-enum slap_ErrorCode slap_SetRange(Matrix mat, double start, double stop);
+enum slap_ErrorCode slap_SetRange(Matrix mat, sfloat start, sfloat stop);
 
 /**@}*/

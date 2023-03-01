@@ -1,6 +1,6 @@
 #include "matrix.h"
 
-Matrix slap_MatrixFromArray(int rows, int cols, double* data) {
+Matrix slap_MatrixFromArray(int rows, int cols, sfloat* data) {
   Matrix mat = {rows, cols, rows, 0, data, slap_DENSE};
   return mat;
 }
