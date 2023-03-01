@@ -15,7 +15,7 @@ jobs:
     # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
     # You can convert this to a matrix build if you need cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
-    name: OS ${{ matrix.os }} - ${{ matrix.c_compiler }}
+    name: OS ${{ matrix.os }} - ${{ matrix.c_compiler }} - ${{ matrix.float }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -23,9 +23,15 @@ jobs:
           - os: ubuntu-latest
             c_compiler: gcc
             cxx_compiler: g++
+            float: double
           - os: ubuntu-latest
             c_compiler: clang
             cxx_compiler: clang++
+            float: double
+          - os: ubuntu-latest
+            c_compiler: clang
+            cxx_compiler: clang++
+            float: single
 
     steps:
     - uses: actions/checkout@v3
@@ -36,6 +42,7 @@ jobs:
         cmake -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
               -D CMAKE_C_COMPILER=${{ matrix.c_compiler }} \
               -D CMAKE_CXX_COMPILER=${{ matrix.cxx_compiler }} \
+              -D SLAP_FLOAT=${{ matrix.float }} \
               --log-context ..
 
     - name: Build
