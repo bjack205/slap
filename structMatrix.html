@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('structMatrix.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 
-<p>Represents a matrix of double-precision data.  
+<p>Represents a matrix of sfloat-precision data.  
  <a href="structMatrix.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="slap_8h_source.html">slap.h</a>&gt;</code></p>
@@ -119,17 +119,17 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrix.html#a53b3baa8b259d552053f99c74a1a26a6">is_transposed</a></td></tr>
 <tr class="memdesc:a53b3baa8b259d552053f99c74a1a26a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">is transposed <br /></td></tr>
 <tr class="separator:a53b3baa8b259d552053f99c74a1a26a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7097cbd5ded96225e7f1fecb1c39936f"><td class="memItemLeft" align="right" valign="top"><a id="a7097cbd5ded96225e7f1fecb1c39936f"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrix.html#a7097cbd5ded96225e7f1fecb1c39936f">data</a></td></tr>
-<tr class="memdesc:a7097cbd5ded96225e7f1fecb1c39936f"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the start of the data <br /></td></tr>
-<tr class="separator:a7097cbd5ded96225e7f1fecb1c39936f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07d0282bf0fdce9761e7ea21a19d8952"><td class="memItemLeft" align="right" valign="top"><a id="a07d0282bf0fdce9761e7ea21a19d8952"></a>
+sfloat *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrix.html#a07d0282bf0fdce9761e7ea21a19d8952">data</a></td></tr>
+<tr class="memdesc:a07d0282bf0fdce9761e7ea21a19d8952"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the start of the data <br /></td></tr>
+<tr class="separator:a07d0282bf0fdce9761e7ea21a19d8952"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a830b32b428cf9740e3eb9eb53e4407de"><td class="memItemLeft" align="right" valign="top"><a id="a830b32b428cf9740e3eb9eb53e4407de"></a>
 enum slap_MatrixType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrix.html#a830b32b428cf9740e3eb9eb53e4407de">mattype</a></td></tr>
 <tr class="memdesc:a830b32b428cf9740e3eb9eb53e4407de"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of matrix <br /></td></tr>
 <tr class="separator:a830b32b428cf9740e3eb9eb53e4407de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a matrix of double-precision data. </p>
+<div class="textblock"><p>Represents a matrix of sfloat-precision data. </p>
 <p>Simple wrapper around an arbitrary pointer to the underlying data. The data is assumed to be stored in a contiguous block of memory. The data is interpreted column-wise, such that <code>data[1]</code> is element <code>[1,0]</code> of the matrix. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/runner/work/slap/slap/src/slap/<a class="el" href="matrix_8h_source.html">matrix.h</a></li>

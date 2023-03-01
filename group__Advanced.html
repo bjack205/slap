@@ -113,12 +113,12 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaa52b21761237305f651da7852b20b434"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Advanced.html#gaa52b21761237305f651da7852b20b434">slap_Map</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double(*function)(double))</td></tr>
-<tr class="memdesc:gaa52b21761237305f651da7852b20b434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a function element-wise to every element in the matrix.  <a href="group__Advanced.html#gaa52b21761237305f651da7852b20b434">More...</a><br /></td></tr>
-<tr class="separator:gaa52b21761237305f651da7852b20b434"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa652d12b20ebe3334440cd3225ab08e"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Advanced.html#gaaa652d12b20ebe3334440cd3225ab08e">slap_BinaryMap</a> (<a class="el" href="structMatrix.html">Matrix</a> C, <a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B, double(*function)(double, double))</td></tr>
-<tr class="memdesc:gaaa652d12b20ebe3334440cd3225ab08e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a function element-wise to a pair of matrices.  <a href="group__Advanced.html#gaaa652d12b20ebe3334440cd3225ab08e">More...</a><br /></td></tr>
-<tr class="separator:gaaa652d12b20ebe3334440cd3225ab08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafa3da27efc7e2b2ec94d710cd794e240"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Advanced.html#gafa3da27efc7e2b2ec94d710cd794e240">slap_Map</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, sfloat(*function)(sfloat))</td></tr>
+<tr class="memdesc:gafa3da27efc7e2b2ec94d710cd794e240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a function element-wise to every element in the matrix.  <a href="group__Advanced.html#gafa3da27efc7e2b2ec94d710cd794e240">More...</a><br /></td></tr>
+<tr class="separator:gafa3da27efc7e2b2ec94d710cd794e240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff6b4febf512e017a6a93fbb96f7ca31"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Advanced.html#gaff6b4febf512e017a6a93fbb96f7ca31">slap_BinaryMap</a> (<a class="el" href="structMatrix.html">Matrix</a> C, <a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B, sfloat(*function)(sfloat, sfloat))</td></tr>
+<tr class="memdesc:gaff6b4febf512e017a6a93fbb96f7ca31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a function element-wise to a pair of matrices.  <a href="group__Advanced.html#gaff6b4febf512e017a6a93fbb96f7ca31">More...</a><br /></td></tr>
+<tr class="separator:gaff6b4febf512e017a6a93fbb96f7ca31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaaed5ad568212c1273063201d12122b99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMatrixIterator.html">MatrixIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Advanced.html#gaaed5ad568212c1273063201d12122b99">slap_Iterator</a> (<a class="el" href="structMatrix.html">Matrix</a> mat)</td></tr>
 <tr class="memdesc:gaaed5ad568212c1273063201d12122b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an iterator at the beginning of the matrix.  <a href="group__Advanced.html#gaaed5ad568212c1273063201d12122b99">More...</a><br /></td></tr>
 <tr class="separator:gaaed5ad568212c1273063201d12122b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,13 +176,13 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixIterator::i
 <p>Note that if the matrix data is dense (there are no gaps in the memory), it is most efficient to iterate directly over the elements of the underlying array.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Example</h1>
-<p>for (<a class="el" href="structMatrixIterator.html" title="A struct for conveniently and efficiently iterating over strided matrices.">MatrixIterator</a> it = slap_Iterator(mat); !slap_IsFinished(&amp;it); slap_Step(&amp;it)) { double value = mat.data[it.index]; // Use <code>index</code> to directly index the array int linear_index = it.k; // <code>k</code> is the linear index into the array slap_SetElement(mat, it.i, it.j); // <code>i</code> and <code>j</code> are the cartesian indices } </p>
+<p>for (<a class="el" href="structMatrixIterator.html" title="A struct for conveniently and efficiently iterating over strided matrices.">MatrixIterator</a> it = slap_Iterator(mat); !slap_IsFinished(&amp;it); slap_Step(&amp;it)) { sfloat value = mat.data[it.index]; // Use <code>index</code> to directly index the array int linear_index = it.k; // <code>k</code> is the linear index into the array slap_SetElement(mat, it.i, it.j); // <code>i</code> and <code>j</code> are the cartesian indices } </p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gaaa652d12b20ebe3334440cd3225ab08e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaa652d12b20ebe3334440cd3225ab08e">&#9670;&nbsp;</a></span>slap_BinaryMap()</h2>
+<a id="gaff6b4febf512e017a6a93fbb96f7ca31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaff6b4febf512e017a6a93fbb96f7ca31">&#9670;&nbsp;</a></span>slap_BinaryMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,7 +208,7 @@ Example</h1>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double(*)(double, double)&#160;</td>
+          <td class="paramtype">sfloat(*)(sfloat, sfloat)&#160;</td>
           <td class="paramname"><em>function</em>&#160;</td>
         </tr>
         <tr>
@@ -225,7 +225,7 @@ Example</h1>
 <p>The matrices can be aliased.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Example</h1>
-<div class="fragment"><div class="line">double binary_op(double x, double y) {</div>
+<div class="fragment"><div class="line">sfloat binary_op(sfloat x, sfloat y) {</div>
 <div class="line">  return 2 * x - y * x;</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -240,7 +240,7 @@ Example</h1>
     <tr><td class="paramdir">[out]</td><td class="paramname">C</td><td>Destination matrix </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>Input matrix, provides first arguments to function </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>Input matrix, provides second arguments to function </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">function</td><td>A function that takes two doubles and returns a double </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">function</td><td>A function that takes two sfloat and returns a sfloat </td></tr>
   </table>
   </dd>
 </dl>
@@ -309,8 +309,8 @@ Example</h1>
 
 </div>
 </div>
-<a id="gaa52b21761237305f651da7852b20b434"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa52b21761237305f651da7852b20b434">&#9670;&nbsp;</a></span>slap_Map()</h2>
+<a id="gafa3da27efc7e2b2ec94d710cd794e240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafa3da27efc7e2b2ec94d710cd794e240">&#9670;&nbsp;</a></span>slap_Map()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -324,7 +324,7 @@ Example</h1>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double(*)(double)&#160;</td>
+          <td class="paramtype">sfloat(*)(sfloat)&#160;</td>
           <td class="paramname"><em>function</em>&#160;</td>
         </tr>
         <tr>
@@ -340,7 +340,7 @@ Example</h1>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mat</td><td>A valid matrix (can be dense or strided) </td></tr>
-    <tr><td class="paramname">function</td><td>A function pointer that takes and returns a double </td></tr>
+    <tr><td class="paramname">function</td><td>A function pointer that takes and returns a sfloat </td></tr>
   </table>
   </dd>
 </dl>

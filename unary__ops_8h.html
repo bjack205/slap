@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('unary__ops_8h.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
-<p>Basic unary operations on the <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> type.  
+<p>Basic unary operations on the <a class="el" href="structMatrix.html" title="Represents a matrix of sfloat-precision data.">Matrix</a> type.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="matrix_8h_source.html">matrix.h</a>&quot;</code><br />
 </div>
@@ -104,27 +104,27 @@ $(document).ready(function(){initNavTree('unary__ops_8h.html',''); initResizable
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga090305252c27597ac29f240a0e93ac73"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga090305252c27597ac29f240a0e93ac73">slap_SetConst</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double val)</td></tr>
-<tr class="memdesc:ga090305252c27597ac29f240a0e93ac73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all of the elements in a matrix to a single value.  <a href="group__Basics.html#ga090305252c27597ac29f240a0e93ac73">More...</a><br /></td></tr>
-<tr class="separator:ga090305252c27597ac29f240a0e93ac73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa01f4371d4315318f7020b519965028a"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gaa01f4371d4315318f7020b519965028a">slap_ScaleByConst</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double alpha)</td></tr>
-<tr class="memdesc:gaa01f4371d4315318f7020b519965028a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale a matrix by a constant factor.  <a href="group__Basics.html#gaa01f4371d4315318f7020b519965028a">More...</a><br /></td></tr>
-<tr class="separator:gaa01f4371d4315318f7020b519965028a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga31e1152f9cea93be1719e5ea07e6c338"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga31e1152f9cea93be1719e5ea07e6c338">slap_SetIdentity</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double val)</td></tr>
-<tr class="memdesc:ga31e1152f9cea93be1719e5ea07e6c338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the diagonal elements of the matrix to val, and the rest to zeros.  <a href="group__Basics.html#ga31e1152f9cea93be1719e5ea07e6c338">More...</a><br /></td></tr>
-<tr class="separator:ga31e1152f9cea93be1719e5ea07e6c338"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabd83829ad4b433500c721caee6c61c16"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gabd83829ad4b433500c721caee6c61c16">slap_SetDiagonal</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, const double *diag, int len)</td></tr>
-<tr class="memdesc:gabd83829ad4b433500c721caee6c61c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the first n elements of a matrix diagonal from an array.  <a href="group__Basics.html#gabd83829ad4b433500c721caee6c61c16">More...</a><br /></td></tr>
-<tr class="separator:gabd83829ad4b433500c721caee6c61c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga28690bf6b0c44b603860e9579c19ebe4"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga28690bf6b0c44b603860e9579c19ebe4">slap_AddIdentity</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double alpha)</td></tr>
-<tr class="memdesc:ga28690bf6b0c44b603860e9579c19ebe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a multiple of the identity to the matrix.  <a href="group__Basics.html#ga28690bf6b0c44b603860e9579c19ebe4">More...</a><br /></td></tr>
-<tr class="separator:ga28690bf6b0c44b603860e9579c19ebe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga65b8623a0b862b3f67aa78115c64a692"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga65b8623a0b862b3f67aa78115c64a692">slap_SetRange</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, double start, double stop)</td></tr>
-<tr class="memdesc:ga65b8623a0b862b3f67aa78115c64a692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the matrix to a equally-spaced range.  <a href="group__Basics.html#ga65b8623a0b862b3f67aa78115c64a692">More...</a><br /></td></tr>
-<tr class="separator:ga65b8623a0b862b3f67aa78115c64a692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga147dd5ac627e2c7376015b37a89dd50a"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga147dd5ac627e2c7376015b37a89dd50a">slap_SetConst</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, sfloat val)</td></tr>
+<tr class="memdesc:ga147dd5ac627e2c7376015b37a89dd50a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all of the elements in a matrix to a single value.  <a href="group__Basics.html#ga147dd5ac627e2c7376015b37a89dd50a">More...</a><br /></td></tr>
+<tr class="separator:ga147dd5ac627e2c7376015b37a89dd50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b34baa8de6203498ea3e50ed5e4714b"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga0b34baa8de6203498ea3e50ed5e4714b">slap_ScaleByConst</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, sfloat alpha)</td></tr>
+<tr class="memdesc:ga0b34baa8de6203498ea3e50ed5e4714b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale a matrix by a constant factor.  <a href="group__Basics.html#ga0b34baa8de6203498ea3e50ed5e4714b">More...</a><br /></td></tr>
+<tr class="separator:ga0b34baa8de6203498ea3e50ed5e4714b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga454083c2f7b0427cf4ac228ee688acee"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga454083c2f7b0427cf4ac228ee688acee">slap_SetIdentity</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, sfloat val)</td></tr>
+<tr class="memdesc:ga454083c2f7b0427cf4ac228ee688acee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the diagonal elements of the matrix to val, and the rest to zeros.  <a href="group__Basics.html#ga454083c2f7b0427cf4ac228ee688acee">More...</a><br /></td></tr>
+<tr class="separator:ga454083c2f7b0427cf4ac228ee688acee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaebd6e30d0375bf412f05787beffe7aec"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gaebd6e30d0375bf412f05787beffe7aec">slap_SetDiagonal</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, const sfloat *diag, int len)</td></tr>
+<tr class="memdesc:gaebd6e30d0375bf412f05787beffe7aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the first n elements of a matrix diagonal from an array.  <a href="group__Basics.html#gaebd6e30d0375bf412f05787beffe7aec">More...</a><br /></td></tr>
+<tr class="separator:gaebd6e30d0375bf412f05787beffe7aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec3af1896fe9b91e922f2c32e8c05444"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#gaec3af1896fe9b91e922f2c32e8c05444">slap_AddIdentity</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, sfloat alpha)</td></tr>
+<tr class="memdesc:gaec3af1896fe9b91e922f2c32e8c05444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a multiple of the identity to the matrix.  <a href="group__Basics.html#gaec3af1896fe9b91e922f2c32e8c05444">More...</a><br /></td></tr>
+<tr class="separator:gaec3af1896fe9b91e922f2c32e8c05444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga163bfdaa9d54698e1cc8e9a83f045580"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Basics.html#ga163bfdaa9d54698e1cc8e9a83f045580">slap_SetRange</a> (<a class="el" href="structMatrix.html">Matrix</a> mat, sfloat start, sfloat stop)</td></tr>
+<tr class="memdesc:ga163bfdaa9d54698e1cc8e9a83f045580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the matrix to a equally-spaced range.  <a href="group__Basics.html#ga163bfdaa9d54698e1cc8e9a83f045580">More...</a><br /></td></tr>
+<tr class="separator:ga163bfdaa9d54698e1cc8e9a83f045580"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Basic unary operations on the <a class="el" href="structMatrix.html" title="Represents a matrix of double-precision data.">Matrix</a> type. </p>
+<div class="textblock"><p>Basic unary operations on the <a class="el" href="structMatrix.html" title="Represents a matrix of sfloat-precision data.">Matrix</a> type. </p>
 <dl class="section author"><dt>Author</dt><dd>Brian Jackson (<a href="#" onclick="location.href='mai'+'lto:'+'bja'+'ck'+'205'+'@g'+'mai'+'l.'+'com'; return false;">bjack<span style="display: none;">.nosp@m.</span>205@<span style="display: none;">.nosp@m.</span>gmail<span style="display: none;">.nosp@m.</span>.com</a>) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2022-01-30</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 </dd></dl>

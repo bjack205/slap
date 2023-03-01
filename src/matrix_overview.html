@@ -96,7 +96,7 @@ for things like the size, stride, and type.</p>
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv46Matrix">
 <span id="_CPPv36Matrix"></span><span id="_CPPv26Matrix"></span><span id="Matrix"></span><span class="target" id="structMatrix"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Matrix</span></span></span><a class="headerlink" href="#_CPPv46Matrix" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Represents a matrix of double-precision data. </p>
+<dd><p>Represents a matrix of sfloat-precision data. </p>
 <p>Simple wrapper around an arbitrary pointer to the underlying data. The data is assumed to be stored in a contiguous block of memory. The data is interpreted column-wise, such that <code class="docutils literal notranslate"><span class="pre">data[1]</span></code> is element <code class="docutils literal notranslate"><span class="pre">[1,0]</span></code> of the matrix. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
@@ -126,7 +126,7 @@ for things like the size, stride, and type.</p>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N6Matrix4dataE">
-<span id="_CPPv3N6Matrix4dataE"></span><span id="_CPPv2N6Matrix4dataE"></span><span id="Matrix::data__doubleP"></span><span class="target" id="structMatrix_1a7097cbd5ded96225e7f1fecb1c39936f"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix4dataE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6Matrix4dataE"></span><span id="_CPPv2N6Matrix4dataE"></span><span id="Matrix::data__sfloatP"></span><span class="target" id="structMatrix_1a07d0282bf0fdce9761e7ea21a19d8952"></span><span class="n"><span class="pre">sfloat</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><a class="headerlink" href="#_CPPv4N6Matrix4dataE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>pointer to the start of the data </p>
 </dd></dl>
 
@@ -142,7 +142,7 @@ for things like the size, stride, and type.</p>
 <p>The underlying data pointer should be accessed via the getter:</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv412slap_GetData6Matrix">
-<span id="_CPPv312slap_GetData6Matrix"></span><span id="_CPPv212slap_GetData6Matrix"></span><span id="slap_GetData__Matrix"></span><span class="target" id="group__Basics_1ga67406cb519a723c497e70e2390b39fde"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">slap_GetData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_GetData6Matrix" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv312slap_GetData6Matrix"></span><span id="_CPPv212slap_GetData6Matrix"></span><span id="slap_GetData__Matrix"></span><span class="target" id="group__Basics_1gadd2895636cb0ed1bd2c8ad3c67c244c8"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">sfloat</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">slap_GetData</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412slap_GetData6Matrix" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Return the raw pointer stored by the matrix. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

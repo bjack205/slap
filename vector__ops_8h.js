@@ -1,12 +1,12 @@
 var vector__ops_8h =
 [
-    [ "slap_ArgMax", "group__Basics.html#ga2847e81fcbd1a0c27c1afb6f4cc91410", null ],
-    [ "slap_ArgMin", "group__Basics.html#gaef6e9144874cd09ff1d56237427f34f7", null ],
-    [ "slap_Max", "group__Basics.html#ga09f5c095a35dee9dd75a70fa21e71da7", null ],
-    [ "slap_Min", "group__Basics.html#ga8c5f44f5de7d99b2c107f3a6fdb4fc95", null ],
-    [ "slap_NormInf", "group__Basics.html#ga2122f133a822ac18639f8533a87c475f", null ],
-    [ "slap_NormOne", "group__Basics.html#ga3e98afac5d7570f75d170b2686e2d9ae", null ],
-    [ "slap_NormTwo", "group__Basics.html#gabbd26d9efd0715357e02ef21a597ec93", null ],
-    [ "slap_NormTwoSquared", "group__Basics.html#gab864342fa37d9662031a746fb36c254c", null ],
-    [ "slap_Sum", "group__Basics.html#ga760d830d277b6f676ccb1dd9560e0d07", null ]
+    [ "slap_ArgMax", "group__Basics.html#gada93584b7ebe1d7367891381ff7a05f3", null ],
+    [ "slap_ArgMin", "group__Basics.html#ga28c37b694f2a75601600fb4048b92659", null ],
+    [ "slap_Max", "group__Basics.html#ga5a55ee6c592712861fd5074a4e56ddc2", null ],
+    [ "slap_Min", "group__Basics.html#gaa3f9d3a50cbfa806d69f8ed7d6801ff4", null ],
+    [ "slap_NormInf", "group__Basics.html#ga53291c36dbca9d482283419bb567b629", null ],
+    [ "slap_NormOne", "group__Basics.html#ga0c964ad668bc788286890b8aef4d614e", null ],
+    [ "slap_NormTwo", "group__Basics.html#ga1320613500c48cc0bab6c9b952762d3d", null ],
+    [ "slap_NormTwoSquared", "group__Basics.html#ga4fffd2efb978a451858eaf450f67c0b1", null ],
+    [ "slap_Sum", "group__Basics.html#ga9ec23d2a21e2692ac6a9926b042ec51e", null ]
 ];

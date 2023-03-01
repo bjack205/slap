@@ -104,12 +104,12 @@ $(document).ready(function(){initNavTree('binary__ops_8h.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binary__ops_8h.html#a3976ffa2a3dff0a7f9f2f1b1cd70291b">slap_MatrixNormedDifference</a> (<a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B)</td></tr>
-<tr class="memdesc:a3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the normed difference between 2 matrices of the same size.  <a href="binary__ops_8h.html#a3976ffa2a3dff0a7f9f2f1b1cd70291b">More...</a><br /></td></tr>
-<tr class="separator:a3976ffa2a3dff0a7f9f2f1b1cd70291b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74f9da0073fa9022a464ee9cbdbf279d"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binary__ops_8h.html#a74f9da0073fa9022a464ee9cbdbf279d">slap_MatrixAddition</a> (<a class="el" href="structMatrix.html">Matrix</a> C, <a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B, double alpha)</td></tr>
-<tr class="memdesc:a74f9da0073fa9022a464ee9cbdbf279d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add two matrices, with scaling.  <a href="binary__ops_8h.html#a74f9da0073fa9022a464ee9cbdbf279d">More...</a><br /></td></tr>
-<tr class="separator:a74f9da0073fa9022a464ee9cbdbf279d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27311f02adc441c82e262d881e0ed37c"><td class="memItemLeft" align="right" valign="top">sfloat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binary__ops_8h.html#a27311f02adc441c82e262d881e0ed37c">slap_MatrixNormedDifference</a> (<a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B)</td></tr>
+<tr class="memdesc:a27311f02adc441c82e262d881e0ed37c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the normed difference between 2 matrices of the same size.  <a href="binary__ops_8h.html#a27311f02adc441c82e262d881e0ed37c">More...</a><br /></td></tr>
+<tr class="separator:a27311f02adc441c82e262d881e0ed37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120dd9eb363b2afdc2e14b77dd77844e"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binary__ops_8h.html#a120dd9eb363b2afdc2e14b77dd77844e">slap_MatrixAddition</a> (<a class="el" href="structMatrix.html">Matrix</a> C, <a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> B, sfloat alpha)</td></tr>
+<tr class="memdesc:a120dd9eb363b2afdc2e14b77dd77844e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add two matrices, with scaling.  <a href="binary__ops_8h.html#a120dd9eb363b2afdc2e14b77dd77844e">More...</a><br /></td></tr>
+<tr class="separator:a120dd9eb363b2afdc2e14b77dd77844e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Operations between two matrices. </p>
@@ -117,8 +117,8 @@ Functions</h2></td></tr>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-01-30 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a74f9da0073fa9022a464ee9cbdbf279d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74f9da0073fa9022a464ee9cbdbf279d">&#9670;&nbsp;</a></span>slap_MatrixAddition()</h2>
+<a id="a120dd9eb363b2afdc2e14b77dd77844e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a120dd9eb363b2afdc2e14b77dd77844e">&#9670;&nbsp;</a></span>slap_MatrixAddition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,7 +144,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">sfloat&#160;</td>
           <td class="paramname"><em>alpha</em>&#160;</td>
         </tr>
         <tr>
@@ -161,9 +161,9 @@ Functions</h2></td></tr>
 <p>Any of the matrices can be aliased.</p>
 <h1><a class="anchor" id="autotoc_md0"></a>
 Examples</h1>
-<p>Normal matrix addition </p><div class="fragment"><div class="line"><a class="code" href="binary__ops_8h.html#a74f9da0073fa9022a464ee9cbdbf279d">slap_MatrixAddition</a>(C, A, B, 1.0);</div>
-<div class="ttc" id="abinary__ops_8h_html_a74f9da0073fa9022a464ee9cbdbf279d"><div class="ttname"><a href="binary__ops_8h.html#a74f9da0073fa9022a464ee9cbdbf279d">slap_MatrixAddition</a></div><div class="ttdeci">enum slap_ErrorCode slap_MatrixAddition(Matrix C, Matrix A, Matrix B, double alpha)</div><div class="ttdoc">Add two matrices, with scaling.</div><div class="ttdef"><b>Definition:</b> binary_ops.c:21</div></div>
-</div><!-- fragment --><p>Subtract a matrix from another, in-place </p><div class="fragment"><div class="line"><a class="code" href="binary__ops_8h.html#a74f9da0073fa9022a464ee9cbdbf279d">slap_MatrixAddition</a>(A, A, B, -1);</div>
+<p>Normal matrix addition </p><div class="fragment"><div class="line"><a class="code" href="binary__ops_8h.html#a120dd9eb363b2afdc2e14b77dd77844e">slap_MatrixAddition</a>(C, A, B, 1.0);</div>
+<div class="ttc" id="abinary__ops_8h_html_a120dd9eb363b2afdc2e14b77dd77844e"><div class="ttname"><a href="binary__ops_8h.html#a120dd9eb363b2afdc2e14b77dd77844e">slap_MatrixAddition</a></div><div class="ttdeci">enum slap_ErrorCode slap_MatrixAddition(Matrix C, Matrix A, Matrix B, sfloat alpha)</div><div class="ttdoc">Add two matrices, with scaling.</div><div class="ttdef"><b>Definition:</b> binary_ops.c:21</div></div>
+</div><!-- fragment --><p>Subtract a matrix from another, in-place </p><div class="fragment"><div class="line"><a class="code" href="binary__ops_8h.html#a120dd9eb363b2afdc2e14b77dd77844e">slap_MatrixAddition</a>(A, A, B, -1);</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">C</td><td>Destination matrix </td></tr>
@@ -176,14 +176,14 @@ Examples</h1>
 
 </div>
 </div>
-<a id="a3976ffa2a3dff0a7f9f2f1b1cd70291b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3976ffa2a3dff0a7f9f2f1b1cd70291b">&#9670;&nbsp;</a></span>slap_MatrixNormedDifference()</h2>
+<a id="a27311f02adc441c82e262d881e0ed37c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27311f02adc441c82e262d881e0ed37c">&#9670;&nbsp;</a></span>slap_MatrixNormedDifference()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double slap_MatrixNormedDifference </td>
+          <td class="memname">sfloat slap_MatrixNormedDifference </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
           <td class="paramname"><em>A</em>, </td>

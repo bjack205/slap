@@ -105,15 +105,15 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv48slap_Map6MatrixPFddE">
-<span id="_CPPv38slap_Map6MatrixPFddE"></span><span id="_CPPv28slap_Map6MatrixPFddE"></span><span class="target" id="group__Advanced_1gaa52b21761237305f651da7852b20b434"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Map</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">function</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48slap_Map6MatrixPFddE" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv48slap_Map6MatrixPF6sfloat6sfloatE">
+<span id="_CPPv38slap_Map6MatrixPF6sfloat6sfloatE"></span><span id="_CPPv28slap_Map6MatrixPF6sfloat6sfloatE"></span><span class="target" id="group__Advanced_1gafa3da27efc7e2b2ec94d710cd794e240"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_Map</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mat</span></span>, <span class="n"><span class="pre">sfloat</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">function</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">sfloat</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48slap_Map6MatrixPF6sfloat6sfloatE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Applies a function element-wise to every element in the matrix. </p>
 <p>Applies <code class="docutils literal notranslate"><span class="pre">mat[k]</span> <span class="pre">=</span> <span class="pre">function(mat[k])</span></code> for all elements</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mat</strong> – A valid matrix (can be dense or strided) </p></li>
-<li><p><strong>function</strong> – A function pointer that takes and returns a double </p></li>
+<li><p><strong>function</strong> – A function pointer that takes and returns a sfloat </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -123,15 +123,15 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv414slap_BinaryMap6Matrix6Matrix6MatrixPFdddE">
-<span id="_CPPv314slap_BinaryMap6Matrix6Matrix6MatrixPFdddE"></span><span id="_CPPv214slap_BinaryMap6Matrix6Matrix6MatrixPFdddE"></span><span class="target" id="group__Advanced_1gaaa652d12b20ebe3334440cd3225ab08e"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_BinaryMap</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">function</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414slap_BinaryMap6Matrix6Matrix6MatrixPFdddE" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv414slap_BinaryMap6Matrix6Matrix6MatrixPF6sfloat6sfloat6sfloatE">
+<span id="_CPPv314slap_BinaryMap6Matrix6Matrix6MatrixPF6sfloat6sfloat6sfloatE"></span><span id="_CPPv214slap_BinaryMap6Matrix6Matrix6MatrixPF6sfloat6sfloat6sfloatE"></span><span class="target" id="group__Advanced_1gaff6b4febf512e017a6a93fbb96f7ca31"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_BinaryMap</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span>, <span class="n"><span class="pre">sfloat</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">function</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">sfloat</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">sfloat</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414slap_BinaryMap6Matrix6Matrix6MatrixPF6sfloat6sfloat6sfloatE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Applies a function element-wise to a pair of matrices. </p>
 <p>Given a function pointer <span class="math notranslate nohighlight">\(c = f(x,y)\)</span>, this function applies this operation element-wise, storing the output in C.</p>
 <p>The matrices must all be the same size (but can have different strides).</p>
 <p>The matrices can be aliased.</p>
 <section id="group__Advanced_1autotoc_md2">
 <h2>Example<a class="headerlink" href="#group__Advanced_1autotoc_md2" title="Permalink to this heading"></a></h2>
-<p id="group__Advanced_1autotoc_md2"><div class="highlight-double notranslate"><div class="highlight"><pre><span></span>double binary_op(double x, double y) {
+<p id="group__Advanced_1autotoc_md2"><div class="highlight-sfloat notranslate"><div class="highlight"><pre><span></span>sfloat binary_op(sfloat x, sfloat y) {
   return 2 * x - y * x;
 }
 
@@ -151,7 +151,7 @@ slap_BinaryMap(C, A, B, binary_op);
 <li><p><strong>C</strong> – <strong>[out]</strong> Destination matrix </p></li>
 <li><p><strong>A</strong> – <strong>[in]</strong> Input matrix, provides first arguments to function </p></li>
 <li><p><strong>B</strong> – <strong>[in]</strong> Input matrix, provides second arguments to function </p></li>
-<li><p><strong>function</strong> – A function that takes two doubles and returns a double </p></li>
+<li><p><strong>function</strong> – A function that takes two sfloat and returns a sfloat </p></li>
 </ul>
 </dd>
 </dl>
