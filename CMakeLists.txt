@@ -46,7 +46,7 @@ option(SLAP_BUILD_DOCS "Build documentation for slap." OFF)
 # Code Coverage
 option(SLAP_CODE_COVERAGE "Compile slap with code coverage information." OFF)
 
-# Enable clang-tidy analysis 
+# Enable clang-tidy analysis
 option(SLAP_CLANG_TIDY "Run clang-tidy analyzer on the source code." OFF)
 
 ##############################
@@ -63,7 +63,7 @@ if (SLAP_BUILD_TESTS)
   # Prevent GoogleTest from overriding our compiler/linker options
   # when building with Visual Studio
   set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-  
+
   FetchContent_MakeAvailable(googletest)
   enable_testing()
   include(GoogleTest)
@@ -71,7 +71,7 @@ if (SLAP_BUILD_TESTS)
 endif ()
 
 ##############################
-# Code Coverage 
+# Code Coverage
 ##############################
 if (SLAP_CODE_COVERAGE AND CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
   message(STATUS "Compiling slap with coverage info.")
@@ -89,14 +89,14 @@ if (NOT WIN32)
   add_compile_options(-march=native)
 endif()
 
-# Make all includes relative to src/ directory
+## Make all includes relative to src/ directory
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
 # Build source files
 add_subdirectory(src/slap)
 
 ##############################
-# Testing 
+# Testing
 ##############################
 if (SLAP_BUILD_TESTS)
   enable_testing()
@@ -104,14 +104,14 @@ if (SLAP_BUILD_TESTS)
 endif ()
 
 ##############################
-# Documentation 
+# Documentation
 ##############################
 if (SLAP_BUILD_DOCS)
   add_subdirectory(docs)
 endif ()
 
 ##############################
-# Packaging / Installation 
+# Packaging / Installation
 ##############################
 # add_subdirectory(packaging)
 
@@ -122,3 +122,5 @@ endif ()
 add_executable(getting_started examples/getting_started.c)
 target_link_libraries(getting_started PUBLIC slap::slap)
 add_test(NAME getting_started COMMAND getting_started)
+
+add_subdirectory(examples/FetchContent_Project)
