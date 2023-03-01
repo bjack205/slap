@@ -2,7 +2,7 @@
 #include <math.h>
 #include "slap/slap.h"
 
-double myfun(double x) {
+sfloat myfun(sfloat x) {
   return 2 * x * sin(x);
 }
 
@@ -16,7 +16,7 @@ int main(void) {
   printf("\n~~~~~~~~~~~~~~~ BASIC OPS ~~~~~~~~~~~~~~\n");
 
   // Create a matrix with stack-allocated memory
-  double data_A[12] = {1,2,3, 4,5,6, 7,8,9, 10,11,12};
+  sfloat data_A[12] = {1,2,3, 4,5,6, 7,8,9, 10,11,12};
   Matrix A = slap_MatrixFromArray(3, 4, data_A);
 
   // Get the sizes of the matrix
@@ -26,8 +26,8 @@ int main(void) {
   printf("Size of A = (%d,%d) with %d elements\n", n_rows, n_cols, n_el);
 
   // Get a pointer to an element
-  double *pa = slap_GetElement(A, 0, 0);
-  double a = *slap_GetElement(A, 0, 1);
+  sfloat *pa = slap_GetElement(A, 0, 0);
+  sfloat a = *slap_GetElement(A, 0, 1);
   printf("A[0,0] = %0.3g\n", *pa);
   printf("A[0,1] = %0.3g\n", a);
 
@@ -50,7 +50,7 @@ int main(void) {
   slap_PrintMatrix(A);
 
   // Set the matrix to a constant
-  const double val = 1.2;
+  const sfloat val = 1.2;
   slap_SetConst(A, val);
   printf("\nA: (set const)\n");
   slap_PrintMatrix(A);
@@ -66,7 +66,7 @@ int main(void) {
   slap_PrintMatrix(A);
 
   // Set Diagonal
-  double diag[3] = {1,2,3};
+  sfloat diag[3] = {1,2,3};
   slap_SetDiagonal(A, diag, 3);
   printf("\nA: (Set Diagonal)\n");
   slap_PrintMatrix(A);
@@ -128,7 +128,7 @@ int main(void) {
   printf("\n~~~~~~~~~~~~~~~ COPYING ~~~~~~~~~~~~~~~\n");
 
   // Matrix with heap-allocated memory
-  double *data_B = (double*)malloc(n_el * sizeof(double));
+  sfloat *data_B = (sfloat*)malloc(n_el * sizeof(sfloat));
   Matrix B = slap_MatrixFromArray(4, 3, data_B);
 
   // Copy from transposed array
@@ -141,7 +141,7 @@ int main(void) {
   slap_PrintMatrix(B);
 
   // Copy from array
-  double data_C[4] = {-1,2,-3,4};
+  sfloat data_C[4] = {-1,2,-3,4};
   slap_MatrixCopyFromArray(A_resize, data_C);  // note we're copying to a reshaped version of A
 
   printf("\nA (after array copy):\n");
@@ -188,7 +188,7 @@ int main(void) {
   slap_SetConst(y, 1.5);
 
   // Inner product
-  double dot_xy = slap_InnerProduct(x, y);
+  sfloat dot_xy = slap_InnerProduct(x, y);
   printf("Inner product = %0.3g\n", dot_xy);
 
   // Cross product
@@ -207,7 +207,7 @@ int main(void) {
   printf("Min: %0.2g\n", slap_Min(z));
 
   // Argmax/Argmin
-  double z_max, z_min;
+  sfloat z_max, z_min;
   MatrixIterator it_max = slap_ArgMax(z, &z_max);
   MatrixIterator it_min = slap_ArgMin(z, &z_min);
   printf("ArgMax: %0.2g at linear index, %d, Cartesian index (%d,%d)\n", z_max,
@@ -235,15 +235,15 @@ int main(void) {
   slap_SetConst(C, 1);
 
   // Matrix Multiplication (C = beta * C + alpha * A * B)
-  double alpha = 1.0;
-  double beta = 0.5;
+  sfloat alpha = 1.0;
+  sfloat beta = 0.5;
   slap_MatMulAdd(C, A, slap_Transpose(B), alpha, beta);
   printf("\nC (MatMulAdd)\n");
   slap_PrintMatrix(C);
 
   // Linear Solve w/ Cholesky
-  double data_A2[9];                       // data for PD matrix
-  double data_b[3] = {10.1, -11.2, 12.3};  // rhs vector
+  sfloat data_A2[9];                       // data for PD matrix
+  sfloat data_b[3] = {10.1, -11.2, 12.3};  // rhs vector
   A2 = slap_MatrixFromArray(3, 3, data_A2);
   Matrix b = slap_MatrixFromArray(3, 1, data_b);
 
@@ -287,7 +287,7 @@ int main(void) {
     int lin_index = it.k;
     int row_index = it.i;
     int col_index = it.j;
-    double B_val = B_sub.data[mem_index];
+    sfloat B_val = B_sub.data[mem_index];
     printf("B_sub[%d,%d] = % 4.2f at linear index %d and memory index %d\n", row_index,
            col_index, B_val, lin_index, mem_index);
   }

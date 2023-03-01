@@ -8,8 +8,8 @@
 
 class SubMatrixTest : public ::testing::Test {
  public:
-  double dataA[12];
-  double dataB[12];
+  sfloat dataA[12];
+  sfloat dataB[12];
   Matrix A;
   Matrix B;
  protected:
