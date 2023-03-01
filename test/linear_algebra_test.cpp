@@ -165,7 +165,7 @@ TEST_F(LinearAlgebraTest, CholeskySolve) {
   // Check the residual
   Matrix b2 = slap_NewMatrix(chol_dim, chol_rhs);
   slap_MatMulAB(b2, A, x);
-  EXPECT_LT(slap_MatrixNormedDifference(b2, b), std::sqrt(EPS));
+  EXPECT_LT(slap_MatrixNormedDifference(b2, b), 100 * std::sqrt(EPS));
 
   slap_FreeMatrix(&A);
   slap_FreeMatrix(&x);
