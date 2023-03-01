@@ -10,7 +10,7 @@ function (add_slap_test name)
   target_link_libraries(${TEST_NAME}
     PRIVATE 
     slap
-    gtest_main
+    gtest::gtest
   )
   if (NOT APPLE AND NOT WIN32)
     target_link_libraries(${TEST_NAME} PUBLIC m)
