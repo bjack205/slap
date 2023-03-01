@@ -16,5 +16,5 @@ if (PROJECT_IS_TOP_LEVEL)
 endif()
 
 
-add_executable(fetchcontent_example ../getting_started.c)
-target_link_libraries(fetchcontent_example slap::slap)
+add_executable(fetchcontent_slap_example ../getting_started.c)
+target_link_libraries(fetchcontent_slap_example slap::slap)

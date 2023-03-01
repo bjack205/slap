@@ -7,7 +7,13 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 include(FindCPM.cmake)
 
 if (PROJECT_IS_TOP_LEVEL)
-  CPMAddPackage("gh:bjack205/slap#main")
+  CPMAddPackage(
+    NAME slap
+    GIT_REPOSITORY bjack205/slap
+    VERSION main
+    OPTIONS
+    SLAP_BUILD_TESTS OFF
+  )
 endif()
 
 add_executable(cpm_slap_example ../getting_started.c)
