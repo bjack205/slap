@@ -125,3 +125,5 @@ endif ()
 add_executable(getting_started examples/getting_started.c)
 target_link_libraries(getting_started PUBLIC slap::slap)
 add_test(NAME getting_started COMMAND getting_started)
+
+add_subdirectory(examples/CPM_project)
