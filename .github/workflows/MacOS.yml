@@ -19,6 +19,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        float: [float, double]
         include:
           - os: macos-11
             c_compiler: clang
@@ -33,6 +34,7 @@ jobs:
         cmake -D CMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} \
               -D CMAKE_C_COMPILER=${{ matrix.c_compiler }} \
               -D CMAKE_CXX_COMPILER=${{ matrix.cxx_compiler }} \
+              -D SLAP_FLOAT=${{ matrix.float }} \
               --log-context ..
 
     - name: Build
@@ -40,5 +42,5 @@ jobs:
 
     - name: Test
       working-directory: ${{ github.workspace }}/build
-      run: ctest -C ${{ env.BUILD_TYPE }} .
-      
+      run: ctest -C ${{ env.BUILD_TYPE }} --output-on-failure .
+
