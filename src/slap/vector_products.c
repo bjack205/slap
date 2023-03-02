@@ -32,24 +32,24 @@ sfloat slap_QuadraticForm(const Matrix y, const Matrix A, const Matrix x) {
   enum slap_ErrorCode err;
   err = slap_CheckMatrix(y);
   if (err != SLAP_NO_ERROR) {
-    (void)SLAP_THROW_ERROR(err, "Bad y vector in QuadraticForm");
+    (void)SLAP_ERROR(err, "Bad y vector in QuadraticForm");
     return NAN;
   }
   err = slap_CheckMatrix(x);
   if (err != SLAP_NO_ERROR) {
-    (void)SLAP_THROW_ERROR(err, "Bad x vector in QuadraticForm");
+    (void)SLAP_ERROR(err, "Bad x vector in QuadraticForm");
     return NAN;
   }
   err = slap_CheckMatrix(A);
   if (err != SLAP_NO_ERROR) {
-    (void)SLAP_THROW_ERROR(err, "Bad A matrix in QuadraticForm");
+    (void)SLAP_ERROR(err, "Bad A matrix in QuadraticForm");
     return NAN;
   }
 
   int n = slap_NumRows(A);
   int m = slap_NumCols(A);
   if (slap_NumElements(y) != n || slap_NumElements(x) != m) {
-    (void)SLAP_THROW_ERROR(SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
+    (void)SLAP_ERROR(SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
                            "Dimensions incompatible for QuadraticForm");
     return NAN;
   }
