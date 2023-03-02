@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('matrix__checks_8h_source.html',''); in
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">  {                                                                 \</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">    enum slap_ErrorCode _err_ = slap_CheckMatrix(mat);                \</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">    if (_err_ != SLAP_NO_ERROR)                                       \</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">      return SLAP_THROW_ERROR(_err_, &quot;Matrix failed validity check&quot;</span>); \</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">      return SLAP_ERROR(_err_, &quot;Matrix failed validity check&quot;</span>); \</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  }</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">enum</span> slap_ErrorCode slap_CheckMatrix(<a class="code" href="structMatrix.html">Matrix</a> mat);</div>

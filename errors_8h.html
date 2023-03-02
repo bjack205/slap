@@ -106,18 +106,17 @@ $(document).ready(function(){initNavTree('errors_8h.html',''); initResizable(); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga92639616254ce265a55282b524d6a846"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_ERROR_STRING</b>(error_code, ...)</td></tr>
-<tr class="separator:ga92639616254ce265a55282b524d6a846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad880e416567f4ec714cc145bd994187f"><td class="memItemLeft" align="right" valign="top">
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_COLOR_RED</b>&#160;&#160;&#160;&quot;\x1b[31m&quot;</td></tr>
 <tr class="separator:gad880e416567f4ec714cc145bd994187f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf8d00fd32b33f04f9481e7d1a9216f8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_THROW_ERROR</b>(error_code,  message)</td></tr>
-<tr class="separator:gaf8d00fd32b33f04f9481e7d1a9216f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0557a7853a5a3d20b5f875fc38e2ea31"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_COLOR_NORMAL</b>&#160;&#160;&#160;&quot;\x1b[0m&quot;</td></tr>
+<tr class="separator:ga0557a7853a5a3d20b5f875fc38e2ea31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5fe28c76a71a54d2574733d5998df3e1"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_ERROR</b>(error_code, ...)&#160;&#160;&#160;  slap_PrintError(error_code, __FILE__, __LINE__, __VA_ARGS__)</td></tr>
+<tr class="separator:ga5fe28c76a71a54d2574733d5998df3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9b9f9c563d5c09492f0cbce65314ab9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_ASSERT</b>(condition,  error_code,  return_value, ...)</td></tr>
 <tr class="separator:ga9b9f9c563d5c09492f0cbce65314ab9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaacba356ab4827647e91ec01674341fc9"><td class="memItemLeft" align="right" valign="top">
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_ASSERT_OK</b>(error_code)&#160;&#160;&#160;  SLAP_ASSERT((error_code) == SLAP_NO_ERROR, error_code, EXIT_FAILURE, &quot;Got Bad Return Code&quot;);</td></tr>
-<tr class="separator:gaacba356ab4827647e91ec01674341fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga66d988bd2a0bc69ccaa348ed13ef6812"><td class="memItemLeft" align="right" valign="top">
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_ASSERT_VALID</b>(mat,  return_value, ...)&#160;&#160;&#160;  SLAP_ASSERT(<a class="el" href="group__Basics.html#ga41cd9989b9967fec91e0ac105c3b8e67">slap_IsValid</a>(mat), SLAP_INVALID_MATRIX, return_value, __VA_ARGS__)</td></tr>
 <tr class="separator:ga66d988bd2a0bc69ccaa348ed13ef6812"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +151,18 @@ Functions</h2></td></tr>
 <tr class="memitem:gae3c954f113994598cd6944c5090e1202"><td class="memItemLeft" align="right" valign="top">
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>slap_ErrorString</b> (enum slap_ErrorCode error_code)</td></tr>
 <tr class="separator:gae3c954f113994598cd6944c5090e1202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga435fc557c7ebc66f5fdf1447d53190d9"><td class="memItemLeft" align="right" valign="top">
+enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><b>slap_PrintError</b> (enum slap_ErrorCode error_code, const char *file, int line_number, const char *format,...)</td></tr>
+<tr class="separator:ga435fc557c7ebc66f5fdf1447d53190d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5253dcc0547b9e82a28df10e9624d892"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>slap_SetOutputFile</b> (FILE *file)</td></tr>
+<tr class="separator:ga5253dcc0547b9e82a28df10e9624d892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a49a9ba4c8c95e2ced0e0282d568e0f"><td class="memItemLeft" align="right" valign="top">
+FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>slap_GetOutputFile</b> (void)</td></tr>
+<tr class="separator:ga7a49a9ba4c8c95e2ced0e0282d568e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1671cd1e10c42d9b7238145bab9027dd"><td class="memItemLeft" align="right" valign="top">
+int&#160;</td><td class="memItemRight" valign="bottom"><b>slap_AssertionsEnabled</b> (void)</td></tr>
+<tr class="separator:ga1671cd1e10c42d9b7238145bab9027dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities for the slap error handling system. </p>

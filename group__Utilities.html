@@ -101,18 +101,17 @@ $(document).ready(function(){initNavTree('group__Utilities.html',''); initResiza
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga92639616254ce265a55282b524d6a846"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_ERROR_STRING</b>(error_code, ...)</td></tr>
-<tr class="separator:ga92639616254ce265a55282b524d6a846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad880e416567f4ec714cc145bd994187f"><td class="memItemLeft" align="right" valign="top"><a id="gad880e416567f4ec714cc145bd994187f"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_COLOR_RED</b>&#160;&#160;&#160;&quot;\x1b[31m&quot;</td></tr>
 <tr class="separator:gad880e416567f4ec714cc145bd994187f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf8d00fd32b33f04f9481e7d1a9216f8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_THROW_ERROR</b>(error_code,  message)</td></tr>
-<tr class="separator:gaf8d00fd32b33f04f9481e7d1a9216f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0557a7853a5a3d20b5f875fc38e2ea31"><td class="memItemLeft" align="right" valign="top"><a id="ga0557a7853a5a3d20b5f875fc38e2ea31"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_COLOR_NORMAL</b>&#160;&#160;&#160;&quot;\x1b[0m&quot;</td></tr>
+<tr class="separator:ga0557a7853a5a3d20b5f875fc38e2ea31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5fe28c76a71a54d2574733d5998df3e1"><td class="memItemLeft" align="right" valign="top"><a id="ga5fe28c76a71a54d2574733d5998df3e1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_ERROR</b>(error_code, ...)&#160;&#160;&#160;  slap_PrintError(error_code, __FILE__, __LINE__, __VA_ARGS__)</td></tr>
+<tr class="separator:ga5fe28c76a71a54d2574733d5998df3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9b9f9c563d5c09492f0cbce65314ab9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_ASSERT</b>(condition,  error_code,  return_value, ...)</td></tr>
 <tr class="separator:ga9b9f9c563d5c09492f0cbce65314ab9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaacba356ab4827647e91ec01674341fc9"><td class="memItemLeft" align="right" valign="top"><a id="gaacba356ab4827647e91ec01674341fc9"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_ASSERT_OK</b>(error_code)&#160;&#160;&#160;  SLAP_ASSERT((error_code) == SLAP_NO_ERROR, error_code, EXIT_FAILURE, &quot;Got Bad Return Code&quot;);</td></tr>
-<tr class="separator:gaacba356ab4827647e91ec01674341fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga66d988bd2a0bc69ccaa348ed13ef6812"><td class="memItemLeft" align="right" valign="top"><a id="ga66d988bd2a0bc69ccaa348ed13ef6812"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SLAP_ASSERT_VALID</b>(mat,  return_value, ...)&#160;&#160;&#160;  SLAP_ASSERT(<a class="el" href="group__Basics.html#ga41cd9989b9967fec91e0ac105c3b8e67">slap_IsValid</a>(mat), SLAP_INVALID_MATRIX, return_value, __VA_ARGS__)</td></tr>
 <tr class="separator:ga66d988bd2a0bc69ccaa348ed13ef6812"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,6 +146,18 @@ Functions</h2></td></tr>
 <tr class="memitem:gae3c954f113994598cd6944c5090e1202"><td class="memItemLeft" align="right" valign="top"><a id="gae3c954f113994598cd6944c5090e1202"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>slap_ErrorString</b> (enum slap_ErrorCode error_code)</td></tr>
 <tr class="separator:gae3c954f113994598cd6944c5090e1202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga435fc557c7ebc66f5fdf1447d53190d9"><td class="memItemLeft" align="right" valign="top"><a id="ga435fc557c7ebc66f5fdf1447d53190d9"></a>
+enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><b>slap_PrintError</b> (enum slap_ErrorCode error_code, const char *file, int line_number, const char *format,...)</td></tr>
+<tr class="separator:ga435fc557c7ebc66f5fdf1447d53190d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5253dcc0547b9e82a28df10e9624d892"><td class="memItemLeft" align="right" valign="top"><a id="ga5253dcc0547b9e82a28df10e9624d892"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>slap_SetOutputFile</b> (FILE *file)</td></tr>
+<tr class="separator:ga5253dcc0547b9e82a28df10e9624d892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a49a9ba4c8c95e2ced0e0282d568e0f"><td class="memItemLeft" align="right" valign="top"><a id="ga7a49a9ba4c8c95e2ced0e0282d568e0f"></a>
+FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>slap_GetOutputFile</b> (void)</td></tr>
+<tr class="separator:ga7a49a9ba4c8c95e2ced0e0282d568e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1671cd1e10c42d9b7238145bab9027dd"><td class="memItemLeft" align="right" valign="top"><a id="ga1671cd1e10c42d9b7238145bab9027dd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>slap_AssertionsEnabled</b> (void)</td></tr>
+<tr class="separator:ga1671cd1e10c42d9b7238145bab9027dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -188,7 +199,7 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>slap_ErrorStr
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (!(condition)) {                                         \</div>
-<div class="line">    SLAP_ERROR_STRING(error_code, __VA_ARGS__)                \</div>
+<div class="line">    SLAP_ERROR(error_code, __VA_ARGS__);               \</div>
 <div class="line">    return return_value;                                      \</div>
 <div class="line">  }</div>
 </div><!-- fragment -->
@@ -234,77 +245,10 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>slap_ErrorStr
 <b>Value:</b><div class="fragment"><div class="line">  SLAP_ASSERT(<a class="code" href="group__Basics.html#gab0383430bd19fca031cbf13ed08f9f2d">slap_NumRows</a>(A) == <a class="code" href="group__Basics.html#gab0383430bd19fca031cbf13ed08f9f2d">slap_NumRows</a>(B) &amp;&amp; <a class="code" href="group__Basics.html#ga071d0aa79b77aa923a2216d11b1d5b99">slap_NumCols</a>(A) == <a class="code" href="group__Basics.html#ga071d0aa79b77aa923a2216d11b1d5b99">slap_NumCols</a>(B), \</div>
 <div class="line">              SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, (return_value),                      \</div>
 <div class="line">              <span class="stringliteral">&quot;%s: matrices must be the same size. Got sizes (%d,%d) and (%d,%d)&quot;</span>,      \</div>
-<div class="line">              method_name, <a class="code" href="group__Basics.html#gab0383430bd19fca031cbf13ed08f9f2d">slap_NumRows</a>(A), <a class="code" href="group__Basics.html#ga071d0aa79b77aa923a2216d11b1d5b99">slap_NumCols</a>(A), <a class="code" href="group__Basics.html#gab0383430bd19fca031cbf13ed08f9f2d">slap_NumRows</a>(B), <a class="code" href="group__Basics.html#ga071d0aa79b77aa923a2216d11b1d5b99">slap_NumCols</a>(B))</div>
+<div class="line">              method_name, <a class="code" href="group__Basics.html#gab0383430bd19fca031cbf13ed08f9f2d">slap_NumRows</a>(A), <a class="code" href="group__Basics.html#ga071d0aa79b77aa923a2216d11b1d5b99">slap_NumCols</a>(A), <a class="code" href="group__Basics.html#gab0383430bd19fca031cbf13ed08f9f2d">slap_NumRows</a>(B),           \</div>
+<div class="line">              <a class="code" href="group__Basics.html#ga071d0aa79b77aa923a2216d11b1d5b99">slap_NumCols</a>(B))</div>
 <div class="ttc" id="agroup__Basics_html_ga071d0aa79b77aa923a2216d11b1d5b99"><div class="ttname"><a href="group__Basics.html#ga071d0aa79b77aa923a2216d11b1d5b99">slap_NumCols</a></div><div class="ttdeci">static int slap_NumCols(Matrix mat)</div><div class="ttdoc">Get the number of columns.</div><div class="ttdef"><b>Definition:</b> matrix.h:244</div></div>
 <div class="ttc" id="agroup__Basics_html_gab0383430bd19fca031cbf13ed08f9f2d"><div class="ttname"><a href="group__Basics.html#gab0383430bd19fca031cbf13ed08f9f2d">slap_NumRows</a></div><div class="ttdeci">static int slap_NumRows(Matrix mat)</div><div class="ttdoc">Get the number of rows.</div><div class="ttdef"><b>Definition:</b> matrix.h:233</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ga92639616254ce265a55282b524d6a846"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga92639616254ce265a55282b524d6a846">&#9670;&nbsp;</a></span>SLAP_ERROR_STRING</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SLAP_ERROR_STRING</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">error_code, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  {                                                                        \</div>
-<div class="line">    fprintf(stderr, SLAP_COLOR_RED <span class="stringliteral">&quot;slap Error %d: %s\n&quot;</span>, (<span class="keywordtype">int</span>)error_code, \</div>
-<div class="line">            slap_ErrorString(error_code));                                 \</div>
-<div class="line">    fprintf(stderr, SLAP_COLOR_RED <span class="stringliteral">&quot;              &quot;</span>);                      \</div>
-<div class="line">    fprintf(stderr, SLAP_COLOR_RED __VA_ARGS__);                           \</div>
-<div class="line">    fprintf(stderr, SLAP_COLOR_RED <span class="stringliteral">&quot; (%s:%d)\n&quot;</span>, __FILE__, __LINE__);      \</div>
-<div class="line">  }</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="gaf8d00fd32b33f04f9481e7d1a9216f8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf8d00fd32b33f04f9481e7d1a9216f8d">&#9670;&nbsp;</a></span>SLAP_THROW_ERROR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SLAP_THROW_ERROR</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">error_code, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">message&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  ((fprintf(stderr, SLAP_COLOR_RED <span class="stringliteral">&quot;slap Error %d: %s\n&quot;</span>, (<span class="keywordtype">int</span>)error_code,          \</div>
-<div class="line">            slap_ErrorString(error_code)),                                          \</div>
-<div class="line">    fprintf(stderr, SLAP_COLOR_RED <span class="stringliteral">&quot;              %s (%s:%d)\n&quot;</span>, message, __FILE__, \</div>
-<div class="line">            __LINE__)),                                                             \</div>
-<div class="line">   error_code)</div>
 </div><!-- fragment -->
 </div>
 </div>
