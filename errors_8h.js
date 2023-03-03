@@ -18,7 +18,8 @@ var errors_8h =
       [ "SLAP_MATRIX_NOT_DENSE", "group__Utilities.html#ggad396a8ff5fbaa3083471e2b78daca394a42f105bb5768836ce525525527a87aa8", null ],
       [ "SLAP_CHOLESKY_FAIL", "group__Utilities.html#ggad396a8ff5fbaa3083471e2b78daca394a89796978ab14fee94517eb606dfbd1a2", null ],
       [ "SLAP_INVALID_MATRIX", "group__Utilities.html#ggad396a8ff5fbaa3083471e2b78daca394aaeb6c3b6cd8c5733a6fb9e740415c0db", null ],
-      [ "SLAP_INDEX_OUT_OF_BOUNDS", "group__Utilities.html#ggad396a8ff5fbaa3083471e2b78daca394a795c1fe9b5fb6ac762d613ddffa50e07", null ]
+      [ "SLAP_INDEX_OUT_OF_BOUNDS", "group__Utilities.html#ggad396a8ff5fbaa3083471e2b78daca394a795c1fe9b5fb6ac762d613ddffa50e07", null ],
+      [ "SLAP_EMPTY_MATRIX", "group__Utilities.html#ggad396a8ff5fbaa3083471e2b78daca394a9f0ac0d24d6b03aa23c0247e9419a95f", null ]
     ] ],
     [ "slap_AssertionsEnabled", "group__Utilities.html#ga1671cd1e10c42d9b7238145bab9027dd", null ],
     [ "slap_ErrorString", "group__Utilities.html#gae3c954f113994598cd6944c5090e1202", null ],
