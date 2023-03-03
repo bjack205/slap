@@ -55,6 +55,9 @@ option(SLAP_CLANG_TIDY "Run clang-tidy analyzer on the source code." OFF)
 # Floating point precision
 set(SLAP_FLOAT double CACHE STRING "Floating point precision for slap (float,double).")
 
+# Build examples
+option(SLAP_BUILD_EXAMPLES "Build examples for slap." OFF)
+
 ##############################
 # Dependencies
 ##############################
@@ -67,6 +70,7 @@ if (SLAP_BUILD_TESTS)
       NAME googletest
       GITHUB_REPOSITORY google/googletest
       VERSION 1.13.0
+      DOWNLOAD_EXTRACT_TIMESTAMP
       OPTIONS
       "INSTALL_GTEST OFF"
       "gtest_force_shared_crt ON"
@@ -125,12 +129,16 @@ endif ()
 ##############################
 # Examples
 ##############################
-add_executable(getting_started examples/getting_started.c)
-target_link_libraries(getting_started PUBLIC slap::slap)
-add_test(NAME getting_started COMMAND getting_started)
+if (SLAP_BUILD_EXAMPLES)
+  add_executable(getting_started examples/getting_started.c)
+  target_link_libraries(getting_started PUBLIC slap::slap)
+  add_test(NAME getting_started COMMAND getting_started)
 
-add_subdirectory(examples/CPM_project)
-add_test(NAME fetchcontent_slap_example COMMAND fetchcontent_slap_example)
+  add_subdirectory(examples/CPM_project)
+  add_test(NAME fetchcontent_slap_example COMMAND fetchcontent_slap_example)
 
-add_subdirectory(examples/FetchContent_Project)
-add_test(NAME cpm_slap_example COMMAND cpm_slap_example)
+  add_subdirectory(examples/FetchContent_Project)
+  add_test(NAME cpm_slap_example COMMAND cpm_slap_example)
+
+  add_subdirectory(examples/Eigen_Comparison)
+endif()
