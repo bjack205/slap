@@ -8,7 +8,8 @@
 #include <stdlib.h>
 
 Matrix slap_NewMatrix(int rows, int cols) {
-  sfloat* data = (sfloat*)malloc(rows * cols * sizeof(sfloat));
+  size_t num_el = (size_t)(rows) * (size_t)(cols);
+  sfloat* data = (sfloat*)malloc(num_el * sizeof(sfloat));
   Matrix mat = {.rows = rows,
                 .cols = cols,
                 .sy = rows,
@@ -19,7 +20,8 @@ Matrix slap_NewMatrix(int rows, int cols) {
 }
 
 Matrix slap_NewMatrixZeros(int rows, int cols) {
-  sfloat* data = (sfloat*)calloc(rows * cols, sizeof(sfloat));
+  size_t num_el = (size_t)(rows) * (size_t)(cols);
+  sfloat* data = (sfloat*)calloc(num_el, sizeof(sfloat));
   Matrix mat = {.rows = rows,
                 .cols = cols,
                 .sy = rows,

@@ -4,8 +4,10 @@
 //
 
 #include "matmul.h"
-enum slap_ErrorCode slap_MatMulAdd(Matrix C, Matrix A, Matrix B, sfloat alpha,
-                                   sfloat beta) {
+
+enum slap_ErrorCode slap_MatMulAdd(
+    Matrix C, Matrix A, Matrix B, sfloat alpha,
+    sfloat beta) {
   SLAP_ASSERT_VALID(C, SLAP_INVALID_MATRIX, "MatMulAdd: invalid C matrix");
   SLAP_ASSERT_VALID(A, SLAP_INVALID_MATRIX, "MatMulAdd: invalid A matrix");
   SLAP_ASSERT_VALID(B, SLAP_INVALID_MATRIX, "MatMulAdd: invalid B matrix");

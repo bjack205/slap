@@ -60,9 +60,13 @@ enum slap_ErrorCode slap_SetRange(Matrix mat, sfloat start, sfloat stop) {
   SLAP_CHECK_MATRIX(mat);
   sfloat range = stop - start;
   int num_el = slap_NumElements(mat) - 1;
+  if (num_el == 0) {
+    return SLAP_NO_ERROR;
+  }
+
   sfloat step = range / (sfloat)num_el;
-  int k = 0;
   sfloat val = 0;
+  int k = 0;
   for (int j = 0; j < slap_NumCols(mat); ++j) {
     for (int i = 0; i < slap_NumRows(mat); ++i) {
       val = start + step * k;

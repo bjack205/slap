@@ -94,7 +94,7 @@ TEST_F(LinearAlgebraTest, MatMul_AtB) {
 TEST_F(LinearAlgebraTest, CholeskyFactorization) {
   enum slap_ErrorCode err;
   int n = chol_dim;
-  A = slap_NewMatrix(n, n);
+  A = slap_NewMatrixZeros(n, n);
 
   // Create a positive-definite matrix
   slap_MatMulAdd(A, slap_Transpose(A1), A1, 1e-4, 0.0);
@@ -148,7 +148,7 @@ TEST_F(LinearAlgebraTest, CholeskySolve) {
   // Factorize a PSD matrix
   enum slap_ErrorCode err;
   int n = chol_dim;
-  A = slap_NewMatrix(n, n);
+  A = slap_NewMatrixZeros(n, n);
   slap_MatMulAdd(A, slap_Transpose(A1), A1, 1e-4, 0.0);
   slap_AddIdentity(A, 1.0);
   slap_MatrixCopy(Achol, A);
@@ -156,14 +156,14 @@ TEST_F(LinearAlgebraTest, CholeskySolve) {
   EXPECT_EQ(err, SLAP_NO_ERROR);
 
   // Solve the system using the factorization
-  Matrix x = slap_NewMatrix(chol_dim, chol_rhs);
+  Matrix x = slap_NewMatrixZeros(chol_dim, chol_rhs);
   slap_MatrixCopy(x, b);
   slap_CholeskySolve(Achol, x);
   slap_PrintMatrix(x);
   EXPECT_LT(slap_MatrixNormedDifference(x, x_ans), std::sqrt(EPS));
 
   // Check the residual
-  Matrix b2 = slap_NewMatrix(chol_dim, chol_rhs);
+  Matrix b2 = slap_NewMatrixZeros(chol_dim, chol_rhs);
   slap_MatMulAB(b2, A, x);
   EXPECT_LT(slap_MatrixNormedDifference(b2, b), 100 * std::sqrt(EPS));
 
@@ -325,6 +325,8 @@ TEST_F(QRDecompTest, QRDecomp_LeastSquares) {
   slap_TriSolve(R_, x);
   sfloat err = slap_MatrixNormedDifference(x, x_ans);
   EXPECT_LT(err, std::sqrt(EPS));
+
+  slap_FreeMatrix(&Qtb);
 }
 
 TEST_F(QRDecompTest, QRDecomp_LeastSquaresFunction) {

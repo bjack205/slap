@@ -58,6 +58,9 @@ set(SLAP_FLOAT double CACHE STRING "Floating point precision for slap (float,dou
 # Build examples
 option(SLAP_BUILD_EXAMPLES "Build examples for slap." OFF)
 
+# Build with -march=native
+option(SLAP_VECTORIZE "Compile with -march=native" OFF)
+
 ##############################
 # Dependencies
 ##############################
@@ -97,7 +100,9 @@ endif ()
 # Add compile options
 if (NOT WIN32)
   add_compile_options(-Wall -Wextra -pedantic -Werror -Wno-error=unknown-pragmas)
-  add_compile_options(-march=native)
+  if (SLAP_VECTORIZE)
+    add_compile_options(-march=native)
+  endif()
 endif()
 
 ## Make all includes relative to src/ directory

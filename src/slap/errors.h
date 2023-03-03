@@ -24,6 +24,7 @@ enum slap_ErrorCode {
   SLAP_CHOLESKY_FAIL,
   SLAP_INVALID_MATRIX,
   SLAP_INDEX_OUT_OF_BOUNDS,
+  SLAP_EMPTY_MATRIX,
 };
 
 const char* slap_ErrorString(enum slap_ErrorCode error_code);

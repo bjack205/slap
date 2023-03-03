@@ -42,6 +42,9 @@ const char* slap_ErrorString(enum slap_ErrorCode error_code) {
     case SLAP_INDEX_OUT_OF_BOUNDS:
       msg = "Indexing operation out of bounds";
       break;
+    case SLAP_EMPTY_MATRIX:
+      msg = "Matrix has size of zero";
+      break;
     default:
       msg = "Unknown error type";
   }
@@ -78,17 +81,31 @@ enum slap_ErrorCode slap_PrintError(enum slap_ErrorCode error_code, const char* 
   if (slap_OUTPUT_FILE == NULL) {
     slap_OUTPUT_FILE = stderr;
   }
+  int bytes = 0;
   if (slap_OUTPUT_FILE == stderr) {
-    fprintf(slap_OUTPUT_FILE, SLAP_COLOR_RED);
+    bytes = fprintf(slap_OUTPUT_FILE, SLAP_COLOR_RED);
   }
-  fprintf(slap_OUTPUT_FILE, "slap Error %d: %s\n", (int)error_code,
+  if (bytes < 0) { goto FINISH; }
+
+  bytes = fprintf(slap_OUTPUT_FILE, "slap Error %d: %s\n", (int)error_code,
           slap_ErrorString(error_code));
-  fprintf(slap_OUTPUT_FILE, "               ");
-  vfprintf(slap_OUTPUT_FILE, format, args);
+  if (bytes < 0) { goto FINISH; }
+
+  bytes = fprintf(slap_OUTPUT_FILE, "               ");
+  if (bytes < 0) { goto FINISH; }
+
+  bytes = vfprintf(slap_OUTPUT_FILE, format, args);
+  if (bytes < 0) { goto FINISH; }
+
   if (slap_OUTPUT_FILE == stderr) {
-    fprintf(slap_OUTPUT_FILE, SLAP_COLOR_NORMAL);
+    bytes = fprintf(slap_OUTPUT_FILE, SLAP_COLOR_NORMAL);
   }
-  fprintf(slap_OUTPUT_FILE, " (%s:%d)\n", file, line_number);
+  if (bytes < 0) { goto FINISH; }
+
+  bytes = fprintf(slap_OUTPUT_FILE, " (%s:%d)\n", file, line_number);
+  if (bytes < 0) { goto FINISH; }
+
+FINISH:
   va_end(args);
   return error_code;
 }
