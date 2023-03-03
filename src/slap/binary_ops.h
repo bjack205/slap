@@ -19,7 +19,7 @@
  * @param B A matrix of dimension (m,n)
  * @return NAN if input is invalid, normed difference otherwise
  */
-sfloat slap_MatrixNormedDifference(Matrix A, Matrix B);
+sfloat slap_NormedDifference(Matrix A, Matrix B);
 
 /**
  * @brief Add two matrices, with scaling

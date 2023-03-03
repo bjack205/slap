@@ -69,11 +69,11 @@ TEST_F(LinearAlgebraTest, MatMul_AB) {
   Matrix C_ans = slap_MatrixFromArray(3, 5, dataC_ans);
   err = slap_MatMulAdd(C, A, B, 1.0, 0.0);
   EXPECT_EQ(err, SLAP_NO_ERROR);
-  EXPECT_LT(slap_MatrixNormedDifference(C, C_ans), std::sqrt(EPS));
+  EXPECT_LT(slap_NormedDifference(C, C_ans), std::sqrt(EPS));
 
   slap_SetConst(C, 0);
   slap_MatMulAB(C, A, B);
-  EXPECT_LT(slap_MatrixNormedDifference(C, C_ans), std::sqrt(EPS));
+  EXPECT_LT(slap_NormedDifference(C, C_ans), std::sqrt(EPS));
 }
 
 TEST_F(LinearAlgebraTest, MatMul_AtB) {
@@ -84,11 +84,11 @@ TEST_F(LinearAlgebraTest, MatMul_AtB) {
   Matrix B_ans = slap_MatrixFromArray(4, 5, dataB_ans);
   err = slap_MatMulAdd(B, slap_Transpose(A), C, 1.0, 0);
   EXPECT_EQ(err, SLAP_NO_ERROR);
-  EXPECT_LT(slap_MatrixNormedDifference(B, B_ans), std::sqrt(EPS));
+  EXPECT_LT(slap_NormedDifference(B, B_ans), std::sqrt(EPS));
 
   slap_SetConst(B, 0);
   slap_MatMulAtB(B, A, C);
-  EXPECT_LT(slap_MatrixNormedDifference(B, B_ans), std::sqrt(EPS));
+  EXPECT_LT(slap_NormedDifference(B, B_ans), std::sqrt(EPS));
 }
 
 TEST_F(LinearAlgebraTest, CholeskyFactorization) {
@@ -99,21 +99,21 @@ TEST_F(LinearAlgebraTest, CholeskyFactorization) {
   // Create a positive-definite matrix
   slap_MatMulAdd(A, slap_Transpose(A1), A1, 1e-4, 0.0);
   slap_AddIdentity(A, 1.0);
-  slap_MatrixCopy(Achol, A);
+  slap_Copy(Achol, A);
 
   // Cholesky factorization
   err = slap_Cholesky(Achol);
 
   // Check the answer
   Matrix L_ans = slap_MatrixFromArray(n, n, data_chol_ans);
-  sfloat error = slap_MatrixNormedDifference(Achol, L_ans);
+  sfloat error = slap_NormedDifference(Achol, L_ans);
   EXPECT_LT(error, std::sqrt(EPS));
   EXPECT_EQ(err, SLAP_NO_ERROR);
 
   // Try to factorize an indefinite matrix
   slap_MatMulAdd(A, slap_Transpose(A1), A1, 1.0, 0.0);
   slap_AddIdentity(A, -1.0);
-  slap_MatrixCopy(Achol, A);
+  slap_Copy(Achol, A);
   err = slap_Cholesky(Achol);
   EXPECT_EQ(err, SLAP_CHOLESKY_FAIL);
 
@@ -135,11 +135,11 @@ TEST_F(LinearAlgebraTest, TriBackSub) {
 
   err = slap_TriSolve(L, b);
   EXPECT_EQ(err, SLAP_NO_ERROR);
-  EXPECT_LT(slap_MatrixNormedDifference(b, y), std::sqrt(EPS));
+  EXPECT_LT(slap_NormedDifference(b, y), std::sqrt(EPS));
 
   err = slap_TriSolve(slap_Transpose(L), y);
   EXPECT_EQ(err, SLAP_NO_ERROR);
-  EXPECT_LT(slap_MatrixNormedDifference(x, y), std::sqrt(EPS));
+  EXPECT_LT(slap_NormedDifference(x, y), std::sqrt(EPS));
   (void)x;
 }
 
@@ -151,21 +151,21 @@ TEST_F(LinearAlgebraTest, CholeskySolve) {
   A = slap_NewMatrixZeros(n, n);
   slap_MatMulAdd(A, slap_Transpose(A1), A1, 1e-4, 0.0);
   slap_AddIdentity(A, 1.0);
-  slap_MatrixCopy(Achol, A);
+  slap_Copy(Achol, A);
   err = slap_Cholesky(Achol);
   EXPECT_EQ(err, SLAP_NO_ERROR);
 
   // Solve the system using the factorization
   Matrix x = slap_NewMatrixZeros(chol_dim, chol_rhs);
-  slap_MatrixCopy(x, b);
+  slap_Copy(x, b);
   slap_CholeskySolve(Achol, x);
   slap_PrintMatrix(x);
-  EXPECT_LT(slap_MatrixNormedDifference(x, x_ans), std::sqrt(EPS));
+  EXPECT_LT(slap_NormedDifference(x, x_ans), std::sqrt(EPS));
 
   // Check the residual
   Matrix b2 = slap_NewMatrixZeros(chol_dim, chol_rhs);
   slap_MatMulAB(b2, A, x);
-  EXPECT_LT(slap_MatrixNormedDifference(b2, b), 100 * std::sqrt(EPS));
+  EXPECT_LT(slap_NormedDifference(b2, b), 100 * std::sqrt(EPS));
 
   slap_FreeMatrix(&A);
   slap_FreeMatrix(&x);
@@ -243,7 +243,7 @@ class QRDecompTest : public ::testing::Test {
 };
 
 TEST_F(QRDecompTest, QRDecomp_Square) {
-  slap_MatrixCopy(R1, A1);
+  slap_Copy(R1, A1);
   slap_QR(R1, beta1, temp1);
   Matrix Q = slap_NewMatrix(m1, m1);
   Matrix Q_work = slap_NewMatrix(m1, m1);
@@ -255,7 +255,7 @@ TEST_F(QRDecompTest, QRDecomp_Square) {
 
   // Check Q orthogonality (Q'Q = I)
   slap_MatMulAtB(Q_work, Q, Q);
-  sfloat diff = slap_MatrixNormedDifference(Q_work, I_m);
+  sfloat diff = slap_NormedDifference(Q_work, I_m);
   EXPECT_LT(diff, std::sqrt(EPS));
 
   // Check decomposition (Q * R = A)
@@ -265,7 +265,7 @@ TEST_F(QRDecompTest, QRDecomp_Square) {
     }
   }
   slap_MatMulAB(QR, Q, R1);
-  diff = slap_MatrixNormedDifference(QR, A1);
+  diff = slap_NormedDifference(QR, A1);
   EXPECT_LT(diff, std::sqrt(EPS));
 
   // Clean up temporaries
@@ -276,7 +276,7 @@ TEST_F(QRDecompTest, QRDecomp_Square) {
 }
 
 TEST_F(QRDecompTest, QRDecomp_Skinny) {
-  slap_MatrixCopy(R2, A2);
+  slap_Copy(R2, A2);
   slap_QR(R2, beta2, temp2);
   Matrix Q = slap_NewMatrix(m2, m2);
   Matrix Q_work = slap_NewMatrix(m2, m2);
@@ -288,7 +288,7 @@ TEST_F(QRDecompTest, QRDecomp_Skinny) {
 
   // Check Q orthogonality (Q'Q = I)
   slap_MatMulAtB(Q_work, Q, Q);
-  sfloat diff = slap_MatrixNormedDifference(Q_work, I_m);
+  sfloat diff = slap_NormedDifference(Q_work, I_m);
   EXPECT_LT(diff, std::sqrt(EPS));
 
   // Check decomposition (Q * R = A)
@@ -298,7 +298,7 @@ TEST_F(QRDecompTest, QRDecomp_Skinny) {
     }
   }
   slap_MatMulAB(QR, Q, R2);
-  diff = slap_MatrixNormedDifference(QR, A2);
+  diff = slap_NormedDifference(QR, A2);
   EXPECT_LT(diff, std::sqrt(EPS));
 
   // Clean up temporaries
@@ -310,20 +310,20 @@ TEST_F(QRDecompTest, QRDecomp_Skinny) {
 
 TEST_F(QRDecompTest, QRDecomp_LeastSquares) {
   // Compute QR decomp
-  slap_MatrixCopy(R2, A2);
+  slap_Copy(R2, A2);
   R2 = slap_TriUpper(R2);
   slap_QR(R2, beta2, temp2);
 
   // Get Q'b
   Matrix Qtb = slap_NewMatrix(m2, 1);
-  slap_MatrixCopy(Qtb, b);
+  slap_Copy(Qtb, b);
   slap_Qtb(R2, beta2, Qtb);
 
   // Triangular solve
   Matrix R_ = slap_CreateSubMatrix(R2, 0, 0, n2, n2);
   Matrix x = slap_CreateSubMatrix(Qtb, 0, 0, n2, 1);
   slap_TriSolve(R_, x);
-  sfloat err = slap_MatrixNormedDifference(x, x_ans);
+  sfloat err = slap_NormedDifference(x, x_ans);
   EXPECT_LT(err, std::sqrt(EPS));
 
   slap_FreeMatrix(&Qtb);
@@ -332,6 +332,6 @@ TEST_F(QRDecompTest, QRDecomp_LeastSquares) {
 TEST_F(QRDecompTest, QRDecomp_LeastSquaresFunction) {
   slap_LeastSquares(A2, b, beta2, temp2);
   Matrix x = slap_CreateSubMatrix(b, 0, 0, n2, 1);
-  sfloat err = slap_MatrixNormedDifference(x, x_ans);
+  sfloat err = slap_NormedDifference(x, x_ans);
   EXPECT_LT(err, std::sqrt(EPS));
 }

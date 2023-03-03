@@ -8,7 +8,7 @@
 #include "iterator.h"
 #include "matrix_checks.h"
 
-enum slap_ErrorCode slap_MatrixCopy(Matrix dest, const Matrix src) {
+enum slap_ErrorCode slap_Copy(Matrix dest, Matrix src) {
   SLAP_ASSERT_VALID(dest, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
                     "MatrixCopy: invalid destination matrix");
   SLAP_ASSERT_VALID(src, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
@@ -25,7 +25,7 @@ enum slap_ErrorCode slap_MatrixCopy(Matrix dest, const Matrix src) {
   return SLAP_NO_ERROR;
 }
 
-enum slap_ErrorCode slap_MatrixCopyTranspose(Matrix dest, const Matrix src) {
+enum slap_ErrorCode slap_CopyTranspose(Matrix dest, Matrix src) {
   SLAP_CHECK_MATRIX(dest);
   SLAP_CHECK_MATRIX(src);
   if ((slap_NumRows(dest) != slap_NumCols((src))) ||
@@ -45,7 +45,7 @@ enum slap_ErrorCode slap_MatrixCopyTranspose(Matrix dest, const Matrix src) {
   return SLAP_NO_ERROR;
 }
 
-enum slap_ErrorCode slap_MatrixCopyFromArray(Matrix mat, const sfloat* data) {
+enum slap_ErrorCode slap_CopyFromArray(Matrix mat, const sfloat* data) {
   SLAP_ASSERT_VALID(mat, SLAP_INVALID_MATRIX, "CopyFromArray: invalid matrix");
   SLAP_ASSERT(data != NULL, SLAP_BAD_POINTER, SLAP_BAD_POINTER,
               "CopyFromArray: Can't copy from raw array, pointer is NULL");

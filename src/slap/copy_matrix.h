@@ -22,7 +22,7 @@
  * @param src a matrix of size (n,m)
  * @return slap error code
  */
-enum slap_ErrorCode slap_MatrixCopy(Matrix dest, Matrix src);
+enum slap_ErrorCode slap_Copy(Matrix dest, Matrix src);
 
 /**
  * @brief Copy a matrix to another matrix, transposed
@@ -31,7 +31,7 @@ enum slap_ErrorCode slap_MatrixCopy(Matrix dest, Matrix src);
  * @param src a matrix of size (n,m)
  * @return slap error code
  */
-enum slap_ErrorCode slap_MatrixCopyTranspose(Matrix dest, Matrix src);
+enum slap_ErrorCode slap_CopyTranspose(Matrix dest, Matrix src);
 
 /**
  * @brief Copy the data from an array into the matrix
@@ -46,4 +46,4 @@ enum slap_ErrorCode slap_MatrixCopyTranspose(Matrix dest, Matrix src);
  * @param data Data to be copied into the array. Must have length of at least mat.rows * * mat.cols.
  * @return slap error code
  */
-enum slap_ErrorCode slap_MatrixCopyFromArray(Matrix mat, const sfloat* data);
+enum slap_ErrorCode slap_CopyFromArray(Matrix mat, const sfloat* data);

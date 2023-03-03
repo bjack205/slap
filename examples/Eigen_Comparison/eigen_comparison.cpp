@@ -109,14 +109,14 @@ int main() {
     Matrix B_slap = slap_NewMatrix(n, p);
     Matrix C0_slap = slap_NewMatrix(m, p);
     Matrix C_slap = slap_NewMatrix(m, p);
-    slap_MatrixCopyFromArray(A_slap, A_eig.data());
-    slap_MatrixCopyFromArray(B_slap, B_eig.data());
-    slap_MatrixCopyFromArray(C0_slap, C0_eig.data());
+    slap_CopyFromArray(A_slap, A_eig.data());
+    slap_CopyFromArray(B_slap, B_eig.data());
+    slap_CopyFromArray(C0_slap, C0_eig.data());
 
     int n_runs = 100;
     micros<double> t_slap = benchmark(
         [&]() {
-          slap_MatrixCopy(C_slap, C0_slap);
+          slap_Copy(C_slap, C0_slap);
           slap_MatMulAdd(C_slap, A_slap, B_slap, 1.2, 2.4);
         },
         n_runs);
@@ -146,13 +146,13 @@ int main() {
     Matrix A_slap = slap_NewMatrix(n, n);
     Matrix b_slap = slap_NewMatrix(n, 1);
     Matrix x_slap = slap_NewMatrix(n, 1);
-    slap_MatrixCopyFromArray(A0_slap, A_eig.data());
-    slap_MatrixCopyFromArray(b_slap, b_eig.data());
+    slap_CopyFromArray(A0_slap, A_eig.data());
+    slap_CopyFromArray(b_slap, b_eig.data());
 
     int n_runs = 100;
     micros<double> t_slap = benchmark(
         [&]() {
-          slap_MatrixCopy(A_slap, A0_slap);
+          slap_Copy(A_slap, A0_slap);
           slap_Cholesky(A_slap);
         },
         n_runs);
@@ -163,14 +163,14 @@ int main() {
         },
         n_runs);
 
-    slap_MatrixCopy(A_slap, A0_slap);
+    slap_Copy(A_slap, A0_slap);
     slap_Cholesky(A_slap);
     A_eig = A0_eig;
     Eigen::LLT<MatrixXd> A_chol = A_eig.llt();
 
     micros<double> t_slap_solve = benchmark(
         [&]() {
-          slap_MatrixCopy(x_slap, b_slap);
+          slap_Copy(x_slap, b_slap);
           slap_CholeskySolve(A_slap, x_slap);
         },
         n_runs);
@@ -197,12 +197,12 @@ int main() {
     Matrix A_slap = slap_NewMatrix(n, n);
     Matrix betas = slap_NewMatrix(m, 1);
     Matrix temp = slap_NewMatrix(m, 1);
-    slap_MatrixCopyFromArray(A0_slap, A_eig.data());
+    slap_CopyFromArray(A0_slap, A_eig.data());
 
     int n_runs = 100;
     micros<double> t_slap = benchmark(
         [&]() {
-          slap_MatrixCopy(A_slap, A0_slap);
+          slap_Copy(A_slap, A0_slap);
           slap_QR(A_slap, betas, temp);
         },
         n_runs);
@@ -213,7 +213,7 @@ int main() {
         },
         n_runs);
 
-    slap_MatrixCopy(A_slap, A0_slap);
+    slap_Copy(A_slap, A0_slap);
     slap_Cholesky(A_slap);
     A_eig = A0_eig;
     Eigen::LLT<MatrixXd> A_chol = A_eig.llt();
