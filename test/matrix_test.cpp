@@ -428,6 +428,10 @@ TEST(MatrixUnaryOps, SetRange) {
   sfloat step2 = *slap_GetElement(A, 0, 1) - *slap_GetElement(A, 1, 0);
   EXPECT_DOUBLE_EQ(step1, step2);
   slap_PrintMatrix(A);
+
+  Matrix B = slap_MatrixFromArray(2, 0, data);
+  enum slap_ErrorCode err = slap_SetRange(B, 1.5, 2);  // NOLINT
+  EXPECT_EQ(err, SLAP_EMPTY_MATRIX);
 }
 
 TEST(MatrixBinaryOps, NormedDiff) {

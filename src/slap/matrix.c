@@ -1,11 +1,11 @@
 #include "matrix.h"
 
-Matrix slap_MatrixFromArray(int rows, int cols, sfloat* data) {
+Matrix slap_MatrixFromArray(int rows, int cols, sfloat* data) {  // NOLINT(readability-non-const-parameter)
   Matrix mat = {rows, cols, rows, 0, data, slap_DENSE};
   return mat;
 }
 
-void slap_Linear2Cart(Matrix mat, int k, int* row, int* col) {
+void slap_Linear2Cart(Matrix mat, int k, int* row, int* col) {  // NOLINT(bugprone-easily-swappable-parameters)
   int rows = slap_NumRows(mat);
   *row = k % rows;
   *col = k / rows;

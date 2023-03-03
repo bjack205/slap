@@ -22,9 +22,9 @@ sfloat slap_InnerProduct(const Matrix x, const Matrix y) {
   return dot;
 }
 
-sfloat slap_QuadraticForm(const Matrix y, const Matrix A, const Matrix x) {
+sfloat slap_QuadraticForm(const Matrix y, const Matrix Q, const Matrix x) {
   SLAP_ASSERT_VALID(y, NAN, "QuadraticForm: y vector not valid");
-  SLAP_ASSERT_VALID(A, NAN, "QuadraticForm: A matrix not valid");
+  SLAP_ASSERT_VALID(Q, NAN, "QuadraticForm: Q matrix not valid");
   SLAP_ASSERT_VALID(x, NAN, "QuadraticForm: x vector not valid");
   SLAP_ASSERT_DENSE(y, NAN, "QuadraticForm: y matrix must be dense");
   SLAP_ASSERT_DENSE(x, NAN, "QuadraticForm: x matrix must be dense");
@@ -40,14 +40,14 @@ sfloat slap_QuadraticForm(const Matrix y, const Matrix A, const Matrix x) {
     (void)SLAP_ERROR(err, "Bad x vector in QuadraticForm");
     return NAN;
   }
-  err = slap_CheckMatrix(A);
+  err = slap_CheckMatrix(Q);
   if (err != SLAP_NO_ERROR) {
-    (void)SLAP_ERROR(err, "Bad A matrix in QuadraticForm");
+    (void)SLAP_ERROR(err, "Bad Q matrix in QuadraticForm");
     return NAN;
   }
 
-  int n = slap_NumRows(A);
-  int m = slap_NumCols(A);
+  int n = slap_NumRows(Q);
+  int m = slap_NumCols(Q);
   if (slap_NumElements(y) != n || slap_NumElements(x) != m) {
     (void)SLAP_ERROR(SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
                            "Dimensions incompatible for QuadraticForm");
@@ -58,7 +58,7 @@ sfloat slap_QuadraticForm(const Matrix y, const Matrix A, const Matrix x) {
     for (int i = 0; i < n; ++i) {
       sfloat xj = x.data[j];
       sfloat yi = y.data[i];
-      sfloat Aij = *slap_GetElementConst(A, i, j);
+      sfloat Aij = *slap_GetElementConst(Q, i, j);
       out += yi * Aij * xj;
     }
   }

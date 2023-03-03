@@ -20,7 +20,7 @@ MatrixIterator slap_ArgMax(Matrix mat, sfloat* max_value) {
       max_index = it;
     }
   }
-  if (max_value) *max_value = value;
+  if (max_value) { *max_value = value; }
   return max_index;
 }
 
@@ -41,7 +41,7 @@ MatrixIterator slap_ArgMin(Matrix mat, sfloat* min_value) {
       min_index = it;
     }
   }
-  if (min_value) *min_value = value;
+  if (min_value) { *min_value = value; }
   return min_index;
 }
 

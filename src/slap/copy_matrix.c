@@ -30,11 +30,9 @@ enum slap_ErrorCode slap_MatrixCopyTranspose(Matrix dest, const Matrix src) {
   SLAP_CHECK_MATRIX(src);
   if ((slap_NumRows(dest) != slap_NumCols((src))) ||
       (slap_NumCols(dest) != slap_NumRows(src))) {
-    char msg[120];
-    sprintf(msg,
-            "Matrix sizes are not transposes of each other. Got (%d,%d) and (%d,%d).\n",
-            slap_NumRows(src), slap_NumCols(src), slap_NumRows(dest), slap_NumCols(dest));
-    return SLAP_ERROR(SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, msg);
+    return SLAP_ERROR(SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
+               "Matrix sizes are not transposes of each other. Got (%d,%d) and (%d,%d).\n",
+               slap_NumRows(src), slap_NumCols(src), slap_NumRows(dest), slap_NumCols(dest));
   }
 
   for (int i = 0; i < slap_NumRows(dest); ++i) {

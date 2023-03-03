@@ -65,8 +65,12 @@ enum slap_ErrorCode slap_CholeskySolve(const Matrix A, Matrix b) {
   // NOTE: Validity checks are done by the sub-methods
   enum slap_ErrorCode err;
   err = slap_TriSolve(A, b);
-  if (err != SLAP_NO_ERROR) return err;
+  if (err != SLAP_NO_ERROR) {
+    return err;
+  }
   err = slap_TriSolve(slap_Transpose(A), b);
-  if (err != SLAP_NO_ERROR) return err;
+  if (err != SLAP_NO_ERROR) {
+    return err;
+  }
   return SLAP_NO_ERROR;
 }
