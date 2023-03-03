@@ -34,7 +34,7 @@ enum slap_ErrorCode slap_MatrixCopyTranspose(Matrix dest, const Matrix src) {
     sprintf(msg,
             "Matrix sizes are not transposes of each other. Got (%d,%d) and (%d,%d).\n",
             slap_NumRows(src), slap_NumCols(src), slap_NumRows(dest), slap_NumCols(dest));
-    return SLAP_THROW_ERROR(SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, msg);
+    return SLAP_ERROR(SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS, msg);
   }
 
   for (int i = 0; i < slap_NumRows(dest); ++i) {

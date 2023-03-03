@@ -211,12 +211,14 @@ TEST(MatrixAssignments, CopyBadSize) {
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
   Matrix B = slap_MatrixFromArray(3, 2, dataB);
   err = slap_MatrixCopy(B, A);
-  EXPECT_EQ(err, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS);
-
-  // Data shouldn't be changed
-  for (int i = 0; i < 6; ++i) {
-    EXPECT_DOUBLE_EQ(dataB[i], 0);
+  if (slap_AssertionsEnabled()) {
+    EXPECT_EQ(err, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS);
+    // Data shouldn't be changed
+    for (int i = 0; i < 6; ++i) {
+      EXPECT_DOUBLE_EQ(dataB[i], 0);
+    }
   }
+
 }
 
 TEST(MatrixAssignments, CopyTranspose) {
@@ -277,10 +279,12 @@ TEST(MatrixAssignments, CopyFromArray_BadPointer) {
   sfloat dataA[6] = {1, 2, 3, 4, 5, 6};
   sfloat* data = NULL;
   Matrix A = slap_MatrixFromArray(2, 3, dataA);
-  err = slap_MatrixCopyFromArray(A, data);
-  EXPECT_EQ(err, SLAP_BAD_POINTER);
-  for (int i = 0; i < 6; ++i) {
-    EXPECT_DOUBLE_EQ(dataA[i], i + 1);
+  if (slap_AssertionsEnabled()) {
+    err = slap_MatrixCopyFromArray(A, data);
+    EXPECT_EQ(err, SLAP_BAD_POINTER);
+    for (int i = 0; i < 6; ++i) {
+      EXPECT_DOUBLE_EQ(dataA[i], i + 1);
+    }
   }
 }
 

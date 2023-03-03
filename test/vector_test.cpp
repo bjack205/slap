@@ -119,7 +119,9 @@ TEST_F(VectorTests, CrossProduct_OutputTooShort) {
   enum slap_ErrorCode err;
   Matrix z = slap_NewMatrix(2, 1);
   err = slap_CrossProduct(z, x, y);
-  EXPECT_EQ(err, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS);
+  if (slap_AssertionsEnabled()) {
+    EXPECT_EQ(err, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS);
+  }
   slap_FreeMatrix(&z);
 }
 
