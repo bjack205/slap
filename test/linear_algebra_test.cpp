@@ -172,6 +172,26 @@ TEST_F(LinearAlgebraTest, CholeskySolve) {
   slap_FreeMatrix(&b2);
 }
 
+TEST_F(LinearAlgebraTest, CholeskySolve_Bad) {
+  // Factorize a PSD matrix
+  enum slap_ErrorCode err;
+  int n = chol_dim;
+  A = slap_NewMatrixZeros(n, n);
+  slap_MatMulAdd(A, slap_Transpose(A1), A1, 1e-4, 0.0);
+  slap_AddIdentity(A, -10.0);
+  slap_MatrixCopy(Achol, A);
+  err = slap_Cholesky(Achol);
+  EXPECT_EQ(err, SLAP_CHOLESKY_FAIL);
+
+  // Solve the system using the factorization
+  Matrix x = slap_NewMatrixZeros(chol_dim + 1, chol_rhs);
+  err = slap_CholeskySolve(Achol, x);
+  EXPECT_EQ(err, SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS);
+
+  slap_FreeMatrix(&A);
+  slap_FreeMatrix(&x);
+}
+
 class QRDecompTest : public ::testing::Test {
  public:
   static constexpr int m1 = 5;
