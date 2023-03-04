@@ -86,13 +86,13 @@ The following example shows the basic flow for solving a linear system using Cho
 
     // Solve linear system
     Matrix x = slap_NewMatrix(3, 1);
-    slap_MatrixCopy(x, b);       // copy rhs vector to solution
+    slap_Copy(x, b);       // copy rhs vector to solution
     slap_CholeskySolve(A, x);
 
     // Check Solution
     Matrix y = slap_NewMatrix(3, 1);
     slap_MatMulAB(y, A, x);
-    double err = slap_MatrixNormedDifference(y, b);
+    double err = slap_NormedDifference(y, b);
 
 
 Least Squares Example

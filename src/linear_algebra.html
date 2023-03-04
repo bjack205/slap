@@ -188,13 +188,13 @@ and should be used with caution:</p>
 
 <span class="c1">// Solve linear system</span>
 <span class="n">Matrix</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<span class="n">slap_MatrixCopy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">       </span><span class="c1">// copy rhs vector to solution</span>
+<span class="n">slap_Copy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">       </span><span class="c1">// copy rhs vector to solution</span>
 <span class="n">slap_CholeskySolve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 
 <span class="c1">// Check Solution</span>
 <span class="n">Matrix</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NewMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="n">slap_MatMulAB</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
-<span class="kt">double</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_MatrixNormedDifference</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slap_NormedDifference</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>

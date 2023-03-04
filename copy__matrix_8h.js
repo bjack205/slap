@@ -1,6 +1,6 @@
 var copy__matrix_8h =
 [
-    [ "slap_MatrixCopy", "group__Basics.html#ga992fdde642a84396c284b3e7c362de32", null ],
-    [ "slap_MatrixCopyFromArray", "group__Basics.html#ga972aa3a1650748dfd2be5f19b9824c98", null ],
-    [ "slap_MatrixCopyTranspose", "group__Basics.html#gabb25378616bb72a36fac9329ed6b1ae4", null ]
+    [ "slap_Copy", "group__Basics.html#ga176cc45f618f0b28fb0ddc513050e9bd", null ],
+    [ "slap_CopyFromArray", "group__Basics.html#gacf6bca9d4006d034009a159ba25f1b97", null ],
+    [ "slap_CopyTranspose", "group__Basics.html#ga18f5efda27c8316a69b905a4ea962b7b", null ]
 ];
