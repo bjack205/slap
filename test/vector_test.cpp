@@ -111,7 +111,7 @@ TEST_F(VectorTests, OuterProduct) {
   Matrix C = slap_MatrixFromArray(DATA_LEN + 3, DATA_LEN, data_C);
   Matrix A = slap_NewMatrix(DATA_LEN + 3, DATA_LEN);
   slap_OuterProduct(A, y, x);
-  EXPECT_LT(slap_MatrixNormedDifference(A, C), 1e-10);
+  EXPECT_LT(slap_NormedDifference(A, C), 1e-10);
   slap_FreeMatrix(&A);
 }
 

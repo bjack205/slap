@@ -7,7 +7,7 @@
 
 #include <math.h>
 
-sfloat slap_MatrixNormedDifference(const Matrix A, const Matrix B) {
+sfloat slap_NormedDifference(Matrix A, Matrix B) {
   SLAP_ASSERT_VALID(A, NAN, "MatrixNormedDifference: invalid A matrix");
   SLAP_ASSERT_VALID(B, NAN, "MatrixNormedDifference: invalid B matrix");
   SLAP_ASSERT_SAME_SIZE(A, B, NAN, "MatrixNormedDifference");

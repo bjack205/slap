@@ -133,7 +133,7 @@ int main(void) {
   Matrix B = slap_MatrixFromArray(4, 3, data_B);
 
   // Copy from transposed array
-  slap_MatrixCopy(B, At);
+  slap_Copy(B, At);
 
   printf("\nCopy from A to B:\n");
   printf("A:\n");
@@ -143,7 +143,7 @@ int main(void) {
 
   // Copy from array
   sfloat data_C[4] = {-1,2,-3,4};
-  slap_MatrixCopyFromArray(A_resize, data_C);  // note we're copying to a reshaped version of A
+  slap_CopyFromArray(A_resize, data_C);  // note we're copying to a reshaped version of A
 
   printf("\nA (after array copy):\n");
   slap_PrintMatrix(A);
@@ -163,7 +163,7 @@ int main(void) {
 
   // Copy to Sub-matrix
   data_C[3] = -50;
-  slap_MatrixCopyFromArray(A_sub, data_C);
+  slap_CopyFromArray(A_sub, data_C);
   printf("\nA (after copying to sub-matrix)\n");
   slap_PrintMatrix(A);
 
@@ -250,7 +250,7 @@ int main(void) {
 
   slap_MatMulAtB(A2, A, A);    // A2 = A'A. NOTE: Use with caution. Please see docs.
   slap_AddIdentity(A2, 0.01);  // Ensure A2 > 0
-  slap_MatrixCopy(A, A2);      // Save A2 back to A for later
+  slap_Copy(A, A2);      // Save A2 back to A for later
 
   enum slap_ErrorCode err;
   err = slap_Cholesky(A2);     // Perform Cholesky decomposition
@@ -258,7 +258,7 @@ int main(void) {
     printf("Matrix is not Positive-Definite!\n");
   }
 
-  slap_MatrixCopy(x, b);        // copy rhs to x
+  slap_Copy(x, b);        // copy rhs to x
   slap_CholeskySolve(A2, x);    // solve for x
 
   slap_MatMulAB(y, A, x);       // Calculate y = A * x (y should equal b)

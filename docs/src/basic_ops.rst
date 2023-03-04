@@ -33,7 +33,7 @@ be aliased, but check verify in the documentation for each function.
 Function                                Header
 ======================================= ====================================
 :cpp:func:`slap_MatrixAddition`         ``src/binary_opts.h``
-:cpp:func:`slap_MatrixNormedDifference` ``src/binary_ops.h``
+:cpp:func:`slap_NormedDifference` ``src/binary_ops.h``
 :cpp:func:`slap_BinaryMap`              ``src/binary_ops.h``
 ======================================= ====================================
 
