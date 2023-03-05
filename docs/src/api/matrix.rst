@@ -63,4 +63,7 @@ Transformations
 
 .. doxygenfunction:: slap_Reshape
 
+.. doxygenfunction:: slap_UpperTri
+
+.. doxygenfunction:: slap_LowerTri
 

@@ -452,9 +452,9 @@ Matrix slap_Flatten(Matrix mat);
  */
 Matrix slap_Transpose(Matrix mat);
 
-Matrix slap_TriUpper(Matrix mat);
+Matrix slap_UpperTri(Matrix mat);
 
-Matrix slap_TriLower(Matrix mat);
+Matrix slap_LowerTri(Matrix mat);
 
 /**
  * @brief Set the dimensions of the matrix

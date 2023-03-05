@@ -123,5 +123,5 @@ Least Squares Example
     // Solve for b
     //   Result is stored in the top n rows of b
     slap_Qtb(A, beta, b);                 // Calculate Q'b, directly from QR factorization
-    slap_TriSolve(slap_TriUpper(A), b);
+    slap_TriSolve(slap_UpperTri(A), b);
 

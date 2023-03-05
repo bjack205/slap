@@ -57,7 +57,7 @@ Matrix slap_Reshape(Matrix mat, int rows, int cols) {
   new_mat.cols = cols;
   return new_mat;
 }
-Matrix slap_TriUpper(Matrix mat) {
+Matrix slap_UpperTri(Matrix mat) {
   Matrix new_mat = {
       .rows = mat.rows,
       .cols = mat.cols,
@@ -69,7 +69,7 @@ Matrix slap_TriUpper(Matrix mat) {
   return new_mat;
 }
 
-Matrix slap_TriLower(Matrix mat) {
+Matrix slap_LowerTri(Matrix mat) {
   Matrix new_mat = {
       .rows = mat.rows,
       .cols = mat.cols,
