@@ -213,14 +213,42 @@ which are all included by <code class="docutils literal notranslate"><span class
 </dl>
 </dd></dl>
 
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find function “slap_LowerTriMul” in doxygen xml output for project “slap” from directory: _build/xml/</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find function “slap_UpperTriMul” in doxygen xml output for project “slap” from directory: _build/xml/</p>
-</div>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419slap_LowerTriMulAdd6MatrixK6MatrixK6Matrixdd">
+<span id="_CPPv319slap_LowerTriMulAdd6MatrixK6MatrixK6Matrixdd"></span><span id="_CPPv219slap_LowerTriMulAdd6MatrixK6MatrixK6Matrixdd"></span><span id="slap_LowerTriMulAdd__Matrix.MatrixC.MatrixC.double.double"></span><span class="target" id="tri_8h_1af04ed9a617f7da3145cbde13ab3c8708"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_LowerTriMulAdd</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">L</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">beta</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419slap_LowerTriMulAdd6MatrixK6MatrixK6Matrixdd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Multiply a matrix by a lower triangular matrix and add to another matrix. </p>
+<p>Simply ignores entries in the upper triangle of L.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> – Output matrix (m x p) </p></li>
+<li><p><strong>L</strong> – Lower triangular matrix (m x n) </p></li>
+<li><p><strong>B</strong> – Input matrix (n x p) </p></li>
+<li><p><strong>alpha</strong> – Scaling factor for L*B </p></li>
+<li><p><strong>beta</strong> – Scaling factor for C </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419slap_UpperTriMulAdd6MatrixK6MatrixK6Matrixdd">
+<span id="_CPPv319slap_UpperTriMulAdd6MatrixK6MatrixK6Matrixdd"></span><span id="_CPPv219slap_UpperTriMulAdd6MatrixK6MatrixK6Matrixdd"></span><span id="slap_UpperTriMulAdd__Matrix.MatrixC.MatrixC.double.double"></span><span class="target" id="tri_8h_1a5f54a3e802c0b2e0e5d6d25992db5443"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_UpperTriMulAdd</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">C</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">U</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">B</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">beta</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419slap_UpperTriMulAdd6MatrixK6MatrixK6Matrixdd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Multiply a matrix by an upper triangular matrix and add to another matrix. </p>
+<p>Simply ignores entries in the lower triangle of U.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> – Output matrix (m x p) </p></li>
+<li><p><strong>U</strong> – Upper triangular matrix (m x n) </p></li>
+<li><p><strong>B</strong> – Input matrix (n x p) </p></li>
+<li><p><strong>alpha</strong> – Scaling factor for U*B </p></li>
+<li><p><strong>beta</strong> – Scaling factor for C </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="triangular-matrices">
 <h2>Triangular Matrices<a class="headerlink" href="#triangular-matrices" title="Permalink to this heading"></a></h2>
