@@ -218,7 +218,7 @@ enum slap_ErrorCode slap_LeastSquares(Matrix A, Matrix b, Matrix betas, Matrix t
 
   // Triangular solve R x = Q'b
   int n = slap_NumCols(A);
-  Matrix R = slap_TriUpper(slap_CreateSubMatrix(A, 0, 0, n, n));
+  Matrix R = slap_UpperTri(slap_CreateSubMatrix(A, 0, 0, n, n));
   Matrix x = slap_CreateSubMatrix(b, 0, 0, n, 1);
   slap_TriSolve(R, x);
   return SLAP_NO_ERROR;

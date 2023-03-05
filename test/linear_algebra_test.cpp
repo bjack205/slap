@@ -130,7 +130,7 @@ TEST_F(LinearAlgebraTest, TriBackSub) {
   sfloat ydata[n] = {-2.0, 7.0, -3.142857142857143};
   sfloat xdata[n] = {-19.142857142857142, 9.693877551020408, -0.4489795918367347};
 
-  Matrix L = slap_TriLower(slap_MatrixFromArray(n, n, Ldata));
+  Matrix L = slap_LowerTri(slap_MatrixFromArray(n, n, Ldata));
   Matrix b = slap_MatrixFromArray(n, 1, bdata);
   Matrix y = slap_MatrixFromArray(n, 1, ydata);
   Matrix x = slap_MatrixFromArray(n, 1, xdata);
@@ -351,13 +351,16 @@ TEST_F(LinearAlgebraTest, UpperTriMul_Nonsquare) {
   Matrix C0 = slap_MatrixFromArray(4, 2, dataC);
   Matrix C_mul = slap_NewMatrixZeros(4, 2);
   Matrix C_tri = slap_NewMatrixZeros(4, 2);
+  Matrix C_auto = slap_NewMatrixZeros(4, 2);
   slap_Copy(C_mul, C0);
   slap_Copy(C_tri, C0);
+  slap_Copy(C_auto, C0);
 
   // Multiply the matrices
   double alpha = 1.2;
   double beta = -0.5;
   slap_UpperTriMulAdd(C_tri, A, B, alpha, beta);
+  slap_MatMulAdd(C_auto, slap_UpperTri(A), B, alpha, beta);
 
   // Check against a normal matrix multiplication
   slap_MakeUpperTri(A);
@@ -365,9 +368,12 @@ TEST_F(LinearAlgebraTest, UpperTriMul_Nonsquare) {
 
   double err = slap_NormedDifference(C_mul, C_tri);
   EXPECT_LT(err, 1e-10);
+  err = slap_NormedDifference(C_mul, C_auto);
+  EXPECT_LT(err, 1e-10);
 
   slap_FreeMatrix(&C_mul);
   slap_FreeMatrix(&C_tri);
+  slap_FreeMatrix(&C_auto);
 }
 
 TEST_F(LinearAlgebraTest, LowerTriMul_Nonsquare) {
@@ -376,19 +382,24 @@ TEST_F(LinearAlgebraTest, LowerTriMul_Nonsquare) {
   Matrix C0 = slap_MatrixFromArray(4, 2, dataC);
   Matrix C_mul = slap_NewMatrixZeros(4, 2);
   Matrix C_tri = slap_NewMatrixZeros(4, 2);
+  Matrix C_auto = slap_NewMatrixZeros(4, 2);
   slap_Copy(C_mul, C0);
   slap_Copy(C_tri, C0);
+  slap_Copy(C_auto, C0);
 
   // Multiply the matrices
   double alpha = 1.2;
   double beta = -0.5;
   slap_LowerTriMulAdd(C_tri, A, B, alpha, beta);
+  slap_MatMulAdd(C_auto, slap_LowerTri(A), B, alpha, beta);
 
   // Check against a normal matrix multiplication
   slap_MakeLowerTri(A);
   slap_MatMulAdd(C_mul, A, B, alpha, beta);
 
   double err = slap_NormedDifference(C_mul, C_tri);
+  EXPECT_LT(err, 1e-10);
+  err = slap_NormedDifference(C_mul, C_auto);
   EXPECT_LT(err, 1e-10);
 
   slap_FreeMatrix(&C_mul);
@@ -534,7 +545,7 @@ TEST_F(QRDecompTest, QRDecomp_Skinny) {
 TEST_F(QRDecompTest, QRDecomp_LeastSquares) {
   // Compute QR decomp
   slap_Copy(R2, A2);
-  R2 = slap_TriUpper(R2);
+  R2 = slap_UpperTri(R2);
   slap_QR(R2, beta2, temp2);
 
   // Get Q'b
