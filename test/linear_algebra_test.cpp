@@ -262,7 +262,7 @@ TEST_F(LinearAlgebraTest, UpperTriMul_Square) {
   slap_MatMulAdd(C_mul, A, B, alpha, beta);
 
   double err = slap_NormedDifference(C_mul, C_tri);
-  EXPECT_LT(err, 1e-10);
+  EXPECT_LT(err, std::sqrt(EPS));
 
   slap_FreeMatrix(&C_mul);
   slap_FreeMatrix(&C_tri);
@@ -287,7 +287,7 @@ TEST_F(LinearAlgebraTest, LowerTriMul_Square) {
   slap_MatMulAdd(C_mul, A, B, alpha, beta);
 
   double err = slap_NormedDifference(C_mul, C_tri);
-  EXPECT_LT(err, 1e-10);
+  EXPECT_LT(err, std::sqrt(EPS));
 
   slap_FreeMatrix(&C_mul);
   slap_FreeMatrix(&C_tri);
@@ -313,7 +313,7 @@ TEST_F(LinearAlgebraTest, UpperTriMulTransposed_Square) {
   slap_MatMulAdd(C_mul, At, B, alpha, beta);
 
   double err = slap_NormedDifference(C_mul, C_tri);
-  EXPECT_LT(err, 1e-10);
+  EXPECT_LT(err, std::sqrt(EPS));
 
   slap_FreeMatrix(&C_mul);
   slap_FreeMatrix(&C_tri);
@@ -339,7 +339,7 @@ TEST_F(LinearAlgebraTest, LowerTriMulTransposed_Test) {
   slap_MatMulAdd(C_mul, At, B, alpha, beta);
 
   double err = slap_NormedDifference(C_mul, C_tri);
-  EXPECT_LT(err, 1e-10);
+  EXPECT_LT(err, std::sqrt(EPS));
 
   slap_FreeMatrix(&C_mul);
   slap_FreeMatrix(&C_tri);
@@ -367,9 +367,9 @@ TEST_F(LinearAlgebraTest, UpperTriMul_Nonsquare) {
   slap_MatMulAdd(C_mul, A, B, alpha, beta);
 
   double err = slap_NormedDifference(C_mul, C_tri);
-  EXPECT_LT(err, 1e-10);
+  EXPECT_LT(err, std::sqrt(EPS));
   err = slap_NormedDifference(C_mul, C_auto);
-  EXPECT_LT(err, 1e-10);
+  EXPECT_LT(err, std::sqrt(EPS));
 
   slap_FreeMatrix(&C_mul);
   slap_FreeMatrix(&C_tri);
@@ -398,9 +398,9 @@ TEST_F(LinearAlgebraTest, LowerTriMul_Nonsquare) {
   slap_MatMulAdd(C_mul, A, B, alpha, beta);
 
   double err = slap_NormedDifference(C_mul, C_tri);
-  EXPECT_LT(err, 1e-10);
+  EXPECT_LT(err, std::sqrt(EPS));
   err = slap_NormedDifference(C_mul, C_auto);
-  EXPECT_LT(err, 1e-10);
+  EXPECT_LT(err, std::sqrt(EPS));
 
   slap_FreeMatrix(&C_mul);
   slap_FreeMatrix(&C_tri);
