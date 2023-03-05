@@ -15,9 +15,9 @@ Matrix Multiplication
 
 .. doxygenfunction:: slap_MatMulAtB
 
-.. doxygenfunction:: slap_LowerTriMul
+.. doxygenfunction:: slap_LowerTriMulAdd
 
-.. doxygenfunction:: slap_UpperTriMul
+.. doxygenfunction:: slap_UpperTriMulAdd
 
 Triangular Matrices
 -------------------
