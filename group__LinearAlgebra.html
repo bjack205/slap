@@ -101,9 +101,6 @@ Functions</h2></td></tr>
 <tr class="memitem:gafd495e62e1fd29197ab77bd4e27c8379"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LinearAlgebra.html#gafd495e62e1fd29197ab77bd4e27c8379">slap_Cholesky</a> (<a class="el" href="structMatrix.html">Matrix</a> A)</td></tr>
 <tr class="memdesc:gafd495e62e1fd29197ab77bd4e27c8379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a Cholesky decomposition.  <a href="group__LinearAlgebra.html#gafd495e62e1fd29197ab77bd4e27c8379">More...</a><br /></td></tr>
 <tr class="separator:gafd495e62e1fd29197ab77bd4e27c8379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7dba897242200e00f7bc5f04c06a2b92"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LinearAlgebra.html#ga7dba897242200e00f7bc5f04c06a2b92">slap_TriSolve</a> (<a class="el" href="structMatrix.html">Matrix</a> L, <a class="el" href="structMatrix.html">Matrix</a> b)</td></tr>
-<tr class="memdesc:ga7dba897242200e00f7bc5f04c06a2b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve a linear system of equation for a triangular matrix.  <a href="group__LinearAlgebra.html#ga7dba897242200e00f7bc5f04c06a2b92">More...</a><br /></td></tr>
-<tr class="separator:ga7dba897242200e00f7bc5f04c06a2b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga792058bb09344ca5bcb82a56317d618f"><td class="memItemLeft" align="right" valign="top">enum slap_ErrorCode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LinearAlgebra.html#ga792058bb09344ca5bcb82a56317d618f">slap_CholeskySolve</a> (<a class="el" href="structMatrix.html">Matrix</a> A, <a class="el" href="structMatrix.html">Matrix</a> b)</td></tr>
 <tr class="memdesc:ga792058bb09344ca5bcb82a56317d618f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve a linear system of equation with a precomputed Cholesky decomposition.  <a href="group__LinearAlgebra.html#ga792058bb09344ca5bcb82a56317d618f">More...</a><br /></td></tr>
 <tr class="separator:ga792058bb09344ca5bcb82a56317d618f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,59 +173,11 @@ Example</h1>
 <div class="line">  printf(<span class="stringliteral">&quot;Matrix not positive definite!\n);</span></div>
 <div class="line"><span class="stringliteral">}</span></div>
 <div class="line"><span class="stringliteral">slap_CholeskySolve(A, x);</span></div>
-<div class="ttc" id="agroup__LinearAlgebra_html_gafd495e62e1fd29197ab77bd4e27c8379"><div class="ttname"><a href="group__LinearAlgebra.html#gafd495e62e1fd29197ab77bd4e27c8379">slap_Cholesky</a></div><div class="ttdeci">enum slap_ErrorCode slap_Cholesky(Matrix A)</div><div class="ttdoc">Perform a Cholesky decomposition.</div><div class="ttdef"><b>Definition:</b> cholesky.c:10</div></div>
+<div class="ttc" id="agroup__LinearAlgebra_html_gafd495e62e1fd29197ab77bd4e27c8379"><div class="ttname"><a href="group__LinearAlgebra.html#gafd495e62e1fd29197ab77bd4e27c8379">slap_Cholesky</a></div><div class="ttdeci">enum slap_ErrorCode slap_Cholesky(Matrix A)</div><div class="ttdoc">Perform a Cholesky decomposition.</div><div class="ttdef"><b>Definition:</b> cholesky.c:11</div></div>
 </div><!-- fragment --><p><b>Header File:</b> <code><a class="el" href="linalg_8h_source.html">slap/linalg.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>A square matrix whose Cholesky decomposition is stored in the lower triangular portion of the matrix </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">b</td><td>The right-hand-side vector. Stores the solution upon completion of the function. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>slap error code </dd></dl>
-
-</div>
-</div>
-<a id="ga7dba897242200e00f7bc5f04c06a2b92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7dba897242200e00f7bc5f04c06a2b92">&#9670;&nbsp;</a></span>slap_TriSolve()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum slap_ErrorCode slap_TriSolve </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
-          <td class="paramname"><em>L</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structMatrix.html">Matrix</a>&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Solve a linear system of equation for a triangular matrix. </p>
-<p>Uses back-substitution to solve a system of equations of the following form: </p><p class="formulaDsp">
-\[ L x = b \]
-</p>
-<p> for a lower-triangular matrix \( L \), or </p><p class="formulaDsp">
-\[ L^T x = b \]
-</p>
-<p> if <code>slap_IsTransposed(L)</code> is true, or </p><p class="formulaDsp">
-\[ R x = b \]
-</p>
-<p> if <code>slap_GetType(L) == slap_TRIANGULAR_UPPER</code>.</p>
-<p><b>Header File:</b> <code><a class="el" href="linalg_8h_source.html">slap/linalg.h</a></code> </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">L</td><td>A triangular matrix. Assumed to be lower-triangular unless its slap_MatrixType is slap_TRIANGULAR_UPPER </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">b</td><td>The right-hand-side vector. Stores the solution upon completion. </td></tr>
   </table>
   </dd>
 </dl>

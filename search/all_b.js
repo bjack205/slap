@@ -11,7 +11,7 @@ var searchData=
   ['slap_5fcopy_26',['slap_Copy',['../group__Basics.html#ga176cc45f618f0b28fb0ddc513050e9bd',1,'slap_Copy(Matrix dest, Matrix src):&#160;copy_matrix.c'],['../group__Basics.html#ga176cc45f618f0b28fb0ddc513050e9bd',1,'slap_Copy(Matrix dest, Matrix src):&#160;copy_matrix.c']]],
   ['slap_5fcopyfromarray_27',['slap_CopyFromArray',['../group__Basics.html#gacf6bca9d4006d034009a159ba25f1b97',1,'slap_CopyFromArray(Matrix mat, const sfloat *data):&#160;copy_matrix.c'],['../group__Basics.html#gacf6bca9d4006d034009a159ba25f1b97',1,'slap_CopyFromArray(Matrix mat, const sfloat *data):&#160;copy_matrix.c']]],
   ['slap_5fcopytranspose_28',['slap_CopyTranspose',['../group__Basics.html#ga18f5efda27c8316a69b905a4ea962b7b',1,'slap_CopyTranspose(Matrix dest, Matrix src):&#160;copy_matrix.c'],['../group__Basics.html#ga18f5efda27c8316a69b905a4ea962b7b',1,'slap_CopyTranspose(Matrix dest, Matrix src):&#160;copy_matrix.c']]],
-  ['slap_5fflatten_29',['slap_Flatten',['../group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7',1,'slap_Flatten(const Matrix mat):&#160;matrix.c'],['../group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7',1,'slap_Flatten(Matrix mat):&#160;matrix.c']]],
+  ['slap_5fflatten_29',['slap_Flatten',['../group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7',1,'slap_Flatten(Matrix mat):&#160;matrix.c'],['../group__Basics.html#ga34b0cf8ab431aba8466deb196b050ff7',1,'slap_Flatten(const Matrix mat):&#160;matrix.c']]],
   ['slap_5ffreematrix_30',['slap_FreeMatrix',['../new__matrix_8h.html#a533a9e2d6835a58c406a7350e82a16a3',1,'new_matrix.c']]],
   ['slap_5fgetdata_31',['slap_GetData',['../group__Basics.html#gadd2895636cb0ed1bd2c8ad3c67c244c8',1,'matrix.h']]],
   ['slap_5fgetelement_32',['slap_GetElement',['../group__Basics.html#ga9e57d5862998659d2e7d9e60b9aa8fa8',1,'matrix.h']]],
@@ -56,6 +56,5 @@ var searchData=
   ['slap_5fstride_71',['slap_Stride',['../group__Basics.html#gaa56cba2dc52d0f802667ae7160546a58',1,'matrix.h']]],
   ['slap_5fsum_72',['slap_Sum',['../group__Basics.html#ga9ec23d2a21e2692ac6a9926b042ec51e',1,'slap_Sum(Matrix mat):&#160;vector_ops.c'],['../group__Basics.html#ga9ec23d2a21e2692ac6a9926b042ec51e',1,'slap_Sum(Matrix mat):&#160;vector_ops.c']]],
   ['slap_5ftranspose_73',['slap_Transpose',['../group__Basics.html#gaa5caf511c40b1206656d81c91edcdc2a',1,'slap_Transpose(Matrix mat):&#160;matrix.c'],['../group__Basics.html#gaa5caf511c40b1206656d81c91edcdc2a',1,'slap_Transpose(Matrix mat):&#160;matrix.c']]],
-  ['slap_5ftrisolve_74',['slap_TriSolve',['../group__LinearAlgebra.html#ga7dba897242200e00f7bc5f04c06a2b92',1,'slap_TriSolve(Matrix L, Matrix b):&#160;cholesky.c'],['../group__LinearAlgebra.html#ga7dba897242200e00f7bc5f04c06a2b92',1,'slap_TriSolve(Matrix L, Matrix b):&#160;cholesky.c']]],
-  ['sy_75',['sy',['../structMatrix.html#abad52de36df040d7c936966675055476',1,'Matrix']]]
+  ['sy_74',['sy',['../structMatrix.html#abad52de36df040d7c936966675055476',1,'Matrix']]]
 ];
