@@ -10,7 +10,7 @@
 #include "printing.h"
 #include "unary_ops.h"
 #include "strided_matrix.h"
-#include "cholesky.h"
+#include "tri.h"
 
 #define ZERO_TOL 1e-10
 

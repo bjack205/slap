@@ -28,30 +28,6 @@
  */
 enum slap_ErrorCode slap_Cholesky(Matrix A);
 
-/**
- * @brief Solve a linear system of equation for a triangular matrix
- *
- * Uses back-substitution to solve a system of equations of the following form:
- * \f[
- *  L x = b
- * \f]
- * for a lower-triangular matrix \f$ L \f$, or
- * \f[
- *  L^T x = b
- * \f]
- * if `slap_IsTransposed(L)` is true, or
- * \f[
- * R x = b
- * \f]
- * if `slap_GetType(L) == slap_TRIANGULAR_UPPER`.
- *
- * **Header File:** `slap/linalg.h`
- * @param[in]          L A triangular matrix. Assumed to be lower-triangular unless its
- *                       slap_MatrixType is slap_TRIANGULAR_UPPER
- * @param[inout]       b The right-hand-side vector. Stores the solution upon completion.
- * @return slap error code
- */
-enum slap_ErrorCode slap_TriSolve(Matrix L, Matrix b);
 
 /**
  * @brief Solve a linear system of equation with a precomputed Cholesky decomposition.
