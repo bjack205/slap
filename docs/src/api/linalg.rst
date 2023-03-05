@@ -15,6 +15,20 @@ Matrix Multiplication
 
 .. doxygenfunction:: slap_MatMulAtB
 
+.. doxygenfunction:: slap_LowerTriMul
+
+.. doxygenfunction:: slap_UpperTriMul
+
+Triangular Matrices
+-------------------
+
+.. doxygenfunction:: slap_MakeLowerTri
+
+.. doxygenfunction:: slap_MakeUpperTri
+
+.. doxygenfunction:: slap_CheckLowerTri
+
+.. doxygenfunction:: slap_CheckUpperTri
 
 Cholesky
 --------
