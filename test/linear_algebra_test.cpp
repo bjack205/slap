@@ -194,6 +194,55 @@ TEST_F(LinearAlgebraTest, CholeskySolve_Bad) {
   slap_FreeMatrix(&x);
 }
 
+TEST_F(LinearAlgebraTest, MakeTriU_Fat) {
+  EXPECT_FALSE(slap_CheckUpperTri(A));
+  slap_MakeUpperTri(A);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, 0), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 2, 0), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 2, 1), 0);
+  EXPECT_TRUE(slap_CheckUpperTri(A));
+}
+
+TEST_F(LinearAlgebraTest, MakeTriU_FatTransposed) {
+  EXPECT_FALSE(slap_CheckUpperTri(slap_Transpose(A)));
+  slap_MakeUpperTri(slap_Transpose(A));
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 1), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 2), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 3), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, 2), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, 3), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 2, 3), 0);
+  EXPECT_TRUE(slap_CheckUpperTri(slap_Transpose(A)));
+  EXPECT_FALSE(slap_CheckUpperTri(A));
+  EXPECT_TRUE(slap_CheckLowerTri(A));
+}
+
+TEST_F(LinearAlgebraTest, MakeTriU_Skinny) {
+  A = slap_Reshape(A, 4, 3);
+  EXPECT_FALSE(slap_CheckUpperTri(A));
+  slap_MakeUpperTri(A);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, 0), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 2, 0), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 3, 0), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 2, 1), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 3, 1), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 3, 2), 0);
+  EXPECT_TRUE(slap_CheckUpperTri(A));
+}
+
+TEST_F(LinearAlgebraTest, MakeTriU_SkinnyTransposed) {
+  A = slap_Reshape(A, 4, 3);
+  EXPECT_FALSE(slap_CheckUpperTri(A));
+  slap_MakeUpperTri(slap_Transpose(A));
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, 0), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 2, 0), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 3, 0), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 2, 1), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 3, 1), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 3, 2), 0);
+  EXPECT_TRUE(slap_CheckUpperTri(A));
+}
+
 class QRDecompTest : public ::testing::Test {
  public:
   static constexpr int m1 = 5;

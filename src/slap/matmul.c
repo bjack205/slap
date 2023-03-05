@@ -4,10 +4,20 @@
 //
 
 #include "matmul.h"
+#include "tri.h"
 
 enum slap_ErrorCode slap_MatMulAdd(
     Matrix C, Matrix A, Matrix B, sfloat alpha,
     sfloat beta) {
+
+  // Check for special structure
+  if (slap_GetType(A) == slap_TRIANGULAR_UPPER) {
+    return slap_UpperTriMulAdd(C, A, B, alpha, beta);
+  }
+  if (slap_GetType(A) == slap_TRIANGULAR_LOWER) {
+    return slap_LowerTriMulAdd(C, A, B, alpha, beta);
+  }
+
   SLAP_ASSERT_VALID(C, SLAP_INVALID_MATRIX, "MatMulAdd: invalid C matrix");
   SLAP_ASSERT_VALID(A, SLAP_INVALID_MATRIX, "MatMulAdd: invalid A matrix");
   SLAP_ASSERT_VALID(B, SLAP_INVALID_MATRIX, "MatMulAdd: invalid B matrix");

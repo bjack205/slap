@@ -19,6 +19,7 @@ void __gcov_flush(void);
 #include "strided_matrix.h"
 #include "matmul.h"
 #include "cholesky.h"
+#include "tri.h"
 #include "qr.h"
 
 #ifdef __cplusplus
