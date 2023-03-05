@@ -27,9 +27,6 @@ enum slap_ErrorCode slap_UpperTriMulAdd(Matrix C, const Matrix U, const Matrix B
   int m = slap_NumRows(U);
   int n = slap_NumCols(U);
   int p = slap_NumCols(B);
-  if (m > n) {
-    m = n;
-  }
   for (int j = 0; j < p; ++j) {
     for (int i = 0; i < m; ++i) {
       sfloat* Cij = slap_GetElement(C, i, j);
@@ -43,35 +40,33 @@ enum slap_ErrorCode slap_UpperTriMulAdd(Matrix C, const Matrix U, const Matrix B
   }
   return SLAP_NO_ERROR;
 }
-enum slap_ErrorCode slap_LowerTriMulAdd(Matrix C, const Matrix U, const Matrix B,
+enum slap_ErrorCode slap_LowerTriMulAdd(Matrix C, const Matrix L, const Matrix B,
                                         double alpha, double beta) {
   SLAP_ASSERT_VALID(C, SLAP_INVALID_MATRIX, "Error in UpperTriMulAdd: Invalid C matrix");
-  SLAP_ASSERT_VALID(U, SLAP_INVALID_MATRIX, "Error in UpperTriMulAdd: Invalid U matrix");
+  SLAP_ASSERT_VALID(L, SLAP_INVALID_MATRIX, "Error in UpperTriMulAdd: Invalid L matrix");
   SLAP_ASSERT_VALID(B, SLAP_INVALID_MATRIX, "Error in UpperTriMulAdd: Invalid B matrix");
-  SLAP_ASSERT(slap_NumRows(U) == slap_NumRows(U), SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
+  SLAP_ASSERT(slap_NumRows(L) == slap_NumRows(L), SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
               SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
-              "Error in UpperTriMulAdd: Rows of C (%d) not equal to Rows of U (%d).",
-              slap_NumRows(C), slap_NumRows(U));
-  SLAP_ASSERT(slap_NumCols(U) == slap_NumRows(B), SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
+              "Error in UpperTriMulAdd: Rows of C (%d) not equal to Rows of L (%d).",
+              slap_NumRows(C), slap_NumRows(L));
+  SLAP_ASSERT(slap_NumCols(L) == slap_NumRows(B), SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
               SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
-              "Error in UpperTriMulAdd: Columns of U (%d) not equal to Rows of B (%d).",
-              slap_NumCols(U), slap_NumRows(B));
+              "Error in UpperTriMulAdd: Columns of L (%d) not equal to Rows of B (%d).",
+              slap_NumCols(L), slap_NumRows(B));
   SLAP_ASSERT(slap_NumCols(C) == slap_NumCols(B), SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
               SLAP_INCOMPATIBLE_MATRIX_DIMENSIONS,
               "Error in UpperTriMulAdd: Columns of C (%d) not equal to Columns of B (%d).",
               slap_NumCols(C), slap_NumCols(B));
-  int m = slap_NumRows(U);
-  int n = slap_NumCols(U);
+  int m = slap_NumRows(L);
+  int n = slap_NumCols(L);
   int p = slap_NumCols(B);
-  if (n > m) {
-    n = m;
-  }
   for (int j = 0; j < p; ++j) {
     for (int i = 0; i < m; ++i) {
       sfloat* Cij = slap_GetElement(C, i, j);
       *Cij *= beta;
-      for (int k = 0; k <= j; ++k) {
-        sfloat Uik = *slap_GetElementConst(U, i, k);
+      int stop = i < n ? i + 1 : n;
+      for (int k = 0; k < stop; ++k) {
+        sfloat Uik = *slap_GetElementConst(L, i, k);
         sfloat Bkj = *slap_GetElementConst(B, k, j);
         *Cij += alpha * Uik * Bkj;
       }

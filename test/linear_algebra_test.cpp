@@ -3,12 +3,11 @@
 // Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
 //
 
-#include <limits>
 #include <cmath>
+#include <limits>
 
 #include "gtest/gtest.h"
 #include "slap/slap.h"
-#include "slap/cholesky.h"
 
 constexpr sfloat EPS = std::numeric_limits<sfloat>::epsilon();
 
@@ -17,7 +16,10 @@ class LinearAlgebraTest : public ::testing::Test {
   static constexpr int chol_dim = 10;
   static constexpr int chol_rhs = 2;
   // clang-format off
-  sfloat dataA[12] = {9.0, 7.0, 7.0, 9.0, -8.0, -9.0, 1.0, 5.0, 6.0, -1.0, -10.0, -4.0};
+  sfloat dataA[16] = {9.0, 7.0, 7.0, 9.0,
+                     -8.0, -9.0, 1.0, 5.0,
+                      6.0, -1.0, -10.0, -4.0,
+                      10.0,-2.0, -4.0, 3.0};
   sfloat dataB[20] = {6.0,  5.0, 5.0, 2.0,   -4.0, 3.0,  -6.0, -3.0, 7.0, -2.0,
                       -9.0, 1.0, 3.0, -10.0, -6.0, -3.0, -4.0, 6.0,  2.0, 2.0};
   sfloat dataC[15] = {-6.0, 6.0, 4.0, -5.0, 9.0, 10.0, -4.0, 1.0,
@@ -143,7 +145,6 @@ TEST_F(LinearAlgebraTest, TriBackSub) {
   (void)x;
 }
 
-
 TEST_F(LinearAlgebraTest, CholeskySolve) {
   // Factorize a PSD matrix
   enum slap_ErrorCode err;
@@ -234,13 +235,164 @@ TEST_F(LinearAlgebraTest, MakeTriU_SkinnyTransposed) {
   A = slap_Reshape(A, 4, 3);
   EXPECT_FALSE(slap_CheckUpperTri(A));
   slap_MakeUpperTri(slap_Transpose(A));
-  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, 0), 0);
-  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 2, 0), 0);
-  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 3, 0), 0);
-  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 2, 1), 0);
-  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 3, 1), 0);
-  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 3, 2), 0);
-  EXPECT_TRUE(slap_CheckUpperTri(A));
+  slap_PrintMatrix(A);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 1), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 0, 2), 0);
+  EXPECT_DOUBLE_EQ(*slap_GetElement(A, 1, 2), 0);
+  EXPECT_FALSE(slap_CheckUpperTri(A));
+  EXPECT_TRUE(slap_CheckLowerTri(A));
+}
+
+TEST_F(LinearAlgebraTest, UpperTriMul_Square) {
+  Matrix A = slap_MatrixFromArray(4, 4, dataA);
+  Matrix B = slap_MatrixFromArray(4, 3, dataB);
+  Matrix C0 = slap_MatrixFromArray(4, 3, dataC);
+  Matrix C_mul = slap_NewMatrixZeros(4, 3);
+  Matrix C_tri = slap_NewMatrixZeros(4, 3);
+  slap_Copy(C_mul, C0);
+  slap_Copy(C_tri, C0);
+
+  // Multiply the matrices
+  double alpha = 1.2;
+  double beta = -0.5;
+  slap_UpperTriMulAdd(C_tri, A, B, alpha, beta);
+
+  // Check against a normal matrix multiplication
+  slap_MakeUpperTri(A);
+  slap_MatMulAdd(C_mul, A, B, alpha, beta);
+
+  double err = slap_NormedDifference(C_mul, C_tri);
+  EXPECT_LT(err, 1e-10);
+
+  slap_FreeMatrix(&C_mul);
+  slap_FreeMatrix(&C_tri);
+}
+
+TEST_F(LinearAlgebraTest, LowerTriMul_Square) {
+  Matrix A = slap_MatrixFromArray(4, 4, dataA);
+  Matrix B = slap_MatrixFromArray(4, 3, dataB);
+  Matrix C0 = slap_MatrixFromArray(4, 3, dataC);
+  Matrix C_mul = slap_NewMatrixZeros(4, 3);
+  Matrix C_tri = slap_NewMatrixZeros(4, 3);
+  slap_Copy(C_mul, C0);
+  slap_Copy(C_tri, C0);
+
+  // Multiply the matrices
+  double alpha = 1.2;
+  double beta = -0.5;
+  slap_LowerTriMulAdd(C_tri, A, B, alpha, beta);
+
+  // Check against a normal matrix multiplication
+  slap_MakeLowerTri(A);
+  slap_MatMulAdd(C_mul, A, B, alpha, beta);
+
+  double err = slap_NormedDifference(C_mul, C_tri);
+  EXPECT_LT(err, 1e-10);
+
+  slap_FreeMatrix(&C_mul);
+  slap_FreeMatrix(&C_tri);
+}
+
+TEST_F(LinearAlgebraTest, UpperTriMulTransposed_Square) {
+  Matrix A = slap_MatrixFromArray(4, 4, dataA);
+  Matrix B = slap_MatrixFromArray(4, 3, dataB);
+  Matrix C0 = slap_MatrixFromArray(4, 3, dataC);
+  Matrix C_mul = slap_NewMatrixZeros(4, 3);
+  Matrix C_tri = slap_NewMatrixZeros(4, 3);
+  slap_Copy(C_mul, C0);
+  slap_Copy(C_tri, C0);
+
+  // Multiply the matrices
+  double alpha = 1.2;
+  double beta = -0.5;
+  slap_UpperTriMulAdd(C_tri, slap_Transpose(A), B, alpha, beta);
+
+  // Check against a normal matrix multiplication
+  Matrix At = slap_Transpose(A);
+  slap_MakeUpperTri(At);
+  slap_MatMulAdd(C_mul, At, B, alpha, beta);
+
+  double err = slap_NormedDifference(C_mul, C_tri);
+  EXPECT_LT(err, 1e-10);
+
+  slap_FreeMatrix(&C_mul);
+  slap_FreeMatrix(&C_tri);
+}
+
+TEST_F(LinearAlgebraTest, LowerTriMulTransposed_Test) {
+  Matrix A = slap_MatrixFromArray(4, 4, dataA);
+  Matrix B = slap_MatrixFromArray(4, 3, dataB);
+  Matrix C0 = slap_MatrixFromArray(4, 3, dataC);
+  Matrix C_mul = slap_NewMatrixZeros(4, 3);
+  Matrix C_tri = slap_NewMatrixZeros(4, 3);
+  slap_Copy(C_mul, C0);
+  slap_Copy(C_tri, C0);
+
+  // Multiply the matrices
+  double alpha = 1.2;
+  double beta = -0.5;
+  slap_LowerTriMulAdd(C_tri, slap_Transpose(A), B, alpha, beta);
+
+  // Check against a normal matrix multiplication
+  Matrix At = slap_Transpose(A);
+  slap_MakeLowerTri(At);
+  slap_MatMulAdd(C_mul, At, B, alpha, beta);
+
+  double err = slap_NormedDifference(C_mul, C_tri);
+  EXPECT_LT(err, 1e-10);
+
+  slap_FreeMatrix(&C_mul);
+  slap_FreeMatrix(&C_tri);
+}
+
+TEST_F(LinearAlgebraTest, UpperTriMul_Nonsquare) {
+  Matrix A = slap_MatrixFromArray(4, 3, dataA);
+  Matrix B = slap_MatrixFromArray(3, 2, dataB);
+  Matrix C0 = slap_MatrixFromArray(4, 2, dataC);
+  Matrix C_mul = slap_NewMatrixZeros(4, 2);
+  Matrix C_tri = slap_NewMatrixZeros(4, 2);
+  slap_Copy(C_mul, C0);
+  slap_Copy(C_tri, C0);
+
+  // Multiply the matrices
+  double alpha = 1.2;
+  double beta = -0.5;
+  slap_UpperTriMulAdd(C_tri, A, B, alpha, beta);
+
+  // Check against a normal matrix multiplication
+  slap_MakeUpperTri(A);
+  slap_MatMulAdd(C_mul, A, B, alpha, beta);
+
+  double err = slap_NormedDifference(C_mul, C_tri);
+  EXPECT_LT(err, 1e-10);
+
+  slap_FreeMatrix(&C_mul);
+  slap_FreeMatrix(&C_tri);
+}
+
+TEST_F(LinearAlgebraTest, LowerTriMul_Nonsquare) {
+  Matrix A = slap_MatrixFromArray(4, 3, dataA);
+  Matrix B = slap_MatrixFromArray(3, 2, dataB);
+  Matrix C0 = slap_MatrixFromArray(4, 2, dataC);
+  Matrix C_mul = slap_NewMatrixZeros(4, 2);
+  Matrix C_tri = slap_NewMatrixZeros(4, 2);
+  slap_Copy(C_mul, C0);
+  slap_Copy(C_tri, C0);
+
+  // Multiply the matrices
+  double alpha = 1.2;
+  double beta = -0.5;
+  slap_LowerTriMulAdd(C_tri, A, B, alpha, beta);
+
+  // Check against a normal matrix multiplication
+  slap_MakeLowerTri(A);
+  slap_MatMulAdd(C_mul, A, B, alpha, beta);
+
+  double err = slap_NormedDifference(C_mul, C_tri);
+  EXPECT_LT(err, 1e-10);
+
+  slap_FreeMatrix(&C_mul);
+  slap_FreeMatrix(&C_tri);
 }
 
 class QRDecompTest : public ::testing::Test {

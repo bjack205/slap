@@ -10,7 +10,7 @@
 enum slap_ErrorCode slap_UpperTriMulAdd(Matrix C, const Matrix U, const Matrix B,
                                         double alpha, double beta);
 
-enum slap_ErrorCode slap_LowerTriMulAdd(Matrix C, const Matrix U, const Matrix B,
+enum slap_ErrorCode slap_LowerTriMulAdd(Matrix C, const Matrix L, const Matrix B,
                                         double alpha, double beta);
 
 bool slap_CheckUpperTri(const Matrix A);
