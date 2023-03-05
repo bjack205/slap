@@ -15,6 +15,7 @@ var dir_e1cfc5297ee7ab3c75c0f593509ba5cf =
     [ "qr.h", "qr_8h_source.html", null ],
     [ "slap.h", "slap_8h_source.html", null ],
     [ "strided_matrix.h", "strided__matrix_8h_source.html", null ],
+    [ "tri.h", "tri_8h_source.html", null ],
     [ "unary_ops.h", "unary__ops_8h.html", "unary__ops_8h" ],
     [ "vector_ops.h", "vector__ops_8h.html", "vector__ops_8h" ],
     [ "vector_products.h", "vector__products_8h_source.html", null ]

@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API" href="api.html" />
+    <link rel="next" title="Triangular Matrices" href="triangular.html" />
     <link rel="prev" title="Basic Operations" href="basic_ops.html" /> 
 </head>
 
@@ -59,6 +59,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="triangular.html">Triangular Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
 </ul>
@@ -223,7 +224,7 @@ and should be used with caution:</p>
 <span class="linenos">21</span><span class="c1">// Solve for b</span>
 <span class="linenos">22</span><span class="c1">//   Result is stored in the top n rows of b</span>
 <span class="linenos">23</span><span class="n">slap_Qtb</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">                 </span><span class="c1">// Calculate Q&#39;b, directly from QR factorization</span>
-<span class="linenos">24</span><span class="n">slap_TriSolve</span><span class="p">(</span><span class="n">slap_TriUpper</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="linenos">24</span><span class="n">slap_TriSolve</span><span class="p">(</span><span class="n">slap_UpperTri</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -235,7 +236,7 @@ and should be used with caution:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="basic_ops.html" class="btn btn-neutral float-left" title="Basic Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="triangular.html" class="btn btn-neutral float-right" title="Triangular Matrices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

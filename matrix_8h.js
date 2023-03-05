@@ -22,6 +22,7 @@ var matrix_8h =
     [ "slap_IsValid", "group__Basics.html#ga41cd9989b9967fec91e0ac105c3b8e67", null ],
     [ "slap_Linear2Cart", "group__Basics.html#ga21b12a660e297f3f55389b15983fab9c", null ],
     [ "slap_Linear2Index", "group__Basics.html#ga31ca2f635e3a299dce7de182b5b69664", null ],
+    [ "slap_LowerTri", "group__Basics.html#ga614cdc37f694456c6a8cd07d4a0b78b3", null ],
     [ "slap_MatrixFromArray", "group__Basics.html#ga347bb52952bfe41587a4a01130a4d67a", null ],
     [ "slap_MinDim", "group__Basics.html#gac97f7096614d53c84818b34fbabb3084", null ],
     [ "slap_NullMatrix", "group__Basics.html#gae2ddadd4c37bb616a95bdcd73b3c5ff2", null ],
@@ -33,6 +34,5 @@ var matrix_8h =
     [ "slap_SetNull", "group__Basics.html#gac5dce240ba6e93ee724e003d83de3564", null ],
     [ "slap_Stride", "group__Basics.html#gaa56cba2dc52d0f802667ae7160546a58", null ],
     [ "slap_Transpose", "group__Basics.html#gaa5caf511c40b1206656d81c91edcdc2a", null ],
-    [ "slap_TriLower", "group__Basics.html#ga706d844efcde4d68854aed19d92cf5a7", null ],
-    [ "slap_TriUpper", "group__Basics.html#ga3863917574c9c52b6ac5bc87dce47dba", null ]
+    [ "slap_UpperTri", "group__Basics.html#gadb1d9a0f9aba48295ecd18d6d0764bf3", null ]
 ];

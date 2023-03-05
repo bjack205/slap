@@ -51,6 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../indexing.html">Indexing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basic_ops.html">Basic Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../triangular.html">Triangular Matrices</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="matrix.html">matrix.h</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unary_ops.html">unary_ops.h</a></li>
@@ -59,6 +60,7 @@
 <li class="toctree-l2"><a class="reference internal" href="iterator.html">iterator.h</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">linalg.h</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#matrix-multiplication">Matrix Multiplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#triangular-matrices">Triangular Matrices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cholesky">Cholesky</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#qr">QR</a></li>
 </ul>
@@ -209,6 +211,53 @@ which are all included by <code class="docutils literal notranslate"><span class
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “slap_LowerTriMul” in doxygen xml output for project “slap” from directory: _build/xml/</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “slap_UpperTriMul” in doxygen xml output for project “slap” from directory: _build/xml/</p>
+</div>
+</section>
+<section id="triangular-matrices">
+<h2>Triangular Matrices<a class="headerlink" href="#triangular-matrices" title="Permalink to this heading"></a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417slap_MakeLowerTri6Matrix">
+<span id="_CPPv317slap_MakeLowerTri6Matrix"></span><span id="_CPPv217slap_MakeLowerTri6Matrix"></span><span id="slap_MakeLowerTri__Matrix"></span><span class="target" id="tri_8h_1a196a784f131b26eee8297fd42fcbcd71"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MakeLowerTri</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417slap_MakeLowerTri6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Make a matrix lower triangular. </p>
+<p>Sets all of the entries above the diagonal to zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>A</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> to make lower triangular. Can be square or rectangular. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417slap_MakeUpperTri6Matrix">
+<span id="_CPPv317slap_MakeUpperTri6Matrix"></span><span id="_CPPv217slap_MakeUpperTri6Matrix"></span><span id="slap_MakeUpperTri__Matrix"></span><span class="target" id="tri_8h_1aad9d4841242aa28a9b0800ddc5e16860"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="n"><span class="pre">slap_ErrorCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_MakeUpperTri</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417slap_MakeUpperTri6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Make a matrix upper triangular. </p>
+<p>Sets all of the entries below the diagonal to zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>A</strong> – <a class="reference internal" href="../matrix_overview.html#structMatrix"><span class="std std-ref">Matrix</span></a> to make upper triangular. Can be square or rectangular. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418slap_CheckLowerTriK6Matrix">
+<span id="_CPPv318slap_CheckLowerTriK6Matrix"></span><span id="_CPPv218slap_CheckLowerTriK6Matrix"></span><span id="slap_CheckLowerTri__MatrixC"></span><span class="target" id="tri_8h_1a4aa2689f4d17e40c399bc41ef4205c98"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_CheckLowerTri</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418slap_CheckLowerTriK6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Check if a matrix is lower triangular. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418slap_CheckUpperTriK6Matrix">
+<span id="_CPPv318slap_CheckUpperTriK6Matrix"></span><span id="_CPPv218slap_CheckUpperTriK6Matrix"></span><span id="slap_CheckUpperTri__MatrixC"></span><span class="target" id="tri_8h_1a1a75d035ee1be6edb2ed5ef13435d76a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slap_CheckUpperTri</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../matrix_overview.html#_CPPv46Matrix" title="Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418slap_CheckUpperTriK6Matrix" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Check if a matrix is upper triangular. </p>
 </dd></dl>
 
 </section>

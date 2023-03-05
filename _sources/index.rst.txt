@@ -57,6 +57,7 @@ Table of Contents
    src/indexing
    src/basic_ops
    src/linear_algebra
+   src/triangular
    src/api
    src/documentation
 
