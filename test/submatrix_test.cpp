@@ -17,8 +17,8 @@ class SubMatrixTest : public ::testing::Test {
     A = slap_MatrixFromArray(3, 4, dataA);
     B = slap_MatrixFromArray(4, 3, dataB);
     for (int k = 0; k < 12; ++k) {
-      dataA[k] = k + 1;
-      dataB[k] = 2 * k + 1;
+      dataA[k] = (sfloat)(k + 1);
+      dataB[k] = (sfloat)(2 * k + 1);
     }
   }
 };
