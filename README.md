@@ -1,3 +1,4 @@
+
 [![Linux](https://github.com/bjack205/slap/actions/workflows/Linux.yml/badge.svg)](https://github.com/bjack205/slap/actions/workflows/Linux.yml)
 [![MacOS](https://github.com/bjack205/slap/actions/workflows/MacOS.yml/badge.svg)](https://github.com/bjack205/slap/actions/workflows/MacOS.yml)
 [![Windows](https://github.com/bjack205/slap/actions/workflows/Windows.yml/badge.svg)](https://github.com/bjack205/slap/actions/workflows/Windows.yml)
@@ -19,5 +20,10 @@ Some of the key features and design decisions are:
 ## Documentation
 For details on installing, getting started, and using the library, please see the [Documentation](https://bjack205.github.io/slap/).
 
-## Development Status
-This project is still a WIP and under development, but should be usable in it's current form. I'm planning on releasing `v0.2` soon.
+## Future Work
+Here are some of the things I have planned for the future:
+- [ ] C+ wrapper (using `std::shared_ptr`)
+- [ ] Allow for different backends (BLAS, Intel MKL, Eigen, etc.)
+- [ ] Improved matrix multiplication performance
+- [ ] More matrix factorizations (Generic LU, LDLt)
+- [ ] Sparse matrices
