@@ -9,6 +9,8 @@
 
 namespace slap {
 
+class ConstMat;
+
 class Mat : public BaseMat {
  public:
   // Constructors

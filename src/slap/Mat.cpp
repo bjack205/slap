@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <sstream>
 #include "Mat.hpp"
+#include "slap/ConstMat.hpp"
 
 namespace slap {
 
@@ -17,4 +18,5 @@ Mat &Mat::CatchErrors(enum slap_ErrorCode err) {
   }
   return *this;
 }
+
 }  // slap
