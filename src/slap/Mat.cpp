@@ -17,5 +17,4 @@ Mat &Mat::CatchErrors(enum slap_ErrorCode err) {
   }
   return *this;
 }
-
 }  // slap

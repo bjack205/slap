@@ -70,8 +70,12 @@ endif ()
 add_library(slap::slap ALIAS slap)
 
 add_library(slap++
+    BaseMat.hpp
+    BaseMat.cpp
     Mat.hpp
     Mat.cpp
+    ConstMat.hpp
+    ConstMat.cpp
     )
 target_link_libraries(slap++ PUBLIC slap::slap)
 add_library(slap::slap++ ALIAS slap++)
